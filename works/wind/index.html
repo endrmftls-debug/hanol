@@ -1,0 +1,1874 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>바람을 받아 적는 사람</title>
+<meta name="description" content="한올의 소설. 외딴섬 바람지기의 집에서 보낸 한 해, 스물네 절기와 스물네 바람.">
+<meta name="theme-color" content="#18303d">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="한올의 서재">
+<meta property="og:title" content="바람을 받아 적는 사람 · 한올">
+<meta property="og:description" content="외딴섬 바람지기의 집에서 보낸 한 해. 스물네 절기, 스물네 바람. AI 필명 한올이 쓴 소설.">
+<meta property="og:url" content="https://endrmftls-debug.github.io/hanol/works/wind/">
+<meta property="og:image" content="https://endrmftls-debug.github.io/hanol/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23101722'/%3E%3Cpath d='M5 21c6-9 10 5 16-4 2.5-3.5 4.5-6 6-6' fill='none' stroke='%23d4452e' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Nanum+Brush+Script&family=Nanum+Pen+Script&family=Dokdo&family=Gaegu:wght@400;700&family=Hi+Melody&family=Song+Myung&display=swap">
+<style>
+/* VOICE   quiet and tender: a year of grief and wind on a small island, told by a girl of seventeen
+   IDEA    the island's wind book laid over a fisherman's chart of the island
+   PICTURE the chart, full bleed, the chapter's wind streaming across it, the lone pine bending on its hill
+   COLOUR  the sea of each season leads; hanji paper and blue-black ink for the book; one seal vermilion
+   TYPE    Gowun Batang for the story; four hands in the book: brush (순이), pen (금례), marker (윤재), a girl's hand (솔)
+   LAYOUT  phone: chart above, the chapter as a paper sheet at the bottom; laptop: the year as a paper column on the left */
+:root{color-scheme:light dark;--paper:light-dark(#f3efe5,#1a2127);--paper2:light-dark(#e9e2d1,#222b32);--ink:light-dark(#1c2630,#ebe6db);--ink2:light-dark(#56616b,#a6afb5);--rule:light-dark(#d5cbb6,#38444c);--seal:#c23b22;--seal2:light-dark(#c23b22,#e0634a);--night:#132430;--f-body:'Gowun Batang','Noto Serif KR',serif;--f-pen:'Gowun Dodum','Noto Sans KR',sans-serif;--f-suni:'Nanum Brush Script','Gowun Batang',serif;--f-geum:'Nanum Pen Script','Gowun Dodum',sans-serif;--f-yun:'Dokdo','Gowun Dodum',sans-serif;--f-sol:'Gaegu','Gowun Dodum',sans-serif;--f-yeon:'Hi Melody','Gaegu',sans-serif;--f-seal:'Song Myung','Gowun Batang',serif}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{height:100%;margin:0}
+body{background:var(--night);color:var(--ink);font:16px/1.6 var(--f-body);overflow:hidden;word-break:keep-all;overflow-wrap:anywhere;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+button,input,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--seal2);outline-offset:2px}
+[hidden]{display:none!important}
+#app{position:fixed;inset:0;overflow:hidden}
+#cTrail,#cFx{position:absolute;inset:0;width:100%;height:100%;display:block}
+#cFx{touch-action:manipulation}
+.top{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding:max(10px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 0 max(12px,env(safe-area-inset-left));pointer-events:none}
+.top>*{pointer-events:auto}
+.chip{display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:22px;border:0;background:rgba(8,18,26,.42);color:#eef1ec;text-decoration:none;font-size:15px;white-space:nowrap}
+.tools{display:flex;gap:8px}
+.ib{width:44px;height:44px;padding:0;border-radius:22px;border:0;background:rgba(8,18,26,.42);color:#eef1ec;display:grid;place-items:center}
+.ib svg,.chip svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.compass{position:absolute;z-index:4;left:max(12px,env(safe-area-inset-left));top:calc(max(10px,env(safe-area-inset-top)) + 54px);width:64px;height:64px;pointer-events:none}
+.compass svg{width:100%;height:100%;overflow:visible}
+.rosebtn{position:absolute;z-index:4;right:max(12px,env(safe-area-inset-right));width:64px;height:64px;padding:0;border:0;border-radius:50%;background:rgba(8,18,26,.42);display:grid;place-items:center}
+.rosebtn svg{width:58px;height:58px}
+.card{position:absolute;z-index:4;left:0;right:0;bottom:0;background:var(--paper);color:var(--ink);border-radius:18px 18px 0 0;padding:4px 0 max(14px,env(safe-area-inset-bottom));box-shadow:0 -1px 0 rgba(0,0,0,.08)}
+.year{display:flex;overflow-x:auto;gap:2px;padding:6px 10px 2px;scrollbar-width:none;scroll-behavior:smooth}
+.year::-webkit-scrollbar{display:none}
+.year button{flex:none;width:48px;min-height:50px;border:0;border-radius:10px;background:none;color:var(--ink2);display:grid;justify-items:center;align-content:center;gap:5px;font-size:13px;line-height:1.1;padding:4px 0}
+.year .yw{display:none}
+.year i{width:8px;height:8px;border-radius:50%;border:1.5px solid currentColor}
+.year .rd i{background:currentColor}
+.year .on{color:var(--seal2);background:var(--paper2)}
+.year .lk{opacity:.42}
+.cb{padding:8px max(20px,env(safe-area-inset-left)) 0}
+.cb .term{margin:0;font-size:14px;color:var(--ink2)}
+.cb h2{margin:2px 0 2px;font-size:clamp(30px,8.4vw,42px);line-height:1.08;letter-spacing:-.02em;font-weight:700;text-wrap:balance}
+.cb .sub{margin:0;font-size:17px}
+.cb .meta{margin:6px 0 0;font-size:14px;color:var(--ink2)}
+.acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
+.btn{height:48px;padding:0 22px;border-radius:24px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);font-size:17px;font-weight:700;display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.red{background:var(--seal);border-color:var(--seal);color:#fff}
+.btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.note{font-size:14px;color:var(--ink2);margin:10px 0 0}
+.link{border:0;background:none;padding:6px 0;color:var(--seal2);font-size:15px;text-decoration:underline;text-underline-offset:3px}
+#toast{position:absolute;z-index:30;left:50%;top:calc(max(10px,env(safe-area-inset-top)) + 58px);transform:translate(-50%,-10px);max-width:min(92vw,460px);padding:12px 18px;border-radius:14px;background:rgba(10,20,28,.88);color:#f3efe5;font-size:15px;line-height:1.5;opacity:0;pointer-events:none;transition:opacity .35s,transform .35s;text-align:center}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+/* title */
+#title{position:absolute;inset:0;z-index:20;display:grid;align-content:end;padding:0 max(22px,env(safe-area-inset-left)) max(34px,env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(10,22,30,.05) 0%,rgba(10,22,30,.25) 45%,rgba(10,22,30,.82) 100%);color:#f2eee4}
+#title .by{margin:0;font-size:15px;opacity:.85}
+#title h1{margin:6px 0 10px;font-size:clamp(40px,11vw,68px);line-height:1.05;letter-spacing:-.03em;font-weight:700;text-wrap:balance}
+#title .lead{margin:0;max-width:30em;font-size:17px;line-height:1.65;opacity:.92}
+#title .acts .btn{background:#f2eee4;color:#14222c;border-color:#f2eee4}
+#title .acts .btn.ghost{background:transparent;color:#f2eee4}
+#title .hint{margin:14px 0 0;font-size:14px;opacity:.75}
+/* reader */
+#reader{position:absolute;inset:0;z-index:12;background:var(--paper);color:var(--ink);overflow-y:auto;overscroll-behavior:contain}
+.rhead{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:max(6px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) 6px max(8px,env(safe-area-inset-left));background:var(--paper);border-bottom:1px solid var(--rule)}
+.rhead .ib{background:none;color:var(--ink)}
+.rhead .rt{font-size:15px;color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rhead .grp{display:flex;gap:2px}
+.rbody{max-width:660px;margin:0 auto;padding:26px max(20px,env(safe-area-inset-left)) 140px;font-size:calc(18px * var(--fs,1));line-height:1.86}
+.rbody p{margin:0 0 1.05em;word-break:keep-all;overflow-wrap:anywhere}
+.chead{margin:4px 0 34px}
+.chead .cl{margin:0;font-size:15px;color:var(--ink2)}
+.chead h1{margin:4px 0 6px;font-size:clamp(36px,9vw,52px);line-height:1.05;letter-spacing:-.025em;text-wrap:balance}
+.chead .cs{margin:0;font-size:1.05em}
+.chead .cm{margin:12px 0 0;font-size:14px;color:var(--ink2);line-height:1.5}
+.brk{display:block;text-align:center;margin:1.8em 0;color:var(--ink2);letter-spacing:.6em}
+.w{font-family:var(--f-pen)}
+.hn{margin:1.4em 0;padding:16px 18px;border-left:3px solid var(--rule);background:var(--paper2);border-radius:2px 6px 6px 2px}
+.hn p{margin:0 0 .75em}
+.hn p:last-child{margin:0}
+.hn.h-yun{font-family:var(--f-yun);font-size:1.2em;line-height:1.6}
+.hn.h-yeon{font-family:var(--f-yeon);font-size:1.24em;line-height:1.65;border-left-color:#d9a1a0}
+.page{position:relative;margin:2.2em 0;padding:18px 18px 20px;background:var(--paper2);border:1px solid var(--rule);border-radius:3px}
+.page .ph{margin:0 64px 12px 0;font-size:14px;line-height:1.45;color:var(--ink2);font-family:var(--f-body)}
+.seal{position:absolute;top:14px;right:14px;min-width:42px;height:42px;padding:0 6px;display:grid;place-items:center;border:2px solid var(--seal);color:var(--seal);font:700 17px/1 var(--f-seal);border-radius:4px;transform:rotate(-5deg);opacity:.86}
+.page dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;margin:0 0 14px;font-size:.9em;line-height:1.5}
+.page dt{color:var(--ink2);font-family:var(--f-body)}
+.page dd{margin:0}
+.page .pb p{margin:0 0 .7em}
+.page .pb p:last-child{margin:0}
+.h-suni dd,.h-suni .pb{font-family:var(--f-suni);font-size:1.3em;line-height:1.5}
+.h-geum dd,.h-geum .pb{font-family:var(--f-geum);font-size:1.34em;line-height:1.45}
+.h-yun dd,.h-yun .pb{font-family:var(--f-yun);font-size:1.2em;line-height:1.55}
+.h-sol dd,.h-sol .pb{font-family:var(--f-sol);font-size:1.1em;line-height:1.6}
+.h-you dd,.h-you .pb{font-family:var(--f-pen)}
+.pb .l-suni{font-family:var(--f-suni);font-size:1.25em}
+.pb .l-geum{font-family:var(--f-geum);font-size:1.3em}
+.pb .l-yun{font-family:var(--f-yun);font-size:1.18em}
+.pb .l-sol{font-family:var(--f-sol);font-size:1.08em}
+.pb .yr{display:block;font-family:var(--f-body);font-size:.72em;color:var(--ink2);line-height:1.2;margin-top:.9em}
+.speaking{background:color-mix(in srgb,var(--seal) 13%,transparent);border-radius:3px;box-shadow:0 0 0 4px color-mix(in srgb,var(--seal) 13%,transparent)}
+.cend{margin-top:56px;padding-top:24px;border-top:1px solid var(--rule);display:grid;gap:14px;justify-items:start}
+.cend .done{display:flex;align-items:center;gap:12px;color:var(--ink2);font-size:15px}
+.stampfx{animation:stamp .5s cubic-bezier(.2,1.6,.4,1)}
+@keyframes stamp{0%{transform:scale(1.6) rotate(-12deg);opacity:0}100%{transform:scale(1) rotate(-5deg);opacity:.86}}
+.mine{display:grid;gap:14px;width:100%;margin-top:10px;font-size:16px}
+.mine label{display:grid;gap:6px;font-size:15px;color:var(--ink2)}
+.mine input,.mine textarea{font-size:16px;color:var(--ink);background:var(--paper);border:1.5px solid var(--rule);border-radius:8px;padding:12px;width:100%}
+.mine textarea{min-height:120px;resize:vertical;font-family:var(--f-pen)}
+.dirs{display:grid;grid-template-columns:repeat(3,68px);gap:6px}
+.dirs button{height:46px;border-radius:8px;border:1.5px solid var(--rule);background:var(--paper);font-size:14px;white-space:nowrap;padding:0 4px}
+.dirs button[aria-pressed=true]{border-color:var(--seal);color:var(--seal2);font-weight:700}
+.dirs .mid{border:0;background:none;color:var(--ink2);font-size:12px}
+#player{position:fixed;z-index:14;left:50%;transform:translateX(-50%);bottom:max(14px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:2px;padding:4px 6px;border-radius:28px;background:var(--ink);color:var(--paper);max-width:calc(100vw - 24px)}
+#player .ib{background:none;color:var(--paper)}
+#player .rate{width:auto;padding:0 12px;font-size:15px}
+#player .pt{font-size:14px;padding:0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:34vw}
+/* the wind book panel */
+#book{position:absolute;inset:0;z-index:11;background:var(--paper);color:var(--ink);display:flex;flex-direction:column}
+.bhead{display:flex;align-items:center;justify-content:space-between;padding:max(6px,env(safe-area-inset-top)) 8px 0 max(18px,env(safe-area-inset-left))}
+.bhead h2{margin:0;font-size:22px}
+.bhead .ib{background:none;color:var(--ink)}
+.tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--rule);padding:0 8px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;height:48px;padding:0 13px;border:0;border-bottom:2px solid transparent;background:none;font-size:16px;color:var(--ink2)}
+.tabs button[aria-selected=true]{color:var(--seal2);border-bottom-color:var(--seal2)}
+.pane{flex:1;overflow-y:auto;padding:14px max(18px,env(safe-area-inset-left)) 48px}
+.toc{list-style:none;margin:0;padding:0}
+.toc li+li{border-top:1px solid var(--rule)}
+.toc button{width:100%;min-height:62px;border:0;background:none;display:grid;grid-template-columns:3.6em minmax(0,1fr) auto;align-items:center;gap:10px;text-align:left;padding:8px 2px}
+.toc .t1{font-size:14px;color:var(--ink2)}
+.toc .t2{font-size:18px;font-weight:700;line-height:1.25}
+.toc .t3{display:block;font-size:14px;font-weight:400;color:var(--ink2)}
+.toc .sm{width:34px;height:34px;display:grid;place-items:center;border:1.5px solid var(--seal);color:var(--seal);border-radius:3px;font:700 12px/1 var(--f-seal);transform:rotate(-5deg)}
+.toc .lk{opacity:.45}
+.toc .cur .t2{color:var(--seal2)}
+.rosebig{display:grid;gap:12px;justify-items:center}
+.rosebig svg{width:min(100%,420px);height:auto}
+.rosebig .cap{font-size:16px;text-align:center;min-height:3.2em}
+.legend{width:100%;display:grid;grid-template-columns:repeat(auto-fill,minmax(9.5em,1fr));gap:6px 12px;font-size:14px}
+.legend span{display:flex;align-items:center;gap:6px}
+.legend i{flex:none;width:12px;height:12px;border-radius:2px}
+.gfil{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 12px}
+.gfil button{height:38px;padding:0 13px;border-radius:19px;border:1.5px solid var(--rule);background:none;font-size:14px}
+.gfil button[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.gsearch{width:100%;font-size:16px;padding:11px 12px;border-radius:8px;border:1.5px solid var(--rule);background:var(--paper)}
+.gl{list-style:none;margin:8px 0 0;padding:0}
+.gl li{padding:11px 0;border-top:1px solid var(--rule)}
+.gl b{font-size:17px}
+.gl .k{font-size:13px;color:var(--ink2);margin-left:6px}
+.gl p{margin:3px 0 0;font-size:15px;line-height:1.55}
+.gl .go{font-size:14px}
+.things{display:grid;grid-template-columns:repeat(auto-fill,minmax(8.6em,1fr));gap:8px}
+.things button{min-height:74px;border:1.5px dashed var(--rule);border-radius:6px;background:none;padding:8px 10px;text-align:left;display:grid;align-content:start;gap:3px}
+.things .got{border-style:solid;background:var(--paper2)}
+.things b{font-size:15px;line-height:1.3}
+.things small{font-size:13px;color:var(--ink2)}
+.set{display:grid;gap:18px}
+.set h3{margin:6px 0 0;font-size:16px}
+.set .row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.set select{font-size:16px;padding:10px;border-radius:8px;border:1.5px solid var(--rule);background:var(--paper);color:var(--ink);max-width:100%}
+.set input[type=range]{width:min(100%,260px);accent-color:var(--seal)}
+.sw{position:relative;width:58px;height:34px;border-radius:17px;border:1.5px solid var(--rule);background:var(--paper2);padding:0;flex:none}
+.sw::after{content:'';position:absolute;top:3px;left:3px;width:25px;height:25px;border-radius:50%;background:var(--ink2);transition:left .2s}
+.sw[aria-pressed=true]{background:var(--ink);border-color:var(--ink)}
+.sw[aria-pressed=true]::after{left:26px;background:var(--paper)}
+.small{font-size:14px;color:var(--ink2);line-height:1.55;margin:0}
+/* caught thing */
+#catch{position:absolute;inset:0;z-index:25;display:grid;place-items:center;padding:20px;background:rgba(8,16,22,.45)}
+.cc{width:min(100%,380px);background:var(--paper);color:var(--ink);border-radius:6px;padding:22px 22px 18px;border:1px solid var(--rule)}
+.cc .from{margin:0;font-size:14px;color:var(--ink2)}
+.cc h3{margin:6px 0 8px;font:400 30px/1.15 var(--f-sol)}
+.cc p{margin:0 0 16px;font-size:17px;line-height:1.75;word-break:keep-all}
+@media (min-width:900px){
+  .card{top:0;bottom:0;right:auto;width:380px;border-radius:0;display:flex;flex-direction:column;padding:calc(max(10px,env(safe-area-inset-top)) + 58px) 0 16px}
+  .cb{order:1;padding:0 26px 16px;border-bottom:1px solid var(--rule)}
+  .year{order:2;flex-direction:column;overflow-y:auto;overflow-x:hidden;gap:0;padding:6px 12px 10px;flex:1}
+  .year button{width:100%;min-height:44px;grid-template-columns:3.4em minmax(0,1fr) 12px;justify-items:start;align-items:center;gap:10px;padding:0 12px;font-size:14px}
+  .year .yw{display:block;font-size:16px;color:var(--ink)}
+  .year .on .yw{color:var(--seal2)}
+  .top{left:380px}
+  .compass{left:398px}
+  #toast{left:calc(50% + 190px)}
+  #book{left:auto;width:460px;border-left:1px solid var(--rule)}
+  #title{padding-left:max(64px,6vw);padding-bottom:64px}
+}
+.titled .card,.titled .compass,.titled .rosebtn,.titled .tools{visibility:hidden}
+.page dl div{display:contents}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="app">
+  <canvas id="cTrail" aria-hidden="true"></canvas>
+  <canvas id="cFx" aria-label="외솔섬 지도와 지금 부는 바람"></canvas>
+  <header class="top">
+    <a class="chip home" id="home" href="../../index.html"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>한올의 서재</a>
+    <div class="tools">
+      <button class="ib" id="bSound" aria-label="소리 끄기"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path class="sw1" d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg></button>
+      <button class="ib" id="bBook" aria-label="바람책 펼치기"><svg viewBox="0 0 24 24"><path d="M4 5.5c2.5-1 5-1 8 1 3-2 5.5-2 8-1v13c-2.5-1-5-1-8 1-3-2-5.5-2-8-1z"/><path d="M12 6.5v13"/></svg></button>
+    </div>
+  </header>
+  <div class="compass" id="compass" aria-hidden="true"></div>
+  <button class="rosebtn" id="bRose" aria-label="바람장미 보기"></button>
+  <section class="card" id="card" aria-label="지금 장">
+    <nav class="year" id="year" aria-label="스물네 절기"></nav>
+    <div class="cb" id="cb"></div>
+  </section>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <div id="title">
+    <div>
+      <p class="by">한올 지음 · AI가 쓴 중편 소설</p>
+      <h1>바람을 받아 적는 사람</h1>
+      <p class="lead">열일곱 살 솔은 엄마의 유골함을 안고 외딴섬 바람지기의 집에 온다. 엄마의 부탁은 하나, 좋은 바람 부는 날 뿌려 달라는 것. 아버지는 계절마다 아직이라고만 한다.</p>
+      <div class="acts" id="tActs"></div>
+      <p class="hint">스물네 절기, 스물네 바람. 소리를 켜고 보시면 섬의 바람이 들립니다.</p>
+    </div>
+  </div>
+  <article id="reader" hidden aria-label="읽기">
+    <div class="rhead">
+      <button class="ib" id="rClose" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <span class="rt" id="rTitle"></span>
+      <div class="grp">
+        <button class="ib" id="rListen" aria-label="소리 내어 읽기"><svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg></button>
+        <button class="ib" id="rSmall" aria-label="글자 작게"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></button>
+        <button class="ib" id="rBig" aria-label="글자 크게"><svg viewBox="0 0 24 24"><path d="M6 12h12M12 6v12"/></svg></button>
+      </div>
+    </div>
+    <div class="rbody" id="rBody"></div>
+  </article>
+  <div id="player" hidden>
+    <button class="ib" data-p="prev" aria-label="앞 문단"><svg viewBox="0 0 24 24"><path d="M7 6v12M18 6l-8 6 8 6z"/></svg></button>
+    <button class="ib" data-p="toggle" id="pToggle" aria-label="멈춤"><svg viewBox="0 0 24 24"><path class="pp" d="M9 6v12M15 6v12"/></svg></button>
+    <button class="ib" data-p="next" aria-label="다음 문단"><svg viewBox="0 0 24 24"><path d="M17 6v12M6 6l8 6-8 6z"/></svg></button>
+    <button class="ib rate" data-p="rate" id="pRate">1×</button>
+    <span class="pt" id="pText"></span>
+    <button class="ib" data-p="stop" aria-label="낭독 끝내기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <aside id="book" hidden aria-label="바람책">
+    <div class="bhead"><h2>바람책</h2><button class="ib" id="bClose" aria-label="바람책 덮기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="tabs" role="tablist">
+      <button role="tab" data-tab="toc" aria-selected="true">차례</button>
+      <button role="tab" data-tab="rose" aria-selected="false">바람장미</button>
+      <button role="tab" data-tab="gloss" aria-selected="false">바람 이름</button>
+      <button role="tab" data-tab="things" aria-selected="false">실려 온 것</button>
+      <button role="tab" data-tab="set" aria-selected="false">설정</button>
+    </div>
+    <div class="pane" id="pane"></div>
+  </aside>
+  <div id="catch" hidden><div class="cc" role="dialog" aria-modal="true" aria-labelledby="ccT"><p class="from" id="ccF"></p><h3 id="ccT"></h3><p id="ccX"></p><button class="btn" id="ccOk">바람책에 끼워 두기</button></div></div>
+</div>
+<script src="story.js"></script>
+<script>
+(function () {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
+const lerp = (a, b, t) => a + (b - a) * t;
+const smooth = (a, b, x) => { const t = clamp((x - a) / (b - a), 0, 1); return t * t * (3 - 2 * t); };
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const D = window.__DATA || { chapters: [], extras: [], glossary: [] };
+const CH = D.chapters;
+const LAST = CH.length - 1;
+const KEY = 'baram-badaseo-v1';
+const S = Object.assign({ read: [], cur: 0, items: {}, sound: true, fs: 1, mine: null, all: false, vrate: 1, vA: '', vB: '', vC: '', started: false, hint: false }, (() => {
+  try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+})());
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { /* private mode: keep going without */ } }
+const isRead = n => !!S.read[n];
+const isOpen = n => S.all || n === 0 || !!S.read[n] || !!S.read[n - 1];
+const allRead = () => CH.every((c, n) => isRead(n));
+
+const KNUM = ['영', '하나', '둘', '셋', '넷', '다섯', '여섯', '일곱', '여덟', '아홉', '열', '열하나', '열둘'];
+const BEAU = ['고요', '실바람', '남실바람', '산들바람', '건들바람', '흔들바람', '된바람', '센바람', '큰바람', '큰센바람', '노대바람', '왕바람', '싹쓸바람'];
+const DIRS = [[0, '높', '북'], [45, '높새', '북동'], [90, '새', '동'], [135, '샛마', '동남'], [180, '마', '남'], [225, '갈마', '남서'], [270, '하늬', '서'], [315, '높하늬', '북서']];
+function dirOf(deg) {
+  const d = ((deg % 360) + 360) % 360;
+  let best = DIRS[0], bd = 999;
+  for (const x of DIRS) { const dd = Math.min(Math.abs(d - x[0]), 360 - Math.abs(d - x[0])); if (dd < bd) { bd = dd; best = x; } }
+  return best;
+}
+const dirText = deg => { const d = dirOf(deg); return `${d[1]}(${d[2]})`; };
+const KIND_NOTE = { radial: '낮엔 바다에서 섬으로, 밤엔 섬에서 바다로', cyclone: '돌아 부는 바람', chaos: '이리저리, 일정한 쪽 없이', fog: '안개, 거의 없는 바람' };
+function metaText(c, n) {
+  if (n === 0) return '바람책 첫 장 · 1891년';
+  if (n === LAST) return '바람책 맨 뒤 쪽';
+  const k = KIND_NOTE[c.kind];
+  const from = c.kind === 'radial' || c.kind === 'chaos' || c.kind === 'cyclone' ? k : `오는 쪽 ${dirText(c.from)}`;
+  return `${from} · 세기 ${KNUM[c.force]}, ${BEAU[c.force]}`;
+}
+function chLabel(n, long) {
+  if (n === 0) return long ? '서(序)' : '서';
+  if (n === LAST) return long ? '맺음 · 다시 춘분' : '맺음';
+  return long ? `제${n}장 · ${CH[n].term}` : CH[n].term;
+}
+function toast(msg, ms = 3600) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.add('on');
+  clearTimeout(toast.t);
+  toast.t = setTimeout(() => t.classList.remove('on'), ms);
+}
+
+/* the sea and land of each chapter's season */
+const PAL = {
+  dawn: { sea: '#3a6275', deep: '#27495a', land: '#8b9770', hill: '#a4ad86', coast: '#c2d5cd', streak: '#ffffff' },
+  spring: { sea: '#2e6676', deep: '#1f4c5b', land: '#86995f', hill: '#a0b07b', coast: '#bfd8cf', streak: '#ffffff' },
+  early: { sea: '#216f88', deep: '#16546b', land: '#6c8f4e', hill: '#87a866', coast: '#b6dcd7', streak: '#ffffff' },
+  summer: { sea: '#11577c', deep: '#0a4060', land: '#4e7c45', hill: '#66955a', coast: '#9fd4dd', streak: '#ffffff' },
+  late: { sea: '#1c5775', deep: '#124159', land: '#8a894f', hill: '#a29e62', coast: '#b5d1d3', streak: '#ffffff' },
+  autumn: { sea: '#264a63', deep: '#19354a', land: '#9a7a4a', hill: '#b1925d', coast: '#b3c4c9', streak: '#fff6ea' },
+  ewinter: { sea: '#2a4456', deep: '#1c3142', land: '#887e69', hill: '#9e9581', coast: '#bac5c9', streak: '#ffffff' },
+  winter: { sea: '#233645', deep: '#172735', land: '#7c7e77', hill: '#95978f', coast: '#aebac0', streak: '#ffffff' },
+  lwinter: { sea: '#2a4a5b', deep: '#1d3646', land: '#8a8d76', hill: '#a3a68b', coast: '#b9c8ca', streak: '#ffffff' },
+  fog: { sea: '#66838d', deep: '#58757f', land: '#8d9a85', hill: '#a1ac98', coast: '#c9d6d4', streak: '#ffffff' },
+  storm: { sea: '#16242d', deep: '#0d1820', land: '#4a5547', hill: '#5a6556', coast: '#4f6a74', streak: '#e8f1f5', dark: 1 },
+  night: { sea: '#112030', deep: '#0a1521', land: '#3b4537', hill: '#4a5444', coast: '#40606f', streak: '#ffffff', dark: 1 },
+  glow: { sea: '#0f1f2e', deep: '#08131e', land: '#38432f', hill: '#465240', coast: '#2f5767', streak: '#8ff2e3', dark: 1 },
+  snow: { sea: '#2d4455', deep: '#1f3343', land: '#dde3e0', hill: '#f0f3f1', coast: '#c3cfd3', streak: '#ffffff' },
+  sol: { sea: '#33607a', deep: '#234860', land: '#7f8c69', hill: '#98a37e', coast: '#c9d7cf', streak: '#ffe6c2', dawn: 1 },
+  mine: { sea: '#2f5f73', deep: '#204858', land: '#8a9a67', hill: '#a5b382', coast: '#c6dbd2', streak: '#ffe3a3' },
+};
+const SEASON = ['dawn', 'spring', 'spring', 'spring', 'early', 'fog', 'early', 'summer', 'summer', 'glow', 'late', 'late', 'late', 'autumn', 'storm', 'autumn', 'ewinter', 'snow', 'ewinter', 'night', 'winter', 'winter', 'lwinter', 'lwinter', 'sol', 'spring'];
+const PETAL = { dawn: '#8aa6a0', spring: '#6f9f8a', early: '#4f9aa6', summer: '#2f7fa8', late: '#a59a52', autumn: '#c08a45', ewinter: '#8b8f9a', winter: '#6f8193', lwinter: '#7e9a95', fog: '#9fb3b5', storm: '#47606e', night: '#5d6f88', glow: '#3fb7a8', snow: '#b5c6cf', sol: '#e0a24b', mine: '#d4a72c' };
+const hexRGB = h => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+const rgbStr = (c, a = 1) => `rgba(${c[0] | 0},${c[1] | 0},${c[2] | 0},${a})`;
+const mix = (a, b, t) => [lerp(a[0], b[0], t), lerp(a[1], b[1], t), lerp(a[2], b[2], t)];
+
+/* the wind of chapter n, or the reader's own wind at the end */
+function windOf(n) {
+  if (n === LAST && S.mine && isRead(LAST)) return { from: S.mine.from, force: 3, kind: 'flow', pal: 'mine', n };
+  const c = CH[n];
+  return { from: c.from, force: c.force, kind: c.kind, pal: SEASON[n] || 'spring', n };
+}
+
+/* ---------- the island chart and its wind ---------- */
+const M = { W: 0, H: 0, dpr: 1, s: 100, cx: 0, cy: 0, t: 0, parts: [], items: [], ash: [], rings: [], drops: [], flakes: [], w: null, wPrev: null, blend: 1, here: 0, paused: false, reduce: false, fade: 0.1, k: 20, lastRing: 0 };
+try { M.reduce = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { M.reduce = false; }
+const cTrail = $('#cTrail'), cFx = $('#cFx');
+const gT = cTrail.getContext('2d'), gF = cFx.getContext('2d');
+M.base = document.createElement('canvas');
+const gB = M.base.getContext('2d');
+
+function rng(seed) { let s = seed % 2147483647; if (s <= 0) s += 2147483646; return () => (s = s * 16807 % 2147483647) / 2147483647; }
+const angDiff = (a, b) => { let d = (a - b) % (Math.PI * 2); if (d > Math.PI) d -= Math.PI * 2; if (d < -Math.PI) d += Math.PI * 2; return d; };
+
+/* the island: an ellipse roughened by a few waves, with a cove for the harbour and a hill to the west */
+const ISLE = (() => {
+  const r = rng(20250320), pts = [];
+  const K = [[2, .045], [3, .055], [4, .035], [5, .03], [7, .02], [9, .014], [13, .009], [17, .006]].map(([k, a]) => [k, a, r() * 6.283]);
+  for (let i = 0; i < 240; i++) {
+    const th = i / 240 * Math.PI * 2, c = Math.cos(th), s = Math.sin(th);
+    let rad = 1 / Math.sqrt(c * c + (s / 0.44) ** 2);
+    for (const [k, a, ph] of K) rad *= 1 + a * Math.sin(k * th + ph);
+    rad *= 1 - 0.22 * Math.exp(-((angDiff(th, 0.95) / 0.17) ** 2));
+    rad *= 1 + 0.1 * Math.exp(-((angDiff(th, 3.45) / 0.35) ** 2));
+    pts.push([c * rad, s * rad]);
+  }
+  return pts;
+})();
+function coastAt(th, f = 1) {
+  const i = Math.round(((th % (Math.PI * 2)) + Math.PI * 2) % (Math.PI * 2) / (Math.PI * 2) * ISLE.length) % ISLE.length;
+  return [ISLE[i][0] * f, ISLE[i][1] * f];
+}
+function inIsle(x, y) {
+  let ins = false;
+  for (let i = 0, j = ISLE.length - 1; i < ISLE.length; j = i++) {
+    const [xi, yi] = ISLE[i], [xj, yj] = ISLE[j];
+    if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) ins = !ins;
+  }
+  return ins;
+}
+const PL = (() => {
+  const pine = coastAt(3.45, 0.6), bwStart = coastAt(0.66, 1.0), harbor = coastAt(0.95, 0.86);
+  return {
+    pine, house: [pine[0] + 0.1, pine[1] + 0.075], harbor, bwStart, bell: [bwStart[0] - 0.035, bwStart[1] + 0.16],
+    cliff: coastAt(1.78), rocks: coastAt(2.72, 1.09), channel: [-1.17, -0.56], grave: [pine[0] - 0.08, pine[1] - 0.1],
+    hall: [harbor[0] - 0.2, harbor[1] - 0.13],
+  };
+})();
+const sx = x => M.cx + x * M.s, sy = y => M.cy + y * M.s;
+function islePath(g, f = 1, to = [0, 0]) {
+  g.beginPath();
+  ISLE.forEach(([x, y], i) => {
+    const X = sx(to[0] + (x - to[0]) * f), Y = sy(to[1] + (y - to[1]) * f);
+    i ? g.lineTo(X, Y) : g.moveTo(X, Y);
+  });
+  g.closePath();
+}
+
+/* ---------- size and layout ---------- */
+function mapResize() {
+  const W = innerWidth, H = innerHeight, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  M.W = W; M.H = H; M.dpr = dpr;
+  for (const c of [cTrail, cFx, M.base]) { c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); }
+  const desk = W >= 900, card = $('#card').getBoundingClientRect();
+  let bx = 0, by = 58, bw = W, bh = H - 58;
+  if (desk) { bx = card.right; bw = W - bx; by = 20; bh = H - 40; } else bh = Math.max(220, card.top - by - 4);
+  M.s = Math.max(70, Math.min(bw / 2.5, bh / 1.5));
+  M.cx = bx + bw / 2 + (desk ? 0 : M.s * 0.04);
+  M.cy = by + bh / 2 + M.s * 0.02;
+  M.k = clamp(M.s * 0.18, 22, 50);
+  M.box = { bx, by, bw, bh };
+  const n = clamp(Math.round(W * H / (desk ? 1300 : 1000)), 360, 1500);
+  M.parts = Array.from({ length: n }, () => respawn({}, true));
+  renderStatic();
+  gT.setTransform(dpr, 0, 0, dpr, 0, 0);
+  gT.drawImage(M.base, 0, 0, W, H);
+  if (M.reduce) drawStill();
+  const rb = $('#bRose');
+  rb.style.bottom = desk ? '20px' : `${Math.round(H - card.top + 12)}px`;
+}
+function respawn(p, fresh) {
+  p.x = Math.random() * M.W; p.y = Math.random() * M.H;
+  p.max = 50 + Math.random() * 90;
+  p.age = fresh ? Math.random() * p.max : 0;
+  return p;
+}
+
+/* ---------- the chart itself, redrawn when the season changes ---------- */
+function renderStatic() {
+  const g = gB, W = M.W, H = M.H, s = M.s, P = PAL[(M.w && M.w.pal) || 'spring'];
+  const sea = hexRGB(P.sea), deep = hexRGB(P.deep), land = hexRGB(P.land), hill = hexRGB(P.hill), coast = hexRGB(P.coast);
+  const n = M.w ? M.w.n : 0;
+  g.setTransform(M.dpr, 0, 0, M.dpr, 0, 0);
+  const gr = g.createRadialGradient(M.cx, M.cy, s * 0.3, M.cx, M.cy, Math.max(W, H) * 0.8);
+  gr.addColorStop(0, rgbStr(sea)); gr.addColorStop(1, rgbStr(deep));
+  g.fillStyle = gr; g.fillRect(0, 0, W, H);
+  if (P.dawn) {
+    const gl = g.createRadialGradient(W * 1.05, H * 0.95, 0, W * 1.05, H * 0.95, Math.max(W, H) * 0.95);
+    gl.addColorStop(0, 'rgba(255,196,150,.42)'); gl.addColorStop(0.45, 'rgba(240,170,150,.14)'); gl.addColorStop(1, 'rgba(240,170,150,0)');
+    g.fillStyle = gl; g.fillRect(0, 0, W, H);
+  }
+  // printed wave marks
+  const r = rng(11);
+  g.strokeStyle = rgbStr(coast, 0.11); g.lineWidth = 1;
+  const marks = Math.round(W * H / 2600);
+  for (let i = 0; i < marks; i++) {
+    const x = r() * W, y = r() * H, mx = (x - M.cx) / s, my = (y - M.cy) / s;
+    if ((mx / 1.25) ** 2 + (my / 0.62) ** 2 < 1) continue;
+    g.beginPath(); g.arc(x, y + 4, 5, Math.PI * 1.2, Math.PI * 1.8); g.stroke();
+  }
+  // depth lines
+  g.setLineDash([2, 5]); g.lineWidth = 1;
+  islePath(g, 1.38); g.strokeStyle = rgbStr(coast, 0.28); g.stroke();
+  islePath(g, 1.85); g.strokeStyle = rgbStr(coast, 0.16); g.stroke();
+  g.setLineDash([]);
+  // laver farms in the cold months
+  if (n >= 15 && n <= 23) {
+    g.fillStyle = rgbStr(coast, 0.42);
+    for (let row = 0; row < 7; row++) {
+      const y0 = sy(-0.2 + row * 0.07), x0 = sx(0.92 + (row % 2) * 0.03), x1 = sx(1.42);
+      for (let x = x0; x < x1; x += 6) { g.fillRect(x, y0, 1.6, 1.6); }
+    }
+  }
+  // shallows
+  g.lineJoin = 'round';
+  islePath(g); g.strokeStyle = rgbStr(coast, 0.32); g.lineWidth = s * 0.075; g.stroke();
+  g.strokeStyle = rgbStr(coast, 0.7); g.lineWidth = s * 0.028; g.stroke();
+  // land and hill
+  islePath(g); g.fillStyle = rgbStr(land); g.fill();
+  const ks = [0.74, 0.52, 0.32, 0.15];
+  ks.forEach((k, i) => {
+    islePath(g, k, PL.pine);
+    g.fillStyle = rgbStr(mix(land, hill, (i + 1) / ks.length));
+    g.fill();
+    g.strokeStyle = rgbStr(mix(land, [20, 30, 20], 0.5), 0.28); g.lineWidth = 0.9; g.stroke();
+  });
+  islePath(g); g.strokeStyle = 'rgba(20,28,30,.5)'; g.lineWidth = 1.3; g.stroke();
+  // fields
+  const rf = rng(5);
+  g.strokeStyle = rgbStr(mix(land, [30, 40, 20], 0.45), 0.5); g.lineWidth = 0.8;
+  for (let f = 0; f < 6; f++) {
+    const fx = 0.05 + rf() * 0.45 - (f > 3 ? 0.5 : 0), fy = -0.18 + rf() * 0.24, fw = 0.08 + rf() * 0.06, fh = 0.05 + rf() * 0.03;
+    if (!inIsle(fx, fy) || !inIsle(fx + fw, fy + fh)) continue;
+    g.save(); g.beginPath(); g.rect(sx(fx), sy(fy), fw * s, fh * s); g.clip();
+    for (let x = -fh * s; x < fw * s; x += 4) { g.beginPath(); g.moveTo(sx(fx) + x, sy(fy) + fh * s); g.lineTo(sx(fx) + x + fh * s, sy(fy)); g.stroke(); }
+    g.restore();
+  }
+  // road
+  g.setLineDash([4, 4]); g.strokeStyle = 'rgba(245,238,222,.6)'; g.lineWidth = 1.4;
+  g.beginPath(); g.moveTo(sx(PL.harbor[0]), sy(PL.harbor[1])); g.quadraticCurveTo(sx(-0.15), sy(0.06), sx(PL.house[0] + 0.02), sy(PL.house[1] + 0.03)); g.stroke();
+  g.setLineDash([]);
+  // village
+  const rv = rng(3), roofs = ['#55718c', '#a3644f', '#6b887a', '#b49d69', '#d8d2c3'];
+  for (let i = 0; i < 34; i++) {
+    const a = Math.PI * 1.28 + (rv() - 0.5) * 2.4, d = 0.05 + rv() * 0.24;
+    const x = PL.harbor[0] + Math.cos(a) * d, y = PL.harbor[1] + Math.sin(a) * d * 0.8;
+    if (!inIsle(x, y)) continue;
+    g.save(); g.translate(sx(x), sy(y)); g.rotate((rv() - 0.5) * 0.6);
+    g.fillStyle = 'rgba(0,0,0,.22)'; g.fillRect(-1.5, -0.5, 5, 4);
+    g.fillStyle = roofs[(rv() * roofs.length) | 0]; g.fillRect(-2.5, -2.5, 5, 3.6);
+    g.restore();
+  }
+  // old school / hall
+  g.fillStyle = '#e8e1d0'; g.fillRect(sx(PL.hall[0]) - 6, sy(PL.hall[1]) - 3, 12, 6);
+  // breakwater, lighthouse, the fog bell
+  g.lineCap = 'round';
+  g.strokeStyle = 'rgba(30,36,40,.45)'; g.lineWidth = Math.max(4, s * 0.026);
+  g.beginPath(); g.moveTo(sx(PL.bwStart[0]), sy(PL.bwStart[1]) + 1.5); g.lineTo(sx(PL.bell[0]), sy(PL.bell[1]) + 1.5); g.stroke();
+  g.strokeStyle = '#d9d5cb'; g.lineWidth = Math.max(3, s * 0.02);
+  g.beginPath(); g.moveTo(sx(PL.bwStart[0]), sy(PL.bwStart[1])); g.lineTo(sx(PL.bell[0]), sy(PL.bell[1])); g.stroke();
+  g.fillStyle = '#ffffff'; g.beginPath(); g.arc(sx(PL.bell[0]), sy(PL.bell[1]), 5, 0, 7); g.fill();
+  g.fillStyle = '#c23b22'; g.beginPath(); g.arc(sx(PL.bell[0]), sy(PL.bell[1]), 3.4, 0, 7); g.fill();
+  // rocks off the south-west, and their foam
+  const rr = rng(9);
+  for (let i = 0; i < 8; i++) {
+    const x = sx(PL.rocks[0] + (rr() - 0.5) * 0.16), y = sy(PL.rocks[1] + (rr() - 0.5) * 0.1), rad = 1.8 + rr() * 2.4;
+    g.strokeStyle = 'rgba(255,255,255,.45)'; g.lineWidth = 1; g.beginPath(); g.arc(x, y, rad + 2.2, 0, 7); g.stroke();
+    g.fillStyle = '#24292b'; g.beginPath(); g.arc(x, y, rad, 0, 7); g.fill();
+  }
+  // the cliff
+  g.strokeStyle = 'rgba(30,30,28,.55)'; g.lineWidth = 1.1;
+  for (let i = -4; i <= 4; i++) {
+    const th = 1.78 + i * 0.045, [x, y] = coastAt(th), [x2, y2] = coastAt(th, 0.94);
+    g.beginPath(); g.moveTo(sx(x), sy(y)); g.lineTo(sx(x2), sy(y2)); g.stroke();
+  }
+  // the channel where the water knots
+  g.strokeStyle = rgbStr(coast, 0.5); g.lineWidth = 1.2;
+  [[0, 0, 0.075], [0.09, 0.04, 0.05], [-0.07, 0.05, 0.045]].forEach(([dx, dy, rad], i) => {
+    g.beginPath();
+    for (let a = 0; a < Math.PI * 1.6; a += 0.08) {
+      const rr2 = rad * (1 - a / (Math.PI * 2.4));
+      const X = sx(PL.channel[0] + dx + Math.cos(a + i) * rr2), Y = sy(PL.channel[1] + dy + Math.sin(a + i) * rr2 * 0.8);
+      a ? g.lineTo(X, Y) : g.moveTo(X, Y);
+    }
+    g.stroke();
+  });
+  // the empty grave
+  g.fillStyle = rgbStr(mix(hill, [255, 255, 255], 0.3)); g.beginPath(); g.ellipse(sx(PL.grave[0]), sy(PL.grave[1]), 4, 2.6, 0, Math.PI, 0); g.fill();
+  // labels
+  const lightLand = (land[0] + land[1] + land[2]) / 3 > 170;
+  const label = (txt, x, y, size, align, onLand) => {
+    g.font = `${size}px 'Gowun Batang', serif`; g.textAlign = align; g.textBaseline = 'middle';
+    const dark = onLand && lightLand;
+    g.lineWidth = 3.2; g.strokeStyle = dark ? 'rgba(255,255,255,.75)' : 'rgba(8,16,22,.5)'; g.strokeText(txt, x, y);
+    g.fillStyle = dark ? '#1c2630' : '#f4f1e8'; g.fillText(txt, x, y);
+  };
+  const ls = clamp(s * 0.085, 12, 15);
+  label('외솔섬', sx(0.32), sy(-0.66), clamp(s * 0.15, 18, 26), 'center', false);
+  label('솔봉', sx(PL.pine[0]) - M.k * 0.35, sy(PL.pine[1]) + 12, ls, 'right', true);
+  label('바람집', sx(PL.house[0]) + 8, sy(PL.house[1]) + 13, ls, 'left', true);
+  label('선창', sx(PL.bell[0]) + 10, sy(PL.bell[1]) + 2, ls, 'left', false);
+  label('마바위', sx(PL.cliff[0]), sy(PL.cliff[1] + 0.1), ls, 'center', false);
+  label('물목', Math.max(sx(PL.channel[0]), 26), sy(PL.channel[1] + 0.13), ls, 'center', false);
+  label('불턱', sx(PL.rocks[0]) - 4, sy(PL.rocks[1] + 0.11), ls, 'center', false);
+  label('뭍 쪽 ↗', Math.min(sx(1.18), M.W - 34), sy(-0.62), ls, 'center', false);
+}
+
+/* ---------- the wind field, in island units per second ---------- */
+function curl(x, y, t) {
+  const a = 2.1, c = 2.7, e = 3.3, f = 2.4;
+  const s1 = Math.sin(a * x + 0.5 * t), c1 = Math.cos(c * y - 0.37 * t), ce = Math.cos(e * x - f * y + 0.8 * t);
+  const dnx = a * Math.cos(a * x + 0.5 * t) * c1 + 0.5 * e * ce;
+  const dny = -c * s1 * Math.sin(c * y - 0.37 * t) - 0.5 * f * ce;
+  return [dny, -dnx];
+}
+const CYC = { a: [2.4, 1.55], b: [-2.4, -1.55], T: 46, eye: 0.13, R: 0.34 };
+function cycCenter(t) { const u = (t % CYC.T) / CYC.T; return [lerp(CYC.a[0], CYC.b[0], u), lerp(CYC.a[1], CYC.b[1], u)]; }
+function windVec(w, x, y, t) {
+  if (!w) return [0, 0];
+  const sp = 0.05 + w.force * 0.034;
+  let vx = 0, vy = 0, tur = 0.09;
+  if (w.kind === 'radial') {
+    const d = Math.hypot(x, y * 1.6) + 1e-4, b = Math.cos(t * Math.PI * 2 / 20);
+    const m = sp * 1.4 * b * smooth(0.08, 0.7, d);
+    vx = -x / d * m; vy = -y * 1.6 / d * m * 0.8;
+    tur = 0.06;
+  } else if (w.kind === 'cyclone') {
+    const c = cycCenter(t), rx = x - c[0], ry = y - c[1], r = Math.hypot(rx, ry) + 1e-4;
+    let vt = 0.6 * (r < CYC.R ? r / CYC.R : Math.pow(CYC.R / r, 0.55));
+    vt *= smooth(CYC.eye * 0.6, CYC.eye * 1.35, r);
+    vx = ry / r * vt - rx / r * vt * 0.3 + (CYC.b[0] - CYC.a[0]) / CYC.T * 0.6;
+    vy = -rx / r * vt - ry / r * vt * 0.3 + (CYC.b[1] - CYC.a[1]) / CYC.T * 0.6;
+    tur = 0.05;
+  } else if (w.kind === 'chaos') {
+    const ph = t * 0.33 + 2.3 * Math.sin(t * 0.21) + 1.5 * Math.sin(t * 0.53 + x * 0.9 - y * 0.6);
+    vx = Math.cos(ph) * sp; vy = Math.sin(ph) * sp; tur = 0.2;
+  } else {
+    const th = w.from * Math.PI / 180, dx = -Math.sin(th), dy = Math.cos(th);
+    let m = sp;
+    if (w.kind === 'fog') { m = 0.03; tur = 0.03; }
+    if (w.kind === 'gust') { const proj = x * dx + y * dy; m *= 0.45 + 1.25 * Math.pow(0.5 + 0.5 * Math.sin(4.2 * proj - 1.7 * t), 4); }
+    if (w.kind === 'sol') m *= 0.9 + 0.25 * Math.sin(t * 0.7);
+    vx = dx * m; vy = dy * m;
+    const ex = x / 1.02, ey = y / 0.47, e = ex * ex + ey * ey;
+    if (e < 2.3) {
+      let nx = x / 1.04, ny = y / 0.22; const nl = Math.hypot(nx, ny) || 1; nx /= nl; ny /= nl;
+      const vn = vx * nx + vy * ny, wg = smooth(2.3, 1.0, e) * 0.85;
+      if (vn < 0) { vx -= nx * vn * wg; vy -= ny * vn * wg; }
+      if (e < 1) { vx *= 0.72; vy *= 0.72; }
+    }
+  }
+  const cv = curl(x, y, t);
+  const tm = tur * (0.6 + sp);
+  return [vx + cv[0] * tm * 0.12, vy + cv[1] * tm * 0.12];
+}
+function vecAt(x, y, t) {
+  const b = M.blend;
+  if (b >= 1 || !M.wPrev) return windVec(M.w, x, y, t);
+  const a = windVec(M.wPrev, x, y, t), c = windVec(M.w, x, y, t), e = smooth(0, 1, b);
+  return [lerp(a[0], c[0], e), lerp(a[1], c[1], e)];
+}
+
+function setWind(n, instant) {
+  const w = windOf(n);
+  M.wPrev = instant ? w : (M.w || w);
+  M.w = w;
+  M.blend = instant ? 1 : 0;
+  M.fade = w.kind === 'fog' ? 0.06 : w.kind === 'cyclone' ? 0.13 : w.force >= 6 ? 0.12 : 0.095;
+  M.items = M.items.filter(it => it.n === n || isRead(it.n));
+  M.ash = [];
+  if (M.W) {
+    renderStatic();
+    if (instant) { gT.setTransform(M.dpr, 0, 0, M.dpr, 0, 0); gT.drawImage(M.base, 0, 0, M.W, M.H); }
+    if (M.reduce) drawStill();
+  }
+  compass(w);
+}
+function compass(w) {
+  const el = $('#compass');
+  let arrow = '';
+  if (w.kind === 'radial') arrow = '<g stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round">' + [0, 90, 180, 270].map(a => `<path transform="rotate(${a})" d="M0 -22 L0 -9 M-4 -13 L0 -9 L4 -13"/>`).join('') + '</g>';
+  else if (w.kind === 'chaos' || w.kind === 'cyclone') arrow = '<path d="M0 0 m-14 0 a14 14 0 1 1 14 14 a9 9 0 1 1 -9 -9 a5 5 0 1 1 5 5" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>';
+  else arrow = `<g transform="rotate(${w.from + 180})"><path d="M0 -24 L0 20" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><path d="M-7 -14 L0 -25 L7 -14" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M-5 20 L0 12 L5 20" fill="none" stroke="#fff" stroke-width="1.8"/></g>`;
+  el.innerHTML = `<svg viewBox="-34 -34 68 68"><circle r="30" fill="rgba(8,18,26,.42)"/><circle r="26" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="1"/><text y="-17" text-anchor="middle" font-size="9" fill="#fff" font-family="Gowun Batang,serif">북</text>${arrow}</svg>`;
+}
+
+/* ---------- things carried by the wind ---------- */
+function spawnItem(id) {
+  const ex = D.extras[id];
+  if (!ex || S.items[id] || M.items.some(i => i.id === id)) return false;
+  const w = M.w || windOf(0);
+  let x, y;
+  if (w.kind === 'flow' || w.kind === 'gust' || w.kind === 'sol' || w.kind === 'fog') {
+    const th = w.from * Math.PI / 180;
+    x = Math.sin(th) * 1.25 + (Math.random() - 0.5) * 0.5; y = -Math.cos(th) * 0.75 + (Math.random() - 0.5) * 0.3;
+  } else { x = (Math.random() - 0.5) * 1.6; y = (Math.random() - 0.5) * 0.9; }
+  M.items.push({ id, n: ex.ch, x, y, rot: Math.random() * 6, vr: (Math.random() - 0.5) * 1.6, life: 0 });
+  return true;
+}
+function catchAt(px, py) {
+  for (const it of M.items) {
+    if (Math.hypot(sx(it.x) - px, sy(it.y) - py) < 30) { M.items = M.items.filter(i => i !== it); return it.id; }
+  }
+  return -1;
+}
+
+/* ---------- each frame ---------- */
+function mapStep(dt) {
+  M.t += dt;
+  if (M.blend < 1) M.blend = Math.min(1, M.blend + dt / 2.6);
+  const t = M.t, w = M.w;
+  const pv = vecAt(PL.pine[0], PL.pine[1], t);
+  M.here = Math.hypot(pv[0], pv[1]) / 0.46;
+  const ks = Math.min(1, dt * 2.4);
+  if (!M.pu) M.pu = [pv[0], pv[1]];
+  M.pu[0] += (pv[0] - M.pu[0]) * ks; M.pu[1] += (pv[1] - M.pu[1]) * ks;
+  if (M.paused) return;
+  const W = M.W, H = M.H, s = M.s, P = PAL[w.pal] || PAL.spring, streak = hexRGB(P.streak);
+  const VIS = 3.0;
+  if (!M.reduce) {
+    gT.setTransform(M.dpr, 0, 0, M.dpr, 0, 0);
+    gT.globalAlpha = M.fade; gT.drawImage(M.base, 0, 0, W, H); gT.globalAlpha = 1;
+    const B = [[], [], []];
+    for (const p of M.parts) {
+      const mx = (p.x - M.cx) / s, my = (p.y - M.cy) / s, v = vecAt(mx, my, t);
+      const nx = p.x + v[0] * s * VIS * dt, ny = p.y + v[1] * s * VIS * dt;
+      const a = Math.sin(Math.PI * p.age / p.max);
+      B[a > 0.66 ? 2 : a > 0.33 ? 1 : 0].push(p.x, p.y, nx, ny);
+      p.x = nx; p.y = ny; p.age += 60 * dt;
+      if (p.age > p.max || nx < -20 || ny < -20 || nx > W + 20 || ny > H + 20) respawn(p);
+    }
+    const base = w.kind === 'fog' ? 0.22 : P.dark ? 0.58 : 0.44;
+    gT.lineWidth = w.force >= 8 ? 1.5 : 1.15; gT.lineCap = 'round';
+    B.forEach((arr, k) => {
+      if (!arr.length) return;
+      gT.strokeStyle = rgbStr(streak, base * (0.35 + k * 0.33));
+      gT.beginPath();
+      for (let i = 0; i < arr.length; i += 4) { gT.moveTo(arr[i], arr[i + 1]); gT.lineTo(arr[i + 2], arr[i + 3]); }
+      gT.stroke();
+    });
+  }
+  drawFx(dt, P);
+}
+
+function drawFx(dt, P) {
+  const g = gF, t = M.t, w = M.w, W = M.W, H = M.H, s = M.s;
+  g.setTransform(M.dpr, 0, 0, M.dpr, 0, 0);
+  g.clearRect(0, 0, W, H);
+  const still = M.reduce;
+  // fog veils
+  if (w.kind === 'fog') {
+    g.fillStyle = 'rgba(235,240,240,.16)'; g.fillRect(0, 0, W, H);
+    for (let i = 0; i < 7; i++) {
+      const x = ((i * 0.37 + t * 0.012 * (1 + i % 3)) % 1.4 - 0.2) * W, y = (0.15 + (i * 0.29) % 0.8) * H, r = (0.28 + (i % 3) * 0.08) * Math.max(W, H);
+      const gr = g.createRadialGradient(x, y, 0, x, y, r);
+      gr.addColorStop(0, 'rgba(240,244,244,.42)'); gr.addColorStop(1, 'rgba(240,244,244,0)');
+      g.fillStyle = gr; g.fillRect(x - r, y - r, r * 2, r * 2);
+    }
+  }
+  // the eye of the storm, with stars in it
+  if (w.kind === 'cyclone' && M.blend > 0.5) {
+    const c = cycCenter(t), X = sx(c[0]), Y = sy(c[1]), re = CYC.eye * s;
+    if (X > -re * 4 && X < W + re * 4 && Y > -re * 4 && Y < H + re * 4) {
+      g.strokeStyle = 'rgba(220,232,238,.16)'; g.lineWidth = re * 1.3;
+      g.beginPath(); g.arc(X, Y, re * 1.7, 0, 7); g.stroke();
+      const rs = rng(77);
+      for (let i = 0; i < 9; i++) {
+        const a = rs() * 6.28, d = rs() * re * 0.85, tw = 0.45 + 0.4 * Math.sin(t * 2 + i * 1.7);
+        g.fillStyle = `rgba(255,255,255,${tw.toFixed(2)})`; g.beginPath(); g.arc(X + Math.cos(a) * d, Y + Math.sin(a) * d, 1.3, 0, 7); g.fill();
+      }
+    }
+  }
+  // rain
+  if (w.kind === 'rain' && !still) {
+    const v = vecAt(0, 0, t);
+    while (M.drops.length < 140) M.drops.push({ x: Math.random() * W, y: Math.random() * H, l: 8 + Math.random() * 10 });
+    g.strokeStyle = 'rgba(220,235,245,.45)'; g.lineWidth = 1; g.beginPath();
+    const vx = v[0] * 900, vy = 520;
+    for (const d of M.drops) {
+      d.x += vx * dt; d.y += vy * dt;
+      if (d.y > H + 20 || d.x < -40 || d.x > W + 40) { d.x = Math.random() * W; d.y = -20; }
+      const k = d.l / Math.hypot(vx, vy);
+      g.moveTo(d.x, d.y); g.lineTo(d.x - vx * k, d.y - vy * k);
+    }
+    g.stroke();
+  } else M.drops.length = 0;
+  // snow
+  if (w.kind === 'snow') {
+    while (M.flakes.length < 170) M.flakes.push({ x: Math.random() * W, y: Math.random() * H, r: 0.8 + Math.random() * 1.8, p: Math.random() * 6 });
+    g.fillStyle = 'rgba(255,255,255,.88)';
+    for (const f of M.flakes) {
+      if (!still) {
+        const v = vecAt((f.x - M.cx) / s, (f.y - M.cy) / s, t);
+        f.x += (v[0] * s * 2.2 + Math.sin(t * 1.3 + f.p) * 8) * dt; f.y += (v[1] * s * 2.2 + 18 + f.r * 6) * dt;
+        if (f.y > H + 10 || f.x < -10 || f.x > W + 10) { f.x = Math.random() * W; f.y = -8; }
+      }
+      g.beginPath(); g.arc(f.x, f.y, f.r, 0, 7); g.fill();
+    }
+  } else M.flakes.length = 0;
+  // the house below the pine
+  const hx = sx(PL.house[0]), hy = sy(PL.house[1]), hk = M.k * 0.5;
+  g.fillStyle = 'rgba(0,0,0,.28)'; g.beginPath(); g.ellipse(hx + 2, hy + 1, hk * 0.75, hk * 0.2, 0, 0, 7); g.fill();
+  g.fillStyle = '#e9e3d4'; g.fillRect(hx - hk * 0.5, hy - hk * 0.48, hk, hk * 0.48);
+  g.fillStyle = '#34485a'; g.beginPath(); g.moveTo(hx - hk * 0.66, hy - hk * 0.45); g.lineTo(hx, hy - hk * 0.86); g.lineTo(hx + hk * 0.66, hy - hk * 0.45); g.closePath(); g.fill();
+  g.fillStyle = P.dark ? '#ffd88a' : '#4b5a63'; g.fillRect(hx - hk * 0.14, hy - hk * 0.34, hk * 0.24, hk * 0.18);
+  // the pine
+  drawPine(g, sx(PL.pine[0]), sy(PL.pine[1]), M.k, t, w, P);
+  // the pine singing, and what it gives the wind
+  if (w.kind === 'sol') {
+    if (!still && t - M.lastRing > 1.5) { M.rings.push({ r: 0 }); M.lastRing = t; }
+    const px = sx(PL.pine[0]) + M.k * 0.5, py = sy(PL.pine[1]) - M.k * 0.9;
+    for (const r of M.rings) { r.r += dt * 26; }
+    M.rings = M.rings.filter(r => r.r < 80);
+    for (const r of M.rings) {
+      g.strokeStyle = `rgba(255,226,180,${(0.55 * (1 - r.r / 80)).toFixed(3)})`; g.lineWidth = 1.4;
+      g.beginPath(); g.arc(px, py, r.r + 6, 0, 7); g.stroke();
+    }
+    if (isRead(24) && !still) {
+      if (M.ash.length < 70 && Math.random() < dt * 9) M.ash.push({ x: PL.pine[0] + 0.02, y: PL.pine[1] - 0.05, life: 0 });
+      for (const a of M.ash) {
+        const v = vecAt(a.x, a.y, t);
+        a.x += v[0] * 2.2 * dt + Math.sin(t * 2 + a.life) * 0.002; a.y += v[1] * 2.2 * dt; a.life += dt;
+        g.fillStyle = `rgba(232,232,236,${(0.75 * (1 - a.life / 9)).toFixed(3)})`;
+        g.beginPath(); g.arc(sx(a.x), sy(a.y), 1.4, 0, 7); g.fill();
+      }
+      M.ash = M.ash.filter(a => a.life < 9);
+    }
+  } else M.rings.length = 0;
+  // things on the wind
+  for (const it of M.items) {
+    if (!still) {
+      const v = vecAt(it.x, it.y, t);
+      it.x += v[0] * 2.0 * dt; it.y += v[1] * 2.0 * dt + Math.sin(t * 1.7 + it.rot) * 0.0015; it.rot += it.vr * dt; it.life += dt;
+    }
+    const X = sx(it.x), Y = sy(it.y), pulse = 0.5 + 0.5 * Math.sin(t * 3 + it.id);
+    const gr = g.createRadialGradient(X, Y, 0, X, Y, 20);
+    gr.addColorStop(0, `rgba(255,236,190,${(0.35 + pulse * 0.3).toFixed(3)})`); gr.addColorStop(1, 'rgba(255,236,190,0)');
+    g.fillStyle = gr; g.beginPath(); g.arc(X, Y, 20, 0, 7); g.fill();
+    g.save(); g.translate(X, Y); g.rotate(it.rot);
+    g.fillStyle = '#f6f1e4'; g.fillRect(-5, -7, 10, 14);
+    g.strokeStyle = 'rgba(80,70,60,.6)'; g.lineWidth = 0.8; g.beginPath(); g.moveTo(-5, -1); g.lineTo(5, 1); g.stroke();
+    g.restore();
+  }
+  M.items = M.items.filter(it => it.life < 50 && sx(it.x) > -60 && sx(it.x) < W + 60 && sy(it.y) > -60 && sy(it.y) < H + 60);
+}
+
+function drawPine(g, X, Y, k, t, w, P) {
+  const sing = w.kind === 'sol', still = M.reduce, snow = w.pal === 'snow';
+  const wv = M.pu || [0, 0], wm = Math.hypot(wv[0], wv[1]);
+  const str = clamp(wm / 0.22, 0, 1.6), ux = wm ? wv[0] / wm : 0, uy = wm ? wv[1] / wm : 0;
+  const lean = ux * str;
+  const mixd = clamp(str * 1.4, 0, 1);
+  let dx = lerp(0.18, ux, mixd), dy = lerp(-1, uy, mixd);
+  const dl = Math.hypot(dx, dy) || 1; dx /= dl; dy /= dl;
+  g.fillStyle = 'rgba(0,0,0,.25)'; g.beginPath(); g.ellipse(X + k * 0.35, Y + 1, k * 0.7, k * 0.14, 0, 0, 7); g.fill();
+  const tx = X + k * 0.82 + lean * k * 0.07, ty = Y - k * 1.28 + Math.abs(lean) * k * 0.03, cx = X + k * 0.02 + lean * k * 0.03, cy = Y - k * 0.8;
+  g.strokeStyle = '#3a2a1f'; g.lineCap = 'round'; g.lineWidth = k * 0.14;
+  g.beginPath(); g.moveTo(X, Y); g.quadraticCurveTo(cx, cy, tx, ty); g.stroke();
+  const pads = [[0.42, 1.0, 0.24], [0.6, 1.25, 0.26], [0.78, 1.45, 0.24], [0.96, 1.15, 0.22]];
+  const dark = P.dark ? '#1a2c22' : '#22402e', light = snow ? '#f3f6f5' : P.dark ? '#2f4c39' : '#4c7a54', tuft = P.dark ? '#3e6a4c' : snow ? '#2f5a3e' : '#2e5639';
+  const stretch = 1 + 0.12 * clamp(lean, -1.2, 1.2);
+  const needles = [];
+  pads.forEach(([u, L, h], i) => {
+    const px = (1 - u) * (1 - u) * X + 2 * (1 - u) * u * cx + u * u * tx, py = (1 - u) * (1 - u) * Y + 2 * (1 - u) * u * cy + u * u * ty;
+    let ang = -0.1 - i * 0.02 + clamp(lean, -1.4, 1.4) * 0.08;
+    if (!still) ang += sing ? Math.sin(t * 13 + i * 2.1) * 0.05 + 0.03 : Math.sin(t * (1.3 + str) + i) * (0.02 + str * 0.05);
+    const ca = Math.cos(ang), sa = Math.sin(ang), ex = L * k * 0.58 * stretch, ey = h * k * 0.5, ox = L * k * 0.4 * stretch;
+    g.save(); g.translate(px, py); g.rotate(ang);
+    g.fillStyle = 'rgba(0,0,0,.22)'; g.beginPath(); g.ellipse(ox + 2, h * k * 0.35, ex, h * k * 0.38, 0, 0, 7); g.fill();
+    g.fillStyle = dark; g.beginPath(); g.ellipse(ox, 0, ex, ey, 0, 0, 7); g.fill();
+    g.fillStyle = light; g.beginPath(); g.ellipse(ox * 0.9, -ey * 0.32, ex * 0.83, ey * 0.48, 0, Math.PI, Math.PI * 2); g.fill();
+    g.restore();
+    for (let j = 0; j < 9; j++) {
+      const th = Math.PI * (1.05 + j * 0.13);
+      const lx = ox + Math.cos(th) * ex * 0.96, ly = Math.sin(th) * ey * 0.96;
+      needles.push([px + ca * lx - sa * ly, py + sa * lx + ca * ly, i * 9 + j]);
+    }
+  });
+  const nl = k * (0.11 + 0.2 * Math.min(str, 1.3));
+  g.lineWidth = Math.max(1, k * 0.045); g.lineCap = 'round';
+  g.strokeStyle = tuft;
+  g.beginPath();
+  for (const [x0, y0, j] of needles) {
+    const jit = (j * 0.618 % 1 - 0.5) * 0.7 + (still ? 0 : Math.sin(t * (sing ? 16 : 3 + str * 2) + j) * (sing ? 0.35 : 0.12 + str * 0.12));
+    const c = Math.cos(jit), s2 = Math.sin(jit), ndx = dx * c - dy * s2, ndy = dx * s2 + dy * c;
+    const len = nl * (0.7 + (j * 0.37 % 1) * 0.6);
+    g.moveTo(x0, y0); g.lineTo(x0 + ndx * len, y0 + ndy * len);
+  }
+  g.stroke();
+  if (sing) {
+    g.strokeStyle = 'rgba(255,224,170,.5)'; g.lineWidth = 1.2;
+    g.beginPath(); g.moveTo(X, Y); g.quadraticCurveTo(cx, cy, tx, ty); g.stroke();
+  }
+}
+
+/* the still version, for people who asked their device for less motion */
+function drawStill() {
+  if (!M.W || !M.w) return;
+  gT.setTransform(M.dpr, 0, 0, M.dpr, 0, 0);
+  gT.drawImage(M.base, 0, 0, M.W, M.H);
+  const P = PAL[M.w.pal] || PAL.spring, st = hexRGB(P.streak), r = rng(31);
+  gT.strokeStyle = rgbStr(st, 0.45); gT.lineWidth = 1.1;
+  for (let i = 0; i < 170; i++) {
+    let x = r() * M.W, y = r() * M.H;
+    gT.beginPath(); gT.moveTo(x, y);
+    for (let j = 0; j < 14; j++) {
+      const v = windVec(M.w, (x - M.cx) / M.s, (y - M.cy) / M.s, 0), m = Math.hypot(v[0], v[1]) || 1;
+      x += v[0] / m * 4; y += v[1] / m * 4; gT.lineTo(x, y);
+    }
+    gT.stroke();
+  }
+}
+
+function pineHit(px, py) { return Math.hypot(px - (sx(PL.pine[0]) + M.k * 0.5), py - (sy(PL.pine[1]) - M.k * 0.7)) < M.k * 1.1; }
+function bellHit(px, py) { return Math.hypot(px - sx(PL.bell[0]), py - sy(PL.bell[1])) < 24; }
+
+/* ---------- sound: the sea, the wind, a low drone that carries on small speakers, the pine's song, the fog bell ---------- */
+const AU = { ctx: null, ready: false, tick: 0, lastBell: -99, lastEye: -99, lastDrop: 0, duck: 1 };
+const fxOK = () => AU.ready && S.sound;
+function noiseBuf(ctx, sec) {
+  const sr = ctx.sampleRate, len = Math.floor(sr * sec), xf = Math.floor(sr * 0.5);
+  const buf = ctx.createBuffer(1, len, sr), d = buf.getChannelData(0);
+  let b0 = 0, b1 = 0, b2 = 0, b3 = 0, b4 = 0, b5 = 0, b6 = 0;
+  for (let i = 0; i < len; i++) {
+    const w = Math.random() * 2 - 1;
+    b0 = 0.99886 * b0 + w * 0.0555179; b1 = 0.99332 * b1 + w * 0.0750759; b2 = 0.969 * b2 + w * 0.153852;
+    b3 = 0.8665 * b3 + w * 0.3104856; b4 = 0.55 * b4 + w * 0.5329522; b5 = -0.7616 * b5 - w * 0.016898;
+    d[i] = (b0 + b1 + b2 + b3 + b4 + b5 + b6 + w * 0.5362) * 0.11; b6 = w * 0.115926;
+  }
+  for (let i = 0; i < xf; i++) { const a = i / xf; d[i] = d[i] * Math.sin(a * Math.PI / 2) + d[len - xf + i] * Math.cos(a * Math.PI / 2); }
+  buf.loopEndSec = (len - xf) / sr;
+  return buf;
+}
+function loopSrc(ctx, buf, off) {
+  const s = ctx.createBufferSource();
+  s.buffer = buf; s.loop = true; s.loopStart = 0; s.loopEnd = buf.loopEndSec;
+  s.start(0, (off || 0) % buf.loopEndSec);
+  return s;
+}
+function impulse(ctx, sec, decay) {
+  const sr = ctx.sampleRate, len = Math.floor(sr * sec), b = ctx.createBuffer(2, len, sr);
+  for (let c = 0; c < 2; c++) { const d = b.getChannelData(c); for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, decay); }
+  return b;
+}
+function lfo(ctx, rate, depth, target, phase) {
+  const o = ctx.createOscillator(), g = ctx.createGain();
+  o.frequency.value = rate; g.gain.value = depth;
+  o.connect(g); g.connect(target); o.start(ctx.currentTime + (phase || 0));
+  return o;
+}
+function filt(ctx, type, f, q) { const b = ctx.createBiquadFilter(); b.type = type; b.frequency.value = f; if (q != null) b.Q.value = q; return b; }
+function gainN(ctx, v) { const g = ctx.createGain(); g.gain.value = v; return g; }
+
+function auInit() {
+  if (AU.ctx) { if (AU.ctx.state === 'suspended') AU.ctx.resume().catch(() => {}); return; }
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return;
+  let ctx;
+  try { ctx = new AC({ latencyHint: 'playback' }); } catch (e) { try { ctx = new AC(); } catch (e2) { return; } }
+  AU.ctx = ctx;
+  const master = gainN(ctx, 0.9), hp = filt(ctx, 'highpass', 42), comp = ctx.createDynamicsCompressor();
+  comp.threshold.value = -16; comp.ratio.value = 3; comp.attack.value = 0.02; comp.release.value = 0.4;
+  master.connect(hp); hp.connect(comp); comp.connect(ctx.destination);
+  const rev = ctx.createConvolver(); rev.buffer = impulse(ctx, 2.8, 2.5);
+  const revG = gainN(ctx, 0.3); rev.connect(revG); revG.connect(master);
+  const amb = gainN(ctx, 0); amb.connect(master);
+  const ambRev = gainN(ctx, 0.22); amb.connect(ambRev); ambRev.connect(rev);
+  const fx = gainN(ctx, 1); fx.connect(master);
+  const fxRev = gainN(ctx, 0.45); fx.connect(fxRev); fxRev.connect(rev);
+  Object.assign(AU, { master, rev, amb, fx });
+  const air = noiseBuf(ctx, 7);
+  AU.air = air;
+  // drone: open fifths around D, slow breathing
+  const dl = filt(ctx, 'lowpass', 1050, 0.5), drone = gainN(ctx, 0.05);
+  dl.connect(drone); drone.connect(amb);
+  [[146.83, 0.26, 0], [220, 0.32, 0.4], [293.66, 0.24, 0.9], [329.63, 0.1, 1.3], [440, 0.12, 0.2]].forEach(([f, a, ph], i) => {
+    const o = ctx.createOscillator(), g = gainN(ctx, a * 0.7);
+    o.type = 'sine'; o.frequency.value = f;
+    lfo(ctx, 0.05 + i * 0.013, f * 0.0035, o.frequency, ph);
+    lfo(ctx, 0.031 + i * 0.011, a * 0.3, g.gain, ph * 2);
+    o.connect(g); g.connect(dl); o.start();
+  });
+  // sea: low, slow swells
+  const seaSrc = loopSrc(ctx, air, 0), seaLP = filt(ctx, 'lowpass', 380, 0.6), sea = gainN(ctx, 0.06), swell = gainN(ctx, 1);
+  seaSrc.connect(seaLP); seaLP.connect(swell); swell.connect(sea); sea.connect(amb);
+  lfo(ctx, 0.083, 0.45, swell.gain, 0); lfo(ctx, 0.047, 0.25, swell.gain, 3);
+  // wind: two resonant bands that wander, plus a rumble for storms
+  const wSrc = loopSrc(ctx, air, 2.3), bp1 = filt(ctx, 'bandpass', 460, 4.2), bp2 = filt(ctx, 'bandpass', 900, 6);
+  const g1 = gainN(ctx, 1), g2 = gainN(ctx, 0.55), wind = gainN(ctx, 0.02);
+  const pan = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
+  wSrc.connect(bp1); wSrc.connect(bp2); bp1.connect(g1); bp2.connect(g2); g1.connect(wind); g2.connect(wind);
+  if (pan) { wind.connect(pan); pan.connect(amb); lfo(ctx, 0.07, 0.45, pan.pan, 0); } else wind.connect(amb);
+  lfo(ctx, 0.11, 60, bp1.frequency, 0); lfo(ctx, 0.07, 120, bp2.frequency, 1.1);
+  const rSrc = loopSrc(ctx, air, 4.1), rLP = filt(ctx, 'lowpass', 150, 0.7), rumble = gainN(ctx, 0);
+  rSrc.connect(rLP); rLP.connect(rumble); rumble.connect(amb);
+  // the pine's song: a breathy chord, silent until the south-east wind comes
+  const song = gainN(ctx, 0), songLP = filt(ctx, 'lowpass', 2400, 0.4);
+  song.connect(songLP); songLP.connect(amb);
+  const songRev = gainN(ctx, 0.6); songLP.connect(songRev); songRev.connect(rev);
+  [[392, 0.05], [523.25, 0.04], [587.33, 0.035], [783.99, 0.022], [1174.66, 0.008]].forEach(([f, a], i) => {
+    const o = ctx.createOscillator(), g = gainN(ctx, a);
+    o.type = i === 4 ? 'triangle' : 'sine'; o.frequency.value = f;
+    lfo(ctx, 4.6 + i * 0.4, f * 0.004, o.frequency, i * 0.3);
+    lfo(ctx, 0.17 + i * 0.05, a * 0.8, g.gain, i);
+    o.connect(g); g.connect(song); o.start();
+  });
+  const bSrc = loopSrc(ctx, air, 5.5), bBP = filt(ctx, 'bandpass', 1500, 2.5), breath = gainN(ctx, 0.35);
+  bSrc.connect(bBP); bBP.connect(breath); breath.connect(song);
+  Object.assign(AU, { drone, sea, wind, bp1, bp2, rumble, song });
+  AU.ready = true;
+  auApply(true);
+}
+function ambLevel() {
+  if (!S.sound) return 0;
+  return (NV.on && !NV.paused ? 0.5 : 1) * AU.duck;
+}
+function auApply(fast) {
+  if (!AU.ready) return;
+  const c = AU.ctx, now = c.currentTime;
+  AU.amb.gain.setTargetAtTime(ambLevel(), now, fast ? 0.05 : 0.6);
+  AU.fx.gain.setTargetAtTime(S.sound ? 1 : 0, now, 0.05);
+}
+function auSuspend(hidden) {
+  if (!AU.ctx) return;
+  if (hidden) AU.ctx.suspend().catch(() => {});
+  else if (S.sound) AU.ctx.resume().catch(() => {});
+}
+/* follow the wind on the chart, ten times a second */
+function auStep(dt) {
+  if (!AU.ready || !S.sound) return;
+  AU.tick += dt;
+  if (AU.tick < 0.1) return;
+  AU.tick = 0;
+  const c = AU.ctx, now = c.currentTime, w = M.w;
+  if (!w) return;
+  const here = clamp(M.here, 0, 1.5), pal = w.pal, kind = w.kind;
+  const storm = kind === 'cyclone';
+  const wv = kind === 'fog' ? 0.02 : storm ? 0.08 + here * 0.7 : 0.06 + here * 0.45;
+  AU.wind.gain.setTargetAtTime(wv, now, storm ? 0.35 : 0.6);
+  AU.bp1.frequency.setTargetAtTime(330 + here * 460, now, 0.8);
+  AU.bp2.frequency.setTargetAtTime(720 + here * 720, now, 0.8);
+  AU.rumble.gain.setTargetAtTime(storm ? 0.2 * here : 0.02 * here, now, 0.5);
+  const seaLv = kind === 'fog' ? 0.05 : storm ? 0.12 : pal === 'summer' || pal === 'early' ? 0.1 : pal === 'snow' ? 0.065 : 0.085;
+  AU.sea.gain.setTargetAtTime(seaLv, now, 1.2);
+  AU.drone.gain.setTargetAtTime(storm ? 0.03 : kind === 'sol' ? 0.035 : 0.05, now, 1.5);
+  AU.song.gain.setTargetAtTime(kind === 'sol' ? 0.2 + 0.08 * Math.sin(M.t * 0.6) : 0, now, kind === 'sol' ? 1.4 : 0.6);
+  if (kind === 'fog' && M.t - AU.lastBell > 11 + Math.random() * 6) { AU.lastBell = M.t; bell(0.12); setTimeout(() => bell(0.11), 900); setTimeout(() => bell(0.1), 1800); }
+  if (storm && here < 0.1 && M.t - AU.lastEye > 30) {
+    const cc = cycCenter(M.t);
+    if (Math.hypot(cc[0] - PL.pine[0], cc[1] - PL.pine[1]) < 0.4) { AU.lastEye = M.t; [0, 420, 840].forEach((d, i) => setTimeout(() => bell(0.16), d + i * 10)); }
+  }
+  if (kind === 'rain' && M.t - AU.lastDrop > 0.05) { AU.lastDrop = M.t; for (let i = 0; i < 3; i++) if (Math.random() < 0.6) drop(); }
+}
+function drop() {
+  const c = AU.ctx, t = c.currentTime + Math.random() * 0.1, o = c.createOscillator(), g = gainN(c, 0);
+  o.frequency.setValueAtTime(1500 + Math.random() * 1800, t); o.frequency.exponentialRampToValueAtTime(700, t + 0.05);
+  g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.012, t + 0.004); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.06);
+  o.connect(g); g.connect(AU.amb); o.start(t); o.stop(t + 0.08);
+}
+function bell(vol = 0.14, f = 587.33) {
+  if (!fxOK()) return;
+  const c = AU.ctx, t = c.currentTime, car = c.createOscillator(), mod = c.createOscillator(), mg = gainN(c, 0), g = gainN(c, 0);
+  car.frequency.value = f; mod.frequency.value = f * 1.414;
+  mg.gain.setValueAtTime(f * 2.2, t); mg.gain.exponentialRampToValueAtTime(f * 0.05, t + 2.5);
+  mod.connect(mg); mg.connect(car.frequency); car.connect(g); g.connect(AU.fx);
+  g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + 0.006); g.gain.exponentialRampToValueAtTime(0.0001, t + 4.2);
+  car.start(t); mod.start(t); car.stop(t + 4.3); mod.stop(t + 4.3);
+}
+function chime() {
+  if (!fxOK()) return;
+  const c = AU.ctx;
+  [[783.99, 0], [1174.66, 0.12]].forEach(([f, d]) => {
+    const t = c.currentTime + d, o = c.createOscillator(), o2 = c.createOscillator(), g = gainN(c, 0);
+    o.frequency.value = f; o2.frequency.value = f * 2.76; o2.type = 'sine';
+    const g2 = gainN(c, 0.25); o2.connect(g2); g2.connect(g); o.connect(g); g.connect(AU.fx);
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.06, t + 0.008); g.gain.exponentialRampToValueAtTime(0.0001, t + 1.6);
+    o.start(t); o2.start(t); o.stop(t + 1.7); o2.stop(t + 1.7);
+  });
+}
+function whoosh() {
+  if (!fxOK()) return;
+  const c = AU.ctx, t = c.currentTime, s = c.createBufferSource(), bp = filt(c, 'bandpass', 700, 1.2), g = gainN(c, 0);
+  s.buffer = AU.air; bp.frequency.setValueAtTime(600, t); bp.frequency.exponentialRampToValueAtTime(2200, t + 0.28);
+  g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.18, t + 0.05); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.45);
+  s.connect(bp); bp.connect(g); g.connect(AU.fx); s.start(t, Math.random() * 3); s.stop(t + 0.5);
+}
+function stamp() {
+  if (!fxOK()) return;
+  const c = AU.ctx, t = c.currentTime, o = c.createOscillator(), g = gainN(c, 0);
+  o.frequency.setValueAtTime(110, t); o.frequency.exponentialRampToValueAtTime(52, t + 0.14);
+  g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.3, t + 0.004); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.25);
+  o.connect(g); g.connect(AU.fx); o.start(t); o.stop(t + 0.3);
+  const s = c.createBufferSource(), hp = filt(c, 'bandpass', 1800, 0.8), g2 = gainN(c, 0);
+  s.buffer = AU.air; g2.gain.setValueAtTime(0.12, t); g2.gain.exponentialRampToValueAtTime(0.0001, t + 0.05);
+  s.connect(hp); hp.connect(g2); g2.connect(AU.fx); s.start(t, 1); s.stop(t + 0.06);
+}
+function pineTap() {
+  if (!fxOK()) return;
+  const c = AU.ctx, t = c.currentTime;
+  if (M.w && M.w.kind === 'sol') { AU.song.gain.cancelScheduledValues(t); AU.song.gain.setTargetAtTime(0.45, t, 0.2); return; }
+  const s = c.createBufferSource(), bp = filt(c, 'bandpass', 900, 1.4), g = gainN(c, 0);
+  s.buffer = AU.air; g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.16, t + 0.5); g.gain.exponentialRampToValueAtTime(0.0001, t + 2.6);
+  bp.frequency.setValueAtTime(700, t); bp.frequency.linearRampToValueAtTime(1300, t + 1.2);
+  s.connect(bp); bp.connect(g); g.connect(AU.fx); s.start(t, Math.random() * 4); s.stop(t + 2.7);
+}
+
+/* ---------- the year, the card, the reader, the wind book ---------- */
+const HAND = {
+  '순이': { c: 'suni', role: 'suni', seal: '순이' },
+  '금례': { c: 'geum', role: 'geum', seal: '금례' },
+  '윤재': { c: 'yun', role: 'yun', seal: '윤재' },
+  '솔': { c: 'sol', role: 'sol', seal: '솔' },
+  '윤재솔': { c: 'sol', role: 'sol', seal: '솔' },
+  '연희': { c: 'yeon', role: 'yeon', seal: '연희' },
+  '모두': { c: 'all', role: 'sol', seal: '' },
+  '당신': { c: 'you', role: 'you', seal: '당신' },
+};
+const LINE_HAND = { '순이': 'suni', '금례': 'geum', '윤재': 'yun', '솔': 'sol' };
+const ICON = {
+  next: '<svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg>',
+  ear: '<svg viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg>',
+  copy: '<svg viewBox="0 0 24 24"><rect x="8" y="8" width="11" height="12" rx="2"/><path d="M5 15V5a1 1 0 0 1 1-1h9"/></svg>',
+};
+const paraHTML = t => esc(t).replace(/「([^」]*)」/g, '<span class="w">「$1」</span>');
+
+function renderChapter(n) {
+  const c = CH[n], out = [];
+  let u = 0;
+  const U = (tag, cls, html, role, kind, say) => `<${tag}${cls ? ` class="${cls}"` : ''} data-u="${u++}" data-role="${role}" data-kind="${kind}"${say != null ? ` data-say="${esc(say)}"` : ''}>${html}</${tag}>`;
+  const spoken = n === 0 ? '서. 바람책 첫 장.' : n === LAST ? '맺음. 아직 이름이 없는 바람.' : `제${n}장. ${c.term}. ${c.wind}.`;
+  out.push(`<header class="chead"><p class="cl">${esc(chLabel(n, true))}</p>${U('h1', '', esc(c.wind), 'sol', 'title', spoken)}${U('p', 'cs', esc(c.sub), 'sol', 'sub')}<p class="cm">${esc(metaText(c, n))}</p></header>`);
+  for (const sec of c.secs) {
+    if (sec.t === 'story') {
+      let note = null;
+      const close = () => { if (note) { out.push(`<div class="hn h-${note.c}">${note.items.join('')}</div>`); note = null; } };
+      for (const p of sec.paras) {
+        if (p === '*') { close(); out.push(U('span', 'brk', '· · ·', 'sol', 'break', '')); continue; }
+        const m = /^@(\S+)\s+([\s\S]*)$/.exec(p);
+        if (m) {
+          const h = HAND[m[1]] || HAND['윤재'];
+          if (!note || note.c !== h.c) { close(); note = { c: h.c, items: [] }; }
+          note.items.push(U('p', '', paraHTML(m[2]), h.role, 'note'));
+          continue;
+        }
+        close();
+        out.push(U('p', '', paraHTML(p), 'sol', 'p'));
+      }
+      close();
+    } else out.push(pageHTML(sec, U));
+  }
+  if (n === LAST && S.mine) out.push(pageHTML(minePage(), U));
+  out.push(`<footer class="cend" id="cend">${endHTML(n)}</footer>`);
+  return out.join('');
+}
+function pageHead(sec) {
+  if (sec.hand === '모두') return '바람책 맨 뒤 쪽';
+  if (sec.hand === '당신') return `바람책 맨 뒤 쪽 · 당신이 적음 · ${sec.year}`;
+  if (sec.hand === '윤재솔') return `바람책 · 윤재가 불러 주고 솔이 받아 적음 · ${sec.year} ${sec.term}`;
+  if (/~/.test(sec.year)) return `솔바람 공책 · 윤재 · ${sec.year} ${sec.term}`;
+  return `바람책 · ${sec.hand} · ${sec.year} ${sec.term}`;
+}
+function pageHTML(sec, U) {
+  const h = HAND[sec.hand] || HAND['윤재'], head = pageHead(sec);
+  let html = `<section class="page h-${h.c}">${U('p', 'ph', esc(head), 'sol', 'head', head.replace(/ · /g, '. ').replace(/~/g, '년부터 ').replace(/\((\d{4})\)/, ', $1년'))}`;
+  if (h.seal) html += `<span class="seal" aria-hidden="true">${esc(h.seal)}</span>`;
+  if (sec.fields.length) {
+    html += '<dl>' + sec.fields.map(([k, v]) => U('div', '', `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`, h.role, 'field', `${k}, ${v}`)).join('') + '</dl>';
+  }
+  if (sec.body.length) {
+    html += '<div class="pb">' + sec.body.map(p => {
+      const lm = / ― (순이|금례|윤재|솔)$/.exec(p);
+      if (lm) {
+        const who = lm[1], hc = LINE_HAND[who], txt = p.slice(0, lm.index);
+        return U('p', `l-${hc}`, `${esc(txt)}<span class="yr">${esc(who)}</span>`, HAND[who].role, 'line', `${txt} ${who}.`);
+      }
+      const ym = /^(\d{4}) ― ([\s\S]*)$/.exec(p);
+      if (ym) return U('p', '', `<span class="yr" style="margin:0 0 .1em">${ym[1]}</span>${paraHTML(ym[2])}`, h.role, 'p', `${ym[1]}년. ${ym[2]}`);
+      return U('p', '', paraHTML(p), h.role, 'p');
+    }).join('') + '</div>';
+  }
+  return html + '</section>';
+}
+function minePage() {
+  const m = S.mine, f = [['이름', m.name || '아직 이름이 없는 바람']];
+  if (m.when) f.push(['부는 때', m.when]);
+  f.push(['오는 쪽', dirText(m.from)]);
+  if (m.carry) f.push(['싣고 오는 것', m.carry]);
+  return { t: 'book', hand: '당신', year: m.date || '', term: '', fields: f, body: m.text ? m.text.split(/\n\s*\n/).map(s => s.trim()).filter(Boolean) : [] };
+}
+const DIR_GRID = [315, 0, 45, 270, -1, 90, 225, 180, 135];
+function endHTML(n) {
+  if (n === LAST && !S.mine) {
+    const from = S.mineDraft || 135;
+    return `<form class="mine" id="mineForm" novalidate>
+      <label for="mN">바람 이름 <small>비워 두어도 좋습니다</small></label><input id="mN" maxlength="24" placeholder="아직 이름이 없는 바람" autocomplete="off">
+      <label for="mW">부는 때</label><input id="mW" maxlength="40" placeholder="비 갠 저녁, 이사하던 날 아침" autocomplete="off">
+      <div><p class="small" style="margin:0 0 6px">오는 쪽</p><div class="dirs" id="mD">${DIR_GRID.map(d => d < 0 ? '<span class="dirs mid" style="display:grid;place-items:center">바람이<br>오는 쪽</span>' : `<button type="button" data-d="${d}" aria-pressed="${d === from}">${dirOf(d)[1]}</button>`).join('')}</div></div>
+      <label for="mC">싣고 오는 것</label><input id="mC" maxlength="40" placeholder="빨래 냄새, 누군가의 목소리" autocomplete="off">
+      <label for="mT">어떤 바람이었는지</label><textarea id="mT" maxlength="500"></textarea>
+      <div class="acts"><button class="btn red" type="submit">바람책 맨 뒤에 적기</button><button class="btn ghost" type="button" data-act="skipMine">적지 않고 덮기</button></div>
+    </form>`;
+  }
+  if (!isRead(n)) return `<button class="btn red" data-act="stamp">바람책에 적기</button><p class="small">다 읽으셨으면 눌러 주세요. 이 장의 바람이 섬에 불고, 바람장미에 잎이 하나 돋습니다.</p>`;
+  const seal = '<span class="done"><span class="seal" style="position:static">적음</span>바람책에 적었습니다</span>';
+  if (n === LAST) return `${seal}<div class="acts"><button class="btn" data-act="copyMine">${ICON.copy}내 바람 글 복사</button><button class="btn ghost" data-act="toMap">섬으로</button></div><p class="small">당신의 바람이 이제 외솔섬에 붑니다. 바람장미에는 금빛 잎으로 남습니다.</p>`;
+  return `${seal}<div class="acts"><button class="btn" data-act="nextCh">다음 장 · ${esc(CH[n + 1].wind)}${ICON.next}</button><button class="btn ghost" data-act="toMap">섬으로</button></div>`;
+}
+
+/* ---------- the card and the year strip ---------- */
+function renderYear() {
+  $('#year').innerHTML = CH.map((c, n) => `<button data-n="${n}" aria-label="${esc(chLabel(n, true) + ', ' + c.wind)}"><span class="yt">${esc(chLabel(n))}</span><span class="yw">${esc(c.wind)}</span><i></i></button>`).join('');
+  markYear();
+}
+function markYear() {
+  $$('#year button').forEach(b => {
+    const n = +b.dataset.n;
+    b.className = [n === S.cur ? 'on' : '', isRead(n) ? 'rd' : '', isOpen(n) ? '' : 'lk'].join(' ').trim();
+    if (n === S.cur) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+  });
+  const on = $('#year .on');
+  if (on && innerWidth < 900) { const y = $('#year'); y.scrollLeft = on.offsetLeft - y.clientWidth / 2 + on.offsetWidth / 2; }
+  else if (on) on.scrollIntoView({ block: 'nearest' });
+}
+function updateCard() {
+  const n = S.cur, c = CH[n], read = isRead(n), open = isOpen(n);
+  let acts;
+  if (!open) acts = `<p class="note">앞 장을 먼저 읽으면 열립니다.</p><button class="link" data-act="read">그래도 읽기</button>`;
+  else if (n === LAST && read) acts = `<div class="acts"><button class="btn" data-act="read">${S.mine ? '당신의 바람 보기' : '다시 읽기'}</button><button class="btn ghost" data-act="first">처음 장으로</button></div>`;
+  else if (read) acts = `<div class="acts"><button class="btn" data-act="next">다음 장${ICON.next}</button><button class="btn ghost" data-act="read">다시 읽기</button></div>`;
+  else acts = `<div class="acts"><button class="btn" data-act="read">${n === 0 ? '서장 읽기' : '읽기'}</button><button class="btn ghost" data-act="listen">${ICON.ear}듣기</button></div>`;
+  const wind = n === LAST && read && S.mine ? (S.mine.name || '아직 이름이 없는 바람') : c.wind;
+  const sub = n === LAST && read && S.mine ? '당신이 적은 바람' : c.sub;
+  const meta = n === LAST && read && S.mine ? `오는 쪽 ${dirText(S.mine.from)} · 세기 셋, 산들바람` : metaText(c, n);
+  $('#cb').innerHTML = `<p class="term">${esc(chLabel(n, true))}${read ? ' · 적음' : ''}</p><h2>${esc(wind)}</h2><p class="sub">${esc(sub)}</p><p class="meta">${esc(meta)}</p>${acts}`;
+  markYear();
+  $('#bRose').innerHTML = roseSVG(false);
+}
+function select(n) {
+  n = clamp(n, 0, LAST);
+  if (n === S.cur) return;
+  S.cur = n; save();
+  updateCard();
+  setWind(n);
+}
+
+/* ---------- the wind rose ---------- */
+function roseSVG(big) {
+  const R = 100, pol = (a, r) => [Math.sin(a) * r, -Math.cos(a) * r];
+  const col = big ? 'currentColor' : '#ffffff';
+  let s = `<svg viewBox="-128 -128 256 256" ${big ? 'role="img" aria-label="지금까지 읽은 바람의 바람장미"' : 'aria-hidden="true"'}>`;
+  [3, 6, 9, 12].forEach(f => { s += `<circle r="${(R * (0.2 + 0.8 * f / 12)).toFixed(1)}" fill="none" stroke="${col}" stroke-opacity="${big ? 0.22 : 0.35}" ${f === 12 ? '' : 'stroke-dasharray="2 5"'}/>`; });
+  DIRS.forEach(d => {
+    const a = d[0] * Math.PI / 180, [x, y] = pol(a, R), [x2, y2] = pol(a, R * 0.16);
+    s += `<line x1="${x2.toFixed(1)}" y1="${y2.toFixed(1)}" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}" stroke="${col}" stroke-opacity="${big ? 0.16 : 0.25}"/>`;
+    if (big) { const [lx, ly] = pol(a, R * 1.15); s += `<text x="${lx.toFixed(1)}" y="${ly.toFixed(1)}" text-anchor="middle" dominant-baseline="middle" font-size="13" fill="currentColor" opacity=".75" font-family="Gowun Batang,serif">${d[1]}</text>`; }
+  });
+  const petal = (from, force, color, key, kind) => {
+    const L = R * (0.2 + 0.8 * force / 12);
+    if (kind === 'radial' || kind === 'chaos' || kind === 'cyclone') {
+      return `<circle data-k="${key}" r="${(L * 0.42).toFixed(1)}" fill="none" stroke="${color}" stroke-width="${kind === 'cyclone' ? 7 : 4}" stroke-opacity=".85" ${kind === 'chaos' ? 'stroke-dasharray="3 4"' : ''}/>`;
+    }
+    const a = from * Math.PI / 180, p0 = pol(a, 9), p1 = pol(a - 0.13, L * 0.56), p2 = pol(a, L), p3 = pol(a + 0.13, L * 0.56);
+    return `<path data-k="${key}" d="M${p0.map(v => v.toFixed(1)).join(' ')}L${p1.map(v => v.toFixed(1)).join(' ')}L${p2.map(v => v.toFixed(1)).join(' ')}L${p3.map(v => v.toFixed(1)).join(' ')}Z" fill="${color}" fill-opacity=".82" stroke="${big ? 'var(--paper)' : 'rgba(10,20,28,.5)'}" stroke-width="1"/>`;
+  };
+  const ps = [];
+  CH.forEach((c, n) => { if (n > 0 && n < LAST && isRead(n)) ps.push([c.force, petal(c.from, c.force, PETAL[SEASON[n]], n, c.kind)]); });
+  ps.sort((a, b) => b[0] - a[0]).forEach(p => { s += p[1]; });
+  if (S.mine && isRead(LAST)) s += petal(S.mine.from, 3, PETAL.mine, 'mine', 'flow');
+  s += `<circle r="5" fill="${col}" fill-opacity=".8"/>`;
+  return s + '</svg>';
+}
+
+/* ---------- the wind book panel ---------- */
+let TAB = 'toc', GF = '전체', GQ = '';
+function openBook(tab) {
+  if (tab) TAB = tab;
+  $('#toast').classList.remove('on');
+  $('#book').hidden = false;
+  if (innerWidth < 900) M.paused = true;
+  $$('.tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === TAB)));
+  renderPane();
+}
+function closeBook() { $('#book').hidden = true; if ($('#reader').hidden) M.paused = false; }
+function renderPane() {
+  const p = $('#pane');
+  if (TAB === 'toc') {
+    p.innerHTML = `<p class="small">${CH.filter((c, n) => isRead(n)).length} / ${CH.length} 장을 적었습니다.</p><ul class="toc">${CH.map((c, n) => `<li><button data-open="${n}" class="${isOpen(n) ? '' : 'lk'} ${n === S.cur ? 'cur' : ''}"><span class="t1">${esc(chLabel(n))}</span><span class="t2">${esc(c.wind)}<span class="t3">${esc(c.sub)}</span></span>${isRead(n) ? '<span class="sm" aria-label="적음">적음</span>' : '<span></span>'}</button></li>`).join('')}</ul>`;
+  } else if (TAB === 'rose') {
+    const k = CH.filter((c, n) => n > 0 && n < LAST && isRead(n)).length;
+    p.innerHTML = `<div class="rosebig"><p class="small">읽은 장의 바람이 바람장미의 잎이 됩니다. 잎은 바람이 오는 쪽을 가리키고, 길이는 바람의 세기입니다. 가운데 고리는 일정한 쪽 없이 부는 바람입니다.</p>${roseSVG(true)}<p class="cap" id="roseCap">${k ? `${k}개의 바람. 잎을 눌러 보세요.` : '아직 잎이 없습니다. 첫 장을 읽으면 첫 잎이 돋습니다.'}</p><div class="legend">${[['spring', '봄'], ['summer', '여름'], ['autumn', '가을'], ['winter', '겨울'], ['sol', '솔바람'], ['mine', '당신의 바람']].map(([k2, t]) => `<span><i style="background:${PETAL[k2]}"></i>${t}</span>`).join('')}</div></div>`;
+  } else if (TAB === 'gloss') {
+    const kinds = ['전체', '방위', '세기', '철', '곳', '모양', '이 섬'];
+    const list = D.glossary.filter(g => (GF === '전체' || g.k === GF) && (!GQ || g.name.includes(GQ) || g.def.includes(GQ)));
+    p.innerHTML = `<p class="small">바람 이름 ${D.glossary.length}개. 뜻은 우리말 사전과 기상청 풍력 계급 이름을 참고해 옮겼고, '이 섬' 갈래는 이야기 속에서 지어낸 이름입니다.</p>
+      <input class="gsearch" id="gq" type="search" placeholder="이름이나 뜻으로 찾기" value="${esc(GQ)}" aria-label="바람 이름 찾기" style="margin-top:12px">
+      <div class="gfil">${kinds.map(k => `<button data-gf="${k}" aria-pressed="${k === GF}">${k}</button>`).join('')}</div>
+      <ul class="gl">${list.map(g => `<li><b>${esc(g.name)}</b><span class="k">${esc(g.k)}</span><p>${esc(g.def)}</p>${g.ch !== null && isRead(g.ch) ? `<button class="link go" data-open="${g.ch}">${esc(chLabel(g.ch, true))}에서 읽기</button>` : ''}</li>`).join('') || '<li><p>찾는 이름이 없습니다.</p></li>'}</ul>`;
+  } else if (TAB === 'things') {
+    const got = D.extras.filter((e, i) => S.items[i]).length;
+    p.innerHTML = `<p class="small">읽은 장의 바람이 섬에 불 때 가끔 무언가가 실려 옵니다. 지도 위에서 빛나는 종이 조각을 눌러 잡으세요. ${got} / ${D.extras.length}</p><div class="things" style="margin-top:12px">${D.extras.map((e, i) => S.items[i] ? `<button class="got" data-thing="${i}"><b>${esc(e.title)}</b><small>${esc(CH[e.ch].wind)}</small></button>` : `<button disabled aria-label="아직 잡지 못함"><b>?</b><small>${isRead(e.ch) ? esc(CH[e.ch].wind) + '에 실려 올 것' : '아직 불지 않은 바람'}</small></button>`).join('')}</div>`;
+  } else if (TAB === 'set') {
+    p.innerHTML = `<div class="set">
+      <div class="row"><h3>소리</h3><button class="sw" data-set="sound" aria-pressed="${S.sound}" aria-label="소리"></button></div>
+      <p class="small">바다와 바람, 낮은 울림, 안개 종, 소나무의 노래가 섬의 바람을 따라 바뀝니다.</p>
+      <h3>소리 내어 읽기</h3>${voiceSetHTML()}
+      <div class="row"><label for="sRate">읽는 빠르기</label><input id="sRate" type="range" min="0.7" max="1.4" step="0.05" value="${S.vrate}"></div>
+      <div class="row"><label for="sFs">글자 크기</label><input id="sFs" type="range" min="0.85" max="1.45" step="0.05" value="${S.fs}"></div>
+      <div class="row"><h3>모든 장 열어 두기</h3><button class="sw" data-set="all" aria-pressed="${S.all}" aria-label="모든 장 열어 두기"></button></div>
+      <p class="small">순서대로 읽기를 권하지만, 원하는 장부터 읽을 수도 있습니다.</p>
+      <div class="row"><h3>처음부터 다시</h3><button class="btn ghost" data-set="reset" id="sReset">지우기</button></div>
+      <p class="small">읽은 기록과 잡은 것, 적은 바람은 이 브라우저에만 남습니다.</p>
+      <p class="small" style="margin-top:12px">「바람을 받아 적는 사람」 · 한올 지음. 외솔섬과 사람들, 바람책은 지어낸 것입니다.</p>
+    </div>`;
+  }
+}
+function showThing(i) {
+  const e = D.extras[i];
+  if (!e) return;
+  $('#ccF').textContent = `${chLabel(e.ch, true)} · ${CH[e.ch].wind}에 실려 옴`;
+  $('#ccT').textContent = e.title;
+  $('#ccX').textContent = e.text;
+  $('#catch').hidden = false;
+  M.catchOpen = performance.now();
+  $('#ccOk').focus({ preventScroll: true });
+}
+
+/* ---------- the reader ---------- */
+function openReader(n, listen) {
+  n = clamp(n, 0, LAST);
+  if (S.cur !== n) { S.cur = n; save(); updateCard(); setWind(n); }
+  $('#rBody').innerHTML = renderChapter(n);
+  $('#rTitle').textContent = `${chLabel(n, true)} · ${CH[n].wind}`;
+  const r = $('#reader');
+  $('#toast').classList.remove('on');
+  r.hidden = false; r.scrollTop = 0;
+  M.paused = true;
+  closeBook();
+  M.paused = true;
+  whoosh();
+  bindMine();
+  if (listen) vStart(n); else if (NV.on && NV.n !== n) vStop();
+  setTimeout(() => $('#rClose').focus({ preventScroll: true }), 50);
+}
+function closeReader() {
+  vStop();
+  $('#reader').hidden = true;
+  M.paused = false;
+  if (M.reward != null) {
+    const n = M.reward; M.reward = null;
+    setTimeout(() => reward(n), 600);
+  }
+}
+function markRead(n, quiet) {
+  if (isRead(n)) return;
+  S.read[n] = true; S.started = true; save();
+  if (!quiet) stamp();
+  M.reward = n;
+  updateCard();
+  if (n === LAST) setWind(n);
+}
+function stampHere(n) {
+  markRead(n);
+  const e = $('#cend');
+  if (e) { e.innerHTML = endHTML(n); const s = e.querySelector('.seal'); if (s) s.classList.add('stampfx'); bindMine(); }
+}
+function reward(n) {
+  const mine = D.extras.map((e, i) => i).filter(i => D.extras[i].ch === n && !S.items[i]);
+  if (mine.length && spawnItem(mine[0])) {
+    if (!S.hint) { S.hint = true; save(); setTimeout(() => toast('바람에 무언가 실려 옵니다. 빛나는 종이 조각을 눌러 잡아 보세요.', 5200), 900); }
+  } else if (n > 0 && n < LAST) toast(`${CH[n].wind}이 섬에 붑니다.`);
+}
+function bindMine() {
+  const f = $('#mineForm');
+  if (!f) return;
+  let from = 135;
+  $('#mD').addEventListener('click', e => {
+    const b = e.target.closest('button[data-d]');
+    if (!b) return;
+    from = +b.dataset.d;
+    $$('#mD button').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+  });
+  f.addEventListener('submit', e => {
+    e.preventDefault();
+    const v = id => $(id).value.trim();
+    const text = v('#mT'), name = v('#mN');
+    if (!text && !name && !v('#mW') && !v('#mC')) { toast('한 칸이라도 적어 주세요. 적지 않으려면 옆의 단추를 누르세요.'); return; }
+    S.mine = { name, when: v('#mW'), from, carry: v('#mC'), text, date: new Date().toISOString().slice(0, 10) };
+    save();
+    const body = $('#rBody'), keep = body.scrollTop;
+    markRead(LAST);
+    body.innerHTML = renderChapter(LAST);
+    const pages = $$('.page', body), last = pages[pages.length - 1];
+    if (last) last.scrollIntoView({ block: 'start' });
+    $('#reader').scrollTop = Math.max(keep, $('#reader').scrollTop);
+    const s = $('#cend .seal'); if (s) s.classList.add('stampfx');
+    bindMine();
+  });
+}
+function mineText() {
+  const m = S.mine;
+  if (!m) return '';
+  return [`이름: ${m.name || '아직 이름이 없는 바람'}`, m.when && `부는 때: ${m.when}`, `오는 쪽: ${dirText(m.from)}`, m.carry && `싣고 오는 것: ${m.carry}`, m.text && `\n${m.text}`, '\n― 「바람을 받아 적는 사람」 바람책 맨 뒤 쪽에'].filter(Boolean).join('\n');
+}
+
+function act(a, el) {
+  const n = S.cur;
+  if (a === 'read') openReader(n);
+  else if (a === 'listen') openReader(n, true);
+  else if (a === 'next') select(n + 1);
+  else if (a === 'first') select(0);
+  else if (a === 'stamp') stampHere(n);
+  else if (a === 'nextCh') { closeReaderQuiet(); openReader(n + 1); }
+  else if (a === 'toMap') closeReader();
+  else if (a === 'skipMine') { stampHere(LAST); }
+  else if (a === 'copyMine') {
+    const t = mineText();
+    try { navigator.clipboard.writeText(t).then(() => toast('복사했습니다. 어디에든 붙여 넣으세요.'), () => toast('이 화면에서는 복사가 막혀 있습니다. 글을 길게 눌러 복사해 주세요.')); }
+    catch (e) { toast('이 화면에서는 복사가 막혀 있습니다. 글을 길게 눌러 복사해 주세요.'); }
+  }
+}
+function closeReaderQuiet() { vStop(); M.reward = null; }
+
+/* ---------- reading aloud with the device's own Korean voices ---------- */
+const NV = { kind: null, why: '', voices: [], bad: new Set(), on: false, paused: false, n: -1, segs: [], idx: 0, tok: 0, err: 0, timer: 0, dog: 0, cur: null, lock: null, userScroll: 0, hi: null };
+const VR = { A: null, B: null, C: null };
+const MALE_RE = /(male|남성|injoon|hyunsu|bongjin|gookmin|minsu|jian|-x-koc|-x-kod|smtm)/i;
+const FEMALE_RE = /(female|여성|sunhi|heami|jimin|seohyeon|soonbok|yujin|yuna|sora|suhyun|google 한국|-x-ism|-x-kob|smtf)/i;
+const isMale = v => !!v && MALE_RE.test(v.name) && !/female/i.test(v.name);
+const isFemale = v => !!v && !isMale(v) && FEMALE_RE.test(v.name);
+const rateK = () => clamp(+S.vrate || 1, 0.6, 1.6);
+function scoreVoice(v) { let s = 0; if (/natural|neural|premium|enhanced|고품질/i.test(v.name)) s += 5; if (!v.net) s += 2; if (v.def) s += 1; return s + (v.q || 0) / 250; }
+function resolveRoles() {
+  const all = NV.voices.slice().sort((a, b) => scoreVoice(b) - scoreVoice(a));
+  const ok = all.filter(v => !v.missing && !NV.bad.has(v.name));
+  const named = nm => (nm && !NV.bad.has(nm) && all.find(v => v.name === nm)) || null;
+  VR.A = named(S.vA) || ok.find(isFemale) || ok[0] || null;
+  VR.B = named(S.vB) || ok.find(v => isMale(v) && v !== VR.A) || ok.find(v => v !== VR.A) || VR.A;
+  VR.C = named(S.vC) || ok.find(v => isFemale(v) && v !== VR.A) || VR.A;
+}
+function webVoices() {
+  let vs = [];
+  try { vs = speechSynthesis.getVoices() || []; } catch (e) { vs = []; }
+  return { any: vs.length, ko: vs.filter(v => /^ko([-_]|$)/i.test(v.lang || '')).map(v => ({ name: v.name, net: !v.localService, q: 0, def: !!v.default, obj: v })) };
+}
+function voiceDetect(cb) {
+  const done = () => { resolveRoles(); if (!$('#book').hidden && TAB === 'set') renderPane(); if (cb) cb(); };
+  if (window.NightVoice && typeof window.NightVoice.enqueue === 'function') {
+    const poll = k => {
+      let st = 'fail';
+      try { st = String(window.NightVoice.ready()); } catch (e) { st = 'fail'; }
+      if (st === 'wait' && k < 50) { setTimeout(() => poll(k + 1), 200); return; }
+      if (st !== 'ok') { NV.kind = 'none'; NV.why = st === 'nolang' ? 'nolang' : 'engine'; done(); return; }
+      let list = [];
+      try { list = JSON.parse(window.NightVoice.voices() || '[]'); } catch (e) { list = []; }
+      NV.voices = list.map(v => ({ name: String(v.name), net: !!v.net, q: +v.q || 0, missing: !!v.missing, def: !!v.def }));
+      NV.kind = 'native'; NV.why = '';
+      done();
+    };
+    poll(0);
+    return;
+  }
+  if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') { NV.kind = 'none'; NV.why = 'api'; done(); return; }
+  const take = () => {
+    const w = webVoices();
+    NV.voices = w.ko;
+    if (w.ko.length) { NV.kind = 'web'; NV.why = ''; }
+    else if (/; wv\)/.test(navigator.userAgent)) { NV.kind = 'none'; NV.why = 'webview'; }
+    else if (w.any) { NV.kind = 'none'; NV.why = 'nolang'; }
+    else { NV.kind = 'web'; NV.why = 'blind'; }
+    return w.ko.length > 0;
+  };
+  if (take()) { done(); return; }
+  let fin = false;
+  const end = () => { if (fin) return; fin = true; take(); done(); };
+  try { speechSynthesis.addEventListener('voiceschanged', () => { if (fin) { take(); done(); } else if (webVoices().ko.length) end(); }); } catch (e) { /* old browsers */ }
+  setTimeout(end, 1800);
+}
+const vSupported = () => NV.kind === 'native' || NV.kind === 'web';
+function whyMsg() {
+  if (NV.why === 'nolang') return '이 기기에는 한국어 음성이 없습니다. 기기 설정의 텍스트 음성 변환에서 한국어 음성을 내려받거나, 크롬·엣지·사파리에서 열어 주세요.';
+  if (NV.why === 'webview') return '이 화면 안에서는 소리 내어 읽을 수 없습니다. 크롬이나 사파리 같은 브라우저에서 열어 주세요.';
+  if (NV.why === 'engine') return '기기의 음성 엔진을 찾지 못했습니다. 설정의 텍스트 음성 변환을 확인해 주세요.';
+  if (NV.kind === null) return '목소리를 찾는 중입니다. 잠시 뒤에 다시 눌러 주세요.';
+  return '이 화면에서는 소리 내어 읽을 수 없습니다. 크롬이나 엣지, 사파리에서 열어 주세요.';
+}
+
+/* ---------- turning a chapter into spoken pieces ---------- */
+function splitSent(t) {
+  const out = [];
+  let s = 0;
+  for (let i = 0; i < t.length; i++) {
+    const c = t[i];
+    if (c === '.' || c === '?' || c === '!' || c === '…') {
+      let j = i + 1;
+      while (j < t.length && '”’".…?!'.includes(t[j])) j++;
+      if (j >= t.length || t[j] === ' ') { const p = t.slice(s, j).trim(); if (p) out.push(p); s = j; i = j - 1; }
+    }
+  }
+  const r = t.slice(s).trim();
+  if (r) out.push(r);
+  return out;
+}
+function splitLong(s, max) {
+  if (s.length <= max * 1.35) return [s];
+  const bits = s.split(', '), out = [];
+  let cur = '';
+  bits.forEach((b, i) => {
+    const piece = i < bits.length - 1 ? b + ',' : b;
+    if (cur && cur.length + piece.length + 1 > max) { out.push(cur); cur = piece; } else cur = cur ? cur + ' ' + piece : piece;
+  });
+  if (cur) out.push(cur);
+  return out;
+}
+function cleanSpeech(t) {
+  return String(t)
+    .replace(/[“”"‘’「」『』]/g, '')
+    .replace(/\s*[·―—–]\s*/g, ', ')
+    .replace(/ㅇㅈ/g, '윤재')
+    .replace(/~/g, ', ')
+    .replace(/(\d+)m\/s/g, '초속 $1미터')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+function rolePar(role) {
+  const A = VR.A, same = v => !v || !A || v.name === A.name;
+  switch (role) {
+    case 'yun': return { v: VR.B, pitch: same(VR.B) ? 0.76 : isMale(VR.B) ? 0.92 : 0.82, rate: 0.86 };
+    case 'geum': return { v: VR.C, pitch: same(VR.C) ? 0.84 : 0.9, rate: 0.84 };
+    case 'suni': return { v: VR.A, pitch: 1.18, rate: 0.9 };
+    case 'yeon': return { v: VR.C, pitch: same(VR.C) ? 1.08 : 1.02, rate: 0.9 };
+    case 'you': return { v: VR.A, pitch: 1, rate: 0.94 };
+    default: return { v: VR.A, pitch: 1, rate: 1 };
+  }
+}
+const SLOW = { title: 0.86, sub: 0.92, head: 0.95, field: 0.95 };
+const GAP = { title: 1300, sub: 1000, p: 560, note: 700, head: 700, field: 360, line: 700, break: 1500 };
+function buildSegs() {
+  const segs = [{ gap: 600 }];
+  $$('#rBody [data-u]').forEach(el => {
+    const kind = el.dataset.kind, role = el.dataset.role, u = +el.dataset.u;
+    if (kind === 'break') { segs.push({ gap: GAP.break, u }); return; }
+    if (kind === 'head') segs.push({ gap: 500, u });
+    const text = cleanSpeech(el.dataset.say != null ? el.dataset.say : el.textContent);
+    if (!text) return;
+    const parts = [];
+    splitSent(text).forEach(s => splitLong(s, 64).forEach(x => parts.push(x)));
+    parts.forEach((t, i) => segs.push({ text: t, role, u, first: i === 0, kind }));
+    segs.push({ gap: GAP[kind] || 560, u });
+  });
+  segs.push({ gap: 1000 });
+  return segs;
+}
+function segParams(s) {
+  const r = rolePar(s.role), base = NV.kind === 'native' ? 0.9 : 0.92;
+  return { name: r.v ? r.v.name : '', obj: r.v && r.v.obj, net: !!(r.v && r.v.net), rate: +clamp(base * r.rate * (SLOW[s.kind] || 1) * rateK(), 0.4, 2).toFixed(3), pitch: r.pitch };
+}
+
+/* ---------- the players: the app's own bridge, or the browser's speech ---------- */
+function vHalt() {
+  clearTimeout(NV.timer);
+  if (NV.kind === 'native') { try { window.NightVoice.stop(); } catch (e) { /* bridge gone */ } }
+  else if (NV.kind === 'web') { try { speechSynthesis.cancel(); } catch (e) { /* ignore */ } }
+}
+function vRun() {
+  clearTimeout(NV.timer);
+  if (NV.kind === 'native') { nativeEnqueue(NV.idx); return; }
+  const tok = NV.tok;
+  NV.timer = setTimeout(() => webNext(tok), 140);
+}
+function nativeEnqueue(from) {
+  const tok = NV.tok, k = rateK(), list = [];
+  for (let i = from; i < NV.segs.length; i++) {
+    const s = NV.segs[i], id = `${tok}:${i}`;
+    if (s.gap) list.push({ id, ms: Math.round(s.gap / k) });
+    else { const p = segParams(s); list.push({ id, text: s.text, voice: p.name, rate: p.rate, pitch: p.pitch, vol: 1 }); }
+  }
+  try { window.NightVoice.enqueue(JSON.stringify(list)); } catch (e) { vFail(); }
+}
+window.__voiceEvent = (type, id) => {
+  if (type === 'ready') { if (NV.kind !== 'web') voiceDetect(); return; }
+  const p = String(id).split(':'), tk = +p[0], ix = +p[1];
+  if (tk !== NV.tok || !NV.on || NV.paused || !(ix >= 0)) return;
+  if (type === 'start') {
+    segStart(ix);
+    if (ix === NV.segs.length - 1) { clearTimeout(NV.endT); NV.endT = setTimeout(() => { if (tk === NV.tok && NV.on && !NV.paused) chapterEnded(NV.n); }, NV.segs[ix].gap / rateK() + 2500); }
+  } else {
+    const s = NV.segs[ix];
+    if (type === 'error' && s && s.text) { if (++NV.err >= 3) { vFail(); return; } } else if (s && s.text) NV.err = 0;
+    NV.idx = ix + 1;
+    if (ix >= NV.segs.length - 1) chapterEnded(NV.n);
+  }
+};
+function webNext(tok) {
+  if (tok !== NV.tok || !NV.on || NV.paused) return;
+  if (NV.idx >= NV.segs.length) { chapterEnded(NV.n); return; }
+  const i = NV.idx, s = NV.segs[i];
+  segStart(i);
+  if (s.gap) { NV.timer = setTimeout(() => { if (tok !== NV.tok) return; NV.idx = i + 1; webNext(tok); }, s.gap / rateK()); return; }
+  const p = segParams(s), u = new SpeechSynthesisUtterance(s.text);
+  u.lang = 'ko-KR';
+  if (p.obj) u.voice = p.obj;
+  u.rate = p.rate; u.pitch = p.pitch; u.volume = 1;
+  const cur = { fired: false, started: false, t0: Date.now(), kick: Date.now(), net: p.net, name: p.name };
+  cur.fin = (ok, why) => {
+    if (cur.fired) return;
+    cur.fired = true;
+    if (tok !== NV.tok) return;
+    if (!ok) {
+      if (cur.net && cur.name && !NV.bad.has(cur.name) && why !== 'not-allowed') { NV.bad.add(cur.name); resolveRoles(); NV.timer = setTimeout(() => webNext(tok), 150); return; }
+      if (++NV.err >= 3) { vFail(); return; }
+    } else NV.err = 0;
+    NV.idx = i + 1;
+    NV.timer = setTimeout(() => webNext(tok), 30);
+  };
+  u.onstart = () => { cur.started = true; };
+  u.onend = () => cur.fin(true);
+  u.onerror = e => { const w = e && e.error; cur.fin(w === 'interrupted' || w === 'canceled', w); };
+  NV.cur = cur; NV.utt = u;
+  try { speechSynthesis.speak(u); } catch (e) { cur.fin(false); }
+}
+function webWatchdog() {
+  clearInterval(NV.dog);
+  if (NV.kind !== 'web') return;
+  const desktop = !/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  NV.dog = setInterval(() => {
+    const c = NV.cur;
+    if (!NV.on || NV.paused || !c || c.fired) return;
+    let speaking = true;
+    try { speaking = speechSynthesis.speaking || speechSynthesis.pending; } catch (e) { speaking = false; }
+    const age = Date.now() - c.t0;
+    if (!speaking && ((c.started && age > 1200) || age > 8000)) c.fin(true);
+    else if (desktop && /^Google/.test(c.name) && Date.now() - c.kick > 10000) { c.kick = Date.now(); try { speechSynthesis.pause(); speechSynthesis.resume(); } catch (e) { /* ignore */ } }
+  }, 1200);
+}
+function segStart(i) {
+  const s = NV.segs[i];
+  if (!s) return;
+  NV.idx = i;
+  if (s.u != null && !s.gap) highlight(s.u);
+  if (s.text) $('#pText').textContent = s.text;
+}
+function highlight(u) {
+  const el = $(`#rBody [data-u="${u}"]`);
+  if (el === NV.hi) return;
+  if (NV.hi) NV.hi.classList.remove('speaking');
+  NV.hi = el;
+  if (!el) return;
+  el.classList.add('speaking');
+  if (Date.now() - NV.userScroll < 5000) return;
+  const r = el.getBoundingClientRect();
+  if (r.top < 70 || r.bottom > innerHeight - 110) el.scrollIntoView({ block: 'center', behavior: M.reduce ? 'auto' : 'smooth' });
+}
+
+/* ---------- starting, pausing, moving about ---------- */
+function vUnlock() {
+  if (NV.kind === 'native' || window.NightVoice || !('speechSynthesis' in window) || vUnlock.done) return;
+  vUnlock.done = true;
+  try { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; u.lang = 'ko-KR'; speechSynthesis.speak(u); } catch (e) { /* ignore */ }
+}
+function vStart(n, fromU) {
+  if (!vSupported()) { toast(whyMsg(), 6500); return; }
+  vUnlock();
+  auInit();
+  NV.n = n;
+  NV.segs = buildSegs();
+  NV.idx = 0;
+  if (fromU != null) { const k = NV.segs.findIndex(s => s.u === fromU && s.text); if (k >= 0) NV.idx = k; }
+  NV.on = true; NV.paused = false; NV.tok++; NV.err = 0; NV.userScroll = 0;
+  vHalt(); vRun(); webWatchdog();
+  $('#player').hidden = false; playerUpdate();
+  auApply(); wake(true);
+}
+function vPause() { if (!NV.on || NV.paused) return; NV.paused = true; NV.tok++; vHalt(); playerUpdate(); auApply(); }
+function vResume() { if (!NV.on || !NV.paused) return; NV.paused = false; NV.tok++; const s = NV.segs[NV.idx]; if (s && s.gap) NV.idx++; vRun(); playerUpdate(); auApply(); }
+function vStop() {
+  if (!NV.on && $('#player').hidden) return;
+  NV.on = false; NV.paused = false; NV.tok++;
+  vHalt(); clearInterval(NV.dog);
+  if (NV.hi) { NV.hi.classList.remove('speaking'); NV.hi = null; }
+  $('#player').hidden = true;
+  auApply(); wake(false);
+}
+function vFail() { vStop(); toast('목소리가 자꾸 끊깁니다. 설정에서 다른 목소리를 골라 보세요.', 6000); }
+function vGoto(i) { NV.idx = clamp(i, 0, NV.segs.length - 1); NV.tok++; vHalt(); if (NV.paused) { NV.paused = false; } vRun(); playerUpdate(); }
+function vSkip(dir) {
+  const cur = NV.segs[NV.idx], u = cur ? cur.u : 0;
+  let i = NV.idx;
+  if (dir > 0) { while (i < NV.segs.length && !(NV.segs[i].text && NV.segs[i].u > u)) i++; }
+  else { const target = Math.max(0, (u || 0) - 1); i = NV.segs.findIndex(s => s.text && s.u >= target); }
+  if (i < 0 || i >= NV.segs.length) return;
+  vGoto(i);
+}
+function vJump(u) { const i = NV.segs.findIndex(s => s.text && s.u === u); if (i >= 0) vGoto(i); }
+function listenTap() {
+  if (NV.on) { NV.paused ? vResume() : vPause(); return; }
+  const n = S.cur, top = $('.rhead').getBoundingClientRect().bottom + 8;
+  const first = $$('#rBody [data-u]').find(el => el.getBoundingClientRect().bottom > top);
+  vStart(n, first && $('#reader').scrollTop > 40 ? +first.dataset.u : null);
+}
+function chapterEnded(n) {
+  if (NV.n !== n || !NV.on) return;
+  if (n >= LAST) { vStop(); const f = $('#mineForm'); if (f) f.scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
+  if (!isRead(n)) stampHere(n);
+  const tok = ++NV.tok;
+  toast(`다음 장, ${CH[n + 1].wind}`);
+  NV.timer = setTimeout(() => { if (tok !== NV.tok || !NV.on) return; openReader(n + 1, true); }, 2800);
+}
+function playerUpdate() {
+  const t = $('#pToggle');
+  t.setAttribute('aria-label', NV.paused ? '이어 읽기' : '멈춤');
+  t.querySelector('.pp').setAttribute('d', NV.paused ? 'M8 5l11 7-11 7z' : 'M9 6v12M15 6v12');
+  $('#pRate').textContent = `${(+S.vrate).toFixed(2).replace(/0$/, '').replace(/\.0$/, '')}×`;
+}
+const RATES = [0.85, 1, 1.15, 1.3];
+function playerAct(a) {
+  if (a === 'toggle') NV.paused ? vResume() : vPause();
+  else if (a === 'stop') vStop();
+  else if (a === 'next') vSkip(1);
+  else if (a === 'prev') vSkip(-1);
+  else if (a === 'rate') {
+    const i = RATES.findIndex(r => r >= (+S.vrate) - 0.01);
+    S.vrate = RATES[(i + 1) % RATES.length]; save();
+    if (NV.on && !NV.paused) vGoto(NV.idx);
+    playerUpdate();
+  }
+}
+async function wake(on) {
+  try { if (window.NightVoice && window.NightVoice.awake) window.NightVoice.awake(!!on); } catch (e) { /* ignore */ }
+  try {
+    if (on && 'wakeLock' in navigator && !NV.lock) { NV.lock = await navigator.wakeLock.request('screen'); NV.lock.addEventListener('release', () => { NV.lock = null; }); }
+    else if (!on && NV.lock) { await NV.lock.release(); NV.lock = null; }
+  } catch (e) { NV.lock = null; }
+}
+function voiceSetHTML() {
+  if (!vSupported()) return `<p class="small">${esc(whyMsg())}</p>`;
+  if (!NV.voices.length) return '<p class="small">기기의 기본 한국어 목소리로 읽습니다.</p>';
+  const opt = sel => NV.voices.map(v => `<option value="${esc(v.name)}"${sel && sel.name === v.name ? ' selected' : ''}>${esc(v.name.replace(/^Microsoft |^Google /, ''))}${v.net ? ' (온라인)' : ''}</option>`).join('');
+  return `<div class="row"><label for="vA">솔의 목소리</label><select id="vA" data-v="vA">${opt(VR.A)}</select></div>
+    <div class="row"><label for="vB">아버지의 목소리</label><select id="vB" data-v="vB">${opt(VR.B)}</select></div>
+    <div class="row"><label for="vC">할머니와 엄마의 목소리</label><select id="vC" data-v="vC">${opt(VR.C)}</select></div>
+    <p class="small">바람책의 글은 적은 사람에 따라 목소리 높낮이를 바꿔 읽습니다.</p>`;
+}
+
+/* ---------- putting it together ---------- */
+function setFS(v) { S.fs = +clamp(v, 0.85, 1.45).toFixed(2); document.documentElement.style.setProperty('--fs', S.fs); save(); }
+function setSound(on, quiet) {
+  S.sound = !!on; save();
+  if (on && !quiet) auInit();
+  auApply();
+  if (AU.ctx) { if (on) AU.ctx.resume().catch(() => {}); }
+  const b = $('#bSound');
+  b.setAttribute('aria-label', on ? '소리 끄기' : '소리 켜기');
+  b.querySelector('.sw1').setAttribute('d', on ? 'M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11' : 'M16 9l5 6M21 9l-5 6');
+}
+function firstUnread() { for (let n = 0; n <= LAST; n++) if (!isRead(n)) return n; return LAST; }
+function showTitle() {
+  const t = $('#title'), a = $('#tActs'), app = $('#app');
+  const resume = S.read.some(Boolean), nx = firstUnread();
+  app.classList.add('titled');
+  a.innerHTML = resume
+    ? `<button class="btn" data-t="resume">이어 읽기 · ${esc(chLabel(nx))} ${esc(CH[nx].wind)}</button><button class="btn ghost" data-t="look">섬 둘러보기</button>`
+    : `<button class="btn" data-t="start">읽기 시작</button><button class="btn ghost" data-t="look">섬 둘러보기</button>`;
+  a.onclick = e => {
+    const b = e.target.closest('[data-t]');
+    if (!b) return;
+    auInit(); auApply();
+    t.hidden = true; app.classList.remove('titled');
+    if (b.dataset.t === 'start') openReader(0);
+    else if (b.dataset.t === 'resume') openReader(nx);
+    else { if (S.cur !== firstUnread() && !S.read.some(Boolean)) select(0); toast('지도 위의 소나무와 선창의 종을 눌러 보세요.'); }
+  };
+}
+function back() {
+  if (!$('#catch').hidden) { $('#catch').hidden = true; return true; }
+  if (!$('#reader').hidden) { closeReader(); return true; }
+  if (!$('#book').hidden) { closeBook(); return true; }
+  return false;
+}
+window.__back = back;
+function mapTap(e) {
+  if (!$('#title').hidden) return;
+  const r = cFx.getBoundingClientRect(), x = e.clientX - r.left, y = e.clientY - r.top;
+  auInit();
+  const id = catchAt(x, y);
+  if (id >= 0) { S.items[id] = true; save(); chime(); showThing(id); return; }
+  if (pineHit(x, y)) {
+    pineTap();
+    toast(M.w && M.w.kind === 'sol' ? '소나무가 운다. 가지 결을 거슬러 바람이 들어온다.' : '솔봉 소나무. 겨울 하늬에 맞춰 가지가 모두 남동쪽으로 누웠다.');
+    return;
+  }
+  if (bellHit(x, y)) { bell(0.16); toast('선창 끝의 안개 종. 안개 낀 날 바람지기가 친다.'); }
+}
+let nextItem = 18;
+function itemTick(dt) {
+  if (M.paused || !$('#title').hidden || !$('#catch').hidden) return;
+  nextItem -= dt;
+  if (nextItem > 0) return;
+  nextItem = 24 + Math.random() * 24;
+  if (M.items.length) return;
+  const cand = D.extras.map((e, i) => i).filter(i => !S.items[i] && isRead(D.extras[i].ch));
+  if (!cand.length) return;
+  const pref = cand.filter(i => D.extras[i].ch === S.cur), pool = pref.length ? pref : cand;
+  spawnItem(pool[Math.floor(Math.random() * pool.length)]);
+}
+function paneClick(e) {
+  const o = e.target.closest('[data-open]');
+  if (o) { const n = +o.dataset.open; closeBook(); openReader(n); return; }
+  const t = e.target.closest('[data-tab]');
+  if (t) return;
+  const gf = e.target.closest('[data-gf]');
+  if (gf) { GF = gf.dataset.gf; renderPane(); return; }
+  const th = e.target.closest('[data-thing]');
+  if (th) { showThing(+th.dataset.thing); return; }
+  const k = e.target.closest('[data-k]');
+  if (k) {
+    const key = k.dataset.k, cap = $('#roseCap');
+    if (key === 'mine' && S.mine) cap.textContent = `당신의 바람 · ${S.mine.name || '아직 이름이 없는 바람'} · 오는 쪽 ${dirText(S.mine.from)}`;
+    else { const n = +key, c = CH[n]; cap.textContent = `${chLabel(n, true)} · ${c.wind} · ${metaText(c, n)}`; }
+    return;
+  }
+  const st = e.target.closest('[data-set]');
+  if (!st) return;
+  const s = st.dataset.set;
+  if (s === 'sound') { setSound(!S.sound); st.setAttribute('aria-pressed', String(S.sound)); }
+  else if (s === 'all') { S.all = !S.all; save(); st.setAttribute('aria-pressed', String(S.all)); updateCard(); }
+  else if (s === 'reset') {
+    if (st.dataset.sure) {
+      vStop();
+      Object.assign(S, { read: [], cur: 0, items: {}, mine: null, started: false, hint: false });
+      save(); updateCard(); setWind(0); renderPane(); toast('바람책을 처음으로 되돌렸습니다.');
+    } else { st.dataset.sure = '1'; st.textContent = '정말 지울까요? 한 번 더 누르세요'; st.classList.add('red'); }
+  }
+}
+function paneInput(e) {
+  const el = e.target;
+  if (el.id === 'gq') { GQ = el.value.trim(); const pos = el.selectionStart; renderPane(); const q = $('#gq'); q.focus(); try { q.setSelectionRange(pos, pos); } catch (x) { /* ignore */ } }
+  else if (el.id === 'sRate') { S.vrate = +el.value; save(); if (NV.on) playerUpdate(); }
+  else if (el.id === 'sFs') setFS(+el.value);
+  else if (el.dataset.v) { S[el.dataset.v] = el.value; save(); NV.bad.delete(el.value); resolveRoles(); if (NV.on && !NV.paused) vGoto(NV.idx); }
+}
+function bindUI() {
+  $('#year').addEventListener('click', e => { const b = e.target.closest('button[data-n]'); if (b) select(+b.dataset.n); });
+  $('#cb').addEventListener('click', e => { const b = e.target.closest('[data-act]'); if (b) act(b.dataset.act, b); });
+  $('#rBody').addEventListener('click', e => {
+    const b = e.target.closest('[data-act]');
+    if (b) { act(b.dataset.act, b); return; }
+    const u = e.target.closest('[data-u]');
+    if (u && NV.on) vJump(+u.dataset.u);
+  });
+  const rd = $('#reader');
+  ['wheel', 'touchmove'].forEach(ev => rd.addEventListener(ev, () => { NV.userScroll = Date.now(); }, { passive: true }));
+  $('#rClose').addEventListener('click', closeReader);
+  $('#rListen').addEventListener('click', listenTap);
+  $('#rSmall').addEventListener('click', () => setFS(S.fs - 0.08));
+  $('#rBig').addEventListener('click', () => setFS(S.fs + 0.08));
+  $('#bBook').addEventListener('click', () => openBook());
+  $('#bClose').addEventListener('click', closeBook);
+  $('#bRose').addEventListener('click', () => openBook('rose'));
+  $('#bSound').addEventListener('click', () => setSound(!S.sound));
+  $('.tabs').addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (b) { TAB = b.dataset.tab; openBook(); } });
+  $('#pane').addEventListener('click', paneClick);
+  $('#pane').addEventListener('input', paneInput);
+  $('#pane').addEventListener('change', paneInput);
+  $('#ccOk').addEventListener('click', () => { $('#catch').hidden = true; if (!$('#book').hidden && TAB === 'things') renderPane(); });
+  let catchDown = false;
+  $('#catch').addEventListener('pointerdown', e => { catchDown = e.target.id === 'catch'; });
+  $('#catch').addEventListener('click', e => {
+    if (e.target.id === 'catch' && catchDown && performance.now() - (M.catchOpen || 0) > 450) $('#catch').hidden = true;
+    catchDown = false;
+  });
+  $('#player').addEventListener('click', e => { const b = e.target.closest('[data-p]'); if (b) playerAct(b.dataset.p); });
+  cFx.addEventListener('pointerdown', mapTap);
+  addEventListener('keydown', e => { if (e.key === 'Escape') back(); });
+  let rz = 0;
+  addEventListener('resize', () => { clearTimeout(rz); rz = setTimeout(() => { mapResize(); markYear(); }, 160); });
+  document.addEventListener('visibilitychange', () => {
+    const speaking = NV.on && !NV.paused;
+    auSuspend(document.hidden && !speaking);
+    if (!document.hidden && speaking) wake(true);
+  });
+}
+let lastTs = 0;
+function loop(ts) {
+  const dt = Math.min(0.05, lastTs ? (ts - lastTs) / 1000 : 0.016);
+  lastTs = ts;
+  try { mapStep(dt); auStep(dt); itemTick(dt); } catch (e) { if (!loop.err) { loop.err = 1; console.error(e); } }
+  requestAnimationFrame(loop);
+}
+function boot() {
+  if (!CH.length) return;
+  S.cur = clamp(S.cur | 0, 0, LAST);
+  if (window.__STANDALONE) $('#home').hidden = true;
+  setFS(S.fs || 1);
+  renderYear();
+  updateCard();
+  setWind(S.cur, true);
+  mapResize();
+  bindUI();
+  setSound(S.sound, true);
+  voiceDetect();
+  showTitle();
+  requestAnimationFrame(loop);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => { renderStatic(); }).catch(() => {});
+}
+boot();
+if (window.__TEST) window.__t = { M, AU, S, setWind, select, auStep, auApply, auInit, sx, sy, spawnItem, PL };
+
+})();
+</script>
+</body>
+</html>
