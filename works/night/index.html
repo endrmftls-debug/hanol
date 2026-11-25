@@ -1101,23 +1101,55 @@ function lfo(ctx, rate, depth, target, phase) {
   o.start(ctx.currentTime + (phase || 0));
   return o;
 }
-function auInit() {
-  if (AU.ctx) return true;
-  const AC = window.AudioContext || window.webkitAudioContext;
-  if (!AC) return false;
-  let ctx;
-  // a roomy buffer: this is slow ambient sound, and small buffers crackle on a busy phone
-  try { ctx = new AC({ latencyHint: 'playback' }); } catch (e) { try { ctx = new AC(); } catch (e2) { return false; } }
-  const master = ctx.createGain(); master.gain.value = 0.9;
-  const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 45; hp.Q.value = 0.6;
-  const comp = ctx.createDynamicsCompressor(); comp.threshold.value = -20; comp.ratio.value = 3; comp.attack.value = 0.01; comp.release.value = 0.4;
-  master.connect(hp); hp.connect(comp); comp.connect(ctx.destination);
+/* ---------- baked sound: the drone and the mountain wind are rendered once, offline, then only looped.
+   Built live, the long reverb and the sweeping filters were more than a small phone could keep up with, and it crackled. ---------- */
+const BAKE_SR = 22050;
+function offline(chans, sec, sr) {
+  const OAC = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+  if (!OAC) return null;
+  for (const rate of [sr, 44100]) { try { return new OAC(chans, Math.ceil(rate * sec), rate); } catch (e) { /* try the next rate */ } }
+  return null;
+}
+function rendered(oc) {
+  const p = oc.startRendering();
+  return p && p.then ? p : new Promise(res => { oc.oncomplete = e => res(e.renderedBuffer); });
+}
+/* render `sec` seconds and fold the tail over the head, so the loop has no seam */
+function bakeLoop(chans, sec, build) {
+  const pre = 1, xf = 2, oc = offline(chans, pre + sec + xf, BAKE_SR);
+  if (!oc) return Promise.reject(new Error('no offline audio'));
+  build(oc, oc.destination);
+  return rendered(oc).then(full => {
+    const sr = full.sampleRate, a0 = Math.floor(pre * sr), n = Math.floor(sec * sr), m = Math.floor(xf * sr);
+    const out = AU.ctx.createBuffer(chans, n, sr);
+    for (let c = 0; c < chans; c++) {
+      const src = full.getChannelData(c), d = out.getChannelData(c);
+      d.set(src.subarray(a0, a0 + n));
+      for (let i = 0; i < m; i++) { const k = i / m * Math.PI / 2; d[i] = src[a0 + i] * Math.sin(k) + src[a0 + n + i] * Math.cos(k); }
+    }
+    return out;
+  });
+}
+/* a quiet room made of four damped echoes, about as wet as the old long reverb was, and light enough to run live */
+function lightVerb(ctx, out) {
+  const g = v => { const n = ctx.createGain(); n.gain.value = v; return n; };
+  const f = (type, fr, q) => { const b = ctx.createBiquadFilter(); b.type = type; b.frequency.value = fr; b.Q.value = q; return b; };
+  const inp = g(1), sum = g(0.05), ap = f('allpass', 700, 0.7), ap2 = f('allpass', 1900, 0.7);
+  inp.connect(ap); ap.connect(ap2);
+  [[0.0531, 0.8, 2600], [0.0667, 0.78, 2300], [0.0797, 0.76, 2000], [0.0941, 0.74, 1800]].forEach(([dt, fb, lpf]) => {
+    const d = ctx.createDelay(0.5), lp = f('lowpass', lpf, 0.5), k = g(fb);
+    d.delayTime.value = dt; ap2.connect(d); d.connect(lp); lp.connect(k); k.connect(d); lp.connect(sum);
+  });
+  sum.connect(out);
+  return inp;
+}
+/* the night's bed, as before: open fifths on A and a wind over seamless air, with its long reverb */
+function nightBed(ctx, out) {
   const rev = ctx.createConvolver(); rev.buffer = impulse(ctx, 2.8, 2.6);
-  const revOut = ctx.createGain(); revOut.gain.value = 0.85; rev.connect(revOut); revOut.connect(master);
-  const amb = ctx.createGain(); amb.gain.value = 0; amb.connect(master);
-  // drone: open fifths on A, voiced high enough for a phone speaker to carry; the middle voices beat slowly in pairs
+  // a convolver plays louder at lower sample rates; scale it back to how it sounded live at 44.1 kHz
+  const revOut = ctx.createGain(); revOut.gain.value = 0.85 * ctx.sampleRate / 44100; rev.connect(revOut); revOut.connect(out);
   const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 950; lp.Q.value = 0.4;
-  const dg = ctx.createGain(); dg.gain.value = 0.07; lp.connect(dg); dg.connect(amb);
+  const dg = ctx.createGain(); dg.gain.value = 0.07; lp.connect(dg); dg.connect(out);
   const dsend = ctx.createGain(); dsend.gain.value = 0.22; dg.connect(dsend); dsend.connect(rev);
   [[110, 0.3, 0], [164.81, 0.14, 0], [220, 0.36, 0.32], [329.63, 0.26, 0.41], [440, 0.12, 0.5], [659.26, 0.045, 0]].forEach(([f, g, det]) => {
     const og = ctx.createGain(); og.gain.value = g; og.connect(lp);
@@ -1128,12 +1160,12 @@ function auInit() {
     lfo(ctx, 0.025 + Math.random() * 0.05, g * 0.4, og.gain);
   });
   lfo(ctx, 0.019, 260, lp.frequency);
-  // wind: two drifting resonances over seamless air, swelling in gusts and falling quiet between them
+  // the wind swells in gusts, but between them it only eases off: it never drops out
   const air = ctx.createBufferSource(); air.buffer = airBuffer(ctx, 7); air.loop = true;
-  const gust = ctx.createGain(); gust.gain.value = 0.1;
-  const swell = ctx.createGain(); swell.gain.value = 0.9; swell.connect(gust.gain);
+  const gust = ctx.createGain(); gust.gain.value = 0.45;
+  const swell = ctx.createGain(); swell.gain.value = 0.55; swell.connect(gust.gain);
   const shape = ctx.createWaveShaper(), curve = new Float32Array(257);
-  for (let i = 0; i < 257; i++) { const x = (i / 256) * 2 - 1; curve[i] = Math.pow((clamp(x, -1, 1) + 1) / 2, 2.2); }
+  for (let i = 0; i < 257; i++) { const x = (i / 256) * 2 - 1; curve[i] = Math.pow((clamp(x, -1, 1) + 1) / 2, 1.6); }
   shape.curve = curve; shape.connect(swell);
   const gsum = ctx.createGain(); gsum.gain.value = 1; gsum.connect(shape);
   [[0.029, 0.5, 0], [0.047, 0.3, 3], [0.083, 0.2, 7]].forEach(([r, d, ph]) => lfo(ctx, r, d, gsum, ph));
@@ -1143,15 +1175,35 @@ function auInit() {
     const g = ctx.createGain(); g.gain.value = lvl;
     air.connect(bp); bp.connect(g); g.connect(gust);
   });
-  const low = ctx.createBiquadFilter(); low.type = 'lowpass'; low.frequency.value = 170;   // a soft rumble, for headphones
-  const lowg = ctx.createGain(); lowg.gain.value = 0.5; air.connect(low); low.connect(lowg); lowg.connect(gust);
-  const wind = ctx.createGain(); wind.gain.value = 0.1;
+  // (the low rumble under the wind is gone: a phone speaker could only rattle on it)
+  const wind = ctx.createGain(); wind.gain.value = 0.052;
   gust.connect(wind);
   let wout = wind;
   if (ctx.createStereoPanner) { const pn = ctx.createStereoPanner(); wind.connect(pn); wout = pn; lfo(ctx, 0.05, 0.6, pn.pan); }
-  wout.connect(amb);
+  wout.connect(out);
   air.start();
+}
+function auInit() {
+  if (AU.ctx) return true;
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC) return false;
+  let ctx;
+  // a roomy buffer: this is slow ambient sound, and small buffers crackle on a busy phone
+  try { ctx = new AC({ latencyHint: 'playback' }); } catch (e) { try { ctx = new AC(); } catch (e2) { return false; } }
+  const master = ctx.createGain(); master.gain.value = 0.9;
+  // small speakers rattle on deep sound: everything below about 100 Hz is cut before it reaches them
+  const hp = ctx.createBiquadFilter(); hp.type = 'highpass'; hp.frequency.value = 100; hp.Q.value = 0.707;
+  const hp2 = ctx.createBiquadFilter(); hp2.type = 'highpass'; hp2.frequency.value = 100; hp2.Q.value = 0.707;
+  const comp = ctx.createDynamicsCompressor(); comp.threshold.value = -20; comp.knee.value = 8; comp.ratio.value = 3; comp.attack.value = 0.01; comp.release.value = 0.4;
+  master.connect(hp); hp.connect(hp2); hp2.connect(comp); comp.connect(ctx.destination);
+  const rev = lightVerb(ctx, master);
+  const amb = ctx.createGain(); amb.gain.value = 0; amb.connect(master);
   Object.assign(AU, { ctx, master, amb, rev, ready: true, next: ctx.currentTime + 2 });
+  // the bed arrives a moment later, once rendered; the page does not wait for it
+  bakeLoop(2, 40, nightBed).then(buf => {
+    const s = ctx.createBufferSource(), trim = ctx.createGain(); s.buffer = buf; s.loop = true; trim.gain.value = 0.42;
+    s.connect(trim); trim.connect(amb); s.start(ctx.currentTime + 0.05, Math.random() * 40);
+  }).catch(() => { /* the night stays quiet but for its chimes */ });
   return true;
 }
 function auResume() { if (!auInit()) return false; try { if (AU.ctx.state === 'suspended') AU.ctx.resume(); } catch (e) { /* ignore */ } return true; }

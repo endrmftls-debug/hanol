@@ -355,7 +355,7 @@ function windOf(n) {
 }
 
 /* ---------- the island chart and its wind ---------- */
-const M = { W: 0, H: 0, dpr: 1, s: 100, cx: 0, cy: 0, t: 0, parts: [], items: [], ash: [], rings: [], drops: [], flakes: [], w: null, wPrev: null, blend: 1, here: 0, paused: false, reduce: false, fade: 0.1, k: 20, lastRing: 0 };
+const M = { W: 0, H: 0, dpr: 1, q: 1, s: 100, cx: 0, cy: 0, t: 0, parts: [], items: [], ash: [], rings: [], drops: [], flakes: [], w: null, wPrev: null, blend: 1, here: 0, paused: false, reduce: false, fade: 0.1, k: 20, lastRing: 0 };
 try { M.reduce = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) { M.reduce = false; }
 const cTrail = $('#cTrail'), cFx = $('#cFx');
 const gT = cTrail.getContext('2d'), gF = cFx.getContext('2d');
@@ -411,7 +411,8 @@ function islePath(g, f = 1, to = [0, 0]) {
 
 /* ---------- size and layout ---------- */
 function mapResize() {
-  const W = innerWidth, H = innerHeight, dpr = Math.min(window.devicePixelRatio || 1, 2);
+  // a slow phone gets fewer pixels and fewer streaks (M.q drops once frames run long), so the sound keeps its share of the processor
+  const W = innerWidth, H = innerHeight, dpr = Math.min(window.devicePixelRatio || 1, M.q >= 1 ? 2 : M.q >= 0.7 ? 1.5 : 1);
   M.W = W; M.H = H; M.dpr = dpr;
   for (const c of [cTrail, cFx, M.base]) { c.width = Math.round(W * dpr); c.height = Math.round(H * dpr); }
   const desk = W >= 900, card = $('#card').getBoundingClientRect();
@@ -422,7 +423,7 @@ function mapResize() {
   M.cy = by + bh / 2 + M.s * 0.02;
   M.k = clamp(M.s * 0.18, 22, 50);
   M.box = { bx, by, bw, bh };
-  const n = clamp(Math.round(W * H / (desk ? 1300 : 1000)), 360, 1500);
+  const n = clamp(Math.round(W * H / (desk ? 1300 : 1000) * M.q), 200, 1500);
   M.parts = Array.from({ length: n }, () => respawn({}, true));
   renderStatic();
   gT.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -914,6 +915,93 @@ function lfo(ctx, rate, depth, target, phase) {
 function filt(ctx, type, f, q) { const b = ctx.createBiquadFilter(); b.type = type; b.frequency.value = f; if (q != null) b.Q.value = q; return b; }
 function gainN(ctx, v) { const g = ctx.createGain(); g.gain.value = v; return g; }
 
+/* ---------- baked sound: the long beds (sea, wind, drone, the pine's song) are rendered once, offline, and then only
+   looped. Built live, the reverb and the sweeping filters were too much for a small phone, and it crackled and dropped out. ---------- */
+const BAKE_SR = 22050;
+function offline(chans, sec, sr) {
+  const OAC = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+  if (!OAC) return null;
+  for (const rate of [sr, 44100]) { try { return new OAC(chans, Math.ceil(rate * sec), rate); } catch (e) { /* try the next rate */ } }
+  return null;
+}
+function rendered(oc) {
+  const p = oc.startRendering();
+  return p && p.then ? p : new Promise(res => { oc.oncomplete = e => res(e.renderedBuffer); });
+}
+/* render `sec` seconds and fold the tail over the head, so the loop has no seam */
+function bakeLoop(chans, sec, build) {
+  const pre = 1, xf = 1.5, oc = offline(chans, pre + sec + xf, BAKE_SR);
+  if (!oc) return Promise.reject(new Error('no offline audio'));
+  build(oc, oc.destination);
+  return rendered(oc).then(full => {
+    const sr = full.sampleRate, a0 = Math.floor(pre * sr), n = Math.floor(sec * sr), m = Math.floor(xf * sr);
+    const out = AU.ctx.createBuffer(chans, n, sr);
+    for (let c = 0; c < chans; c++) {
+      const src = full.getChannelData(c), d = out.getChannelData(c);
+      d.set(src.subarray(a0, a0 + n));
+      for (let i = 0; i < m; i++) { const k = i / m * Math.PI / 2; d[i] = src[a0 + i] * Math.sin(k) + src[a0 + n + i] * Math.cos(k); }
+    }
+    return out;
+  });
+}
+/* a bed's own space: the long reverb runs here, offline, where it costs nothing at listening time */
+function bakedVerb(c, out, wet) {
+  // a convolver plays louder at lower sample rates; scale it back to how it sounded live at 44.1 kHz
+  const inp = gainN(c, 1), rv = c.createConvolver(), wg = gainN(c, wet * c.sampleRate / 44100);
+  rv.buffer = impulse(c, 2.8, 2.5); inp.connect(out); inp.connect(rv); rv.connect(wg); wg.connect(out);
+  return inp;
+}
+/* a quiet room made of four damped echoes, about as wet as the old long reverb was, light enough to run live under the bells and chimes */
+function lightVerb(ctx, out) {
+  const inp = gainN(ctx, 1), sum = gainN(ctx, 0.018), ap = filt(ctx, 'allpass', 700, 0.7), ap2 = filt(ctx, 'allpass', 1900, 0.7);
+  inp.connect(ap); ap.connect(ap2);
+  [[0.0531, 0.8, 2600], [0.0667, 0.78, 2300], [0.0797, 0.76, 2000], [0.0941, 0.74, 1800]].forEach(([dt, fb, lpf]) => {
+    const d = ctx.createDelay(0.5), lp = filt(ctx, 'lowpass', lpf, 0.5), g = gainN(ctx, fb);
+    d.delayTime.value = dt; ap2.connect(d); d.connect(lp); lp.connect(g); g.connect(d); lp.connect(sum);
+  });
+  sum.connect(out);
+  return inp;
+}
+const windBed = (f1, f2) => (c, out) => {
+  const v = bakedVerb(c, out, 0.066), s = loopSrc(c, noiseBuf(c, 7), 2.3), bp1 = filt(c, 'bandpass', f1, 4.2), bp2 = filt(c, 'bandpass', f2, 6);
+  const g1 = gainN(c, 1), g2 = gainN(c, 0.55);
+  s.connect(bp1); s.connect(bp2); bp1.connect(g1); bp2.connect(g2); g1.connect(v); g2.connect(v);
+  lfo(c, 0.11, f1 * 0.14, bp1.frequency, 0); lfo(c, 0.07, f2 * 0.14, bp2.frequency, 1.1);
+};
+const BEDS = {
+  drone: (c, out) => {
+    const v = bakedVerb(c, out, 0.066), dl = filt(c, 'lowpass', 1050, 0.5);
+    dl.connect(v);
+    [[146.83, 0.26, 0], [220, 0.32, 0.4], [293.66, 0.24, 0.9], [329.63, 0.1, 1.3], [440, 0.12, 0.2]].forEach(([f, a, ph], i) => {
+      const o = c.createOscillator(), g = gainN(c, a * 0.7);
+      o.type = 'sine'; o.frequency.value = f;
+      lfo(c, 0.05 + i * 0.013, f * 0.0035, o.frequency, ph);
+      lfo(c, 0.031 + i * 0.011, a * 0.3, g.gain, ph * 2);
+      o.connect(g); g.connect(dl); o.start();
+    });
+  },
+  // the sea, carried a little higher than before so a phone speaker plays it instead of rattling on it, and swelling gently
+  sea: (c, out) => {
+    const v = bakedVerb(c, out, 0.066), s = loopSrc(c, noiseBuf(c, 7), 0), lp = filt(c, 'lowpass', 620, 0.6), hp = filt(c, 'highpass', 130, 0.6), swell = gainN(c, 1);
+    s.connect(lp); lp.connect(hp); hp.connect(swell); swell.connect(v);
+    lfo(c, 0.083, 0.18, swell.gain, 0); lfo(c, 0.047, 0.1, swell.gain, 3);
+  },
+  windLo: windBed(420, 860),
+  windHi: windBed(790, 1440),
+  song: (c, out) => {
+    const v = bakedVerb(c, out, 0.18), lp = filt(c, 'lowpass', 2400, 0.4);
+    lp.connect(v);
+    [[392, 0.05], [523.25, 0.04], [587.33, 0.035], [783.99, 0.022], [1174.66, 0.008]].forEach(([f, a], i) => {
+      const o = c.createOscillator(), g = gainN(c, a);
+      o.type = i === 4 ? 'triangle' : 'sine'; o.frequency.value = f;
+      lfo(c, 4.6 + i * 0.4, f * 0.004, o.frequency, i * 0.3);
+      lfo(c, 0.17 + i * 0.05, a * 0.8, g.gain, i);
+      o.connect(g); g.connect(lp); o.start();
+    });
+    const b = loopSrc(c, noiseBuf(c, 7), 5.5), bp = filt(c, 'bandpass', 1500, 2.5), br = gainN(c, 0.35);
+    b.connect(bp); bp.connect(br); br.connect(lp);
+  },
+};
 function auInit() {
   if (AU.ctx) { if (AU.ctx.state === 'suspended') AU.ctx.resume().catch(() => {}); return; }
   const AC = window.AudioContext || window.webkitAudioContext;
@@ -921,57 +1009,28 @@ function auInit() {
   let ctx;
   try { ctx = new AC({ latencyHint: 'playback' }); } catch (e) { try { ctx = new AC(); } catch (e2) { return; } }
   AU.ctx = ctx;
-  const master = gainN(ctx, 0.9), hp = filt(ctx, 'highpass', 42), comp = ctx.createDynamicsCompressor();
-  comp.threshold.value = -16; comp.ratio.value = 3; comp.attack.value = 0.02; comp.release.value = 0.4;
-  master.connect(hp); hp.connect(comp); comp.connect(ctx.destination);
-  const rev = ctx.createConvolver(); rev.buffer = impulse(ctx, 2.8, 2.5);
-  const revG = gainN(ctx, 0.3); rev.connect(revG); revG.connect(master);
-  const amb = gainN(ctx, 0); amb.connect(master);
-  const ambRev = gainN(ctx, 0.22); amb.connect(ambRev); ambRev.connect(rev);
+  // small speakers rattle on deep sound: everything below about 100 Hz is cut before it reaches them
+  const master = gainN(ctx, 0.85), hp1 = filt(ctx, 'highpass', 100, 0.707), hp2 = filt(ctx, 'highpass', 100, 0.707), comp = ctx.createDynamicsCompressor();
+  comp.threshold.value = -16; comp.knee.value = 8; comp.ratio.value = 3; comp.attack.value = 0.02; comp.release.value = 0.4;
+  master.connect(hp1); hp1.connect(hp2); hp2.connect(comp); comp.connect(ctx.destination);
+  const rev = lightVerb(ctx, master);
+  const amb = gainN(ctx, 0), ambTrim = gainN(ctx, 0.75); amb.connect(ambTrim); ambTrim.connect(master);
   const fx = gainN(ctx, 1); fx.connect(master);
   const fxRev = gainN(ctx, 0.45); fx.connect(fxRev); fxRev.connect(rev);
   Object.assign(AU, { master, rev, amb, fx });
-  const air = noiseBuf(ctx, 7);
-  AU.air = air;
-  // drone: open fifths around D, slow breathing
-  const dl = filt(ctx, 'lowpass', 1050, 0.5), drone = gainN(ctx, 0.05);
-  dl.connect(drone); drone.connect(amb);
-  [[146.83, 0.26, 0], [220, 0.32, 0.4], [293.66, 0.24, 0.9], [329.63, 0.1, 1.3], [440, 0.12, 0.2]].forEach(([f, a, ph], i) => {
-    const o = ctx.createOscillator(), g = gainN(ctx, a * 0.7);
-    o.type = 'sine'; o.frequency.value = f;
-    lfo(ctx, 0.05 + i * 0.013, f * 0.0035, o.frequency, ph);
-    lfo(ctx, 0.031 + i * 0.011, a * 0.3, g.gain, ph * 2);
-    o.connect(g); g.connect(dl); o.start();
-  });
-  // sea: low, slow swells
-  const seaSrc = loopSrc(ctx, air, 0), seaLP = filt(ctx, 'lowpass', 380, 0.6), sea = gainN(ctx, 0.06), swell = gainN(ctx, 1);
-  seaSrc.connect(seaLP); seaLP.connect(swell); swell.connect(sea); sea.connect(amb);
-  lfo(ctx, 0.083, 0.45, swell.gain, 0); lfo(ctx, 0.047, 0.25, swell.gain, 3);
-  // wind: two resonant bands that wander, plus a rumble for storms
-  const wSrc = loopSrc(ctx, air, 2.3), bp1 = filt(ctx, 'bandpass', 460, 4.2), bp2 = filt(ctx, 'bandpass', 900, 6);
-  const g1 = gainN(ctx, 1), g2 = gainN(ctx, 0.55), wind = gainN(ctx, 0.02);
+  AU.air = noiseBuf(ctx, 7);
+  const L = {};
+  ['drone', 'sea', 'windLo', 'windHi', 'song'].forEach(k => { L[k] = gainN(ctx, 0); });
   const pan = ctx.createStereoPanner ? ctx.createStereoPanner() : null;
-  wSrc.connect(bp1); wSrc.connect(bp2); bp1.connect(g1); bp2.connect(g2); g1.connect(wind); g2.connect(wind);
-  if (pan) { wind.connect(pan); pan.connect(amb); lfo(ctx, 0.07, 0.45, pan.pan, 0); } else wind.connect(amb);
-  lfo(ctx, 0.11, 60, bp1.frequency, 0); lfo(ctx, 0.07, 120, bp2.frequency, 1.1);
-  const rSrc = loopSrc(ctx, air, 4.1), rLP = filt(ctx, 'lowpass', 150, 0.7), rumble = gainN(ctx, 0);
-  rSrc.connect(rLP); rLP.connect(rumble); rumble.connect(amb);
-  // the pine's song: a breathy chord, silent until the south-east wind comes
-  const song = gainN(ctx, 0), songLP = filt(ctx, 'lowpass', 2400, 0.4);
-  song.connect(songLP); songLP.connect(amb);
-  const songRev = gainN(ctx, 0.6); songLP.connect(songRev); songRev.connect(rev);
-  [[392, 0.05], [523.25, 0.04], [587.33, 0.035], [783.99, 0.022], [1174.66, 0.008]].forEach(([f, a], i) => {
-    const o = ctx.createOscillator(), g = gainN(ctx, a);
-    o.type = i === 4 ? 'triangle' : 'sine'; o.frequency.value = f;
-    lfo(ctx, 4.6 + i * 0.4, f * 0.004, o.frequency, i * 0.3);
-    lfo(ctx, 0.17 + i * 0.05, a * 0.8, g.gain, i);
-    o.connect(g); g.connect(song); o.start();
-  });
-  const bSrc = loopSrc(ctx, air, 5.5), bBP = filt(ctx, 'bandpass', 1500, 2.5), breath = gainN(ctx, 0.35);
-  bSrc.connect(bBP); bBP.connect(breath); breath.connect(song);
-  Object.assign(AU, { drone, sea, wind, bp1, bp2, rumble, song });
+  if (pan) { L.windLo.connect(pan); L.windHi.connect(pan); pan.connect(amb); lfo(ctx, 0.07, 0.45, pan.pan, 0); } else { L.windLo.connect(amb); L.windHi.connect(amb); }
+  ['drone', 'sea', 'song'].forEach(k => L[k].connect(amb));
+  Object.assign(AU, { drone: L.drone, sea: L.sea, windLo: L.windLo, windHi: L.windHi, song: L.song });
   AU.ready = true;
   auApply(true);
+  // the beds arrive a moment later, once rendered; the page does not wait for them
+  [['sea', 30], ['windLo', 24], ['windHi', 24], ['drone', 30], ['song', 16]].forEach(([k, sec], i) => {
+    setTimeout(() => bakeLoop(1, sec, BEDS[k]).then(buf => { const s2 = ctx.createBufferSource(); s2.buffer = buf; s2.loop = true; s2.connect(L[k]); s2.start(ctx.currentTime + 0.05, Math.random() * sec); }).catch(() => { /* this bed stays silent */ }), 60 + i * 150);
+  });
 }
 function ambLevel() {
   if (!S.sound) return 0;
@@ -980,13 +1039,18 @@ function ambLevel() {
 function auApply(fast) {
   if (!AU.ready) return;
   const c = AU.ctx, now = c.currentTime;
-  AU.amb.gain.setTargetAtTime(ambLevel(), now, fast ? 0.05 : 0.6);
+  AU.amb.gain.__aim = ambLevel(); AU.amb.gain.setTargetAtTime(ambLevel(), now, fast ? 0.05 : 0.6);
   AU.fx.gain.setTargetAtTime(S.sound ? 1 : 0, now, 0.05);
 }
 function auSuspend(hidden) {
   if (!AU.ctx) return;
   if (hidden) AU.ctx.suspend().catch(() => {});
   else if (S.sound) AU.ctx.resume().catch(() => {});
+}
+/* set a gain on its way to a new value, but leave it alone when the value has not moved */
+function aim(p, v, tc) {
+  if (p.__aim != null && Math.abs(p.__aim - v) < 0.0005) return;
+  p.__aim = v; p.setTargetAtTime(v, AU.ctx.currentTime, tc);
 }
 /* follow the wind on the chart, ten times a second */
 function auStep(dt) {
@@ -998,15 +1062,14 @@ function auStep(dt) {
   if (!w) return;
   const here = clamp(M.here, 0, 1.5), pal = w.pal, kind = w.kind;
   const storm = kind === 'cyclone';
-  const wv = kind === 'fog' ? 0.02 : storm ? 0.08 + here * 0.7 : 0.06 + here * 0.45;
-  AU.wind.gain.setTargetAtTime(wv, now, storm ? 0.35 : 0.6);
-  AU.bp1.frequency.setTargetAtTime(330 + here * 460, now, 0.8);
-  AU.bp2.frequency.setTargetAtTime(720 + here * 720, now, 0.8);
-  AU.rumble.gain.setTargetAtTime(storm ? 0.2 * here : 0.02 * here, now, 0.5);
+  const wv = kind === 'fog' ? 0.02 : storm ? 0.08 + here * 0.7 : 0.06 + here * 0.45, tc = storm ? 0.35 : 0.6;
+  const h = clamp(here / 1.2, 0, 1);
+  aim(AU.windLo.gain, wv * Math.cos(h * Math.PI / 2), tc);
+  aim(AU.windHi.gain, wv * Math.sin(h * Math.PI / 2) * (storm ? 1.25 : 1), tc);
   const seaLv = kind === 'fog' ? 0.05 : storm ? 0.12 : pal === 'summer' || pal === 'early' ? 0.1 : pal === 'snow' ? 0.065 : 0.085;
-  AU.sea.gain.setTargetAtTime(seaLv, now, 1.2);
-  AU.drone.gain.setTargetAtTime(storm ? 0.03 : kind === 'sol' ? 0.035 : 0.05, now, 1.5);
-  AU.song.gain.setTargetAtTime(kind === 'sol' ? 0.2 + 0.08 * Math.sin(M.t * 0.6) : 0, now, kind === 'sol' ? 1.4 : 0.6);
+  aim(AU.sea.gain, seaLv * 0.72, 1.2);
+  aim(AU.drone.gain, storm ? 0.03 : kind === 'sol' ? 0.035 : 0.05, 1.5);
+  if (!AU.songHold || M.t > AU.songHold) aim(AU.song.gain, kind === 'sol' ? 0.2 + 0.08 * Math.sin(M.t * 0.6) : 0, kind === 'sol' ? 1.4 : 0.6);
   if (kind === 'fog' && M.t - AU.lastBell > 11 + Math.random() * 6) { AU.lastBell = M.t; bell(0.12); setTimeout(() => bell(0.11), 900); setTimeout(() => bell(0.1), 1800); }
   if (storm && here < 0.1 && M.t - AU.lastEye > 30) {
     const cc = cycCenter(M.t);
@@ -1060,7 +1123,7 @@ function stamp() {
 function pineTap() {
   if (!fxOK()) return;
   const c = AU.ctx, t = c.currentTime;
-  if (M.w && M.w.kind === 'sol') { AU.song.gain.cancelScheduledValues(t); AU.song.gain.setTargetAtTime(0.45, t, 0.2); return; }
+  if (M.w && M.w.kind === 'sol') { AU.song.gain.cancelScheduledValues(t); AU.song.gain.setTargetAtTime(0.45, t, 0.2); AU.song.gain.__aim = 0.45; AU.songHold = M.t + 2.5; return; }
   const s = c.createBufferSource(), bp = filt(c, 'bandpass', 900, 1.4), g = gainN(c, 0);
   s.buffer = AU.air; g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.16, t + 0.5); g.gain.exponentialRampToValueAtTime(0.0001, t + 2.6);
   bp.frequency.setValueAtTime(700, t); bp.frequency.linearRampToValueAtTime(1300, t + 1.2);
@@ -1842,11 +1905,20 @@ function bindUI() {
     if (!document.hidden && speaking) wake(true);
   });
 }
-let lastTs = 0;
+let lastTs = 0, slowFrames = 0;
 function loop(ts) {
   const dt = Math.min(0.05, lastTs ? (ts - lastTs) / 1000 : 0.016);
   lastTs = ts;
-  try { mapStep(dt); auStep(dt); itemTick(dt); } catch (e) { if (!loop.err) { loop.err = 1; console.error(e); } }
+  try {
+    const t0 = performance.now();
+    mapStep(dt);
+    const cost = performance.now() - t0;
+    if (!M.paused) {
+      slowFrames = cost > 16 ? slowFrames + 1 : Math.max(0, slowFrames - 1);
+      if (slowFrames > 45 && M.q > 0.5) { M.q = M.q > 0.8 ? 0.7 : 0.5; slowFrames = 0; mapResize(); }
+    }
+    auStep(dt); itemTick(dt);
+  } catch (e) { if (!loop.err) { loop.err = 1; console.error(e); } }
   requestAnimationFrame(loop);
 }
 function boot() {
