@@ -230,7 +230,7 @@ body.narr #deck{--lift:64px}
     </div>
   </header>
   <section class="card" id="card" aria-label="지금 장">
-    <nav class="strip" id="strip" aria-label="물이 빠지는 스무 날"></nav>
+    <nav class="strip" id="strip" aria-label="장 차례, 물이 빠지는 날들"></nav>
     <div class="cb" id="cb"></div>
   </section>
   <div id="toast" role="status" aria-live="polite"></div>
@@ -367,10 +367,10 @@ const PLACES = [
   { id: 'field', ch: 5, name: '운동장', x: 0.246, e: 136.2, cue: 'sports', note: '거북 등처럼 갈라진 평평한 흙바닥.' },
   { id: 'market', ch: 6, name: '장터', x: 0.29, e: 135.0, cue: 'scissors', note: '좌판 깔던 네모난 돌 자국.' },
   { id: 'smithy', ch: 7, name: '대장간', x: 0.327, e: 133.8, cue: 'anvil', note: '진흙에 반쯤 묻혀 녹슨 모루.' },
-  { id: 'post', ch: 8, name: '우체국 앞', x: 0.362, e: 132.5, cue: 'whistle', note: '계단 두 개와 우체통 다리.' },
+  { id: 'post', ch: 8, name: '우체국 앞', x: 0.362, e: 132.5, cue: 'whistle', note: '돌계단 두 단과 우체통 다리.' },
   { id: 'yard', ch: 9, name: '옥자네 마당', x: 0.398, e: 131.3, cue: 'dadeumi', note: '돌담 밑, 위가 반들반들 닳은 다듬잇돌.' },
   { id: 'roof', ch: 10, name: '지붕', x: 0.43, e: 130.0, cue: 'rain', note: '깨진 슬레이트 조각들. 만지면 안 된다.' },
-  { id: 'barn', ch: 11, name: '외양간', x: 0.458, e: 128.8, cue: 'cow', note: '돌로 짠 구유. 누렁이 여물통.' },
+  { id: 'barn', ch: 11, name: '외양간', x: 0.458, e: 128.8, cue: 'cow', note: '돌을 파서 만든 구유. 누렁이 여물통.' },
   { id: 'mill', ch: 12, name: '방앗간', x: 0.487, e: 127.5, cue: 'mill', note: '발동기를 앉히던 시멘트 덩어리와 녹슨 볼트 네 개.' },
   { id: 'paddy', ch: 13, name: '논', x: 0.553, e: 126.2, cue: 'frog', note: '층층이 드러난 논두렁. 마른 논은 조용하다.' },
   { id: 'bier', ch: 14, name: '상엿집', x: 0.79, e: 125.0, cue: 'yoryeong', note: '산으로 가는 길목의 작은 돌 기초.' },
@@ -1940,7 +1940,7 @@ function endHTML(n) {
   if (n === LAST && !S.mine) {
     return `<form class="mine" id="mineForm" novalidate>
       <p class="small" style="margin:0">당신이 건지고 싶은 소리가 있다면, 라벨부터 한 장 붙여 두세요. 녹음은 당신의 휴대폰으로.</p>
-      <div class="two"><label for="mD">날짜<input id="mD" maxlength="20" value="${esc(today())}" autocomplete="off"></label><label for="mP">곳<input id="mP" maxlength="24" placeholder="우리 집 부엌" autocomplete="off"></label></div>
+      <div class="two"><label for="mD">날짜<input id="mD" maxlength="20" value="${esc(today())}" autocomplete="off"></label><label for="mP">장소<input id="mP" maxlength="24" placeholder="우리 집 부엌" autocomplete="off"></label></div>
       <label for="mN">이름<input id="mN" maxlength="16" placeholder="라벨에 적을 이름" autocomplete="off"></label>
       <label for="mS">어떤 소리<input id="mS" maxlength="40" placeholder="할머니가 무 써는 소리" autocomplete="off"></label>
       <label for="mT">그 소리에 대해<textarea id="mT" maxlength="500" placeholder="언제 나는 소리인지, 내년에도 있을지"></textarea></label>
@@ -2030,7 +2030,7 @@ function renderPane() {
     p.innerHTML = `<p class="small">${CH.filter((c, n) => isRead(n)).length} / ${CH.length} 장을 건졌습니다.</p><ul class="toc">${CH.map((c, n) => `<li><button data-open="${n}" class="${isOpen(n) ? '' : 'lk'} ${n === S.cur ? 'cur' : ''}"><span class="t1">${esc(chLabel(n))}</span><span class="t2">${esc(c.title)}<span class="t3">${esc(c.sub)}</span></span>${isRead(n) ? '<span class="sm" aria-label="건짐">건짐</span>' : '<span></span>'}</button></li>`).join('')}</ul>`;
   } else if (TAB === 'tapes') {
     const sides = tapeSides(), got = sides.filter(s => isRead(s.n)).length;
-    let html = `<p class="small">할머니가 1985년 여름에 녹음한 테이프 열 개, 스무 면. 장을 읽으면 그 면이 상자에 들어옵니다. ${got} / ${sides.length}</p><div class="tapes">`;
+    let html = `<p class="small">할머니가 1985년 여름에 남긴 테이프 열 개, 스무 면. 장을 읽으면 그 면이 상자에 들어옵니다. ${got} / ${sides.length}</p><div class="tapes">`;
     for (let k = 1; k <= 10; k++) {
       const pair = sides.filter(s => s.num === k);
       html += `<div class="tp"><div class="tn"><span>테이프 ${k}</span><span>${pair.filter(s => isRead(s.n)).length} / 2</span></div>` + pair.map(s => isRead(s.n)
@@ -2113,7 +2113,7 @@ function reward(n) {
   if (p) {
     showGhost(p.id, 6);
     if (!S.hint) { S.hint = true; save(); toast(`${p.name}. 물 밖으로 나온 곳을 누르면 1985년의 소리가 납니다.`, 5200); }
-    else toast(`${p.name}${n === 18 ? '. 강이 다시 흐릅니다.' : '이 물 밖에 있습니다.'}`);
+    else toast(`${p.name}${n === 18 ? '. 강이 다시 흐릅니다.' : ((c => c >= 0xAC00 && c <= 0xD7A3 && (c - 0xAC00) % 28)(p.name.charCodeAt(p.name.length - 1)) ? '이' : '가') + ' 물 밖에 있습니다.'}`);
   } else if (n === 0) toast('물안리로 내려갑니다. 다음 장에서 물이 빠지기 시작합니다.', 4200);
   else if (n === RAIN) toast('물안리가 거꾸로 잠깁니다. 나올 때와 반대 순서로.', 4200);
 }
