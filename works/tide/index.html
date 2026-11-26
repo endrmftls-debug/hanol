@@ -1,0 +1,2078 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>물때를 읽는 사람</title>
+<meta name="description" content="한올의 소설. 글을 가르치러 서해 섬에 간 스물아홉 살 문해교사가, 글은 몰라도 바다를 읽는 할머니들에게서 물때를 배운 여섯 달.">
+<meta name="theme-color" content="#18292e">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="한올의 서재">
+<meta property="og:title" content="물때를 읽는 사람 · 한올">
+<meta property="og:description" content="물 들면 공부하고 물 나면 일한다. 하루 두 번 길이 열리는 섬의 한글 교실, 그리고 육십 년 동안 뜯지 않은 편지 한 통. AI 필명 한올이 쓴 소설.">
+<meta property="og:url" content="https://endrmftls-debug.github.io/hanol/works/tide/">
+<meta property="og:image" content="https://endrmftls-debug.github.io/hanol/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2318292e'/%3E%3Cpath d='M4 19c4-4 8 4 12 0s8 4 12 0' fill='none' stroke='%238fc3c9' stroke-width='2.6' stroke-linecap='round'/%3E%3Ccircle cx='20' cy='10' r='4' fill='%23f4eee0'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Gaegu:wght@400;700&family=Nanum+Brush+Script&family=Nanum+Pen+Script&family=Song+Myung&display=swap">
+<style>
+/* VOICE   warm and exact: a teacher who failed her exams three times learns, from women who cannot read, to read the sea
+   IDEA    the island's day is set by the tide; every chapter is one day, computed from the real tide constants of 대산, and the causeway opens and closes on the map as the water comes and goes
+   PICTURE a hand-drawn island in a grey-brown tidal flat, a white causeway, water that fills the channels first; a small tide curve that breathes
+   COLOUR  paper and mud; sea teal for water; a green band for the hours the road is open; one red for the seal that says 적음 (written down)
+   TYPE    Gowun Batang for the story, Gowun Dodum for the records, Gaegu for the grandmothers' first letters, Nanum Pen Script for the teacher's notes, Nanum Brush Script for a soldier's letters
+   LAYOUT  phone: the island above, the chapter as a sheet at the bottom; laptop: the chapters as a column on the left */
+:root{color-scheme:light dark;--paper:light-dark(#f5f1e8,#191c1d);--paper2:light-dark(#ebe5d8,#232829);--ink:light-dark(#23272a,#ecebe6);--ink2:light-dark(#62696b,#a9b0b1);--rule:light-dark(#dbd4c4,#353c3e);--sea:light-dark(#2f6470,#8fc3c9);--seal:#c8452f;--ground:#5d8c94;--f-body:'Gowun Batang','Noto Serif KR',serif;--f-ui:'Gowun Dodum','Noto Sans KR',sans-serif;--f-pen:'Nanum Pen Script',cursive;--f-kid:'Gaegu',cursive;--f-brush:'Nanum Brush Script',cursive;--f-seal:'Song Myung','Gowun Batang',serif}
+:root[data-theme=light]{color-scheme:light}
+:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html,body{height:100%;margin:0}
+body{background:var(--ground);color:var(--ink);font:16px/1.6 var(--f-body);overflow:hidden;word-break:keep-all;overflow-wrap:anywhere;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #8fb8ff;outline-offset:2px}
+[hidden]{display:none!important}
+#app{position:fixed;inset:0;overflow:hidden}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
+.top{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding:max(10px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 0 max(12px,env(safe-area-inset-left));pointer-events:none}
+.top>*{pointer-events:auto}
+.chip{display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:22px;border:0;background:rgba(24,38,42,.66);color:#eef3fa;text-decoration:none;font:15px var(--f-ui);white-space:nowrap}
+.tools{display:flex;gap:8px}
+.ib{width:44px;height:44px;padding:0;border-radius:22px;border:0;background:rgba(24,38,42,.66);color:#eef3fa;display:grid;place-items:center}
+.ib svg,.chip svg,.btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+#toast{position:absolute;z-index:40;left:50%;top:calc(max(10px,env(safe-area-inset-top)) + 58px);transform:translate(-50%,-10px);max-width:min(92vw,470px);padding:12px 18px;border-radius:14px;background:rgba(24,38,42,.93);color:#eef4f3;font:15px/1.5 var(--f-ui);opacity:0;pointer-events:none;transition:opacity .35s,transform .35s;text-align:center}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+/* the chapter sheet */
+.card{position:absolute;z-index:4;left:0;right:0;bottom:0;background:var(--paper);color:var(--ink);border-radius:18px 18px 0 0;padding:4px 0 max(14px,env(safe-area-inset-bottom))}
+.strip{display:flex;overflow-x:auto;gap:2px;padding:6px 10px 2px;scrollbar-width:none;scroll-behavior:smooth}
+.strip::-webkit-scrollbar{display:none}
+.strip button{flex:none;width:50px;min-height:52px;border:0;border-radius:10px;background:none;color:var(--ink2);display:grid;justify-items:center;align-content:center;gap:5px;font:13px/1.1 var(--f-ui);padding:4px 0;font-variant-numeric:tabular-nums}
+.strip .sw2{display:none}
+.strip i{width:9px;height:9px;border:1.5px solid currentColor;clip-path:polygon(25% 3%,75% 3%,100% 50%,75% 97%,25% 97%,0 50%);border:0;background:currentColor;opacity:.35}
+.strip .rd i{opacity:1}
+.strip .on{color:var(--sea);background:var(--paper2)}
+.strip .lk{opacity:.4}
+.cb{padding:8px max(20px,env(safe-area-inset-left)) 0}
+.cb .term{margin:0;font:14px var(--f-ui);color:var(--ink2);font-variant-numeric:tabular-nums}
+.cb h2{margin:2px 0 2px;font-size:clamp(30px,8.4vw,42px);line-height:1.08;letter-spacing:-.02em;font-weight:700;text-wrap:balance}
+.cb .sub{margin:0;font-size:17px}
+.cb .meta{margin:6px 0 0;font:14px var(--f-ui);color:var(--ink2)}
+.acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
+.btn{height:48px;padding:0 22px;border-radius:24px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);font:700 17px var(--f-body);display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn.sea{background:var(--sea);border-color:var(--sea);color:light-dark(#f5fbfa,#14282c)}
+.btn svg{width:20px;height:20px;stroke-width:1.8}
+.note{font:14px var(--f-ui);color:var(--ink2);margin:10px 0 0}
+.small{font:14px/1.6 var(--f-ui);color:var(--ink2)}
+.link{border:0;background:none;padding:6px 0;color:var(--sea);font:15px var(--f-ui);text-decoration:underline;text-underline-offset:3px}
+/* title */
+#title{position:absolute;inset:0;z-index:20;display:grid;align-content:end;padding:0 max(22px,env(safe-area-inset-left)) max(34px,env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(16,30,36,0) 0%,rgba(16,30,36,.32) 34%,rgba(14,26,31,.94) 60%,rgba(14,26,31,.97) 100%);color:#eef4f3;pointer-events:none}
+#title .acts{pointer-events:auto}
+#app.titled #card{visibility:hidden}
+#title .by{margin:0;font:15px var(--f-ui);opacity:.86}
+#title h1{margin:6px 0 10px;font-size:clamp(40px,11vw,68px);line-height:1.05;letter-spacing:-.03em;font-weight:700;text-wrap:balance}
+#title .lead{margin:0;max-width:31em;font-size:17px;line-height:1.7;opacity:.93}
+#title .acts .btn{background:#eef4f3;color:#14282c;border-color:#eef4f3}
+#title .acts .btn.ghost{background:transparent;color:#eef4f3}
+#title .hint{margin:14px 0 0;font:14px var(--f-ui);opacity:.76}
+/* reader */
+#reader{position:absolute;inset:0;z-index:12;background:var(--paper);color:var(--ink);overflow-y:auto;overscroll-behavior:contain}
+.rhead{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:max(6px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) 6px max(8px,env(safe-area-inset-left));background:var(--paper);border-bottom:1px solid var(--rule)}
+.rhead .ib{background:none;color:var(--ink)}
+.rhead .rt{font:15px var(--f-ui);color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rhead .grp{display:flex;gap:2px}
+.rbody{max-width:660px;margin:0 auto;padding:26px max(20px,env(safe-area-inset-left)) 160px;font-size:calc(18px * var(--fs,1));line-height:1.86}
+.rbody p{margin:0 0 1.05em}
+.chead{margin:4px 0 34px}
+.chead .cl{margin:0;font:15px var(--f-ui);color:var(--ink2);font-variant-numeric:tabular-nums}
+.chead h1{margin:4px 0 6px;font-size:clamp(36px,9vw,52px);line-height:1.05;letter-spacing:-.025em;text-wrap:balance}
+.chead .cs{margin:0;font-size:1.05em}
+.chead .cm{margin:12px 0 0;font:14px/1.5 var(--f-ui);color:var(--ink2)}
+.brk{display:block;text-align:center;margin:1.8em 0;color:var(--ink2);letter-spacing:.6em}
+.lines{white-space:pre-line;font-family:var(--f-ui);font-size:.92em;line-height:1.9;padding:.2em 0 .2em 1em;border-left:2px solid var(--rule)}
+.speaking{background:color-mix(in srgb,#6fb3bd 24%,transparent);border-radius:3px;box-shadow:0 0 0 4px color-mix(in srgb,#6fb3bd 24%,transparent)}
+/* an entry in the observation notebook */
+.rec{position:relative;margin:2.6em 0 1.6em;padding:16px 16px 18px;border:1px solid var(--rule);border-radius:6px;background:var(--paper2);font-family:var(--f-ui)}
+.rec .rh{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 10px;font-size:13px;color:var(--ink2);letter-spacing:.04em}
+.rec .rw{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:14px;align-items:start}
+.rec canvas{width:100%;aspect-ratio:1.15;border-radius:6px;background:#e8ecea;display:block;cursor:pointer}
+.rec .rw.nod{grid-template-columns:1fr}
+.rec dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 12px;font-size:.84em;line-height:1.55}
+.rec dt{color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--rule)}
+.rec dd{margin:0;padding:5px 0;border-bottom:1px solid var(--rule)}
+.rec .memo{margin:12px 0 0;font:1.32em/1.5 var(--f-pen);color:var(--sea);background-image:linear-gradient(transparent calc(1.5em - 1px),var(--rule) calc(1.5em - 1px));background-size:100% 1.5em}
+.rec .hands{margin:12px 0 0;display:grid;gap:6px;padding:10px 12px;border-radius:6px;background:light-dark(#fbf9f3,#1e2324);border:1px dashed var(--rule)}
+.rec .hands>div{display:grid;grid-template-columns:3.2em minmax(0,1fr);gap:8px;align-items:baseline}
+.rec .who{font:13px var(--f-ui);color:var(--ink2)}
+.rec .hand{font:1.38em/1.35 var(--f-kid);color:var(--ink)}
+.rec .aside{font:13px/1.5 var(--f-ui);color:var(--ink2)}
+.rec .memo p{margin:0}
+.rec .ra{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.rec .ra button{height:40px;padding:0 14px;border-radius:20px;border:1.5px solid var(--rule);background:var(--paper);font:14px var(--f-ui);display:inline-flex;align-items:center;gap:6px}
+.rec .ra svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:420px){.rec .rw{grid-template-columns:1fr}.rec canvas{width:min(100%,300px);justify-self:center}}
+.cend{margin-top:56px;padding-top:24px;border-top:1px solid var(--rule);display:grid;gap:14px;justify-items:start}
+.cend .done{display:flex;align-items:center;gap:12px;color:var(--ink2);font:15px var(--f-ui)}
+.stamp{display:inline-grid;place-items:center;width:58px;height:58px;border:2px solid var(--seal);color:var(--seal);font:700 17px/1 var(--f-seal);border-radius:50%;transform:rotate(-8deg);opacity:.9}
+.stampfx{animation:stampin .5s cubic-bezier(.2,1.6,.4,1)}
+@keyframes stampin{0%{transform:scale(1.6) rotate(-16deg);opacity:0}100%{transform:scale(1) rotate(-8deg);opacity:.9}}
+.mine{display:grid;gap:14px;width:100%;margin-top:10px;font-size:16px}
+.mine label{display:grid;gap:6px;font:15px var(--f-ui);color:var(--ink2)}
+.mine input,.mine textarea{font-size:16px;color:var(--ink);background:var(--paper);border:1.5px solid var(--rule);border-radius:8px;padding:12px;width:100%}
+.mine textarea{min-height:100px;resize:vertical;font-family:var(--f-ui)}
+.mine .two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+/* narration */
+#player{position:fixed;z-index:15;left:50%;transform:translateX(-50%);bottom:max(14px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:2px;padding:4px 6px;border-radius:28px;background:var(--ink);color:var(--paper);max-width:calc(100vw - 24px)}
+#player .ib{background:none;color:var(--paper)}
+#player .rate{width:auto;padding:0 12px;font:15px var(--f-ui)}
+#player .pt{font:14px var(--f-ui);padding:0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:34vw}
+/* the box: contents, album, words, settings */
+#box{position:absolute;inset:0;z-index:11;background:var(--paper);color:var(--ink);display:flex;flex-direction:column}
+.bhead{display:flex;align-items:center;justify-content:space-between;padding:max(6px,env(safe-area-inset-top)) 8px 0 max(18px,env(safe-area-inset-left))}
+.bhead h2{margin:0;font-size:22px}
+.bhead .ib{background:none;color:var(--ink)}
+.tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--rule);padding:0 8px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;height:48px;padding:0 13px;border:0;border-bottom:2px solid transparent;background:none;font:16px var(--f-ui);color:var(--ink2)}
+.tabs button[aria-selected=true]{color:var(--sea);border-bottom-color:var(--sea)}
+.pane{flex:1;overflow-y:auto;padding:14px max(18px,env(safe-area-inset-left)) 120px}
+.toc{list-style:none;margin:0;padding:0}
+.toc li+li{border-top:1px solid var(--rule)}
+.toc button{width:100%;min-height:62px;border:0;background:none;display:grid;grid-template-columns:5.6em minmax(0,1fr) auto;align-items:center;gap:10px;text-align:left;padding:8px 2px}
+.toc .t1{font:14px var(--f-ui);color:var(--ink2);font-variant-numeric:tabular-nums}
+.toc .t2{font-size:18px;font-weight:700;line-height:1.25}
+.toc .t3{display:block;font:14px var(--f-ui);font-weight:400;color:var(--ink2)}
+.toc .sm{width:40px;height:40px;display:grid;place-items:center;border:1.5px solid var(--seal);color:var(--seal);border-radius:50%;font:700 12px/1 var(--f-seal);transform:rotate(-8deg)}
+.toc .lk{opacity:.45}
+.toc .cur .t2{color:var(--sea)}
+.album{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.2em,1fr));gap:10px;margin-top:12px}
+.album button{border:0;padding:0;background:none;text-align:left;display:grid;gap:4px;font:13px/1.35 var(--f-ui);color:var(--ink2)}
+.album canvas{width:100%;aspect-ratio:1.15;border-radius:8px;background:#e8ecea;display:block}
+.album .ph{width:100%;aspect-ratio:1.15;border-radius:8px;background:var(--paper2);display:grid;place-items:center;font:15px var(--f-ui);color:var(--ink2);text-align:center;padding:8px}
+.album b{color:var(--ink);font-size:14px}
+.album button:disabled{cursor:default;opacity:.55}
+.gfil{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 12px}
+.gfil button{height:38px;padding:0 13px;border-radius:19px;border:1.5px solid var(--rule);background:none;font:14px var(--f-ui)}
+.gfil button[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.gsearch{width:100%;font:16px var(--f-ui);padding:11px 12px;border-radius:8px;border:1.5px solid var(--rule);background:var(--paper)}
+.gl{list-style:none;margin:8px 0 0;padding:0}
+.gl li{padding:11px 0;border-top:1px solid var(--rule)}
+.gl b{font-size:17px}
+.gl .k{font:13px var(--f-ui);color:var(--ink2);margin-left:6px}
+.gl p{margin:3px 0 0;font:15px/1.65 var(--f-ui)}
+.gl .go{font-size:14px}
+.set{display:grid;gap:18px;font-family:var(--f-ui)}
+.set h3{margin:6px 0 0;font-size:16px}
+.set .row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.set select{font-size:16px;padding:10px;border-radius:8px;border:1.5px solid var(--rule);background:var(--paper);color:var(--ink);max-width:100%}
+.set input[type=range]{width:min(100%,260px);accent-color:var(--sea)}
+.sw{position:relative;width:58px;height:34px;border-radius:17px;border:1.5px solid var(--rule);background:var(--paper2);padding:0;flex:none}
+.sw::after{content:'';position:absolute;top:3px;left:3px;width:25px;height:25px;border-radius:50%;background:var(--ink2);transition:left .2s}
+.sw[aria-pressed=true]{background:var(--ink);border-color:var(--ink)}
+.sw[aria-pressed=true]::after{left:26px;background:var(--paper)}
+.ylab{margin:10px 0 0;padding:12px 14px;border:1px dashed var(--rule);border-radius:8px;background:var(--paper2);font:15px/1.6 var(--f-ui)}
+
+/* the small tide board on the map */
+#hud{position:absolute;z-index:5;left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right));top:calc(max(10px,env(safe-area-inset-top)) + 52px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;align-items:center;padding:7px 8px 7px 12px;border-radius:14px;background:rgba(20,34,38,.72);color:#e8f0ef;font:13px/1.35 var(--f-ui);max-width:460px}
+#hud .d{color:#b9cfcf;font-size:12.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#hud .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#hud canvas{grid-column:1/-1;width:100%;height:30px;display:block}
+#hud .hb{display:flex;gap:4px;grid-row:1/3;grid-column:2}
+#hud .hb button{width:40px;height:40px;border-radius:20px;border:0;background:rgba(255,255,255,.1);color:#e8f0ef;display:grid;place-items:center;padding:0}
+#hud .hb svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.op{color:#a9e2b2}.cl{color:#ffb4a3}
+/* tide panel and crossing panel: sheets over the bottom of the map */
+#tpanel,#xpanel{position:absolute;z-index:6;left:0;right:0;bottom:0;background:#18292e;color:#e8f0ef;border-radius:18px 18px 0 0;padding:12px max(14px,env(safe-area-inset-left)) max(14px,env(safe-area-inset-bottom));box-shadow:0 -10px 30px rgba(0,0,0,.35);display:flex;flex-direction:column;gap:8px;overflow-y:auto;max-height:62vh}
+#tpanel h2,#xpanel h2{margin:0;font:700 19px/1.3 var(--f-body)}
+.ph2{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ph2 .ib{background:rgba(255,255,255,.1);color:#e8f0ef;flex:none}
+#tmoon{width:34px;height:34px;flex:none}
+.tsub{margin:0;font:13px/1.5 var(--f-ui);color:#b9cfcf}
+#tcv{width:100%;height:210px;display:block;border-radius:10px;background:#11211f;touch-action:none;cursor:ew-resize}
+.tnow{margin:0;font:15px/1.5 var(--f-ui)}
+#tpanel .acts,#xpanel .acts{margin-top:2px;gap:8px}
+#tpanel .btn,#xpanel .btn{height:44px;font:16px var(--f-ui);padding:0 16px;background:#e8f0ef;color:#14282c;border-color:#e8f0ef}
+#tpanel .btn.ghost,#xpanel .btn.ghost{background:transparent;color:#e8f0ef;border-color:rgba(232,240,239,.45)}
+#tpanel .btn svg,#xpanel .btn svg{width:20px;height:20px}
+#xpanel select{font:15px var(--f-ui);padding:9px 10px;border-radius:10px;border:1px solid rgba(232,240,239,.3);background:#11211f;color:#e8f0ef;width:100%}
+#xpanel input[type=range]{width:100%;accent-color:#ffd27a}
+#xpanel .xb{margin:0;font:13px/1.5 var(--f-ui);color:#b9cfcf}
+#xpanel .xt{margin:0;font:15px/1.5 var(--f-ui)}
+#xpanel .xq{margin:0;font:15px/1.6 var(--f-ui);color:#f3e9d2;min-height:3.2em}
+#xpanel .btn:disabled{opacity:.45}
+/* a letter from the tin */
+#letter{position:absolute;inset:0;z-index:16;background:rgba(18,26,28,.78);display:grid;place-items:start center;overflow-y:auto;padding:max(12px,env(safe-area-inset-top)) 12px max(24px,env(safe-area-inset-bottom))}
+.lwrap{width:min(560px,100%)}
+.lhead{display:flex;align-items:center;justify-content:space-between;gap:8px;color:#e8f0ef;font:14px var(--f-ui);margin:4px 2px 8px}
+.lhead .ib{background:rgba(255,255,255,.12)}
+.sheet{position:relative;background:#f4eee0;color:#2c2620;border-radius:4px;padding:30px 26px 34px;box-shadow:0 18px 40px rgba(0,0,0,.4);background-image:linear-gradient(rgba(120,100,70,.18) 1px,transparent 1px);background-size:100% 2.1em;background-position:0 2.6em}
+.sheet p{margin:0;line-height:2.1em}
+.sheet.brush{font:1.55em var(--f-brush)}
+.sheet.kid{font:1.42em var(--f-kid)}
+.sheet .ldate{font-size:.8em;opacity:.8;margin-bottom:.4em;padding-right:64px}
+.lmoon{position:absolute;top:16px;right:18px;width:46px;height:46px}
+.lnote{margin:12px 2px 0;font:14px/1.65 var(--f-ui);color:#cfdcdb}
+.letters{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.letters button{width:100%;display:grid;grid-template-columns:52px minmax(0,1fr);gap:12px;align-items:center;text-align:left;padding:10px 12px;border-radius:10px;border:1px solid var(--rule);background:var(--paper2)}
+.letters canvas{width:44px;height:44px;border-radius:6px;background:#f4eee0}
+.letters .env{width:44px;height:30px;border:1.5px solid var(--ink2);border-radius:3px;opacity:.5}
+.letters b{display:block;font-size:16px}
+.letters .t3{display:block;font:13px var(--f-ui);color:var(--ink2)}
+.letters button:disabled{opacity:.55;cursor:default}
+@media (min-width:900px){
+  .card{left:max(16px,env(safe-area-inset-left));right:auto;top:max(16px,env(safe-area-inset-top));bottom:max(16px,env(safe-area-inset-bottom));width:420px;border-radius:18px;display:flex;flex-direction:column;padding:10px 0 18px}
+  .strip{flex-direction:column;overflow-x:hidden;overflow-y:auto;flex:1;padding:4px 14px;gap:0}
+  .strip button{width:auto;min-height:40px;display:grid;grid-template-columns:3.6em 12px minmax(0,1fr);justify-items:start;align-items:center;text-align:left;gap:10px;font-size:14px;padding:4px 10px}
+  .strip .sw2{display:block;font:16px var(--f-body);color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+  .strip .on .sw2{color:var(--sea)}
+  .cb{padding-top:12px;border-top:1px solid var(--rule);margin-top:6px}
+  .top{left:452px}
+  #title{align-content:center;padding-left:8vw;background:linear-gradient(90deg,rgba(14,26,31,.92) 0%,rgba(14,26,31,.6) 40%,rgba(14,26,31,0) 72%)}
+  #tpanel,#xpanel{left:max(16px,env(safe-area-inset-left));right:auto;top:max(16px,env(safe-area-inset-top));bottom:max(16px,env(safe-area-inset-bottom));width:420px;border-radius:18px}
+  #tcv{height:min(46vh,360px)}
+  #hud{left:460px;right:auto;top:auto;bottom:16px;width:420px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="app">
+  <canvas id="cv" aria-label="달섬과 노둣길 지도. 고른 장의 하루 동안 물이 들고 나고, 길이 열리고 잠깁니다."></canvas>
+  <div class="top">
+    <a class="chip" id="home" href="../../"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>한올의 서재</a>
+    <div class="tools">
+      <button class="ib" id="btnSound" aria-label="소리 켜기"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="sw-on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="sw-off" d="M17 9l5 6M22 9l-5 6"/></svg></button>
+      <button class="ib" id="btnCross" aria-label="건너 보기" hidden><svg viewBox="0 0 24 24"><circle cx="13" cy="4.5" r="2"/><path d="M11 21l2-6-3-3 1-5 3 3h3M9 12l-3 2M13 15l3 6"/></svg></button>
+      <button class="ib" id="btnBox" aria-label="공책 펼치기"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/></svg></button>
+    </div>
+  </div>
+  <div id="hud" aria-live="off">
+    <span class="d" id="hudDay"></span>
+    <span class="n" id="hudNow"></span>
+    <div class="hb"><button id="hudPlay" aria-label="시간 멈추기"><svg viewBox="0 0 24 24"><path d="M9 6v12M15 6v12"/></svg></button><button id="hudTide" aria-label="물때 보기"><svg viewBox="0 0 24 24"><path d="M3 9c3-3 6 3 9 0s6 3 9 0M3 15c3-3 6 3 9 0s6 3 9 0"/></svg></button></div>
+    <canvas id="hudcv" aria-hidden="true"></canvas>
+  </div>
+  <nav class="card" id="card" aria-label="장 고르기">
+    <div class="strip" id="strip"></div>
+    <div class="cb" id="cbInner" aria-live="polite"></div>
+  </nav>
+  <section id="tpanel" hidden aria-label="물때 보기">
+    <div class="ph2"><canvas id="tmoon" aria-hidden="true"></canvas><div style="flex:1;min-width:0"><h2 id="tTitle"></h2></div><button class="ib" data-act="closeTide" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <p class="tsub" id="tSub"></p>
+    <canvas id="tcv" tabindex="0" aria-label="그날 하루의 물높이 곡선. 좌우로 끌면 시각이 바뀝니다."></canvas>
+    <p class="tnow" id="tNow"></p>
+    <div class="acts"><button class="btn ghost" id="tPlay">재생 · 멈춤</button><button class="btn" id="tCross" data-act="cross" hidden><svg viewBox="0 0 24 24"><circle cx="13" cy="4.5" r="2"/><path d="M11 21l2-6-3-3 1-5 3 3h3M9 12l-3 2M13 15l3 6"/></svg>건너 보기</button></div>
+  </section>
+  <section id="xpanel" hidden aria-label="건너 보기">
+    <div class="ph2"><h2>건너 보기</h2><button class="ib" id="xQuit" aria-label="그만하기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <select id="xDay" aria-label="날짜"></select>
+    <p class="xb" id="xBoard"></p>
+    <input id="xT" type="range" min="0" max="1435" step="5" value="878" aria-label="떠나는 시각">
+    <p class="xt" id="xTime"></p>
+    <p class="xq" id="xq" aria-live="polite"></p>
+    <div class="acts"><button class="btn" id="xGo">건너기</button></div>
+  </section>
+  <section id="title">
+    <p class="by">한올 지음 · AI가 쓴 이야기</p>
+    <h1>물때를 읽는 사람</h1>
+    <p class="lead">나는 글을 가르치러 섬에 갔다. 하루 두 번만 길이 열리는 섬, 달섬. 할머니들은 물이 빠지면 뻘에 나가고, 물이 들면 글을 배웠다. 글은 몰라도 바다는 읽는 사람들이었다.</p>
+    <div class="acts" id="tActs"></div>
+    <p class="hint">물때는 대산 앞바다의 실제 조석 예보에 맞춰 날마다 셈합니다. 지도 위에서 물이 들고 납니다.</p>
+  </section>
+  <section id="reader" hidden aria-label="읽기">
+    <div class="rhead">
+      <button class="ib" data-act="closeReader" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <span class="rt" id="rTitle"></span>
+      <div class="grp">
+        <button class="ib" data-act="listen" aria-label="소리 내어 읽기"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg></button>
+        <button class="ib" data-act="fsDown" aria-label="글자 작게"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></button>
+        <button class="ib" data-act="fsUp" aria-label="글자 크게"><svg viewBox="0 0 24 24"><path d="M6 12h12M12 6v12"/></svg></button>
+      </div>
+    </div>
+    <article class="rbody" id="rBody"></article>
+  </section>
+  <div id="player" hidden>
+    <button class="ib" data-p="prev" aria-label="앞 문단"><svg viewBox="0 0 24 24"><path d="M17 6l-8 6 8 6M7 6v12"/></svg></button>
+    <button class="ib" data-p="toggle" id="pToggle" aria-label="멈춤"><svg viewBox="0 0 24 24"><path class="pp" d="M9 6v12M15 6v12"/></svg></button>
+    <button class="ib" data-p="next" aria-label="다음 문단"><svg viewBox="0 0 24 24"><path d="M7 6l8 6-8 6M17 6v12"/></svg></button>
+    <button class="ib rate" data-p="rate" id="pRate" aria-label="읽는 빠르기">1×</button>
+    <span class="pt" id="pText"></span>
+    <button class="ib" data-p="stop" aria-label="낭독 끝내기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <section id="letter" hidden aria-label="편지">
+    <div class="lwrap">
+      <div class="lhead"><span id="lTitle"></span><button class="ib" data-act="closeLetter" aria-label="편지 접기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+      <div id="lBody"></div>
+    </div>
+  </section>
+  <section id="box" hidden aria-label="공책">
+    <div class="bhead"><h2>물때 공책</h2><button class="ib" data-act="closeBox" aria-label="공책 덮기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="tabs" role="tablist" id="tabs">
+      <button role="tab" data-tab="toc">차례</button>
+      <button role="tab" data-tab="album">물때 공책</button>
+      <button role="tab" data-tab="letters">편지</button>
+      <button role="tab" data-tab="gloss">말 사전</button>
+      <button role="tab" data-tab="set">설정</button>
+    </div>
+    <div class="pane" id="pane"></div>
+  </section>
+  <div id="toast" role="status"></div>
+</div>
+<script src="story.js"></script>
+<script>
+(function () {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
+const lerp = (a, b, t) => a + (b - a) * t;
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const D = window.__DATA || { chapters: [], glossary: [], letters: [], tide: null };
+const CH = D.chapters;
+const LAST = CH.length - 1;
+const KEY = 'muldae-v1';
+const S = Object.assign({ read: [], cur: 0, sound: true, fs: 1, all: false, vrate: 1, vA: '', vB: '', vC: '', started: false, cross: { plays: 0, dry: 0 } }, (() => {
+  try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+})());
+if (!S.cross || typeof S.cross !== 'object') S.cross = { plays: 0, dry: 0 };
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { /* private mode: keep going without */ } }
+const isRead = n => !!S.read[n];
+const isOpen = n => S.all || n === 0 || !!S.read[n] || !!S.read[n - 1];
+const M = { reduce: matchMedia('(prefers-reduced-motion: reduce)').matches, paused: false, dpr: 1, w: 0, h: 0, sel: 0 };
+
+function chLabel(n, long) {
+  if (n === 0) return long ? '서 · 3월 3일' : '서';
+  if (n === LAST) return long ? `맺음 · ${CH[n].date}` : '맺음';
+  return long ? `제${n}장 · ${CH[n].date}` : String(n);
+}
+function hideTitle() { $('#title').hidden = true; $('#app').classList.remove('titled'); }
+function toast(msg, ms = 3600) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.add('on');
+  clearTimeout(toast.t);
+  toast.t = setTimeout(() => t.classList.remove('on'), ms);
+}
+// 받침 있으면 첫째, 없으면 둘째
+function josa(word, a, b) {
+  const c = String(word).charCodeAt(String(word).length - 1);
+  return word + ((c >= 0xAC00 && c <= 0xD7A3 && (c - 0xAC00) % 28) ? a : b);
+}
+const recOf = n => (CH[n] && CH[n].secs.find(s => s.t === 'record')) || null;
+const field = (rec, k) => { const f = rec && rec.fields.find(x => x[0] === k); return f ? f[1] : ''; };
+const fxOf = n => (CH[n] && CH[n].fx) || [];
+// 장의 날: 그날 물때를 계산할 날짜
+const dayOf = n => CH[n].day;
+const letterOf = n => D.letters.find(l => l.ch === n) || null;
+const letterOpen = l => S.all || isRead(l.ch);
+/* ---------- 이어 붙이기 ---------- */
+function setFS(v) { S.fs = +clamp(v, 0.85, 1.45).toFixed(2); document.documentElement.style.setProperty('--fs', S.fs); save(); }
+function setSound(on, quiet) {
+  S.sound = !!on; save();
+  const b = $('#btnSound');
+  b.setAttribute('aria-label', S.sound ? '소리 끄기' : '소리 켜기');
+  b.querySelector('.sw-on').style.display = S.sound ? '' : 'none';
+  b.querySelector('.sw-off').style.display = S.sound ? 'none' : '';
+  if (S.sound) auInit();
+  auApply();
+  if (!quiet) toast(S.sound ? '소리를 켰습니다. 갯벌에 물 드는 소리가 들립니다.' : '소리를 껐습니다.');
+}
+
+/* ---------- 물때: 대산 조위 예보에 맞춘 조화상수로 그날그날 바닷물 높이를 셈한다 ----------
+   높이는 약최저저조면 기준 cm. 시각은 한국 시각(KST). */
+const D2R = Math.PI / 180;
+const TC = D.tide || { Z0: 417, sa: 13, cons: {} };
+const SPEED = { M2: 28.9841042, S2: 30.0, N2: 28.4397295, K2: 30.0821373, K1: 15.0410686, O1: 13.9430356, P1: 14.9589314, Q1: 13.3986609, MU2: 27.9682084, NU2: 28.5125831, L2: 29.5284789, N22: 27.8953548, M4: 57.9682084, MS4: 58.9841042, MN4: 57.4238337, M6: 86.9523127, MS6: 87.9682084 };
+const INFER = { K2: ['S2', 0.27], P1: ['K1', 0.33] };
+const SA_PEAK = 140;
+const ROAD_CM = 300; // 노둣길 가운데 낮은 데
+const J2000 = Date.UTC(2000, 0, 1, 12);
+const kstMs = (y, m, d, mi = 0) => Date.UTC(y, m - 1, d, 0, mi) - 9 * 3600e3;
+function astro(ms) {
+  const T = (ms - J2000) / 86400000 / 36525;
+  const hr = (((ms / 3600000) % 24) + 24) % 24;
+  return { Ts: 15 * hr + 180, s: 218.3164477 + 481267.88123421 * T, h: 280.46646 + 36000.76983 * T, p: 83.3532465 + 4069.0137287 * T, N: 125.04452 - 1934.136261 * T };
+}
+function nodal(N) {
+  const n = N * D2R, c = Math.cos, s = Math.sin;
+  const fM2 = 1.0004 - 0.0373 * c(n) + 0.0002 * c(2 * n), uM2 = -2.14 * s(n);
+  const fK1 = 1.0060 + 0.1150 * c(n) - 0.0088 * c(2 * n) + 0.0006 * c(3 * n), uK1 = -8.86 * s(n) + 0.68 * s(2 * n) - 0.07 * s(3 * n);
+  const fO1 = 1.0089 + 0.1871 * c(n) - 0.0147 * c(2 * n) + 0.0014 * c(3 * n), uO1 = 10.80 * s(n) - 1.34 * s(2 * n) + 0.19 * s(3 * n);
+  const fK2 = 1.0241 + 0.2863 * c(n) + 0.0083 * c(2 * n) - 0.0015 * c(3 * n), uK2 = -17.74 * s(n) + 0.68 * s(2 * n) - 0.04 * s(3 * n);
+  const M2 = [fM2, uM2], O1 = [fO1, uO1], M4 = [fM2 * fM2, 2 * uM2];
+  return { M2, S2: [1, 0], N2: M2, K2: [fK2, uK2], K1: [fK1, uK1], O1, P1: [1, 0], Q1: O1, MU2: M2, NU2: M2, L2: M2, N22: M2, M4, MS4: M2, MN4: M4, M6: [fM2 ** 3, 3 * uM2], MS6: M4 };
+}
+function tideAt(ms) {
+  const a = astro(ms), { Ts, s, h, p } = a, nd = nodal(a.N);
+  const v = { M2: 2 * Ts - 2 * s + 2 * h, S2: 2 * Ts, N2: 2 * Ts - 3 * s + 2 * h + p, K2: 2 * Ts + 2 * h, K1: Ts + h + 90, O1: Ts - 2 * s + h - 90, P1: Ts - h - 90, Q1: Ts - 3 * s + h + p - 90, MU2: 2 * Ts - 4 * s + 4 * h, NU2: 2 * Ts - 3 * s + 4 * h - p, L2: 2 * Ts - s + 2 * h - p + 180, N22: 2 * Ts - 4 * s + 2 * h + 2 * p };
+  v.M4 = 2 * v.M2; v.MS4 = v.M2 + v.S2; v.MN4 = v.M2 + v.N2; v.M6 = 3 * v.M2; v.MS6 = 2 * v.M2 + v.S2;
+  let out = TC.Z0 + TC.sa * Math.cos((h - SA_PEAK) * D2R);
+  for (const k in TC.cons) {
+    const [H, g] = TC.cons[k], [f, u] = nd[k];
+    out += f * H * Math.cos((v[k] + u - g) * D2R);
+    for (const m in INFER) if (INFER[m][0] === k) { const [f2, u2] = nd[m]; out += INFER[m][1] * f2 * H * Math.cos((v[m] + u2 - g) * D2R); }
+  }
+  return out;
+}
+// 하루치: 분마다 높이(0~1440분). 같은 날은 다시 셈하지 않는다
+const DAYCACHE = new Map();
+function daySeries(day) {
+  const key = `${day.y}-${day.m}-${day.d}`;
+  if (DAYCACHE.has(key)) return DAYCACHE.get(key);
+  const a = new Float32Array(1443), base = kstMs(day.y, day.m, day.d);
+  for (let i = 0; i < 1443; i++) a[i] = tideAt(base + (i - 1) * 60000); // a[i] = 높이 at minute i-1
+  DAYCACHE.set(key, a);
+  if (DAYCACHE.size > 40) DAYCACHE.delete(DAYCACHE.keys().next().value);
+  return a;
+}
+const hAt = (day, mi) => { const a = daySeries(day), i = clamp(mi, 0, 1440), k = Math.floor(i); return lerp(a[k + 1], a[Math.min(k + 2, 1442)], i - k); };
+function extremaOf(day) {
+  const a = daySeries(day), out = [];
+  for (let i = 1; i < 1442; i++) {
+    if (a[i] >= a[i - 1] && a[i] > a[i + 1]) out.push({ mi: i - 1, h: a[i], k: 'H' });
+    if (a[i] <= a[i - 1] && a[i] < a[i + 1]) out.push({ mi: i - 1, h: a[i], k: 'L' });
+  }
+  return out.filter(e => e.mi >= 0 && e.mi < 1440);
+}
+function windowsOf(day, thr = ROAD_CM) {
+  const a = daySeries(day), out = []; let st = null;
+  for (let i = 0; i <= 1440; i++) {
+    const h = a[i + 1];
+    if (h < thr && st === null) st = i;
+    if (h >= thr && st !== null) { out.push([st, i]); st = null; }
+  }
+  if (st !== null) out.push([st, 1440]);
+  return out;
+}
+const r5 = mi => 5 * Math.round(mi / 5);
+function hm(mi) {
+  mi = ((Math.round(mi) % 1440) + 1440) % 1440;
+  const h = Math.floor(mi / 60), m = mi % 60;
+  const part = h < 6 ? '새벽' : h < 12 ? '오전' : h === 12 ? '낮' : h < 18 ? '오후' : h < 21 ? '저녁' : '밤';
+  const hh = h === 0 ? 12 : h <= 12 ? h : h - 12;
+  return `${part} ${hh}시${m ? ` ${m}분` : ''}`;
+}
+const hhmm = mi => { mi = ((Math.round(mi) % 1440) + 1440) % 1440; return `${String(Math.floor(mi / 60)).padStart(2, '0')}:${String(mi % 60).padStart(2, '0')}`; };
+// 길 칠판: 이장님은 오 분 단위로 적는다
+function roadBoard(day) {
+  return windowsOf(day).filter(w => w[0] > 0).map(([a, b]) => b < 1440 ? `${hm(r5(a))} ~ ${hm(r5(b))}` : `${hm(r5(a))}부터`).join(' / ') || '낮에는 안 열림';
+}
+// 지금(분) 길이 열렸나, 다음 바뀜은 언제인가
+function roadState(day, mi) {
+  const open = hAt(day, mi) < ROAD_CM, a = daySeries(day);
+  let nx = null;
+  for (let i = Math.ceil(mi); i <= 1440; i++) if ((a[i + 1] < ROAD_CM) !== open) { nx = i; break; }
+  return { open, next: nx };
+}
+
+/* ---------- 달: 초하루(합삭)와 음력, 달의 모양 ---------- */
+function newMoonJDE(k) {
+  const T = k / 1236.85, r = x => x * D2R;
+  let jde = 2451550.09766 + 29.530588861 * k + 0.00015437 * T * T - 0.00000015 * T ** 3 + 0.00000000073 * T ** 4;
+  const E = 1 - 0.002516 * T - 0.0000074 * T * T;
+  const Ms = r(2.5534 + 29.10535670 * k - 0.0000014 * T * T), Mp = r(201.5643 + 385.81693528 * k + 0.0107582 * T * T + 0.00001238 * T ** 3);
+  const F = r(160.7108 + 390.67050284 * k - 0.0016118 * T * T), Om = r(124.7746 - 1.56375588 * k + 0.0020672 * T * T);
+  jde += -0.40720 * Math.sin(Mp) + 0.17241 * E * Math.sin(Ms) + 0.01608 * Math.sin(2 * Mp) + 0.01039 * Math.sin(2 * F) + 0.00739 * E * Math.sin(Mp - Ms) - 0.00514 * E * Math.sin(Mp + Ms)
+    + 0.00208 * E * E * Math.sin(2 * Ms) - 0.00111 * Math.sin(Mp - 2 * F) - 0.00057 * Math.sin(Mp + 2 * F) + 0.00056 * E * Math.sin(2 * Mp + Ms) - 0.00042 * Math.sin(3 * Mp)
+    + 0.00042 * E * Math.sin(Ms + 2 * F) + 0.00038 * E * Math.sin(Ms - 2 * F) - 0.00024 * E * Math.sin(2 * Mp - Ms) - 0.00017 * Math.sin(Om);
+  return jde;
+}
+const jdToMs = jd => J2000 + (jd - 2451545.0) * 86400000 - 69000;
+// 그 날짜(KST)가 든 음력 달의 초하루(KST 자정 기준 날짜)
+function lunarDay(y, m, d, tz = 9) {
+  const ms = Date.UTC(y, m - 1, d);
+  let k = Math.floor(((y + (m - 1) / 12) - 2000) * 12.3685) - 2;
+  const dayIdx = t => Math.floor((t + tz * 3600e3) / 86400000);
+  const target = Math.floor(ms / 86400000);
+  let prev = null;
+  for (let i = 0; i < 6; i++, k++) {
+    const st = dayIdx(jdToMs(newMoonJDE(k)));
+    if (st > target) break;
+    prev = st;
+  }
+  return target - prev + 1;
+}
+// 2026년 음력 달 번호: 설날(2월 17일)이 1월 1일. 2026년에는 윤달이 없다
+function lunar2026(y, m, d) {
+  const ld = lunarDay(y, m, d), start = Date.UTC(y, m - 1, d) - (ld - 1) * 86400000;
+  const base = Date.UTC(2026, 1, 17), lm = Math.round((start - base) / 86400000 / 29.53) + 1;
+  return { lm: ((lm - 1) % 12 + 12) % 12 + 1, ld };
+}
+const MUL = ['', '일곱물', '여덟물', '아홉물', '열물', '열한물', '열두물', '열세물', '조금', '무시', '한물', '두물', '세물', '네물', '다섯물', '여섯물'];
+const mulOf = ld => MUL[ld <= 15 ? ld : ld - 15];
+const SAY_NUM = ['', '초하루', '초이틀', '초사흘', '초나흘', '초닷새', '초엿새', '초이레', '초여드레', '초아흐레', '초열흘', '열하루', '열이틀', '열사흘', '열나흘', '보름', '열엿새', '열이레', '열여드레', '열아흐레', '스무날', '스무하루', '스무이틀', '스무사흘', '스무나흘', '스무닷새', '스무엿새', '스무이레', '스무여드레', '그믐', '그믐'];
+
+/* ---------- 해와 달의 자리 ---------- */
+const PLACE = { lat: 36.98, lon: 126.35 };
+function sunRaDec(ms) {
+  const n = (ms - J2000) / 86400000, L = ((280.460 + 0.9856474 * n) % 360) * D2R, g = ((357.528 + 0.9856003 * n) % 360) * D2R;
+  const lam = L + 1.915 * D2R * Math.sin(g) + 0.020 * D2R * Math.sin(2 * g), eps = (23.439 - 0.0000004 * n) * D2R;
+  return [Math.atan2(Math.cos(eps) * Math.sin(lam), Math.cos(lam)), Math.asin(Math.sin(eps) * Math.sin(lam))];
+}
+function moonRaDec(ms) {
+  const T = (ms - J2000) / 86400000 / 36525, r = x => x * D2R;
+  const L = 218.3164477 + 481267.88123421 * T, Dd = 297.8501921 + 445267.1114034 * T, Ms = 357.5291092 + 35999.0502909 * T, Mp = 134.9633964 + 477198.8675055 * T, F = 93.2720950 + 483202.0175233 * T;
+  const lon = r(L + 6.289 * Math.sin(r(Mp)) + 1.274 * Math.sin(r(2 * Dd - Mp)) + 0.658 * Math.sin(r(2 * Dd)) + 0.214 * Math.sin(r(2 * Mp)) - 0.186 * Math.sin(r(Ms)) - 0.114 * Math.sin(r(2 * F)));
+  const lat = r(5.128 * Math.sin(r(F)) + 0.281 * Math.sin(r(Mp + F)) + 0.278 * Math.sin(r(Mp - F)) + 0.173 * Math.sin(r(2 * Dd - F)));
+  const eps = r(23.439 - 0.0130 * T);
+  return [Math.atan2(Math.sin(lon) * Math.cos(eps) - Math.tan(lat) * Math.sin(eps), Math.cos(lon)), Math.asin(Math.sin(lat) * Math.cos(eps) + Math.cos(lat) * Math.sin(eps) * Math.sin(lon))];
+}
+function altAz(ra, dec, ms, lat, lon) {
+  const gmst = ((280.46061837 + 360.98564736629 * ((ms - J2000) / 86400000)) % 360) * D2R, H = gmst + lon * D2R - ra, la = lat * D2R;
+  const alt = Math.asin(Math.sin(la) * Math.sin(dec) + Math.cos(la) * Math.cos(dec) * Math.cos(H));
+  const az = Math.atan2(Math.sin(H), Math.cos(H) * Math.sin(la) - Math.tan(dec) * Math.cos(la)) + Math.PI;
+  return { alt: alt / D2R, az: (az / D2R + 360) % 360, H };
+}
+// 달이 얼마나 찼나(0~1), 해에서 얼마나 떨어졌나
+function moonPhase(ms) {
+  const [ra, de] = moonRaDec(ms), [rs, ds] = sunRaDec(ms);
+  const cosE = Math.sin(de) * Math.sin(ds) + Math.cos(de) * Math.cos(ds) * Math.cos(ra - rs), E = Math.acos(clamp(cosE, -1, 1));
+  const waxing = ((ra - rs) % (2 * Math.PI) + 2 * Math.PI) % (2 * Math.PI) < Math.PI;
+  return { frac: (1 - Math.cos(E)) / 2, waxing, elong: E / D2R };
+}
+// 밝은 쪽이 하늘의 위(천정)에서 몇 도 돌아가 있나: 180이면 바로 아래(배처럼 누운 달)
+function brightTilt(ms, lat, lon) {
+  const [am, dm] = moonRaDec(ms), [as, ds] = sunRaDec(ms);
+  const chi = Math.atan2(Math.cos(ds) * Math.sin(as - am), Math.sin(ds) * Math.cos(dm) - Math.cos(ds) * Math.sin(dm) * Math.cos(as - am));
+  const { H } = altAz(am, dm, ms, lat, lon);
+  const q = Math.atan2(Math.sin(H), Math.tan(lat * D2R) * Math.cos(dm) - Math.sin(dm) * Math.cos(H));
+  return (((chi - q) / D2R) % 360 + 360) % 360;
+}
+// 해 지고 사십 분 뒤(그 자리의 지방시)
+function eveningMs(y, m, d, lat, lon, tz) {
+  const t0 = Date.UTC(y, m - 1, d, 12) - tz * 3600e3;
+  for (let i = 0; i < 600; i++) { const t = t0 + i * 60000; if (altAz(...sunRaDec(t), t, lat, lon).alt < -0.8) return t + 40 * 60000; }
+  return t0 + 7 * 3600e3;
+}
+function sunTimes(day) {
+  const out = []; let prev = null;
+  for (let i = 0; i <= 1440; i += 2) {
+    const t = kstMs(day.y, day.m, day.d, i), a = altAz(...sunRaDec(t), t, PLACE.lat, PLACE.lon).alt;
+    if (prev !== null && (prev < -0.833) !== (a < -0.833)) out.push(i);
+    prev = a;
+  }
+  return { rise: out[0], set: out[1] };
+}
+
+/* ---------- 달섬과 앞바다: 땅과 뻘의 높이(cm, 약최저저조면 기준), 길, 집, 이름 ----------
+   좌표는 마을회관을 0으로 한 미터. x는 동쪽, y는 북쪽. */
+const WB = { x0: -1900, x1: 1950, y0: -1420, y1: 940 };
+function rng(seed) { let s = seed % 2147483647; if (s <= 0) s += 2147483646; return () => (s = s * 16807 % 2147483647) / 2147483647; }
+// 매끈한 잡음: 격자점마다 정해진 값을 부드럽게 이어 붙인다
+function hash2(i, j) { let h = (i * 374761393 + j * 668265263) | 0; h = (h ^ (h >>> 13)) * 1274126177 | 0; return ((h ^ (h >>> 16)) >>> 0) / 4294967295; }
+function vnoise(x, y) {
+  const i = Math.floor(x), j = Math.floor(y), u = x - i, v = y - j, su = u * u * (3 - 2 * u), sv = v * v * (3 - 2 * v);
+  return lerp(lerp(hash2(i, j), hash2(i + 1, j), su), lerp(hash2(i, j + 1), hash2(i + 1, j + 1), su), sv) * 2 - 1;
+}
+const fbm = (x, y) => vnoise(x / 260, y / 260) * 0.6 + vnoise(x / 90 + 7, y / 90 + 3) * 0.3 + vnoise(x / 33 + 11, y / 33 + 5) * 0.1;
+const smooth = t => t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t);
+const COAST = y => 1720 + 70 * Math.sin(y / 350) + 40 * Math.sin(y / 97 + 1);
+const CHAN = y => -1000 + 150 * Math.sin(y / 500);
+const GOL = y => 1000 + 110 * Math.sin((y - 20) / 230) + 40 * Math.sin((y - 20) / 71);
+// 섬 안이면 양수
+function islandF(x, y) {
+  const a = -10 * D2R, dx = x + 200, dy = y - 60;
+  const u = (dx * Math.cos(a) + dy * Math.sin(a)) / 540, v = (-dx * Math.sin(a) + dy * Math.cos(a)) / 300;
+  const ex = (x - 70) / 240, ey = (y + 10) / 175;
+  return Math.max(1 - u * u - v * v, 1 - ex * ex - ey * ey) + 0.06 * Math.sin(x / 90) * Math.cos(y / 70) + 0.04 * Math.sin((x + y) / 55);
+}
+// 남쪽 뻘의 잔 갯골들
+const SMALL = [[-420, 160, 0.9], [-150, 210, 2.1], [120, 190, 4.0], [380, 240, 5.2], [-700, 170, 3.1]];
+// 북쪽 뻘의 잔 갯골들
+const NORTH = [[-560, 150, 1.7], [-60, 190, 3.3], [330, 170, 0.4], [640, 220, 2.6]];
+// 큰 갯골로 흘러드는 가지 갯골: [시작 y, 쪽(서 -1, 동 1), 길이, 굽이, 위상]
+const TRIB = [[-430, -1, 330, 70, 0.3], [-210, 1, 260, 60, 1.9], [250, -1, 280, 80, 2.7], [330, 1, 300, 66, 4.4], [560, -1, 360, 90, 5.1], [-620, 1, 240, 55, 0.8], [700, 1, 250, 70, 3.6]];
+const SANDBAR = { x: -1550, y: -650 };
+function elev(x, y) {
+  const f = islandF(x, y);
+  // 섬: 바닷가(800)에서 이어 올라간다. 끊긴 데가 없어야 물가가 매끈하다
+  if (f >= 0) { const k = smooth(f / 0.12); return 800 + 700 * smooth(f / 0.55) + k * (2300 * Math.exp(-((x + 260) ** 2 + (y - 170) ** 2) / (2 * 150 * 150)) + 30 * Math.sin(x / 31) * Math.sin(y / 29)); }
+  // 뻘 바닥: 큰 굴곡 위에 잔 굴곡. 남북으로 갈수록 깊어지되, 그 경계가 곧지 않게 좌표를 흔든다
+  const wx = x + 190 * vnoise(y / 430 + 1.1, x / 430 + 4.2), wy = y + 190 * vnoise(x / 430 + 7.7, y / 430 + 3.3);
+  const big = vnoise(wx / 650 + 3.1, wy / 650 + 8.7), mid = vnoise(wx / 230 + 1.3, wy / 230 + 2.9);
+  let h = 235 + 55 * big + 25 * mid;
+  h -= 0.3 * Math.max(0, -wy - 300 + 280 * big);
+  h -= 0.25 * Math.max(0, wy - 520 + 280 * mid);
+  h += 22 * fbm(x, y);
+  h -= 1150 * Math.exp(-(((wx - CHAN(y)) / (230 + 70 * mid)) ** 2));
+  if (y > -760) h -= (300 + 0.25 * Math.max(0, y)) * Math.exp(-(((x - GOL(y)) / 34) ** 2)) * smooth((y + 760) / 200);
+  if (y < -180 && y > -1150) for (const [x0, lam, ph] of SMALL) {
+    const cx = x0 + 70 * Math.sin(y / lam + ph) + 25 * Math.sin(y / 47 + ph);
+    h -= 110 * Math.exp(-(((x - cx) / 15) ** 2)) * smooth((-y - 180) / 120) * (1 - smooth((-y - 850) / 280));
+  }
+  if (y > 420 && y < 1500) for (const [x0, lam, ph] of NORTH) {
+    const cx = x0 + 70 * Math.sin(y / lam + ph) + 25 * Math.sin(y / 53 + ph);
+    h -= 105 * Math.exp(-(((x - cx) / 14) ** 2)) * smooth((y - 420) / 140) * (1 - smooth((y - 1150) / 300));
+  }
+  for (const [y0, side, len, lam, ph] of TRIB) {
+    const gx = GOL(y0), dist = side * (x - gx);
+    if (dist < 0 || dist > len) continue;
+    const yc = y0 + 34 * Math.sin(dist / lam + ph) + 12 * Math.sin(dist / 29 + ph);
+    h -= 185 * Math.exp(-(((y - yc) / 11) ** 2)) * (1 - smooth(dist / len)) * smooth((y0 + 760) / 200);
+  }
+  h += Math.max(0, 400 - h) * Math.exp(-(((x - SANDBAR.x) / 330) ** 2) - (((y - SANDBAR.y) / 130) ** 2));
+  // 섬 둘레: 바닷가로 갈수록 높아진다. 북쪽은 칠면초 밭(높은 뻘)
+  const ring = smooth((f + 0.32) / 0.32);
+  h = lerp(h, 800, ring * ring);
+  const mw = marshW(x, y, f);
+  if (mw > 0) h = lerp(h, Math.max(h, 700 + 45 * smooth((f + 0.62) / 0.62) + 10 * Math.sin(x / 13)), mw);
+  // 뭍
+  const c = COAST(y);
+  if (x > c - 170) h = Math.max(h, lerp(h, 800, smooth((x - (c - 170)) / 170)));
+  if (x > c) h = 800 + (x - c) * 4.5 + 120 * Math.sin(y / 180) * smooth((x - c) / 200);
+  return h;
+}
+// 칠면초 밭의 몫(0~1): 가장자리를 부드럽게
+function marshW(x, y, f) { return f >= 0 ? 0 : smooth((f + 0.62) / 0.08) * smooth((y - 200 - 0.15 * x) / 40) * smooth((160 - x) / 50) * smooth((x + 760) / 50); }
+const isMarsh = (x, y) => marshW(x, y, islandF(x, y)) > 0.02;
+const isRock = (x, y) => { const f = islandF(x, y); return f < 0 && f > -0.3 && x < -520; };
+// 노둣길: 섬 길머리에서 뭍 길 어귀까지 1.4킬로미터, 갯골 건너는 가운데가 가장 낮다
+const ROAD = [[300, -25], [700, -6], [1000, 20], [1350, 38], [1720, 56]];
+const ROAD_SEG = (() => {
+  const pts = [], step = 10;
+  for (let i = 0; i < ROAD.length - 1; i++) {
+    const [ax, ay] = ROAD[i], [bx, by] = ROAD[i + 1], L = Math.hypot(bx - ax, by - ay), n = Math.ceil(L / step);
+    for (let k = 0; k < n; k++) pts.push([lerp(ax, bx, k / n), lerp(ay, by, k / n)]);
+  }
+  pts.push(ROAD[ROAD.length - 1]);
+  let s = 0;
+  return pts.map((p, i) => { if (i) s += Math.hypot(p[0] - pts[i - 1][0], p[1] - pts[i - 1][1]); return { x: p[0], y: p[1], s }; });
+})();
+const ROAD_LEN = ROAD_SEG[ROAD_SEG.length - 1].s;
+const roadElev = x => 300 + 30 * (1 - Math.exp(-(((x - 1000) / 330) ** 2)));
+function roadAt(s) {
+  s = clamp(s, 0, ROAD_LEN);
+  let i = 1; while (i < ROAD_SEG.length - 1 && ROAD_SEG[i].s < s) i++;
+  const a = ROAD_SEG[i - 1], b = ROAD_SEG[i], t = (s - a.s) / Math.max(1e-6, b.s - a.s);
+  const x = lerp(a.x, b.x, t), y = lerp(a.y, b.y, t);
+  return { x, y, h: roadElev(x) };
+}
+const PLACES = {
+  회관: { x: 0, y: 0, t: '마을회관', sub: '한글 교실은 이 층 경로당 방에서 열렸다.' },
+  끝순네: { x: -150, y: 115, t: '끝순네', sub: '언덕 밑 집. 장롱 위에 양철 통이 있다.' },
+  상회: { x: 215, y: -62, t: '달섬상회', sub: '섬에 하나뿐인 가게. 그림으로 적은 외상 장부.' },
+  복례네: { x: -95, y: -170, t: '복례네', sub: '남쪽 돌담 집. 마루 기둥에 조새가 걸려 있다.' },
+  이장네: { x: 125, y: 95, t: '이장네', sub: '경운기와 작은 배. 마이 씨와 준호가 산다.' },
+  당산: { x: -262, y: 172, t: '당산', sub: '섬 꼭대기 팽나무. 정월대보름에 달집을 태운다.' },
+  선착장: { x: -655, y: -45, t: '선착장', sub: '물이 들어야 배가 닿는다.' },
+  둑: { x: 205, y: 40, t: '둑', sub: '회관 앞 둑. 백중날 끝순 할머니와 나란히 앉은 곳.' },
+  길어귀: { x: 1760, y: 78, t: '길 어귀 칠판', sub: '이장님이 날마다 길 열리는 시각을 적는다.' },
+  갯골: { x: 1000, y: 20, t: '갯골 건너는 곳', sub: '길 가운데 가장 낮은 데. 물이 들 때 가장 먼저 잠긴다.' },
+  바지락밭: { x: -230, y: -640, t: '바지락밭', sub: '사리 때 할머니들이 허리를 굽히는 남쪽 뻘.' },
+  굴밭: { x: -760, y: 90, t: '굴밭', sub: '서쪽 바위. 칠십 년 조새를 쥔 손들의 자리.' },
+  칠면초: { x: -260, y: 430, t: '칠면초 밭', sub: '소금기 땅. 가을이면 붉어진다.' },
+  모래톱: { x: SANDBAR.x, y: SANDBAR.y, t: '모래톱', sub: '물이 빠지면 점박이물범이 올라와 쉰다.' }
+};
+const LABELS = [
+  { t: '달섬', x: -470, y: -300, big: true },
+  { t: '노둣길', x: 840, y: 75 },
+  { t: '갯골', x: 1135, y: 430 },
+  { t: '뭍 · 대산 쪽', x: 1860, y: 470, land: true },
+  { t: '가로림만', x: -1420, y: 520, sea: true }
+];
+const HOUSES = (() => {
+  const r = rng(907), out = [];
+  for (let i = 0; i < 34; i++) {
+    const a = r() * Math.PI * 2, d = 40 + r() * 200, x = 40 + Math.cos(a) * d * 1.1, y = -10 + Math.sin(a) * d * 0.7;
+    if (islandF(x, y) < 0.12 || Math.hypot(x, y) < 30) continue;
+    out.push({ x, y, w: 0.8 + r() * 0.5, roof: r() < 0.45 ? '#6f8aa6' : r() < 0.7 ? '#b4664c' : '#8f938a', rot: (r() - 0.5) * 0.5 });
+  }
+  [[-150, 115], [-95, -170], [125, 95], [215, -62]].forEach(([x, y], i) => out.push({ x, y, w: 1.15, roof: ['#6f8aa6', '#8f938a', '#b4664c', '#c7a24a'][i], rot: 0.1 }));
+  for (let i = 0; i < 10; i++) out.push({ x: 1800 + r() * 120, y: -200 + r() * 520, w: 0.9 + r() * 0.4, roof: r() < 0.5 ? '#6f8aa6' : '#b4664c', rot: 0 });
+  return out;
+})();
+const LANES = [[[0, 0], [-60, 50], [-150, 115], [-262, 172]], [[0, 0], [90, -30], [215, -62], [300, -25]], [[0, 0], [-50, -90], [-95, -170]], [[0, 0], [60, 60], [125, 95]], [[-60, 50], [-320, 20], [-520, -10], [-655, -45]]];
+/* 높이를 격자로 셈해 둔다. 화면에 보이는 만큼만, 화면 2.4픽셀에 한 칸 */
+const GRID = { s: 7.5, nx: 0, ny: 0, h: null, x0: 0, y1: 0, key: '' };
+function buildGrid(x0, x1, y0, y1, s) {
+  if (x0 == null) { if (GRID.h) return; x0 = WB.x0; x1 = WB.x1; y0 = WB.y0; y1 = WB.y1; s = 7.5; }
+  const key = [x0, x1, y0, y1, s].map(v => Math.round(v)).join(',');
+  if (GRID.h && GRID.key === key) return;
+  const nx = Math.ceil((x1 - x0) / s) + 1, ny = Math.ceil((y1 - y0) / s) + 1, h = new Float32Array(nx * ny);
+  for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) h[j * nx + i] = elev(x0 + i * s, y1 - j * s);
+  // 기울기(cm/m): 물가를 매끈하게 그리는 데 쓴다
+  const gm = new Float32Array(nx * ny), gx = new Float32Array(nx * ny), gy = new Float32Array(nx * ny);
+  for (let j = 0; j < ny; j++) for (let i = 0; i < nx; i++) {
+    const k = j * nx + i, il = i > 0 ? k - 1 : k, ir = i < nx - 1 ? k + 1 : k, ju = j > 0 ? k - nx : k, jd = j < ny - 1 ? k + nx : k;
+    const hx = (h[ir] - h[il]) / (s * Math.max(1, (ir - il))), hy = (h[ju] - h[jd]) / (s * Math.max(1, (jd - ju) / nx));
+    gx[k] = hx; gy[k] = hy; gm[k] = Math.max(0.04, Math.hypot(hx, hy));
+  }
+  Object.assign(GRID, { s, nx, ny, h, gm, gx, gy, x0, y1, key });
+  WATER.key = '';
+}
+// 계절에 따라 칠면초 빛깔이 바뀐다
+function marshCol(m) {
+  if (m >= 10 || m <= 2) return [150, 62, 52];
+  if (m >= 8) return [128, 104, 70];
+  if (m >= 5) return [104, 128, 76];
+  return [118, 112, 80];
+}
+/* 바탕: 마른 땅과 뻘. 물은 그 위에 따로 칠한다 */
+function drawBase(c, V, W, H, dpr, month) {
+  const img = c.createImageData(W, H), px = img.data, st = 2;
+  const mc = marshCol(month);
+  const land = [[800, [170, 176, 132]], [1000, [150, 166, 112]], [1500, [122, 146, 96]], [2400, [96, 124, 82]], [3400, [84, 108, 74]]];
+  const landCol = h => { for (let i = 1; i < land.length; i++) if (h <= land[i][0]) { const a = land[i - 1], b = land[i], t = (h - a[0]) / (b[0] - a[0]); return a[1].map((v, k) => v + (b[1][k] - v) * t); } return land[land.length - 1][1]; };
+  for (let sy = 0; sy < H; sy += st) for (let sx = 0; sx < W; sx += st) {
+    const wx = ((sx + 1) / dpr - V.ox) / V.s, wy = (V.oy - (sy + 1) / dpr) / V.s, h = sample(wx, wy);
+    const gx = sample(wx, wy, GRID.gx), gy = sample(wx, wy, GRID.gy);
+    // 땅인지 아닌지는 섬과 뭍의 모양으로 바로 가린다(높이 격자로 가리면 물가가 계단이 된다)
+    const fI = islandF(wx, wy), landT = Math.max(smooth((fI + 0.012) / 0.024), smooth((wx - COAST(wy) + 6) / 12));
+    let col, shade;
+    if (landT >= 1) { col = landCol(Math.max(h, 800)); shade = clamp(1 + (-gx * 0.45 + gy * 0.45) * 0.09, 0.74, 1.16); }
+    else {
+      const k = clamp((h + 300) / 1000, 0, 1);
+      col = [lerp(112, 168, k), lerp(106, 158, k), lerp(96, 142, k)];
+      // 뻘의 얼룩: 젖은 데는 짙고, 볕에 마른 데는 옅다
+      const m1 = vnoise(wx / 150 + 5.3, wy / 150 + 1.7), m2 = vnoise(wx / 41 + 2.2, wy / 41 + 9.1), wet = clamp((260 - h) / 140, 0, 1);
+      const mul = 1 + 0.06 * m1 + 0.035 * m2;
+      col = [col[0] * mul - 12 * wet, col[1] * mul - 8 * wet, col[2] * mul - 3 * wet];
+      if (m2 > 0.55 && h < 600) col = col.map(v => v + 9 * (m2 - 0.55) / 0.45);
+      { const mw = marshW(wx, wy, fI); if (mw > 0) { const tex = 0.85 + 0.15 * vnoise(wx / 9, wy / 9); col = col.map((v, i) => lerp(v, mc[i] * tex, mw * 0.85)); } }
+      { const rw = fI < 0 ? smooth((fI + 0.3) / 0.06) * smooth((-520 - wx) / 30) : 0; if (rw > 0) { const n = Math.sin(wx * 0.9) * Math.sin(wy * 1.1); col = col.map(v => v - rw * (22 + n * 10)); } }
+      const sb = Math.exp(-(((wx - SANDBAR.x) / 330) ** 2) - (((wy - SANDBAR.y) / 130) ** 2));
+      if (sb > 0.25) col = col.map((v, i) => lerp(v, [206, 192, 156][i], (sb - 0.25) * 1.2));
+      shade = clamp(1 + (-gx + gy) * 0.02, 0.85, 1.1);
+      if (landT > 0) { const lc = landCol(Math.max(h, 800)); col = col.map((v, i) => lerp(v, lc[i], landT)); }
+    }
+    const r = col[0] * shade, g = col[1] * shade, b = col[2] * shade;
+    for (let yy = 0; yy < st && sy + yy < H; yy++) for (let xx = 0; xx < st && sx + xx < W; xx++) {
+      const i = ((sy + yy) * W + sx + xx) * 4; px[i] = r; px[i + 1] = g; px[i + 2] = b; px[i + 3] = 255;
+    }
+  }
+  c.putImageData(img, 0, 0);
+  c.save(); c.scale(dpr, dpr);
+  const P = (x, y) => [V.ox + x * V.s, V.oy - y * V.s];
+  // 뻘의 잔무늬: 물결 자국과 게 구멍
+  const r = rng(31);
+  c.strokeStyle = 'rgba(70,62,50,.12)'; c.lineWidth = 0.6;
+  for (let i = 0; i < 1400; i++) {
+    const x = GRID.x0 + r() * (GRID.nx - 1) * GRID.s, y = GRID.y1 - r() * (GRID.ny - 1) * GRID.s, h = sample(x, y);
+    if (h > 650 || h < -100) continue;
+    const [sx, sy] = P(x, y), L = 3 + r() * 6;
+    c.beginPath(); c.moveTo(sx - L, sy); c.quadraticCurveTo(sx, sy - 1.4, sx + L, sy); c.stroke();
+  }
+  // 섬 숲: 당산 비탈의 소나무
+  for (let i = 0; i < 520; i++) {
+    const x = -760 + r() * 760, y = -120 + r() * 420, h = sample(x, y);
+    if (h < 1400 || r() > 0.8) continue;
+    const [sx, sy] = P(x, y), k = 1.8 + r() * 1.4;
+    c.fillStyle = r() < 0.5 ? 'rgba(54,86,58,.6)' : 'rgba(70,100,64,.55)';
+    c.beginPath(); c.moveTo(sx, sy - k * 1.5); c.lineTo(sx + k, sy + k * 0.6); c.lineTo(sx - k, sy + k * 0.6); c.closePath(); c.fill();
+  }
+  // 뭍의 밭과 산
+  for (let i = 0; i < 320; i++) {
+    const y = GRID.y1 - r() * (GRID.ny - 1) * GRID.s, x = COAST(y) + 40 + r() * 320;
+    const [sx, sy] = P(x, y), w = (24 + r() * 40) * V.s, hh = (16 + r() * 26) * V.s;
+    c.fillStyle = r() < 0.5 ? 'rgba(196,192,140,.35)' : 'rgba(150,170,110,.35)'; c.fillRect(sx, sy, w, hh);
+  }
+  // 석유화학단지의 둥근 탱크들(멀리)
+  for (let i = 0; i < 7; i++) { const [sx, sy] = P(1840 + (i % 4) * 32, 820 + Math.floor(i / 4) * 34); c.fillStyle = 'rgba(214,214,206,.9)'; c.beginPath(); c.arc(sx, sy, Math.max(2.2, 11 * V.s), 0, 7); c.fill(); c.strokeStyle = 'rgba(90,90,90,.4)'; c.lineWidth = 0.7; c.stroke(); }
+  // 둑: 마을 앞 바닷가
+  c.strokeStyle = 'rgba(214,206,186,.95)'; c.lineWidth = Math.max(2, 7 * V.s); c.lineCap = 'round';
+  c.beginPath(); [[150, -150], [205, -95], [225, -40], [215, 40], [190, 120]].forEach(([x, y], i) => { const [sx, sy] = P(x, y); i ? c.lineTo(sx, sy) : c.moveTo(sx, sy); }); c.stroke();
+  // 섬 안 길
+  c.lineJoin = 'round';
+  LANES.forEach(L => { c.beginPath(); L.forEach(([x, y], i) => { const [sx, sy] = P(x, y); i ? c.lineTo(sx, sy) : c.moveTo(sx, sy); }); c.strokeStyle = 'rgba(120,104,80,.45)'; c.lineWidth = 2.6; c.stroke(); c.strokeStyle = '#e9e0c8'; c.lineWidth = 1.4; c.stroke(); });
+  // 뭍의 찻길과 길 어귀 주차장
+  c.beginPath(); [[1720, 56], [1800, 70], [1890, 140], [1950, 260]].forEach(([x, y], i) => { const [sx, sy] = P(x, y); i ? c.lineTo(sx, sy) : c.moveTo(sx, sy); });
+  c.strokeStyle = 'rgba(90,90,90,.5)'; c.lineWidth = 3.4; c.stroke(); c.strokeStyle = '#e3ded2'; c.lineWidth = 2; c.stroke();
+  { const [sx, sy] = P(1790, 40); c.fillStyle = 'rgba(200,196,186,.9)'; c.fillRect(sx - 6, sy - 4, 14, 9); }
+  // 집들
+  HOUSES.forEach(hh => {
+    const [sx, sy] = P(hh.x, hh.y), w = 4.4 * hh.w, h2 = 3.2 * hh.w;
+    c.save(); c.translate(sx, sy); c.rotate(hh.rot);
+    c.fillStyle = 'rgba(40,36,30,.25)'; c.fillRect(-w / 2 + 0.8, -h2 / 2 + 0.8, w, h2);
+    c.fillStyle = hh.roof; c.fillRect(-w / 2, -h2 / 2, w, h2); c.restore();
+  });
+  // 회관
+  { const [sx, sy] = P(0, 0); c.fillStyle = 'rgba(40,36,30,.3)'; c.fillRect(sx - 5, sy - 3, 11, 8); c.fillStyle = '#e6dfcf'; c.fillRect(sx - 6, sy - 4, 11, 8); c.fillStyle = '#5a6f86'; c.fillRect(sx - 6, sy - 4, 11, 2.2); }
+  // 당산 팽나무
+  { const [sx, sy] = P(-262, 172); c.fillStyle = '#4c6a44'; c.beginPath(); c.arc(sx, sy - 3, 5.5, 0, 7); c.arc(sx - 4, sy, 3.5, 0, 7); c.arc(sx + 4, sy, 3.5, 0, 7); c.fill(); c.fillStyle = '#5a4026'; c.fillRect(sx - 0.9, sy, 1.8, 4); }
+  // 선착장
+  { const [sx, sy] = P(-655, -45), [ex, ey] = P(-760, -60); c.strokeStyle = '#cfc8b6'; c.lineWidth = 3; c.beginPath(); c.moveTo(sx, sy); c.lineTo(ex, ey); c.stroke(); }
+  c.restore();
+}
+function sample(x, y, arr) {
+  const s = GRID.s, fi = (x - GRID.x0) / s, fj = (GRID.y1 - y) / s;
+  const i = clamp(Math.floor(fi), 0, GRID.nx - 2), j = clamp(Math.floor(fj), 0, GRID.ny - 2), u = clamp(fi - i, 0, 1), v = clamp(fj - j, 0, 1), n = GRID.nx, h = arr || GRID.h;
+  return lerp(lerp(h[j * n + i], h[j * n + i + 1], u), lerp(h[(j + 1) * n + i], h[(j + 1) * n + i + 1], u), v);
+}
+/* 물: 그 시각 물높이보다 낮은 데를 칠한다 (격자 크기 그대로 칠하고 늘려 그린다) */
+const WATER = { cv: null, key: '' };
+function waterLayer(level) {
+  const key = String(Math.round(level / 2));
+  if (WATER.cv && WATER.key === key) return WATER.cv;
+  const { nx, ny, h, gm, s } = GRID;
+  const cv = WATER.cv || document.createElement('canvas'); cv.width = nx; cv.height = ny;
+  const g = cv.getContext('2d'), img = g.createImageData(nx, ny), px = img.data;
+  for (let k = 0; k < nx * ny; k++) {
+    // 물가까지 거리(칸): 물이 얼마나 깊은지를 땅의 기울기로 나눈 것
+    const d = level - h[k], i = k * 4, sd = d / (gm[k] * s);
+    if (sd <= -0.8) { px[i + 3] = 0; continue; }
+    const cov = clamp(0.5 + sd, 0, 1), dd = Math.max(0, d), t = clamp(dd / 520, 0, 1), t2 = Math.sqrt(t), sh = smooth(dd / 70);
+    let r = lerp(196, lerp(132, 52, t2), sh), gg = lerp(212, lerp(168, 98, t2), sh), b = lerp(206, lerp(168, 112, t2), sh), a = lerp(118, lerp(205, 245, t), sh);
+    // 물가의 가는 흰 줄
+    const line = Math.exp(-((sd - 0.9) ** 2) / 0.45) * 0.55;
+    r = lerp(r, 238, line); gg = lerp(gg, 244, line); b = lerp(b, 240, line); a = Math.max(a, 200 * line);
+    px[i] = r; px[i + 1] = gg; px[i + 2] = b; px[i + 3] = a * cov;
+  }
+  g.putImageData(img, 0, 0);
+  WATER.cv = cv; WATER.key = key;
+  return cv;
+}
+
+/* ---------- 지도: 달섬과 노둣길. 고른 장의 하루가 흐르고, 물이 들고 난다 ---------- */
+const MAP = { V: null, box: null, base: null, top: null, now: 6 * 60, playing: true, speed: 30, t: 0, month: 0, hudT: 0, mark: null };
+function mapBox() {
+  const w = M.w, h = M.h, top = 66;
+  const sheet = ['#card', '#tpanel', '#xpanel'].map(q => $(q)).find(el => el && !el.hidden);
+  const cr = sheet ? sheet.getBoundingClientRect() : null, seen = cr && cr.height > 0;
+  if (seen && sheet.id === 'card') MAP.cardH = h - cr.top;
+  const card = seen ? cr : { right: 436, top: h - (MAP.cardH || 300) };
+  if (w >= 900) return { l: 436 + 24, r: w - 20, t: 80, b: h - 130 };
+  return { l: 6, r: w - 6, t: top + 92, b: Math.max(top + 240, card.top - 8) };
+}
+function mapResize() {
+  const cv = $('#cv'), d = Math.min(2, devicePixelRatio || 1);
+  M.dpr = d; M.w = innerWidth; M.h = innerHeight;
+  cv.width = Math.round(M.w * d); cv.height = Math.round(M.h * d);
+  const B = MAP.box = mapBox(), bw = B.r - B.l, bh = B.b - B.t, K = keyRegion();
+  const s = Math.min(bw / (K.x1 - K.x0), bh / (K.y1 - K.y0));
+  const cx = (K.x0 + K.x1) / 2, cy = (K.y0 + K.y1) / 2;
+  MAP.V = { s, ox: (B.l + B.r) / 2 - cx * s, oy: (B.t + B.b) / 2 + cy * s };
+  MAP.month = mapDay().m; MAP.key = K.k;
+  // 화면 전체에 보이는 땅과 바다만큼 높이를 셈한다
+  const vx0 = (0 - MAP.V.ox) / s - 60, vx1 = (M.w - MAP.V.ox) / s + 60, vy1 = MAP.V.oy / s + 60, vy0 = (MAP.V.oy - M.h) / s - 60;
+  buildGrid(vx0, vx1, vy0, vy1, Math.max(5, 2.4 / s));
+  const base = document.createElement('canvas'); base.width = cv.width; base.height = cv.height;
+  const g = base.getContext('2d');
+  g.fillStyle = '#5d8c94'; g.fillRect(0, 0, base.width, base.height);
+  drawBase(g, MAP.V, base.width, base.height, d, MAP.month);
+  MAP.base = base;
+  const top = document.createElement('canvas'); top.width = cv.width; top.height = cv.height;
+  const tg = top.getContext('2d'); tg.save(); tg.scale(d, d); drawLabels(tg, MAP.V); drawCompass(tg, B); tg.restore();
+  MAP.top = top;
+}
+// 지도에 꼭 들어와야 하는 곳: 섬과 노둣길과 길 어귀. 물범 장에서는 모래톱까지
+function keyRegion() {
+  const far = CH[M.sel] && CH[M.sel].place === '모래톱' && !CR.on;
+  return far ? { x0: -1800, x1: 1880, y0: -920, y1: 640, k: 'far' } : { x0: -1000, x1: 1880, y0: -880, y1: 620, k: 'near' };
+}
+const UIF = () => getComputedStyle(document.documentElement).getPropertyValue('--f-ui') || 'sans-serif';
+function drawLabels(c, V) {
+  const P = (x, y) => [V.ox + x * V.s, V.oy - y * V.s], body = getComputedStyle(document.documentElement).getPropertyValue('--f-body');
+  c.textAlign = 'center'; c.textBaseline = 'middle';
+  // 이름끼리 겹치면 덜 중요한 쪽을 뺀다: 섬 이름, 곳 이름, 길, 바다와 뭍 순서
+  const boxes = [], free = (b) => !boxes.some(o => b[0] < o[2] && b[2] > o[0] && b[1] < o[3] && b[3] > o[1]);
+  const put = (t, x, y, font, size, draw) => {
+    c.font = font; const w = c.measureText(t).width, half = w / 2 + 6; x = clamp(x, half, M.w - half);
+    const b = [x - w / 2 - 3, y - size / 2 - 2, x + w / 2 + 3, y + size / 2 + 2];
+    if (!free(b)) return false;
+    boxes.push(b); draw(x, y); return true;
+  };
+  const big = LABELS.find(L => L.big), rest = LABELS.filter(L => !L.big);
+  { const [sx, sy] = P(big.x, big.y), z = Math.round(clamp(V.s * 160, 15, 24));
+    put(big.t, sx, sy, `700 ${z}px ${body}`, z, (x, y) => { c.lineWidth = 3; c.strokeStyle = 'rgba(244,240,230,.85)'; c.strokeText(big.t, x, y); c.fillStyle = '#2d2a24'; c.fillText(big.t, x, y); }); }
+  // 지도가 작으면 섬 안 이름은 빼고 점만 찍는다
+  const roomy = V.s > 0.2, small = roomy ? ['길어귀', '회관', '끝순네', '상회', '복례네', '선착장', '바지락밭', '굴밭', '칠면초', '모래톱'] : ['길어귀', '바지락밭', '굴밭', '칠면초', '모래톱'];
+  const here = CH[M.sel] && CH[M.sel].place;
+  if (here && small.includes(here)) { small.splice(small.indexOf(here), 1); small.unshift(here); }
+  if (!roomy) ['회관', '끝순네', '상회', '복례네', '선착장'].forEach(k => { const [sx, sy] = P(PLACES[k].x, PLACES[k].y); c.fillStyle = 'rgba(45,42,36,.85)'; c.beginPath(); c.arc(sx, sy, 1.8, 0, 7); c.fill(); });
+  small.forEach(k => {
+    const p = PLACES[k], [sx, sy] = P(p.x, p.y);
+    c.fillStyle = '#2d2a24'; c.beginPath(); c.arc(sx, sy, 2.2, 0, 7); c.fill();
+    const dy = ['끝순네', '굴밭', '칠면초', '길어귀'].includes(k) ? -11 : 11;
+    put(p.t, sx + (k === '상회' ? 18 : 0), sy + dy, `12px ${UIF()}`, 12, (x, y) => { c.lineWidth = 3; c.strokeStyle = 'rgba(244,240,230,.85)'; c.strokeText(p.t, x, y); c.fillStyle = 'rgba(40,36,30,.9)'; c.fillText(p.t, x, y); });
+  });
+  rest.forEach(L => {
+    const [sx, sy] = P(L.x, L.y);
+    put(L.t, sx, sy, L.sea ? `italic 14px ${UIF()}` : `13px ${UIF()}`, L.sea ? 14 : 13, (x, y) => {
+      c.lineWidth = 3; c.strokeStyle = L.sea ? 'rgba(40,70,80,.35)' : 'rgba(244,240,230,.85)'; c.strokeText(L.t, x, y);
+      c.fillStyle = L.sea ? 'rgba(232,242,240,.9)' : 'rgba(45,42,36,.86)'; c.fillText(L.t, x, y);
+    });
+  });
+}
+function drawCompass(c, B) {
+  const x = B.r - 26, y = B.b - 46;
+  c.fillStyle = 'rgba(244,240,230,.9)'; c.strokeStyle = 'rgba(244,240,230,.9)'; c.lineWidth = 1.4;
+  c.beginPath(); c.moveTo(x, y - 16); c.lineTo(x + 6, y + 2); c.lineTo(x, y - 3); c.lineTo(x - 6, y + 2); c.closePath(); c.fill();
+  c.font = `12px ${UIF()}`; c.textAlign = 'center'; c.fillText('북', x, y - 26);
+  const m = 500, L = m * MAP.V.s, bx = B.r - 14 - L, by = B.b - 14;
+  c.beginPath(); c.moveTo(bx, by - 4); c.lineTo(bx, by); c.lineTo(bx + L, by); c.lineTo(bx + L, by - 4); c.stroke();
+  c.textAlign = 'right'; c.fillText('500m', bx - 6, by);
+}
+const W2S = (x, y) => [MAP.V.ox + x * MAP.V.s, MAP.V.oy - y * MAP.V.s];
+// 노둣길: 마른 데는 시멘트 빛, 잠긴 데는 물빛
+function drawRoad(c, level) {
+  const w = Math.max(3, 9 * MAP.V.s);
+  c.lineCap = 'round'; c.lineJoin = 'round';
+  c.beginPath(); ROAD_SEG.forEach((p, i) => { const [x, y] = W2S(p.x, p.y); i ? c.lineTo(x, y) : c.moveTo(x, y); });
+  c.strokeStyle = 'rgba(60,56,48,.55)'; c.lineWidth = w + 2; c.stroke();
+  c.strokeStyle = '#ddd7c8'; c.lineWidth = w; c.stroke();
+  for (let i = 1; i < ROAD_SEG.length; i++) {
+    const a = ROAD_SEG[i - 1], b = ROAD_SEG[i], dep = level - roadElev((a.x + b.x) / 2);
+    if (dep <= 0) continue;
+    const [x0, y0] = W2S(a.x, a.y), [x1, y1] = W2S(b.x, b.y);
+    c.strokeStyle = `rgba(90,140,148,${clamp(0.35 + dep / 60, 0.35, 0.96)})`; c.lineWidth = w + 2.4;
+    c.beginPath(); c.moveTo(x0, y0); c.lineTo(x1, y1); c.stroke();
+  }
+}
+function nightAlpha(day, mi) {
+  const t = kstMs(day.y, day.m, day.d, mi), a = altAz(...sunRaDec(t), t, PLACE.lat, PLACE.lon).alt;
+  return a > 2 ? 0 : a < -10 ? 0.46 : (2 - a) / 12 * 0.46;
+}
+function pulseAt(c, x, y, col) {
+  const k = M.reduce ? 0.5 : (MAP.t * 0.6) % 1, [sx, sy] = W2S(x, y);
+  c.strokeStyle = col.replace('A', String(0.8 * (1 - k))); c.lineWidth = 2;
+  c.beginPath(); c.arc(sx, sy, 6 + 14 * k, 0, 7); c.stroke();
+}
+function drawSeals(c, level) {
+  if (level > 330) return;
+  const r = rng(13);
+  for (let i = 0; i < 9; i++) {
+    const [sx, sy] = W2S(SANDBAR.x - 160 + r() * 320, SANDBAR.y - 50 + r() * 100), a = r() * 0.6 - 0.3;
+    c.save(); c.translate(sx, sy); c.rotate(a);
+    c.fillStyle = '#8b8a86'; c.beginPath(); c.ellipse(0, 0, 4.4, 1.9, 0, 0, 7); c.fill();
+    c.fillStyle = '#6c6b67'; c.beginPath(); c.arc(4, -0.4, 1.5, 0, 7); c.fill(); c.restore();
+  }
+}
+function drawFog(c, k) {
+  if (k <= 0) return;
+  const B = MAP.box, g = c.createLinearGradient(B.l, 0, B.r, 0);
+  g.addColorStop(0, `rgba(236,238,236,${0.86 * k})`); g.addColorStop(0.55, `rgba(236,238,236,${0.74 * k})`); g.addColorStop(1, `rgba(236,238,236,${0.35 * k})`);
+  c.fillStyle = g; c.fillRect(0, 0, M.w, M.h);
+}
+// 한 장의 하루: 어디를 보여 줄지
+function mapDay() { return (CR.on && CR.day) || dayOf(M.sel); }
+function mapDraw(dt) {
+  const cv = $('#cv'), c = cv.getContext('2d'), d = M.dpr;
+  MAP.t += dt;
+  if (!MAP.base) return;
+  const day = mapDay();
+  if ((MAP.month !== day.m || MAP.key !== keyRegion().k) && !CR.on) mapResize();
+  if (MAP.playing && !M.reduce && !CR.run) MAP.now = (MAP.now + dt * MAP.speed) % 1440;
+  if (CR.run) crossTick(dt);
+  const level = hAt(day, MAP.now);
+  c.setTransform(1, 0, 0, 1, 0, 0);
+  c.drawImage(MAP.base, 0, 0);
+  c.setTransform(d, 0, 0, d, 0, 0);
+  const V = MAP.V, wl = waterLayer(level);
+  c.imageSmoothingEnabled = true;
+  c.drawImage(wl, V.ox + GRID.x0 * V.s, V.oy - GRID.y1 * V.s, (GRID.nx - 1) * GRID.s * V.s, (GRID.ny - 1) * GRID.s * V.s);
+  drawRoad(c, level);
+  const n = M.sel, fx = fxOf(n);
+  if ((fx.includes('seal') || n >= 11) && !CR.on) drawSeals(c, level);
+  c.setTransform(1, 0, 0, 1, 0, 0); c.drawImage(MAP.top, 0, 0); c.setTransform(d, 0, 0, d, 0, 0);
+  if (!CR.on && CH[n].place && PLACES[CH[n].place]) { const p = PLACES[CH[n].place]; pulseAt(c, p.x, p.y, 'rgba(200,69,47,A)'); }
+  if (CR.on) crossDraw(c, level);
+  if (fx.includes('fog') && !CR.on) drawFog(c, smooth((MAP.now - 12 * 60) / 15) * (1 - smooth((MAP.now - 18.6 * 60) / 50)));
+  const na = nightAlpha(day, MAP.now);
+  if (na > 0) { c.fillStyle = `rgba(10,22,44,${na})`; c.fillRect(0, 0, M.w, M.h); }
+  MAP.hudT += dt;
+  if (MAP.hudT > 0.2) { MAP.hudT = 0; hudUpdate(day, level); }
+}
+/* 지도 위 작은 물때 판: 그날의 물높이 곡선, 지금 시각, 길 */
+function hudUpdate(day, level) {
+  const st = roadState(day, MAP.now), lun = lunar2026(day.y, day.m, day.d);
+  $('#hudDay').textContent = `${day.m}월 ${day.d}일 · 음력 ${lun.lm}월 ${lun.ld}일 · ${mulOf(lun.ld)}`;
+  $('#hudNow').innerHTML = `<b>${hm(MAP.now)}</b> · 물높이 ${Math.round(level)}cm · <span class="${st.open ? 'op' : 'cl'}">길 ${st.open ? '열림' : '잠김'}</span>`;
+  const cv = $('#hudcv'), w = cv.clientWidth, h = cv.clientHeight;
+  if (!w) return;
+  const dd = Math.min(2, devicePixelRatio || 1);
+  if (cv.width !== Math.round(w * dd)) { cv.width = Math.round(w * dd); cv.height = Math.round(h * dd); }
+  const g = cv.getContext('2d'); g.setTransform(dd, 0, 0, dd, 0, 0); g.clearRect(0, 0, w, h);
+  const a = daySeries(day), y = v => h - 3 - clamp((v + 50) / 950, 0, 1) * (h - 6);
+  windowsOf(day).forEach(([s, e]) => { g.fillStyle = 'rgba(150,200,160,.28)'; g.fillRect(s / 1440 * w, 0, (e - s) / 1440 * w, h); });
+  g.strokeStyle = 'rgba(255,255,255,.35)'; g.setLineDash([2, 3]); g.beginPath(); g.moveTo(0, y(ROAD_CM)); g.lineTo(w, y(ROAD_CM)); g.stroke(); g.setLineDash([]);
+  g.strokeStyle = '#cfe5e6'; g.lineWidth = 1.6; g.beginPath();
+  for (let i = 0; i <= 1440; i += 10) { const X = i / 1440 * w, Y = y(a[i + 1]); i ? g.lineTo(X, Y) : g.moveTo(X, Y); }
+  g.stroke();
+  g.fillStyle = '#ffd27a'; g.beginPath(); g.arc(MAP.now / 1440 * w, y(level), 3.4, 0, 7); g.fill();
+}
+function mapTap(x, y) {
+  if (CR.on) return;
+  let best = null, bd = 18;
+  Object.entries(PLACES).forEach(([k, p]) => { const [sx, sy] = W2S(p.x, p.y), dd = Math.hypot(sx - x, sy - y); if (dd < bd) { bd = dd; best = k; } });
+  if (best) {
+    const p = PLACES[best];
+    if (best === '길어귀' || best === '갯골') { toast(`${p.t}. ${p.sub} 오늘 칠판: ${roadBoard(mapDay())}`, 5200); return; }
+    toast(`${p.t}. ${p.sub}`, 4200); return;
+  }
+  // 노둣길 위를 누르면 그 자리의 물 깊이
+  let rs = null, rd = 12;
+  ROAD_SEG.forEach(p => { const [sx, sy] = W2S(p.x, p.y), dd = Math.hypot(sx - x, sy - y); if (dd < rd) { rd = dd; rs = p; } });
+  if (rs) {
+    const lv = hAt(mapDay(), MAP.now), dep = Math.round(lv - roadElev(rs.x));
+    toast(`노둣길, 뭍에서 ${Math.round((ROAD_LEN - rs.s) / 10) * 10}미터. ${dep > 0 ? `길 위로 물이 ${dep}cm 찼습니다.` : `길이 물보다 ${-dep}cm 높습니다.`}`, 3800);
+    return;
+  }
+  togglePlay();
+}
+function togglePlay(force) {
+  MAP.playing = force != null ? force : !MAP.playing;
+  const b = $('#hudPlay');
+  b.setAttribute('aria-label', MAP.playing ? '시간 멈추기' : '시간 흐르게');
+  b.querySelector('path').setAttribute('d', MAP.playing ? 'M9 6v12M15 6v12' : 'M8 5l11 7-11 7z');
+}
+
+/* ---------- 건너 보기: 뭍 길 어귀에서 섬까지 1.4킬로미터를 걸어서 ----------
+   한 시간에 4.5킬로미터, 이십 분 남짓. 그사이에도 물은 든다. */
+const CR = { on: false, run: false, day: null, start: 14 * 60, t: 0, s: 0, max: -999, maxAt: 0, sp: 75, res: null };
+function crossDays() {
+  const out = [];
+  CH.forEach((c, n) => { if (isRead(n) || S.all || n === M.sel) out.push({ n, day: c.day }); });
+  return out;
+}
+function startCross() {
+  if (CR.on) return;
+  closeReader(); closeBox(); closeTide(true); hideTitle();
+  CR.on = true; CR.run = false; CR.res = null;
+  const n = (isRead(2) || S.all) ? 2 : M.sel;
+  CR.day = CH[n].day; CR.n = n;
+  CR.start = n === 2 ? 14 * 60 + 38 : r5(windowsOf(CR.day).find(w => w[0] > 0)?.[0] || 600);
+  MAP.now = CR.start; togglePlay(false);
+  $('#card').hidden = true; $('#hud').hidden = true; $('#xpanel').hidden = false;
+  crossPanel(); auApply();
+  setTimeout(mapResize, 0);
+}
+function crossPanel() {
+  const opts = crossDays().map(o => { const l = lunar2026(o.day.y, o.day.m, o.day.d); return `<option value="${o.n}"${o.n === CR.n ? ' selected' : ''}>${o.day.m}월 ${o.day.d}일 · ${mulOf(l.ld)} · ${esc(o.n === 0 ? '서' : o.n === LAST ? '맺음' : `제${o.n}장`)}</option>`; }).join('');
+  $('#xDay').innerHTML = opts;
+  $('#xT').value = CR.start;
+  crossLabel();
+}
+function crossLabel() {
+  const st = roadState(CR.day, CR.start), lv = hAt(CR.day, CR.start);
+  $('#xBoard').textContent = `칠판: ${roadBoard(CR.day)}`;
+  $('#xTime').innerHTML = `<b>${hm(CR.start)}</b>에 뭍에서 출발 · 길 가운데 ${lv < ROAD_CM ? `물보다 ${Math.round(ROAD_CM - lv)}cm 높음` : `물이 ${Math.round(lv - ROAD_CM)}cm`}${st.next != null ? ` · ${st.open ? '닫힘' : '열림'} ${hm(r5(st.next))}` : ''}`;
+  if (!CR.run && !CR.res) $('#xq').textContent = '언제 떠날지 정하고 건너 보세요. 할머니 말: 간조 시각만 보지 말어. 물이 길 가운데를 넘을 때를 봐.';
+}
+function crossGo() {
+  if (CR.run) return;
+  auInit();
+  CR.run = true; CR.res = null; CR.t = CR.start; CR.s = ROAD_LEN; CR.max = -999; CR.maxAt = 0;
+  $('#xGo').disabled = true; $('#xT').disabled = true; $('#xDay').disabled = true;
+  $('#xq').textContent = '걷는 중…';
+}
+function crossTick(dt) {
+  const k = M.reduce ? 4 : 1;
+  CR.t += dt * 4 * k; CR.s = ROAD_LEN - (CR.t - CR.start) * CR.sp;
+  MAP.now = CR.t;
+  const p = roadAt(CR.s), dep = hAt(CR.day, CR.t) - p.h;
+  if (dep > CR.max) { CR.max = dep; CR.maxAt = CR.s; }
+  if (dep > 30) return crossEnd('fail');
+  if (CR.s <= 0) return crossEnd('done');
+}
+function crossEnd(kind) {
+  CR.run = false; CR.s = Math.max(0, CR.s);
+  const where = `뭍에서 ${Math.round((ROAD_LEN - CR.maxAt) / 10) * 10}미터 되는 곳`, mx = Math.round(CR.max);
+  S.cross.plays = (S.cross.plays || 0) + 1;
+  let msg, lv = 0;
+  if (kind === 'fail') { msg = `${hm(CR.t)}, ${where}에서 물이 무릎께까지 찼습니다. 더 가면 위험합니다. 끝순 할머니라면 경운기를 몰고 오며 외쳤을 거예요. "거기 서! 움직이지 말어!"`; splash(); }
+  else if (mx <= 0) { msg = `마른 길로 건넜습니다. ${hm(CR.start)}에 떠나 ${hm(CR.t)}에 섬에 닿았어요. "그려, 칠판 보고 다니믄 물이 안 잡아."`; S.cross.dry = (S.cross.dry || 0) + 1; lv = 2; }
+  else if (mx <= 10) { msg = `발이 젖었습니다. ${where}에서 물이 ${mx}cm까지 올라왔어요. 아슬아슬했습니다. ${hm(CR.t)}에 섬에 닿았어요.`; lv = 1; }
+  else { msg = `정강이까지 젖었습니다. ${where}에서 물이 ${mx}cm까지 찼어요. 길을 넘는 물은 옆으로 흘러서 발이 휩쓸리기 쉽습니다. 섬에는 닿았지만 위험했어요. "물은 사람 걸음보다 빨러."`; }
+  save(); chime(lv);
+  CR.res = kind;
+  $('#xq').textContent = msg;
+  $('#xGo').disabled = false; $('#xT').disabled = false; $('#xDay').disabled = false;
+  $('#xGo').textContent = '다시 건너기';
+}
+function crossQuit() {
+  if (!CR.on) return;
+  CR.on = false; CR.run = false; CR.res = null;
+  $('#xpanel').hidden = true; $('#card').hidden = false; $('#hud').hidden = false; $('#xGo').textContent = '건너기';
+  togglePlay(true); auApply(); setTimeout(mapResize, 0);
+}
+function crossDraw(c, level) {
+  const p = roadAt(CR.run || CR.res ? CR.s : ROAD_LEN), [sx, sy] = W2S(p.x, p.y), dep = level - p.h;
+  // 지나온 길
+  if (CR.run || CR.res) {
+    c.strokeStyle = 'rgba(200,69,47,.8)'; c.lineWidth = 2; c.setLineDash([3, 3]); c.beginPath();
+    const [x0, y0] = W2S(ROAD[ROAD.length - 1][0], ROAD[ROAD.length - 1][1]); c.moveTo(x0, y0); c.lineTo(sx, sy); c.stroke(); c.setLineDash([]);
+  }
+  // 걷는 사람
+  c.save(); c.translate(sx, sy - 9);
+  const bob = CR.run && !M.reduce ? Math.sin(MAP.t * 14) * 1 : 0;
+  c.fillStyle = '#c8452f'; c.beginPath(); c.arc(0, -6 + bob, 3.2, 0, 7); c.fill();
+  c.fillRect(-2.4, -3 + bob, 4.8, 7);
+  c.strokeStyle = '#c8452f'; c.lineWidth = 1.6; c.beginPath(); c.moveTo(-1.6, 4 + bob); c.lineTo(-2.6, 9); c.moveTo(1.6, 4 + bob); c.lineTo(2.6, 9); c.stroke();
+  c.restore();
+  if (dep > 0) {
+    c.font = `600 12px ${UIF()}`; c.textAlign = 'center';
+    const t = `물 ${Math.round(dep)}cm`, w = c.measureText(t).width + 12;
+    c.fillStyle = dep > 20 ? 'rgba(160,40,30,.92)' : 'rgba(40,70,80,.9)'; c.beginPath(); c.roundRect ? c.roundRect(sx - w / 2, sy - 40, w, 20, 10) : c.rect(sx - w / 2, sy - 40, w, 20); c.fill();
+    c.fillStyle = '#fff'; c.textBaseline = 'middle'; c.fillText(t, sx, sy - 30);
+  }
+}
+
+/* ---------- 소리: 물이 들면 잔물결과 갈매기, 물이 빠지면 뻘이 톡톡 터지는 소리 ----------
+   바탕 소리는 미리 구워 둔 고리(loop)로 튼다. 휴대폰에서 끊기거나 지직거리지 않게. */
+const AU = { ctx: null, master: null, beds: {}, lv: {}, ready: false, last: 0, tideLv: 400 };
+const BAKE_SR = 22050;
+function noiseInto(c, sec) {
+  const b = c.createBuffer(1, Math.round(c.sampleRate * sec), c.sampleRate), d = b.getChannelData(0);
+  let p = 0;
+  for (let i = 0; i < d.length; i++) { const w = Math.random() * 2 - 1; p = 0.97 * p + 0.03 * w; d[i] = w * 0.55 + p * 1.6; }
+  const s = c.createBufferSource(); s.buffer = b; s.loop = true; return s;
+}
+function lfo(c, hz, depth, offset, target) {
+  const o = c.createOscillator(), g = c.createGain(); o.frequency.value = hz; g.gain.value = depth; o.connect(g); g.connect(target);
+  if (offset != null) target.value = offset;
+  o.start(); return o;
+}
+async function bakeLoop(ch, sec, build) {
+  const xf = 2, len = Math.round(sec * BAKE_SR), xl = Math.round(xf * BAKE_SR);
+  const oc = new OfflineAudioContext(ch, len + xl, BAKE_SR);
+  build(oc, oc.destination, sec + xf);
+  const buf = await oc.startRendering();
+  const out = AU.ctx.createBuffer(ch, len, BAKE_SR);
+  for (let k = 0; k < ch; k++) {
+    const src = buf.getChannelData(k), dst = out.getChannelData(k);
+    dst.set(src.subarray(0, len));
+    for (let i = 0; i < xl; i++) { const a = i / xl; dst[i] = src[i] * Math.sin(a * Math.PI / 2) + src[len + i] * Math.cos(a * Math.PI / 2); }
+  }
+  return out;
+}
+// 물 든 바다: 잔물결이 밀려왔다 빠지고, 바람, 멀리 갈매기
+function seaBed(c, out, sec) {
+  const m = c.createChannelMerger(2), r = rng(707);
+  [0, 1].forEach(side => {
+    const n = noiseInto(c, 6 + side), lp = c.createBiquadFilter(), g = c.createGain();
+    lp.type = 'lowpass'; lfo(c, 0.13 + side * 0.03, 500, 900 + side * 80, lp.frequency);
+    g.gain.value = 0; lfo(c, 0.14 + side * 0.035, 0.1, 0.13, g.gain);
+    n.connect(lp); lp.connect(g); g.connect(m, 0, side); n.start();
+    const wn = noiseInto(c, 7 + side), bp = c.createBiquadFilter(), wg = c.createGain();
+    bp.type = 'bandpass'; bp.frequency.value = 420; bp.Q.value = 0.6; wg.gain.value = 0; lfo(c, 0.05 + side * 0.02, 0.05, 0.05, wg.gain);
+    wn.connect(bp); bp.connect(wg); wg.connect(m, 0, side); wn.start();
+  });
+  const gull = (t, pan, v) => {
+    const o = c.createOscillator(), g = c.createGain(), p = c.createStereoPanner ? c.createStereoPanner() : null, f0 = 1500 + r() * 400;
+    o.type = 'triangle'; o.frequency.setValueAtTime(f0, t); o.frequency.linearRampToValueAtTime(f0 * 1.35, t + 0.08); o.frequency.exponentialRampToValueAtTime(f0 * 0.7, t + 0.34);
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(v, t + 0.03); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.36);
+    o.connect(g); if (p) { p.pan.value = pan; g.connect(p); p.connect(out); } else g.connect(out);
+    o.start(t); o.stop(t + 0.4);
+  };
+  for (let t = 2; t < sec - 2; t += 5 + r() * 7) { const pan = r() * 1.6 - 0.8, k = 1 + ((r() * 3) | 0); for (let i = 0; i < k; i++) gull(t + i * (0.42 + r() * 0.2), pan, 0.012 + r() * 0.01); }
+  m.connect(out);
+}
+// 물 빠진 뻘: 게와 조개 구멍에서 톡톡 터지는 작은 소리들
+function flatBed(c, out, sec) {
+  const r = rng(303);
+  for (let t = 0.05; t < sec - 0.05; t += 0.02 + r() * 0.09) {
+    const s = c.createBufferSource(), len = Math.round(c.sampleRate * (0.004 + r() * 0.006)), b = c.createBuffer(1, len, c.sampleRate), d = b.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = (r() * 2 - 1) * Math.pow(1 - i / len, 4);
+    s.buffer = b;
+    const hp = c.createBiquadFilter(), g = c.createGain(), p = c.createStereoPanner ? c.createStereoPanner() : null;
+    hp.type = 'bandpass'; hp.frequency.value = 2500 + r() * 3500; hp.Q.value = 1.5; g.gain.value = 0.06 + r() * 0.12;
+    s.connect(hp); hp.connect(g); if (p) { p.pan.value = r() * 1.8 - 0.9; g.connect(p); p.connect(out); } else g.connect(out);
+    s.start(t);
+  }
+  const n = noiseInto(c, 5), lp = c.createBiquadFilter(), ng = c.createGain();
+  lp.type = 'lowpass'; lp.frequency.value = 300; ng.gain.value = 0.025; n.connect(lp); lp.connect(ng); ng.connect(out); n.start();
+}
+function auInit() {
+  if (AU.ctx) { if (AU.ctx.state !== 'running') AU.ctx.resume().catch(() => {}); return; }
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC || typeof OfflineAudioContext === 'undefined') return;
+  try { AU.ctx = new AC({ latencyHint: 'playback' }); } catch (e) { try { AU.ctx = new AC(); } catch (e2) { return; } }
+  const c = AU.ctx, hp1 = c.createBiquadFilter(), hp2 = c.createBiquadFilter(), comp = c.createDynamicsCompressor(), mg = c.createGain();
+  hp1.type = hp2.type = 'highpass'; hp1.frequency.value = hp2.frequency.value = 90;
+  comp.threshold.value = -20; comp.knee.value = 8; comp.ratio.value = 4; comp.attack.value = 0.01; comp.release.value = 0.3;
+  mg.gain.value = 0;
+  hp1.connect(hp2); hp2.connect(comp); comp.connect(mg); mg.connect(c.destination);
+  AU.master = hp1; AU.out = mg;
+  (async () => {
+    try {
+      const sea = await bakeLoop(2, 28, seaBed), flat = await bakeLoop(2, 9, flatBed);
+      [['sea', sea], ['flat', flat]].forEach(([k, buf]) => {
+        const s = c.createBufferSource(), g = c.createGain(); s.buffer = buf; s.loop = true; g.gain.value = 0; s.connect(g); g.connect(AU.master); s.start();
+        AU.beds[k] = g; AU.lv[k] = 0;
+      });
+      AU.ready = true; auApply();
+    } catch (e) { /* no sound, the story still works */ }
+  })();
+  auApply();
+}
+function aim(k, v, sec) {
+  const g = AU.beds[k];
+  if (!g || Math.abs((AU.lv[k] || 0) - v) < 0.01) return;
+  AU.lv[k] = v;
+  const t = AU.ctx.currentTime; g.gain.cancelScheduledValues(t); g.gain.setTargetAtTime(v, t, sec || 0.9);
+}
+// 지도 위 물높이에 따라 두 소리를 섞는다
+function auTide(level) { AU.tideLv = level; auApply(true); }
+function auApply(soft) {
+  if (!AU.ctx) return;
+  if (!soft) { const t = AU.ctx.currentTime; AU.out.gain.cancelScheduledValues(t); AU.out.gain.setTargetAtTime(S.sound ? 0.9 : 0, t, 0.25); }
+  if (!AU.ready) return;
+  const reader = !$('#reader').hidden || !$('#box').hidden, narr = NV.on && !NV.paused;
+  const k = smooth((AU.tideLv - 150) / 450);
+  let sea = 0.25 + 0.6 * k, flat = 0.85 * (1 - k);
+  if (reader) { sea *= 0.5; flat *= 0.45; }
+  if (narr) { sea *= 0.55; flat *= 0.5; }
+  aim('sea', sea); aim('flat', flat);
+}
+function tone(type, f, t, d, v, f2) {
+  const c = AU.ctx, o = c.createOscillator(), g = c.createGain();
+  o.type = type; o.frequency.setValueAtTime(f, t); if (f2) o.frequency.linearRampToValueAtTime(f2, t + d);
+  g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(v, t + Math.min(0.03, d / 4)); g.gain.setValueAtTime(v, t + d * 0.8); g.gain.linearRampToValueAtTime(0, t + d);
+  o.connect(g); g.connect(AU.master); o.start(t); o.stop(t + d + 0.05);
+  return { o, g };
+}
+function chime(level) {
+  if (!AU.ctx || !S.sound) return;
+  const now = AU.ctx.currentTime, notes = level === 2 ? [784, 1047] : level === 1 ? [880] : [330];
+  notes.forEach((f, i) => tone('sine', f, now + i * 0.14, 0.5, 0.06));
+}
+function burst(sec, f0, f1, v) {
+  const c = AU.ctx, now = c.currentTime, n = noiseInto(c, 2), lp = c.createBiquadFilter(), g = c.createGain();
+  lp.type = 'lowpass'; lp.frequency.setValueAtTime(f0, now); lp.frequency.exponentialRampToValueAtTime(f1, now + sec);
+  g.gain.setValueAtTime(0, now); g.gain.linearRampToValueAtTime(v, now + 0.05); g.gain.exponentialRampToValueAtTime(0.0001, now + sec);
+  n.connect(lp); lp.connect(g); g.connect(AU.master); n.start(now); n.stop(now + sec + 0.05);
+}
+// 물에 잡혔을 때: 철벙
+function splash() { if (!AU.ctx || !S.sound) return; burst(1.2, 2400, 300, 0.4); }
+// 편지를 펼 때: 종이 소리
+function paperSound() { if (!AU.ctx || !S.sound) return; burst(0.35, 5000, 1800, 0.12); }
+function stampSound() {
+  if (!AU.ctx || !S.sound) return;
+  const c = AU.ctx, now = c.currentTime, b = c.createBuffer(1, Math.round(c.sampleRate * 0.08), c.sampleRate), d = b.getChannelData(0);
+  for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / d.length, 3);
+  const s = c.createBufferSource(), lp = c.createBiquadFilter(), g = c.createGain(); s.buffer = b; lp.type = 'lowpass'; lp.frequency.value = 1400; g.gain.value = 0.5;
+  s.connect(lp); lp.connect(g); g.connect(AU.master); s.start(now);
+}
+
+/* ---------- 장 고르기 ---------- */
+const ICON = {
+  next: '<svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>',
+  ear: '<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg>',
+  wave: '<svg viewBox="0 0 24 24"><path d="M3 9c3-3 6 3 9 0s6 3 9 0M3 15c3-3 6 3 9 0s6 3 9 0"/></svg>',
+  walk: '<svg viewBox="0 0 24 24"><circle cx="13" cy="4.5" r="2"/><path d="M11 21l2-6-3-3 1-5 3 3h3M9 12l-3 2M13 15l3 6"/></svg>',
+  mail: '<svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="1.5"/><path d="M3.5 7l8.5 6 8.5-6"/></svg>'
+};
+const STUDENTS = ['끝순', '말녀', '순자', '복례', '마이'];
+const TIDEF = ['물때', '길', '간조'];
+function renderStrip() {
+  $('#strip').innerHTML = CH.map((c, n) => `<button data-n="${n}" aria-label="${esc(chLabel(n, true))} ${esc(c.title)}"><span>${n === 0 ? '서' : n === LAST ? '맺음' : n}</span><i></i><span class="sw2">${esc(c.title)}</span></button>`).join('');
+  markStrip();
+}
+function markStrip() {
+  $$('#strip button').forEach(b => {
+    const n = +b.dataset.n;
+    b.classList.toggle('rd', isRead(n)); b.classList.toggle('on', n === M.sel); b.classList.toggle('lk', !isOpen(n));
+    if (n === M.sel) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+  });
+  const on = $('#strip .on');
+  if (on && on.scrollIntoView) on.scrollIntoView({ block: 'nearest', inline: 'center', behavior: M.reduce ? 'auto' : 'smooth' });
+}
+function metaText(n) {
+  const day = dayOf(n), l = lunar2026(day.y, day.m, day.d);
+  return `${mulOf(l.ld)} · 길 ${roadBoard(day)}`;
+}
+function updateCard() {
+  const n = M.sel, c = CH[n], read = isRead(n), open = isOpen(n);
+  let acts;
+  if (!open) acts = `<p class="note">앞 장을 먼저 읽으면 열립니다.</p><button class="link" data-act="read">그래도 읽기</button>`;
+  else if (read) acts = `<div class="acts"><button class="btn" data-act="read">다시 읽기</button><button class="btn ghost" data-act="tide">${ICON.wave}물때 보기</button></div>`;
+  else acts = `<div class="acts"><button class="btn" data-act="read">${n === 0 ? '서 읽기' : '읽기'}</button><button class="btn ghost" data-act="listen">${ICON.ear}듣기</button></div>`;
+  $('#cbInner').innerHTML = `<p class="term">${esc(chLabel(n, true))}${read ? ' · 적음' : ''}</p><h2>${esc(c.title)}</h2><p class="sub">${esc(c.sub)}</p><p class="meta">${esc(metaText(n))}</p>${acts}`;
+}
+function select(n) {
+  M.sel = clamp(n, 0, LAST);
+  S.cur = M.sel; save();
+  markStrip(); updateCard();
+}
+
+/* ---------- 읽기 ---------- */
+const paraHTML = t => esc(t);
+const sayField = v => v.replace(/\s*\/\s*/g, ', ').replace(/\(([^)]*)\)/g, ', $1,');
+function recSay(rec, n) {
+  const bits = ['공부 기록.'];
+  rec.fields.forEach(([k, v]) => {
+    // 칠판 글씨는 귀로 들을 때 '부터 ~까지'로 풀어 읽는다
+    if (k === '길') v = v.split(/\s*\/\s*/).map(p => p.includes(' ~ ') ? p.replace(' ~ ', '부터 ') + '까지' : p).join(', 그리고 ');
+    if (k === '날짜') v = v.replace(/\(([월화수목금토일])\)/, '$1요일');
+    bits.push(`${k}, ${sayField(v)}.`);
+  });
+  rec.memo.forEach(m => bits.push(m));
+  return bits.join(' ').replace(/,\s*,/g, ',').replace(/,\s*\./g, '.').replace(/\.\./g, '.');
+}
+// 할머니들 글씨: 괄호 밖은 손글씨로, 괄호 안은 선생의 덧말로
+function handHTML(v) {
+  return v.split(/(\([^)]*\))/).map(part => part.startsWith('(') ? `<span class="aside">${esc(part.slice(1, -1))}</span>` : part.trim() ? `<span class="hand">${esc(part.trim()).replace(/ \/ /g, '<br>')}</span>` : '').join(' ');
+}
+function recHTML(rec, n, U) {
+  const date = field(rec, '날짜'), rows = rec.fields.filter(f => f[0] !== '날짜');
+  const tide = rows.filter(f => TIDEF.includes(f[0])), hand = rows.filter(f => STUDENTS.includes(f[0])), rest = rows.filter(f => !TIDEF.includes(f[0]) && !STUDENTS.includes(f[0]));
+  const L = letterOf(n), btns = [`<button data-act="tide" data-n="${n}">${ICON.wave}물때 보기</button>`];
+  if (L) btns.push(`<button data-act="letter" data-k="${L.key}">${ICON.mail}편지 보기</button>`);
+  if (n === 2) btns.push(`<button data-act="cross">${ICON.walk}건너 보기</button>`);
+  return `<section class="rec" data-u="${U}" data-kind="rec" data-role="rec" data-say="${esc(recSay(rec, n))}">
+    <p class="rh"><span>공부 기록${n && n < LAST ? ` · 제${n}장` : ''}</span><span>${esc(date)}</span></p>
+    <div class="rw"><canvas data-tc="${n}" role="img" aria-label="그날 물높이 그림" title="물때 보기"></canvas>
+    <dl>${tide.concat(rest).map(([k, v]) => `<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join('')}</dl></div>
+    ${hand.length ? `<div class="hands">${hand.map(([k, v]) => `<div><span class="who">${esc(k)}</span><span class="w">${handHTML(v)}</span></div>`).join('')}</div>` : ''}
+    <div class="memo">${rec.memo.map(m => `<p>${esc(m)}</p>`).join('')}</div>
+    <div class="ra">${btns.join('')}</div>
+  </section>`;
+}
+function renderChapter(n) {
+  const c = CH[n];
+  let U = 0;
+  const parts = [`<header class="chead"><p class="cl" data-u="${U++}" data-kind="head" data-say="${esc(n === 0 ? '서' : n === LAST ? '맺음' : `제${n}장. ${c.date}`)}">${esc(chLabel(n, true))}</p>
+    <h1 data-u="${U++}" data-kind="title">${esc(c.title)}</h1><p class="cs" data-u="${U++}" data-kind="sub">${esc(c.sub)}</p></header>`];
+  c.secs.forEach(sec => {
+    if (sec.t === 'story') {
+      sec.paras.forEach(p => {
+        if (p.trim() === '*') parts.push(`<span class="brk" data-u="${U++}" data-kind="break" aria-hidden="true">· · ·</span>`);
+        else if (p.includes('\n')) parts.push(`<p class="lines" data-u="${U++}" data-kind="p">${paraHTML(p)}</p>`);
+        else parts.push(`<p data-u="${U++}" data-kind="p">${paraHTML(p)}</p>`);
+      });
+    } else if (sec.t === 'record') parts.push(recHTML(sec, n, U++));
+  });
+  parts.push(endHTML(n));
+  $('#rBody').innerHTML = parts.join('');
+  $('#rTitle').textContent = `${chLabel(n, true)} · ${c.title}`;
+  requestAnimationFrame(() => setTimeout(drawRecs, 60));
+}
+/* 기록 옆 작은 그림: 그날 물높이, 길 열린 때, 가장 낮은 물, 그날 달 */
+function tideMini(cv, n) {
+  const w = cv.clientWidth, h = cv.clientHeight; if (!w || !h) return;
+  const d = Math.min(2, devicePixelRatio || 1); cv.width = Math.round(w * d); cv.height = Math.round(h * d);
+  const g = cv.getContext('2d'); g.setTransform(d, 0, 0, d, 0, 0);
+  const day = dayOf(n), a = daySeries(day), sun = sunTimes(day), ui = UIF();
+  const X = mi => 6 + mi / 1440 * (w - 12), Y = v => 26 + (1 - clamp((v + 60) / 980, 0, 1)) * (h - 46);
+  g.fillStyle = '#e8ecea'; g.fillRect(0, 0, w, h);
+  g.fillStyle = 'rgba(40,60,90,.12)'; if (sun.rise != null) g.fillRect(X(0), 20, X(sun.rise) - X(0), h - 36); if (sun.set != null) g.fillRect(X(sun.set), 20, X(1440) - X(sun.set), h - 36);
+  windowsOf(day).forEach(([s, e]) => { g.fillStyle = 'rgba(96,160,110,.22)'; g.fillRect(X(s), 20, X(e) - X(s), h - 36); });
+  g.setLineDash([3, 3]); g.strokeStyle = 'rgba(176,112,30,.7)'; g.beginPath(); g.moveTo(X(0), Y(ROAD_CM)); g.lineTo(X(1440), Y(ROAD_CM)); g.stroke(); g.setLineDash([]);
+  g.beginPath(); g.moveTo(X(0), Y(-60)); for (let i = 0; i <= 1440; i += 10) g.lineTo(X(i), Y(a[i + 1])); g.lineTo(X(1440), Y(-60)); g.closePath(); g.fillStyle = 'rgba(70,120,132,.35)'; g.fill();
+  g.beginPath(); for (let i = 0; i <= 1440; i += 10) i ? g.lineTo(X(i), Y(a[i + 1])) : g.moveTo(X(i), Y(a[i + 1])); g.strokeStyle = '#2f5d68'; g.lineWidth = 1.6; g.stroke();
+  g.font = `11px ${ui}`; g.fillStyle = '#4a4f50'; g.textAlign = 'center'; g.textBaseline = 'top';
+  [0, 6, 12, 18, 24].forEach(hr => g.fillText(String(hr), clamp(X(hr * 60), 8, w - 8), h - 14));
+  const l = lunar2026(day.y, day.m, day.d);
+  g.textAlign = 'left'; g.textBaseline = 'middle'; g.font = `600 13px ${ui}`; g.fillStyle = '#2b3335'; g.fillText(mulOf(l.ld), 8, 11);
+  moonShape(g, w - 13, 11, 8, kstMs(day.y, day.m, day.d, 21 * 60), PLACE.lat, PLACE.lon, true, '#e8ecea');
+}
+function drawRecs() {
+  $$('#rBody canvas[data-tc], #pane canvas[data-tc]').forEach(cv => {
+    const w = cv.clientWidth;
+    if (!w || cv.dataset.done === String(w)) return;
+    tideMini(cv, +cv.dataset.tc); cv.dataset.done = String(w);
+  });
+}
+function endHTML(n) {
+  const seal = isRead(n)
+    ? `<span class="done"><span class="stamp">적음</span>물때 공책에 적었습니다</span>`
+    : `<button class="btn" data-act="stamp">물때 공책에 적기</button><p class="small">다 읽으셨으면 눌러 주세요. 그날의 물때가 공책에 남습니다.</p>`;
+  if (n < LAST) return `<footer class="cend">${seal}<div class="acts"><button class="btn ghost" data-act="nextCh">다음 장 · ${esc(CH[n + 1].title)}${ICON.next}</button><button class="btn ghost" data-act="toMap">지도로</button></div></footer>`;
+  return `<footer class="cend">${seal}<p class="small">이제 당신 차례입니다. 칠판을 보고, 물이 길 가운데를 넘기 전에 노둣길을 건너 보세요. 걸어서 이십 분입니다.</p>
+    <div class="acts"><button class="btn sea" data-act="cross">${ICON.walk}건너 보기</button><button class="btn ghost" data-act="toMap">지도로</button></div></footer>`;
+}
+function openReader(n, listen) {
+  if (CR.on) crossQuit();
+  closeTide(true); closeLetter();
+  M.paused = true;
+  if (NV.on && NV.n !== n) vStop();
+  select(n);
+  $('#reader').hidden = false; hideTitle(); $('#box').hidden = true;
+  renderChapter(n);
+  $('#reader').scrollTop = 0;
+  auApply();
+  if (listen) setTimeout(() => vStart(n), 250);
+}
+function closeReader() {
+  vStop();
+  $('#reader').hidden = true; M.paused = false;
+  markStrip(); updateCard(); auApply();
+}
+function markRead(n) {
+  if (isRead(n)) return;
+  S.read[n] = true; S.started = true; save();
+  markStrip(); updateCard();
+  $('#btnCross').hidden = !(isRead(2) || S.all);
+}
+function stampHere(n) {
+  markRead(n); stampSound();
+  const f = $('#rBody .cend');
+  if (f) { const b = f.querySelector('[data-act=stamp]'), p = f.querySelector('.small'); if (b) b.outerHTML = `<span class="done"><span class="stamp stampfx">적음</span>물때 공책에 적었습니다</span>`; if (p && n < LAST) p.remove(); }
+  const L = letterOf(n);
+  if (L && n < LAST) toast('편지 한 통이 양철 통에 들어갔습니다. 공책의 편지 칸에서 다시 볼 수 있어요.', 4600);
+  else if (n < LAST) toast('그날의 물때를 공책에 적었습니다.');
+  if (n === 2 && !S.crossTold) { S.crossTold = true; save(); setTimeout(() => toast('이제 노둣길을 건너 볼 수 있습니다. 위 오른쪽 걷는 사람 단추를 눌러 보세요.', 5200), 3800); }
+}
+
+/* ---------- 공책: 차례, 물때 공책, 편지, 말 사전, 설정 ---------- */
+let TAB = 'toc', GF = '전체', GQ = '';
+function openBox(tab) {
+  if (CR.on) crossQuit();
+  closeTide(true); closeLetter();
+  TAB = tab || TAB;
+  hideTitle();
+  $('#box').hidden = false; M.paused = true;
+  renderPane();
+}
+function closeBox() { $('#box').hidden = true; if ($('#reader').hidden) M.paused = false; }
+function renderPane() {
+  $$('#tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === TAB)));
+  const p = $('#pane');
+  if (TAB === 'toc') {
+    p.innerHTML = `<p class="small">${CH.filter((c, n) => isRead(n)).length} / ${CH.length} 장을 공책에 적었습니다.</p><ul class="toc">${CH.map((c, n) => `<li><button data-open="${n}" class="${isOpen(n) ? '' : 'lk'} ${n === M.sel ? 'cur' : ''}"><span class="t1">${esc(n === 0 ? '서' : n === LAST ? '맺음' : `제${n}장`)}</span><span class="t2">${esc(c.title)}<span class="t3">${esc(c.date)} · ${esc(c.sub)}</span></span>${isRead(n) ? '<span class="sm" aria-label="적음">적음</span>' : '<span></span>'}</button></li>`).join('')}</ul>`;
+  } else if (TAB === 'album') {
+    const got = CH.filter((c, n) => isRead(n)).length;
+    p.innerHTML = `<p class="small">장을 읽고 공책에 적으면 그날의 물때가 여기 그려집니다. 지금까지 ${CH.length}장 가운데 ${got}장. 초록 띠는 길이 열린 때, 회색 띠는 밤, 점선은 길 가운데 높이입니다.</p>
+      <div class="album">${CH.map((c, n) => {
+        const lab = n === 0 ? '서' : n === LAST ? '맺음' : `${n}장`;
+        if (!isRead(n)) return `<button disabled><span class="ph"></span><b>아직</b>${lab}</button>`;
+        return `<button data-tidebox="${n}"><canvas data-tc="${n}"></canvas><b>${esc(c.title)}</b>${lab} · ${esc(c.date)}</button>`;
+      }).join('')}</div>
+      <h3 style="margin:26px 0 4px;font-size:17px">건너 보기</h3>
+      <p class="small">${S.cross.plays ? `지금까지 ${S.cross.plays}번 건너 보았고, 그 가운데 ${S.cross.dry || 0}번은 마른 길로 건넜습니다.` : '길 어귀에서 섬까지 걸어서 이십 분. 언제 떠나야 물에 잡히지 않을지 정해서 건너 보는 놀이입니다.'}</p>
+      ${isRead(2) || S.all ? `<div class="acts"><button class="btn sea" data-act="cross">${ICON.walk}건너 보기</button></div>` : '<p class="small">2장 「물은 사람 걸음보다 빠르다」까지 읽으면 열립니다.</p>'}`;
+    requestAnimationFrame(() => setTimeout(drawRecs, 30));
+  } else if (TAB === 'letters') {
+    p.innerHTML = `<p class="small">끝순 할머니의 양철 통. 장을 읽으면 그 장에 나온 편지가 여기 들어옵니다. 편지 맨 위의 달은, 편지를 쓴 날 그곳 하늘의 달을 셈해서 그린 것입니다.</p>
+      <ul class="letters">${D.letters.map(l => letterOpen(l)
+        ? `<li><button data-letter="${l.key}"><canvas data-lm="${l.key}"></canvas><span><b>${esc(l.from)}이 ${esc(l.to)}에게</b><span class="t3">${esc(l.ymd.y)}년 ${l.ymd.m}월 ${l.ymd.d}일 · ${esc(l.place)} · 음력 ${esc(l.lunar)}</span></span></button></li>`
+        : `<li><button disabled><span class="env"></span><span><b>아직 못 읽은 편지</b><span class="t3">${esc(chLabel(l.ch, true))}을 읽으면 열립니다</span></span></button></li>`).join('')}</ul>`;
+    requestAnimationFrame(() => setTimeout(drawLetterMoons, 30));
+  } else if (TAB === 'gloss') {
+    const ks = ['전체', ...new Set(D.glossary.map(g => g.k))];
+    const q = GQ.trim(), list = D.glossary.filter(g => (GF === '전체' || g.k === GF) && (!q || g.name.includes(q) || g.def.includes(q)));
+    p.innerHTML = `<div class="gfil">${ks.map(k => `<button data-gf="${esc(k)}" aria-pressed="${k === GF}">${esc(k)}</button>`).join('')}</div>
+      <input class="gsearch" id="gsq" type="search" placeholder="이름이나 뜻으로 찾기" value="${esc(GQ)}" aria-label="사전에서 찾기">
+      <ul class="gl">${list.map(g => `<li><b>${esc(g.name)}</b><span class="k">${esc(g.k)}</span><p>${esc(g.def)}</p>${g.ch != null && isOpen(g.ch) ? `<button class="link go" data-open="${g.ch}">${esc(chLabel(g.ch, true))}에서 읽기</button>` : ''}</li>`).join('') || '<li><p>찾는 말이 없습니다.</p></li>'}</ul>`;
+  } else {
+    p.innerHTML = `<div class="set">
+      <div class="row"><h3>소리</h3><button class="sw" data-act="sound" aria-pressed="${S.sound}" aria-label="소리"></button></div>
+      <p class="small" style="margin:-10px 0 0">물이 빠지면 뻘이 톡톡 터지는 소리, 물이 들면 잔물결 소리가 납니다.</p>
+      <h3>소리 내어 읽기</h3>${voiceSetHTML()}
+      <div class="row"><label for="vr">읽는 빠르기</label><input id="vr" type="range" min="0.7" max="1.4" step="0.05" value="${S.vrate}"></div>
+      <div class="row"><label for="fsr">글자 크기</label><input id="fsr" type="range" min="0.85" max="1.45" step="0.05" value="${S.fs}"></div>
+      <div class="row"><h3>모든 장 열어 두기</h3><button class="sw" data-act="all" aria-pressed="${!!S.all}" aria-label="모든 장 열어 두기"></button></div>
+      <div class="row"><h3>처음부터 다시</h3><button class="btn ghost" data-act="reset">지우기</button></div>
+      <p class="small">물때는 국립해양조사원의 대산 조위 예보에 맞춘 조화상수로 셈합니다. 달섬은 지어낸 섬이라, 가로림만의 실제 섬과 시각이 조금 다를 수 있습니다. 읽은 장은 이 기기의 브라우저에만 남습니다.</p></div>`;
+  }
+}
+
+/* ---------- 물때 보기: 그날 하루의 물높이 곡선. 끌면 지도 위 물이 따라 들고 난다 ---------- */
+const TV = { on: false, n: 0, drag: false };
+function openTide(n) {
+  if (CR.on) crossQuit();
+  closeReader(); closeBox(); hideTitle();
+  if (n != null && n !== M.sel) select(n);
+  TV.on = true; TV.n = M.sel;
+  $('#card').hidden = true; $('#hud').hidden = true; $('#tpanel').hidden = false;
+  const day = dayOf(M.sel), lun = lunar2026(day.y, day.m, day.d), sun = sunTimes(day);
+  $('#tTitle').textContent = `${day.m}월 ${day.d}일 · 음력 ${lun.lm}월 ${lun.ld}일 · ${mulOf(lun.ld)}`;
+  $('#tSub').textContent = `${SAY_NUM[lun.ld] || ''} 달 · 해 뜸 ${hm(sun.rise)} · 해 짐 ${hm(sun.set)} · 칠판 ${roadBoard(day)}`;
+  $('#tCross').hidden = !(isRead(2) || S.all);
+  drawMoonIcon($('#tmoon'), kstMs(day.y, day.m, day.d, 21 * 60), PLACE.lat, PLACE.lon, false);
+  setTimeout(() => { mapResize(); tideChart(); }, 0);
+  auApply();
+}
+function closeTide(quiet) {
+  if (!TV.on) return;
+  TV.on = false; $('#tpanel').hidden = true; $('#card').hidden = false; $('#hud').hidden = false;
+  if (!quiet) setTimeout(mapResize, 0);
+  auApply();
+}
+function tideChart() {
+  const cv = $('#tcv'), w = cv.clientWidth, h = cv.clientHeight;
+  if (!w || !TV.on) return;
+  const d = Math.min(2, devicePixelRatio || 1);
+  if (cv.width !== Math.round(w * d) || cv.height !== Math.round(h * d)) { cv.width = Math.round(w * d); cv.height = Math.round(h * d); }
+  const g = cv.getContext('2d'); g.setTransform(d, 0, 0, d, 0, 0); g.clearRect(0, 0, w, h);
+  const day = dayOf(TV.n), a = daySeries(day), sun = sunTimes(day), padL = 34, padR = 8, padT = 22, padB = 22;
+  const X = mi => padL + mi / 1440 * (w - padL - padR), Y = v => padT + (1 - clamp((v + 60) / 980, 0, 1)) * (h - padT - padB);
+  const ui = UIF();
+  // 밤
+  g.fillStyle = 'rgba(10,22,44,.32)';
+  if (sun.rise != null) g.fillRect(X(0), padT, X(sun.rise) - X(0), h - padT - padB);
+  if (sun.set != null) g.fillRect(X(sun.set), padT, X(1440) - X(sun.set), h - padT - padB);
+  // 길 열린 때
+  windowsOf(day).forEach(([s, e]) => { g.fillStyle = 'rgba(150,205,160,.25)'; g.fillRect(X(s), padT, X(e) - X(s), h - padT - padB); });
+  // 눈금
+  g.font = `11px ${ui}`; g.fillStyle = 'rgba(230,238,236,.75)'; g.textAlign = 'center'; g.textBaseline = 'top';
+  for (let hr = 0; hr <= 24; hr += 3) { const x = X(hr * 60); g.fillText(String(hr), x, h - padB + 5); g.fillStyle = 'rgba(230,238,236,.12)'; g.fillRect(x, padT, 1, h - padT - padB); g.fillStyle = 'rgba(230,238,236,.75)'; }
+  g.textAlign = 'right'; g.textBaseline = 'middle';
+  [0, 300, 600, 900].forEach(v => g.fillText(`${v}`, padL - 5, Y(v)));
+  // 길 높이
+  g.setLineDash([4, 4]); g.strokeStyle = 'rgba(255,214,140,.75)'; g.lineWidth = 1.2; g.beginPath(); g.moveTo(X(0), Y(ROAD_CM)); g.lineTo(X(1440), Y(ROAD_CM)); g.stroke(); g.setLineDash([]);
+  g.textAlign = 'left'; g.textBaseline = 'bottom'; g.fillStyle = 'rgba(255,214,140,.9)'; g.fillText('길 가운데 300cm', X(0) + 4, Y(ROAD_CM) - 2);
+  // 물높이
+  const grd = g.createLinearGradient(0, Y(900), 0, Y(-60)); grd.addColorStop(0, 'rgba(120,170,178,.55)'); grd.addColorStop(1, 'rgba(60,100,112,.25)');
+  g.beginPath(); g.moveTo(X(0), Y(-60));
+  for (let i = 0; i <= 1440; i += 5) g.lineTo(X(i), Y(a[i + 1]));
+  g.lineTo(X(1440), Y(-60)); g.closePath(); g.fillStyle = grd; g.fill();
+  g.beginPath(); for (let i = 0; i <= 1440; i += 5) i ? g.lineTo(X(i), Y(a[i + 1])) : g.moveTo(X(i), Y(a[i + 1]));
+  g.strokeStyle = '#d8eeee'; g.lineWidth = 2; g.stroke();
+  // 만조와 간조
+  g.font = `11px ${ui}`; g.textAlign = 'center';
+  extremaOf(day).forEach(e => {
+    const x = X(e.mi), y = Y(e.h);
+    g.fillStyle = e.k === 'H' ? '#d8eeee' : '#ffd27a'; g.beginPath(); g.arc(x, y, 3, 0, 7); g.fill();
+    g.textBaseline = e.k === 'H' ? 'bottom' : 'top';
+    g.fillText(`${hhmm(e.mi)} ${Math.round(e.h)}`, clamp(x, padL + 26, w - 30), e.k === 'H' ? y - 5 : y + 5);
+  });
+  // 지금
+  const nx = X(MAP.now), lv = hAt(day, MAP.now);
+  g.strokeStyle = '#ffd27a'; g.lineWidth = 1.6; g.beginPath(); g.moveTo(nx, padT - 6); g.lineTo(nx, h - padB); g.stroke();
+  g.fillStyle = '#ffd27a'; g.beginPath(); g.arc(nx, Y(lv), 5, 0, 7); g.fill();
+  const st = roadState(day, MAP.now);
+  $('#tNow').innerHTML = `<b>${hm(MAP.now)}</b> · 물높이 ${Math.round(lv)}cm · <span class="${st.open ? 'op' : 'cl'}">길 ${st.open ? '열림' : '잠김'}</span>${st.next != null ? ` · ${st.open ? '잠기는' : '열리는'} 시각 ${hm(st.next)}` : ''}`;
+}
+function tideFromX(clientX) {
+  const cv = $('#tcv'), r = cv.getBoundingClientRect(), padL = 34, padR = 8;
+  return clamp((clientX - r.left - padL) / (r.width - padL - padR), 0, 1) * 1440;
+}
+function bindTide() {
+  const cv = $('#tcv');
+  cv.addEventListener('pointerdown', e => { TV.drag = true; togglePlay(false); MAP.now = tideFromX(e.clientX); cv.setPointerCapture(e.pointerId); tideChart(); });
+  cv.addEventListener('pointermove', e => { if (!TV.drag) return; MAP.now = tideFromX(e.clientX); tideChart(); });
+  const up = () => { TV.drag = false; };
+  cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
+  cv.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') { togglePlay(false); MAP.now = clamp(MAP.now + (e.key === 'ArrowRight' ? 10 : -10), 0, 1439); tideChart(); e.preventDefault(); }
+  });
+}
+/* 달 그림: 찬 만큼, 그 자리 하늘에서 기운 만큼 */
+function drawMoonIcon(cv, ms, lat, lon, ink) {
+  const w = cv.clientWidth || 40, d = Math.min(2, devicePixelRatio || 1);
+  cv.width = cv.height = Math.round(w * d);
+  const g = cv.getContext('2d'); g.setTransform(d, 0, 0, d, 0, 0); g.clearRect(0, 0, w, w);
+  moonShape(g, w / 2, w / 2, w * 0.42, ms, lat, lon, ink);
+}
+function moonShape(g, cx, cy, R, ms, lat, lon, ink, paper) {
+  const k = moonPhase(ms).frac, tilt = brightTilt(ms, lat, lon) * D2R;
+  g.save(); g.translate(cx, cy);
+  // 밝은 쪽이 오른쪽(+x)을 보게 그린 다음, 하늘에서 밝은 쪽이 향하는 방향으로 돌린다
+  // (tilt는 위에서 시계 반대 방향으로 잰 각, 캔버스는 시계 방향으로 돈다)
+  g.rotate(-tilt - Math.PI / 2);
+  const lit = () => { const e = R * (1 - 2 * k); g.beginPath(); g.arc(0, 0, R, -Math.PI / 2, Math.PI / 2, false); g.ellipse(0, 0, Math.abs(e), R, 0, Math.PI / 2, -Math.PI / 2, e > 0); g.closePath(); };
+  if (ink) {
+    // 연필 그림: 동그라미를 그리고 어두운 쪽을 까맣게 칠한다
+    g.fillStyle = 'rgba(52,46,40,.82)'; g.beginPath(); g.arc(0, 0, R, 0, 7); g.fill();
+    g.fillStyle = paper || '#f4eee0'; lit(); g.fill();
+    g.strokeStyle = 'rgba(52,46,40,.9)'; g.lineWidth = Math.max(1, R * 0.09); g.beginPath(); g.arc(0, 0, R, 0, 7); g.stroke();
+  } else {
+    g.fillStyle = 'rgba(30,40,60,.85)'; g.beginPath(); g.arc(0, 0, R, 0, 7); g.fill();
+    g.fillStyle = '#fff4d2'; lit(); g.fill();
+  }
+  g.restore();
+}
+
+/* ---------- 편지: 양철 통 속 편지 한 장. 맨 위의 달은 그날 그곳 하늘을 셈해서 그린다 ---------- */
+let LETTER = null;
+function letterMoonMs(l) { return eveningMs(l.ymd.y, l.ymd.m, l.ymd.d, l.lat, l.lon, l.tz); }
+function letterNote(l) {
+  const ld = lunarDay(l.ymd.y, l.ymd.m, l.ymd.d, l.tz), t = letterMoonMs(l), loc = new Date(t + l.tz * 3600e3);
+  const tilt = brightTilt(t, l.lat, l.lon), lie = Math.abs(180 - tilt), lieTxt = lie < 25 ? '배처럼 누운' : lie < 50 ? '비스듬히 누운' : '비스듬히 선';
+  const who = l.from === '송끝순' ? '할머니' : '창수 할아버지', full = moonPhase(t).frac > 0.93;
+  const shape = full ? `보름달이라 누웠는지 섰는지 가릴 데가 없습니다. ${who}도 동그라미 하나를 그렸을 거예요.` : `${lieTxt} 모양입니다. ${who}의 그림도 그랬을 거예요.`;
+  return `음력 ${l.lunar}, ${SAY_NUM[ld] || ''}. 그날 달섬은 ${mulOf(ld)}. 맨 위의 달은 그날 ${l.place}에서 해 지고 사십 분 뒤(${loc.getUTCHours()}시 ${String(loc.getUTCMinutes()).padStart(2, '0')}분) 하늘에 뜬 모양을 셈해서 그렸습니다. ${shape}`;
+}
+function openLetter(key) {
+  const l = D.letters.find(x => x.key === key);
+  if (!l) return;
+  if (!letterOpen(l)) { toast(`${chLabel(l.ch, true)}을 읽으면 열리는 편지입니다.`); return; }
+  LETTER = l;
+  const hand = l.from === '송끝순' ? 'kid' : 'brush';
+  $('#lTitle').textContent = `${l.from}이 ${l.to}에게 · ${l.ymd.y}년 ${l.ymd.m}월 ${l.ymd.d}일`;
+  $('#lBody').innerHTML = `<div class="sheet ${hand}"><canvas class="lmoon" aria-label="편지 맨 위에 그린 달"></canvas>
+    <p class="ldate">${l.ymd.y}. ${l.ymd.m}. ${l.ymd.d}. ${esc(l.place)}</p>
+    ${l.lines.map(t => `<p>${esc(t)}</p>`).join('')}</div>
+    <p class="lnote">${esc(letterNote(l))}</p>`;
+  $('#letter').hidden = false; hideTitle();
+  requestAnimationFrame(() => { const cv = $('#lBody .lmoon'); if (cv) drawMoonIcon(cv, letterMoonMs(l), l.lat, l.lon, true); });
+  paperSound();
+}
+function closeLetter() { if ($('#letter').hidden) return; $('#letter').hidden = true; LETTER = null; }
+function drawLetterMoons() {
+  $$('#pane canvas[data-lm]').forEach(cv => { const l = D.letters.find(x => x.key === cv.dataset.lm); if (l) drawMoonIcon(cv, letterMoonMs(l), l.lat, l.lon, true); });
+}
+
+/* ---------- reading aloud with the device's own Korean voices ---------- */
+const NV = { kind: null, why: '', voices: [], bad: new Set(), on: false, paused: false, n: -1, segs: [], idx: 0, tok: 0, err: 0, timer: 0, dog: 0, cur: null, lock: null, userScroll: 0, hi: null };
+const VR = { A: null, B: null, C: null };
+const MALE_RE = /(male|남성|injoon|hyunsu|bongjin|gookmin|minsu|jian|-x-koc|-x-kod|smtm)/i;
+const FEMALE_RE = /(female|여성|sunhi|heami|jimin|seohyeon|soonbok|yujin|yuna|sora|suhyun|google 한국|-x-ism|-x-kob|smtf)/i;
+const isMale = v => !!v && MALE_RE.test(v.name) && !/female/i.test(v.name);
+const isFemale = v => !!v && !isMale(v) && FEMALE_RE.test(v.name);
+const rateK = () => clamp(+S.vrate || 1, 0.6, 1.6);
+function scoreVoice(v) { let s = 0; if (/natural|neural|premium|enhanced|고품질/i.test(v.name)) s += 5; if (!v.net) s += 2; if (v.def) s += 1; return s + (v.q || 0) / 250; }
+function resolveRoles() {
+  const all = NV.voices.slice().sort((a, b) => scoreVoice(b) - scoreVoice(a));
+  const ok = all.filter(v => !v.missing && !NV.bad.has(v.name));
+  const named = nm => (nm && !NV.bad.has(nm) && all.find(v => v.name === nm)) || null;
+  VR.A = named(S.vA) || ok.find(isFemale) || ok[0] || null;
+  VR.C = named(S.vC) || ok.find(v => isMale(v) && v !== VR.A) || ok.find(v => v !== VR.A) || VR.A;
+  VR.B = VR.A;
+}
+function webVoices() {
+  let vs = [];
+  try { vs = speechSynthesis.getVoices() || []; } catch (e) { vs = []; }
+  return { any: vs.length, ko: vs.filter(v => /^ko([-_]|$)/i.test(v.lang || '')).map(v => ({ name: v.name, net: !v.localService, q: 0, def: !!v.default, obj: v })) };
+}
+function voiceDetect(cb) {
+  const done = () => { resolveRoles(); if (!$('#box').hidden && TAB === 'set') renderPane(); if (cb) cb(); };
+  if (window.NightVoice && typeof window.NightVoice.enqueue === 'function') {
+    const poll = k => {
+      let st = 'fail';
+      try { st = String(window.NightVoice.ready()); } catch (e) { st = 'fail'; }
+      if (st === 'wait' && k < 50) { setTimeout(() => poll(k + 1), 200); return; }
+      if (st !== 'ok') { NV.kind = 'none'; NV.why = st === 'nolang' ? 'nolang' : 'engine'; done(); return; }
+      let list = [];
+      try { list = JSON.parse(window.NightVoice.voices() || '[]'); } catch (e) { list = []; }
+      NV.voices = list.map(v => ({ name: String(v.name), net: !!v.net, q: +v.q || 0, missing: !!v.missing, def: !!v.def }));
+      NV.kind = 'native'; NV.why = '';
+      done();
+    };
+    poll(0);
+    return;
+  }
+  if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') { NV.kind = 'none'; NV.why = 'api'; done(); return; }
+  const take = () => {
+    const w = webVoices();
+    NV.voices = w.ko;
+    if (w.ko.length) { NV.kind = 'web'; NV.why = ''; }
+    else if (/; wv\)/.test(navigator.userAgent)) { NV.kind = 'none'; NV.why = 'webview'; }
+    else if (w.any) { NV.kind = 'none'; NV.why = 'nolang'; }
+    else { NV.kind = 'web'; NV.why = 'blind'; }
+    return w.ko.length > 0;
+  };
+  if (take()) { done(); return; }
+  let fin = false;
+  const end = () => { if (fin) return; fin = true; take(); done(); };
+  try { speechSynthesis.addEventListener('voiceschanged', () => { if (fin) { take(); done(); } else if (webVoices().ko.length) end(); }); } catch (e) { /* old browsers */ }
+  setTimeout(end, 1800);
+}
+const vSupported = () => NV.kind === 'native' || NV.kind === 'web';
+function whyMsg() {
+  if (NV.why === 'nolang') return '이 기기에는 한국어 음성이 없습니다. 기기 설정의 텍스트 음성 변환에서 한국어 음성을 내려받거나, 크롬·엣지·사파리에서 열어 주세요.';
+  if (NV.why === 'webview') return '이 화면 안에서는 소리 내어 읽을 수 없습니다. 크롬이나 사파리 같은 브라우저에서 열어 주세요.';
+  if (NV.why === 'engine') return '기기의 음성 엔진을 찾지 못했습니다. 설정의 텍스트 음성 변환을 확인해 주세요.';
+  if (NV.kind === null) return '목소리를 찾는 중입니다. 잠시 뒤에 다시 눌러 주세요.';
+  return '이 화면에서는 소리 내어 읽을 수 없습니다. 크롬이나 엣지, 사파리에서 열어 주세요.';
+}
+
+/* ---------- turning a chapter into spoken pieces ---------- */
+function splitSent(t) {
+  const out = [];
+  let s = 0;
+  for (let i = 0; i < t.length; i++) {
+    const c = t[i];
+    if (c === '.' || c === '?' || c === '!' || c === '…') {
+      let j = i + 1;
+      while (j < t.length && '”’".…?!'.includes(t[j])) j++;
+      if (j >= t.length || t[j] === ' ') { const p = t.slice(s, j).trim(); if (p) out.push(p); s = j; i = j - 1; }
+    }
+  }
+  const r = t.slice(s).trim();
+  if (r) out.push(r);
+  return out;
+}
+function splitLong(s, max) {
+  if (s.length <= max * 1.35) return [s];
+  const bits = s.split(', '), out = [];
+  let cur = '';
+  bits.forEach((b, i) => {
+    const piece = i < bits.length - 1 ? b + ',' : b;
+    if (cur && cur.length + piece.length + 1 > max) { out.push(cur); cur = piece; } else cur = cur ? cur + ' ' + piece : piece;
+  });
+  if (cur) out.push(cur);
+  return out;
+}
+function cleanSpeech(t) {
+  return String(t)
+    .replace(/[“”"‘’「」『』]/g, '')
+    .replace(/\s*[·―—–]\s*/g, ', ')
+    .replace(/~/g, ', ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+function rolePar(role) {
+  const A = VR.A, same = v => !v || !A || v.name === A.name;
+  if (role === 'rec') return { v: VR.C, pitch: same(VR.C) ? 1.12 : 1, rate: 0.94 };
+  return { v: VR.A, pitch: 1, rate: 1 };
+}
+const SLOW = { title: 0.86, sub: 0.92, head: 0.92, rec: 0.96 };
+const GAP = { title: 1300, sub: 1000, p: 560, head: 900, rec: 900, break: 1500 };
+function buildSegs() {
+  const segs = [{ gap: 600 }];
+  $$('#rBody [data-u]').forEach(el => {
+    const kind = el.dataset.kind, role = el.dataset.role, u = +el.dataset.u;
+    if (kind === 'break') { segs.push({ gap: GAP.break, u }); return; }
+    if (kind === 'head' || kind === 'rec') segs.push({ gap: 600, u });
+    const text = cleanSpeech(el.dataset.say != null ? el.dataset.say : el.textContent);
+    if (!text) return;
+    const parts = [];
+    splitSent(text).forEach(s => splitLong(s, 64).forEach(x => parts.push(x)));
+    parts.forEach((t, i) => segs.push({ text: t, role, u, first: i === 0, kind }));
+    segs.push({ gap: GAP[kind] || 560, u });
+  });
+  segs.push({ gap: 1000 });
+  return segs;
+}
+function segParams(s) {
+  const r = rolePar(s.role), base = NV.kind === 'native' ? 0.9 : 0.92;
+  return { name: r.v ? r.v.name : '', obj: r.v && r.v.obj, net: !!(r.v && r.v.net), rate: +clamp(base * r.rate * (SLOW[s.kind] || 1) * rateK(), 0.4, 2).toFixed(3), pitch: r.pitch };
+}
+
+/* ---------- the players: the app's own bridge, or the browser's speech ---------- */
+function vHalt() {
+  clearTimeout(NV.timer);
+  if (NV.kind === 'native') { try { window.NightVoice.stop(); } catch (e) { /* bridge gone */ } }
+  else if (NV.kind === 'web') { try { speechSynthesis.cancel(); } catch (e) { /* ignore */ } }
+}
+function vRun() {
+  clearTimeout(NV.timer);
+  if (NV.kind === 'native') { nativeEnqueue(NV.idx); return; }
+  const tok = NV.tok;
+  NV.timer = setTimeout(() => webNext(tok), 140);
+}
+function nativeEnqueue(from) {
+  const tok = NV.tok, k = rateK(), list = [];
+  for (let i = from; i < NV.segs.length; i++) {
+    const s = NV.segs[i], id = `${tok}:${i}`;
+    if (s.gap) list.push({ id, ms: Math.round(s.gap / k) });
+    else { const p = segParams(s); list.push({ id, text: s.text, voice: p.name, rate: p.rate, pitch: p.pitch, vol: 1 }); }
+  }
+  try { window.NightVoice.enqueue(JSON.stringify(list)); } catch (e) { vFail(); }
+}
+window.__voiceEvent = (type, id) => {
+  if (type === 'ready') { if (NV.kind !== 'web') voiceDetect(); return; }
+  const p = String(id).split(':'), tk = +p[0], ix = +p[1];
+  if (tk !== NV.tok || !NV.on || NV.paused || !(ix >= 0)) return;
+  if (type === 'start') {
+    segStart(ix);
+    if (ix === NV.segs.length - 1) { clearTimeout(NV.endT); NV.endT = setTimeout(() => { if (tk === NV.tok && NV.on && !NV.paused) chapterEnded(NV.n); }, NV.segs[ix].gap / rateK() + 2500); }
+  } else {
+    const s = NV.segs[ix];
+    if (type === 'error' && s && s.text) { if (++NV.err >= 3) { vFail(); return; } } else if (s && s.text) NV.err = 0;
+    NV.idx = ix + 1;
+    if (ix >= NV.segs.length - 1) chapterEnded(NV.n);
+  }
+};
+function webNext(tok) {
+  if (tok !== NV.tok || !NV.on || NV.paused) return;
+  if (NV.idx >= NV.segs.length) { chapterEnded(NV.n); return; }
+  const i = NV.idx, s = NV.segs[i];
+  segStart(i);
+  if (s.gap) { NV.timer = setTimeout(() => { if (tok !== NV.tok) return; NV.idx = i + 1; webNext(tok); }, s.gap / rateK()); return; }
+  const p = segParams(s), u = new SpeechSynthesisUtterance(s.text);
+  u.lang = 'ko-KR';
+  if (p.obj) u.voice = p.obj;
+  u.rate = p.rate; u.pitch = p.pitch; u.volume = 1;
+  const cur = { fired: false, started: false, t0: Date.now(), kick: Date.now(), net: p.net, name: p.name };
+  cur.fin = (ok, why) => {
+    if (cur.fired) return;
+    cur.fired = true;
+    if (tok !== NV.tok) return;
+    if (!ok) {
+      if (cur.net && cur.name && !NV.bad.has(cur.name) && why !== 'not-allowed') { NV.bad.add(cur.name); resolveRoles(); NV.timer = setTimeout(() => webNext(tok), 150); return; }
+      if (++NV.err >= 3) { vFail(); return; }
+    } else NV.err = 0;
+    NV.idx = i + 1;
+    NV.timer = setTimeout(() => webNext(tok), 30);
+  };
+  u.onstart = () => { cur.started = true; };
+  u.onend = () => cur.fin(true);
+  u.onerror = e => { const w = e && e.error; cur.fin(w === 'interrupted' || w === 'canceled', w); };
+  NV.cur = cur; NV.utt = u;
+  try { speechSynthesis.speak(u); } catch (e) { cur.fin(false); }
+}
+function webWatchdog() {
+  clearInterval(NV.dog);
+  if (NV.kind !== 'web') return;
+  const desktop = !/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  NV.dog = setInterval(() => {
+    const c = NV.cur;
+    if (!NV.on || NV.paused || !c || c.fired) return;
+    let speaking = true;
+    try { speaking = speechSynthesis.speaking || speechSynthesis.pending; } catch (e) { speaking = false; }
+    const age = Date.now() - c.t0;
+    if (!speaking && ((c.started && age > 1200) || age > 8000)) c.fin(true);
+    else if (desktop && /^Google/.test(c.name) && Date.now() - c.kick > 10000) { c.kick = Date.now(); try { speechSynthesis.pause(); speechSynthesis.resume(); } catch (e) { /* ignore */ } }
+  }, 1200);
+}
+function segStart(i) {
+  const s = NV.segs[i];
+  if (!s) return;
+  NV.idx = i;
+  if (s.u != null && !s.gap) highlight(s.u);
+  if (s.text) $('#pText').textContent = s.text;
+}
+function highlight(u) {
+  const el = $(`#rBody [data-u="${u}"]`);
+  if (el === NV.hi) return;
+  if (NV.hi) NV.hi.classList.remove('speaking');
+  NV.hi = el;
+  if (!el) return;
+  el.classList.add('speaking');
+  if (Date.now() - NV.userScroll < 5000) return;
+  const r = el.getBoundingClientRect();
+  if (r.top < 70 || r.bottom > innerHeight - 110) el.scrollIntoView({ block: 'center', behavior: M.reduce ? 'auto' : 'smooth' });
+}
+
+/* ---------- starting, pausing, moving about ---------- */
+function vUnlock() {
+  if (NV.kind === 'native' || window.NightVoice || !('speechSynthesis' in window) || vUnlock.done) return;
+  vUnlock.done = true;
+  try { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; u.lang = 'ko-KR'; speechSynthesis.speak(u); } catch (e) { /* ignore */ }
+}
+function vStart(n, fromU) {
+  if (!vSupported()) { toast(whyMsg(), 6500); return; }
+  vUnlock();
+  auInit();
+  NV.n = n;
+  NV.segs = buildSegs();
+  NV.idx = 0;
+  if (fromU != null) { const k = NV.segs.findIndex(s => s.u === fromU && s.text); if (k >= 0) NV.idx = k; }
+  NV.on = true; NV.paused = false; NV.tok++; NV.err = 0; NV.userScroll = 0;
+  vHalt(); vRun(); webWatchdog();
+  $('#player').hidden = false; playerUpdate();
+  document.body.classList.add('narr');
+  auApply(); wake(true);
+}
+function vPause() { if (!NV.on || NV.paused) return; NV.paused = true; NV.tok++; vHalt(); playerUpdate(); auApply(); }
+function vResume() { if (!NV.on || !NV.paused) return; NV.paused = false; NV.tok++; const s = NV.segs[NV.idx]; if (s && s.gap) NV.idx++; vRun(); playerUpdate(); auApply(); }
+function vStop() {
+  if (!NV.on && $('#player').hidden) return;
+  NV.on = false; NV.paused = false; NV.tok++;
+  vHalt(); clearInterval(NV.dog);
+  document.body.classList.remove('narr');
+  if (NV.hi) { NV.hi.classList.remove('speaking'); NV.hi = null; }
+  $('#player').hidden = true;
+  auApply(); wake(false);
+}
+function vFail() { vStop(); toast('목소리가 자꾸 끊깁니다. 설정에서 다른 목소리를 골라 보세요.', 6000); }
+function vGoto(i) { NV.idx = clamp(i, 0, NV.segs.length - 1); NV.tok++; vHalt(); if (NV.paused) { NV.paused = false; } vRun(); playerUpdate(); }
+function vSkip(dir) {
+  const cur = NV.segs[NV.idx], u = cur ? cur.u : 0;
+  let i = NV.idx;
+  if (dir > 0) { while (i < NV.segs.length && !(NV.segs[i].text && NV.segs[i].u > u)) i++; }
+  else { const target = Math.max(0, (u || 0) - 1); i = NV.segs.findIndex(s => s.text && s.u >= target); }
+  if (i < 0 || i >= NV.segs.length) return;
+  vGoto(i);
+}
+function vJump(u) { const i = NV.segs.findIndex(s => s.text && s.u === u); if (i >= 0) vGoto(i); }
+function listenTap() {
+  if (NV.on) { NV.paused ? vResume() : vPause(); return; }
+  const n = S.cur, top = $('.rhead').getBoundingClientRect().bottom + 8;
+  const first = $$('#rBody [data-u]').find(el => el.getBoundingClientRect().bottom > top);
+  vStart(n, first && $('#reader').scrollTop > 40 ? +first.dataset.u : null);
+}
+function chapterEnded(n) {
+  if (NV.n !== n || !NV.on) return;
+  if (n >= LAST) { vStop(); if (!isRead(n)) stampHere(n); const f = $('#rBody [data-act=cross]'); if (f) f.scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
+  if (!isRead(n)) stampHere(n);
+  const tok = ++NV.tok;
+  toast(`다음 장, ${CH[n + 1].title}`);
+  NV.timer = setTimeout(() => { if (tok !== NV.tok || !NV.on) return; openReader(n + 1, true); }, 2800);
+}
+function playerUpdate() {
+  const t = $('#pToggle');
+  t.setAttribute('aria-label', NV.paused ? '이어 읽기' : '멈춤');
+  t.querySelector('.pp').setAttribute('d', NV.paused ? 'M8 5l11 7-11 7z' : 'M9 6v12M15 6v12');
+  $('#pRate').textContent = `${(+S.vrate).toFixed(2).replace(/0$/, '').replace(/\.0$/, '')}×`;
+}
+const RATES = [0.85, 1, 1.15, 1.3];
+function playerAct(a) {
+  if (a === 'toggle') NV.paused ? vResume() : vPause();
+  else if (a === 'stop') vStop();
+  else if (a === 'next') vSkip(1);
+  else if (a === 'prev') vSkip(-1);
+  else if (a === 'rate') {
+    const i = RATES.findIndex(r => r >= (+S.vrate) - 0.01);
+    S.vrate = RATES[(i + 1) % RATES.length]; save();
+    if (NV.on && !NV.paused) vGoto(NV.idx);
+    playerUpdate();
+  }
+}
+async function wake(on) {
+  try { if (window.NightVoice && window.NightVoice.awake) window.NightVoice.awake(!!on); } catch (e) { /* ignore */ }
+  try {
+    if (on && 'wakeLock' in navigator && !NV.lock) { NV.lock = await navigator.wakeLock.request('screen'); NV.lock.addEventListener('release', () => { NV.lock = null; }); }
+    else if (!on && NV.lock) { await NV.lock.release(); NV.lock = null; }
+  } catch (e) { NV.lock = null; }
+}
+function voiceSetHTML() {
+  if (!vSupported()) return `<p class="small">${esc(whyMsg())}</p>`;
+  if (!NV.voices.length) return '<p class="small">기기의 기본 한국어 목소리로 읽습니다.</p>';
+  const opt = sel => NV.voices.map(v => `<option value="${esc(v.name)}"${sel && sel.name === v.name ? ' selected' : ''}>${esc(v.name.replace(/^Microsoft |^Google /, ''))}${v.net ? ' (온라인)' : ''}</option>`).join('');
+  return `<div class="row"><label for="vA">가람의 목소리</label><select id="vA" data-v="vA">${opt(VR.A)}</select></div>
+    <div class="row"><label for="vC">공책의 목소리</label><select id="vC" data-v="vC">${opt(VR.C)}</select></div>
+    <p class="small">장 끝의 공부 기록은 다른 목소리로 읽습니다.</p>`;
+}
+
+function firstUnread() { for (let n = 0; n <= LAST; n++) if (!isRead(n)) return n; return LAST; }
+function showTitle() {
+  const nx = firstUnread(), any = S.read.some(Boolean), all = CH.every((c, n) => isRead(n));
+  $('#tActs').innerHTML = all
+    ? `<button class="btn" data-t="look">달섬 둘러보기</button><button class="btn ghost" data-t="cross">${ICON.walk}건너 보기</button>`
+    : any
+    ? `<button class="btn" data-t="resume">이어 읽기 · ${esc(CH[nx].title)}</button><button class="btn ghost" data-t="look">달섬 둘러보기</button>`
+    : `<button class="btn" data-t="start">읽기 시작</button><button class="btn ghost" data-t="look">달섬 둘러보기</button>`;
+  $('#title').hidden = false; $('#app').classList.add('titled');
+}
+function back() {
+  if (!$('#letter').hidden) { closeLetter(); return; }
+  if (CR.on) { crossQuit(); return; }
+  if (TV.on) { closeTide(); return; }
+  if (!$('#box').hidden) { closeBox(); return; }
+  if (!$('#reader').hidden) { closeReader(); return; }
+}
+let resetArm = 0;
+function act(a, el) {
+  const n = el && el.dataset.n != null ? +el.dataset.n : M.sel;
+  switch (a) {
+    case 'read': openReader(M.sel); break;
+    case 'listen': if (el && el.closest('#reader')) listenTap(); else openReader(M.sel, true); break;
+    case 'tide': openTide(n); break;
+    case 'letter': openLetter(el.dataset.k); break;
+    case 'cross': startCross(); break;
+    case 'stamp': stampHere(S.cur); break;
+    case 'nextCh': openReader(S.cur + 1); break;
+    case 'toMap': closeReader(); break;
+    case 'closeReader': closeReader(); break;
+    case 'closeBox': closeBox(); break;
+    case 'closeLetter': closeLetter(); break;
+    case 'closeTide': closeTide(); break;
+    case 'fsDown': setFS(S.fs - 0.05); break;
+    case 'fsUp': setFS(S.fs + 0.05); break;
+    case 'sound': setSound(!S.sound, true); renderPane(); break;
+    case 'all': S.all = !S.all; save(); renderStrip(); updateCard(); renderPane(); $('#btnCross').hidden = !(isRead(2) || S.all); break;
+    case 'reset':
+      if (Date.now() - resetArm > 4000) { resetArm = Date.now(); el.textContent = '정말 지울까요? 한 번 더 누르세요'; break; }
+      S.read = []; S.cur = 0; S.started = false; S.all = false; S.cross = { plays: 0, dry: 0 }; S.crossTold = false; save();
+      renderStrip(); select(0); renderPane(); closeBox(); showTitle(); $('#btnCross').hidden = true; toast('처음으로 되돌렸습니다. 다시 정월대보름입니다.');
+      break;
+  }
+}
+function paneClick(e) {
+  const t = e.target.closest('button');
+  if (!t) return;
+  if (t.dataset.tab) { TAB = t.dataset.tab; renderPane(); return; }
+  if (t.dataset.open != null) { closeBox(); openReader(+t.dataset.open); return; }
+  if (t.dataset.tidebox != null) { closeBox(); openTide(+t.dataset.tidebox); return; }
+  if (t.dataset.letter) { openLetter(t.dataset.letter); return; }
+  if (t.dataset.gf != null) { GF = t.dataset.gf; renderPane(); return; }
+  if (t.dataset.act) act(t.dataset.act, t);
+}
+function paneInput(e) {
+  const t = e.target;
+  if (t.id === 'gsq') { GQ = t.value; const pos = t.selectionStart; renderPane(); const q = $('#gsq'); if (q) { q.focus(); try { q.setSelectionRange(pos, pos); } catch (x) { /* ignore */ } } }
+  else if (t.id === 'vr') { S.vrate = +t.value; save(); if (NV.on) playerUpdate(); }
+  else if (t.id === 'fsr') setFS(+t.value);
+  else if (t.dataset.v) { S[t.dataset.v] = t.value; save(); resolveRoles(); }
+}
+function bindUI() {
+  $('#strip').addEventListener('click', e => { const b = e.target.closest('button[data-n]'); if (b) { select(+b.dataset.n); MAP.now = 6 * 60; } });
+  $('#cbInner').addEventListener('click', e => { const b = e.target.closest('[data-act]'); if (b) act(b.dataset.act, b); });
+  $('#tActs').addEventListener('click', e => {
+    const b = e.target.closest('[data-t]'); if (!b) return;
+    auInit(); S.started = true; save();
+    hideTitle();
+    if (b.dataset.t === 'start') openReader(0);
+    else if (b.dataset.t === 'resume') openReader(firstUnread());
+    else if (b.dataset.t === 'cross') startCross();
+  });
+  $('#reader').addEventListener('click', e => {
+    const cv = e.target.closest('canvas[data-tc]');
+    if (cv) { openTide(+cv.dataset.tc); return; }
+    const b = e.target.closest('[data-act]'); if (b) act(b.dataset.act, b);
+  });
+  $('#reader').addEventListener('scroll', () => { NV.userScroll = Date.now(); }, { passive: true });
+  $('#rBody').addEventListener('dblclick', e => { const p = e.target.closest('[data-u]'); if (p && NV.on) vJump(+p.dataset.u); });
+  $('#player').addEventListener('click', e => { const b = e.target.closest('[data-p]'); if (b) playerAct(b.dataset.p); });
+  $('#tpanel').addEventListener('click', e => { const b = e.target.closest('[data-act]'); if (b) act(b.dataset.act, b); });
+  $('#tPlay').addEventListener('click', () => togglePlay());
+  $('#letter').addEventListener('click', e => { const b = e.target.closest('[data-act]'); if (b) act(b.dataset.act, b); });
+  $('#box').addEventListener('click', e => { const b = e.target.closest('[data-act=closeBox]'); if (b) closeBox(); });
+  $('#tabs').addEventListener('click', paneClick);
+  $('#pane').addEventListener('click', paneClick);
+  $('#pane').addEventListener('input', paneInput);
+  $('#pane').addEventListener('change', paneInput);
+  $('#btnSound').addEventListener('click', () => setSound(!S.sound));
+  $('#btnBox').addEventListener('click', () => openBox());
+  $('#btnCross').addEventListener('click', () => startCross());
+  $('#hudPlay').addEventListener('click', () => togglePlay());
+  $('#hudTide').addEventListener('click', () => openTide(M.sel));
+  $('#xGo').addEventListener('click', crossGo);
+  $('#xQuit').addEventListener('click', crossQuit);
+  $('#xT').addEventListener('input', e => { if (CR.run) return; CR.start = +e.target.value; CR.res = null; $('#xGo').textContent = '건너기'; MAP.now = CR.start; crossLabel(); });
+  $('#xDay').addEventListener('change', e => { if (CR.run) return; CR.n = +e.target.value; CR.day = CH[CR.n].day; CR.res = null; $('#xGo').textContent = '건너기'; MAP.now = CR.start; MAP.month = -1; mapResize(); crossLabel(); });
+  bindTide();
+  const cv = $('#cv');
+  let down = null;
+  cv.addEventListener('pointerdown', e => {
+    if ($('#app').classList.contains('titled')) return;
+    auInit();
+    down = { x: e.clientX, y: e.clientY };
+  });
+  cv.addEventListener('pointerup', e => {
+    if (!down) return;
+    const moved = Math.hypot(e.clientX - down.x, e.clientY - down.y) > 10;
+    down = null;
+    if (moved) return;
+    const r = cv.getBoundingClientRect();
+    mapTap(e.clientX - r.left, e.clientY - r.top);
+  });
+  cv.addEventListener('pointercancel', () => { down = null; });
+  if (window.ResizeObserver) {
+    let lastTop = -1;
+    new ResizeObserver(() => {
+      const r = $('#card').getBoundingClientRect();
+      if (!r.height || Math.abs(r.top - lastTop) < 4) return;
+      const first = lastTop < 0; lastTop = r.top;
+      if (!first) mapResize();
+    }).observe($('#card'));
+  }
+  addEventListener('keydown', e => { if (e.key === 'Escape') back(); });
+  addEventListener('resize', () => {
+    clearTimeout(bindUI.rt);
+    bindUI.rt = setTimeout(() => { mapResize(); markStrip(); drawRecs(); if (TV.on) tideChart(); }, 140);
+  });
+  document.addEventListener('visibilitychange', () => { if (AU.ctx) { if (document.hidden) AU.ctx.suspend().catch(() => {}); else if (S.sound) AU.ctx.resume().catch(() => {}); } });
+}
+let lastTs = 0, tideTick = 0;
+function loop(ts) {
+  const dt = Math.min(0.05, (ts - lastTs) / 1000 || 0.016);
+  lastTs = ts;
+  requestAnimationFrame(loop);
+  try {
+    if (!M.paused) mapDraw(dt);
+    if (TV.on && (MAP.playing || CR.run)) tideChart();
+    tideTick += dt;
+    if (tideTick > 1) { tideTick = 0; if (!M.paused) auTide(hAt(mapDay(), MAP.now)); }
+  } catch (e) { if (!loop.warned) { loop.warned = true; console.error(e); } }
+}
+function boot() {
+  if (window.__STANDALONE) { const h = $('#home'); if (h) h.hidden = true; }
+  document.documentElement.style.setProperty('--fs', S.fs);
+  renderStrip();
+  M.sel = clamp(S.cur || 0, 0, LAST);
+  select(M.sel);
+  mapResize();
+  bindUI();
+  setSound(S.sound, true);
+  togglePlay(!M.reduce);
+  $('#btnCross').hidden = !(isRead(2) || S.all);
+  showTitle();
+  voiceDetect();
+  requestAnimationFrame(loop);
+  window.__t = { S, CH, MAP, CR, TV, D, openReader, openTide, openLetter, startCross, crossGo, select, markRead, tideAt, hAt, windowsOf, extremaOf, roadBoard, lunar2026, lunarDay, kstMs, brightTilt, eveningMs, moonPhase, sunTimes };
+}
+boot();
+
+})();
+</script>
+</body>
+</html>
