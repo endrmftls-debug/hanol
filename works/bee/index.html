@@ -1219,7 +1219,7 @@ function openReader(n, listen) {
   renderChapter(n);
   $('#reader').scrollTop = 0;
   auApply();
-  if (listen) setTimeout(() => vStart(n), 250);
+  if (listen) { const tok = NV.tok; setTimeout(() => { if (NV.tok === tok) vStart(n); }, 250); }
 }
 function closeReader() {
   vStop();
@@ -1829,8 +1829,9 @@ function vStart(n, fromU) {
 function vPause() { if (!NV.on || NV.paused) return; NV.paused = true; NV.tok++; vHalt(); playerUpdate(); auApply(); }
 function vResume() { if (!NV.on || !NV.paused) return; NV.paused = false; NV.tok++; const s = NV.segs[NV.idx]; if (s && s.gap) NV.idx++; vRun(); playerUpdate(); auApply(); }
 function vStop() {
+  NV.tok++; clearTimeout(NV.timer);
   if (!NV.on && $('#player').hidden) return;
-  NV.on = false; NV.paused = false; NV.tok++;
+  NV.on = false; NV.paused = false;
   vHalt(); clearInterval(NV.dog);
   document.body.classList.remove('narr');
   if (NV.hi) { NV.hi.classList.remove('speaking'); NV.hi = null; }
