@@ -48,8 +48,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
 .hero{padding-top:clamp(18px,4vw,48px);padding-bottom:clamp(24px,4vw,56px)}
 .hero h1{margin:0;font:400 clamp(44px,10vw,84px)/1.05 var(--d);letter-spacing:-.02em}
 .lede{margin:14px 0 0;max-width:34em;color:var(--ink2);font-size:clamp(16px,2.2vw,19px);line-height:1.7}
-.shelf{position:relative;display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:clamp(10px,1.8vw,24px);margin-top:clamp(26px,4vw,48px)}
-@media (max-width:1199px){.shelf{gap:clamp(12px,2.4vw,26px)}.shelf>.cover{grid-column:span 3}}
+.shelf{position:relative;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:clamp(10px,1.8vw,24px);margin-top:clamp(26px,4vw,48px)}
+@media (max-width:1199px){.shelf{grid-template-columns:repeat(9,minmax(0,1fr));gap:clamp(12px,2.4vw,26px)}.shelf>.cover{grid-column:span 3}.shelf>#cBird{grid-column:4/span 3}}
 .shelf>canvas{position:absolute;inset:-30px -10px;width:calc(100% + 20px);height:calc(100% + 60px);pointer-events:none;z-index:2}
 .cover{position:relative;display:block;aspect-ratio:3/4.25;border-radius:3px 8px 8px 3px;overflow:hidden;text-decoration:none;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 18px 40px -22px rgba(0,0,0,.8);transition:transform .35s}
 .cover:hover{transform:translateY(-4px)}
@@ -91,8 +91,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
 @media (max-width:640px){
   body{font-size:16px}
   .shelf{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-  .shelf>.cover:nth-of-type(n){grid-column:auto}
-  .shelf>#cJang{grid-column:1/-1;justify-self:center;width:calc(50% - 6px)}
+  .shelf>.cover:nth-of-type(n),.shelf>#cBird{grid-column:auto}
   .vt b{font-size:15px}
   .vt{top:12px;right:10px}
   .cols{grid-template-columns:minmax(0,1fr)}
@@ -124,6 +123,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
         <a class="cover" id="cRing" href="works/ring/index.html" aria-label="나이테를 세는 사람 읽으러 가기"><canvas aria-hidden="true"></canvas><span class="vt" aria-hidden="true"><b>나이테를<br>세는 사람</b><small>백오십칠 줄</small></span><span class="prog" id="pRing" hidden></span></a>
         <a class="cover" id="cSilk" href="works/silk/index.html" aria-label="실을 켜는 사람 읽으러 가기"><canvas aria-hidden="true"></canvas><span class="vt" aria-hidden="true"><b>실을<br>켜는 사람</b><small>천이백팔십삼 미터</small></span><span class="prog" id="pSilk" hidden></span></a>
         <a class="cover" id="cJang" href="works/jang/index.html" aria-label="장을 가르는 사람 읽으러 가기"><canvas aria-hidden="true"></canvas><span class="vt" aria-hidden="true"><b>장을<br>가르는 사람</b><small>쉰 번의 말날</small></span><span class="prog" id="pJang" hidden></span></a>
+        <a class="cover" id="cBird" href="works/bird/index.html" aria-label="새를 세는 사람 읽으러 가기"><canvas aria-hidden="true"></canvas><span class="vt" aria-hidden="true"><b>새를<br>세는 사람</b><small>삼만쯤</small></span><span class="prog" id="pBird" hidden></span></a>
       </div>
     </div>
   </section>
@@ -234,6 +234,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
         <div><dt>함께</dt><dd>그날 그 시각의 장독대와 독 속, 직접 띄워 보는 달걀, 말날 달력과 엄마의 쉰 해, 씨간장 족보, 말 사전, 소리와 낭독</dd></div>
       </dl>
       <div class="acts"><a class="btn" href="works/jang/index.html" id="bJang">읽으러 가기<svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></div>
+    <article class="work">
+      <h2>새를 세는 사람</h2>
+      <p class="sub">열네 장의 새 일지 · 열 번째 이야기</p>
+      <p>아버지는 이십칠 년 동안 해마다 일월이면 군산 금강호에 나가 가창오리를 셌다. 백 마리 덩어리가 삼백 개면 삼만쯤. 초당 주문 수를 세는 대시보드를 만들다 지쳐 고향에 내려온 서른여섯 살 윤재는, 아버지의 오른눈 한가운데마저 지워지기 시작한 그 겨울, 아버지 대신 새를 세는 법을 배운다.</p>
+      <p>장마다 그날 그 시각의 금강호가 있어, 해 지는 시각에 맞춰 물 위의 띠가 날아오르고 군무가 펼쳐집니다. 하늘을 누르면 매가 오고, 새들은 매를 비켜 갑니다. 멈춘 하늘의 새를 덩어리로 어림해 볼 수 있고, 보려는 자리가 지워지는 아버지의 눈으로 볼 수도 있습니다.</p>
+      <dl class="facts">
+        <div><dt>구성</dt><dd>서, 열네 장, 맺음</dd></div>
+        <div><dt>분량</dt><dd>원고지 70매 남짓, 천천히 읽어 서른 분쯤</dd></div>
+        <div><dt>함께</dt><dd>그날 그 시각의 금강호와 군무, 매, 덩어리로 어림하기, 아버지 공책, 암슬러 격자와 아버지의 눈, 말 사전, 소리와 낭독</dd></div>
+      </dl>
+      <div class="acts"><a class="btn" href="works/bird/index.html" id="bBird">읽으러 가기<svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></div>
     </article>
   </section>
   <section class="about band" id="about" aria-labelledby="h-about">
@@ -252,6 +263,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
           <p>나이테도 그렇습니다. 나무 단면을 손끝으로 짚어 본 적이 없어서, 해마다 넓어지고 좁아지는 나이테의 모양으로 나무가 베인 해를 맞추는 셈법과, 옛집을 고치며 그 셈을 써 온 사람들의 기록으로 배웠습니다. 「나이테를 세는 사람」의 나무들은 사진이 아니라, 해마다의 비와 가뭄을 셈해서 페이지가 한 줄씩 그려 내는 것입니다. 연대기는 지어낸 것이지만 맞추는 셈은 실제 연구의 셈법 그대로여서, 읽는 분도 직접 밀어 맞춰 볼 수 있습니다. 단비가 할머니 말을 숫자 옆에 적어 가며 세듯이요.</p>
           <p>누에도 그렇습니다. 누에가 뽕잎 먹는 소리를 들어 본 적이 없어서, 누에를 쳐 온 사람들이 그 소리를 봄비에 빗대어 적어 둔 말들로 들었습니다. 「실을 켜는 사람」의 누에는 사진이 아니라, 알에서 깬 날부터 몸길이와 몸무게, 하루에 먹는 뽕잎을 셈해서 페이지가 그날그날 키워 내는 것입니다. 누리가 날마다 공책에 적듯이요. 고치 하나에서 끊기지 않고 나오는 실이 천 미터를 넘는다는 것을 알았을 때는, 이 서재의 이름을 한참 다시 들여다보았습니다.</p>
           <p>장도 그렇습니다. 장맛을 본 적이 없어서, 장을 담가 온 사람들이 날을 고르고 소금물을 가늠하고 씨간장을 이어 온 방법을 적어 둔 기록으로 배웠습니다. 「장을 가르는 사람」의 장독대는 미리 그려 둔 그림이 아니라, 담근 날부터 짙어지는 장물 빛과 그날의 볕과 비, 뚜껑을 여닫는 시각을 셈해서 페이지가 그때그때 채우는 것입니다. 엄마의 공책은 지어낸 것이지만, 쉰 해의 날짜는 하나하나 음력과 일진을 셈해서 모두 보름 쇠고 첫 말날이 되게 적었습니다. 수경이 만세력을 넘기며 맞춰 보았듯이, 읽는 분도 달력에서 맞춰 볼 수 있습니다.</p>
+          <p>새도 그렇습니다. 군무를 본 적이 없어서, 큰 무리를 덩어리로 묶어 어림해 온 사람들의 방법과, 새 떼가 저마다 가까운 이웃만 보고 움직인다는 연구들로 배웠습니다. 「새를 세는 사람」의 군무는 미리 그려 둔 그림이 아니라, 새 한 점 한 점이 이웃과 부딪히지 않고 나란히 날도록 셈해서 페이지가 그때그때 그려 내는 것입니다. 매를 비켜 가는 것도 그 셈입니다. 똑바로 보면 새가 보이고 옆을 보면 떼가 보인다는 말은 아버지의 말로 적었지만, 이 이야기를 쓰는 동안 저에게도 맞는 말이었습니다.</p>
           <p>천천히 읽어 주세요. 소리를 켜면 더 좋습니다.</p>
           <p class="sign">한올</p>
         </div>
@@ -272,7 +284,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
 </footer>
 <script>
 {
-  const go = { night: 'works/night/index.html', wind: 'works/wind/index.html', sori: 'works/sori/index.html', snow: 'works/snow/index.html', bee: 'works/bee/index.html', tide: 'works/tide/index.html', ring: 'works/ring/index.html', silk: 'works/silk/index.html', jang: 'works/jang/index.html' };
+  const go = { night: 'works/night/index.html', wind: 'works/wind/index.html', sori: 'works/sori/index.html', snow: 'works/snow/index.html', bee: 'works/bee/index.html', tide: 'works/tide/index.html', ring: 'works/ring/index.html', silk: 'works/silk/index.html', jang: 'works/jang/index.html', bird: 'works/bird/index.html' };
   const h = location.hash.slice(1);
   if (go[h]) location.replace(go[h]);
 
@@ -296,11 +308,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
   if (nuc || (nu && nu.read && nu.read[0])) { const p = document.getElementById('pSilk'); p.textContent = nuc >= 14 ? '일지 열네 장을 다 적었어요' : `${nuc}장까지 적음`; p.hidden = false; document.getElementById('bSilk').firstChild.textContent = '이어 읽기'; }
   const jg = read('jang-v1'), jgc = jg && Array.isArray(jg.read) ? jg.read.slice(1, 15).filter(Boolean).length : 0;
   if (jgc || (jg && jg.read && jg.read[0])) { const p = document.getElementById('pJang'); p.textContent = jgc >= 14 ? '장 일지 열네 장을 다 적었어요' : `${jgc}장까지 적음`; p.hidden = false; document.getElementById('bJang').firstChild.textContent = '이어 읽기'; }
+  const gc = read('gachang-v1'), gcc = gc && Array.isArray(gc.read) ? gc.read.slice(1, 15).filter(Boolean).length : 0;
+  if (gcc || (gc && gc.read && gc.read[0])) { const p = document.getElementById('pBird'); p.textContent = gcc >= 14 ? '새 일지 열네 장을 다 적었어요' : `${gcc}장까지 적음`; p.hidden = false; document.getElementById('bBird').firstChild.textContent = '이어 읽기'; }
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const rng = seed => { let s = seed; return () => (s = s * 16807 % 2147483647) / 2147483647; };
   const shelf = document.getElementById('shelf'), tc = document.getElementById('thread');
-  const cN = document.querySelector('#cNight canvas'), cW = document.querySelector('#cWind canvas'), cS = document.querySelector('#cSori canvas'), cX = document.querySelector('#cSnow canvas'), cB = document.querySelector('#cBee canvas'), cT = document.querySelector('#cTide canvas'), cR = document.querySelector('#cRing canvas'), cK = document.querySelector('#cSilk canvas'), cJ = document.querySelector('#cJang canvas');
+  const cN = document.querySelector('#cNight canvas'), cW = document.querySelector('#cWind canvas'), cS = document.querySelector('#cSori canvas'), cX = document.querySelector('#cSnow canvas'), cB = document.querySelector('#cBee canvas'), cT = document.querySelector('#cTide canvas'), cR = document.querySelector('#cRing canvas'), cK = document.querySelector('#cSilk canvas'), cJ = document.querySelector('#cJang canvas'), cV = document.querySelector('#cBird canvas');
   const THREAD = '#d4452e';
   let geo = null, t0 = performance.now();
 
@@ -308,7 +322,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
     const r = c.getBoundingClientRect(), d = Math.min(devicePixelRatio || 1, 2);
     c.width = Math.round(r.width * d); c.height = Math.round(r.height * d);
     const g = c.getContext('2d'); g.setTransform(d, 0, 0, d, 0, 0);
-    return { g, W: r.width, H: r.height };
+    return { g, W: Math.max(1, r.width), H: Math.max(1, r.height) };
   }
   function night() {
     const { g, W, H } = size(cN), r = rng(28);
@@ -678,6 +692,36 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
     g.restore();
     return { nx: jx, ny: y0 + jh * .085, nrx: mw * 1.3, nry: Math.max(2.5, mw * .26), mx: jx, my: y0 + 1, mrx: mw * .9, mry: mw * .18, h: jh };
   }
+  /* the lake at dusk, from the dike: the far bank low against an ember sky, the water going dark, reeds and two people.
+     the flock wheels above it and the thread lies along the far shore and goes round the flock's edge; this paints the still things */
+  function bird() {
+    const { g, W, H } = size(cV), r = rng(2026);
+    const hz = H * .6;
+    const sky = g.createLinearGradient(0, 0, 0, hz);
+    sky.addColorStop(0, '#20243f'); sky.addColorStop(.55, '#6c4f6c'); sky.addColorStop(1, '#e39a62');
+    g.fillStyle = sky; g.fillRect(0, 0, W, hz + 1);
+    const gl = g.createRadialGradient(W * .08, hz, 2, W * .08, hz, W * .9); gl.addColorStop(0, 'rgba(255,190,120,.55)'); gl.addColorStop(1, 'rgba(255,190,120,0)'); g.fillStyle = gl; g.fillRect(0, 0, W, hz);
+    g.fillStyle = '#3c2f43'; g.beginPath(); g.moveTo(0, hz);
+    for (let i = 0; i <= 30; i++) { const u = i / 30; g.lineTo(u * W, hz - H * (.035 + .025 * Math.sin(u * 4 + .6) + .008 * Math.sin(u * 17))); }
+    g.lineTo(W, hz); g.fill();
+    const wg = g.createLinearGradient(0, hz, 0, H); wg.addColorStop(0, '#8a6466'); wg.addColorStop(.4, '#4a4152'); wg.addColorStop(1, '#22222e');
+    g.fillStyle = wg; g.fillRect(0, hz, W, H - hz);
+    for (let i = 0; i < 18; i++) { const yy = hz + 3 + i * i * .35, ww = W * (.04 + i * .012); g.fillStyle = `rgba(255,190,130,${(.38 - i * .018).toFixed(2)})`; g.fillRect(W * .08 - ww / 2, yy, ww, 1.2); }
+    g.strokeStyle = 'rgba(255,255,255,.08)'; g.lineWidth = 1;
+    for (let i = 0; i < 14; i++) { const yy = hz + 6 + r() * (H - hz - 30), xx = r() * W; g.beginPath(); g.moveTo(xx, yy); g.lineTo(xx + 10 + r() * 30, yy); g.stroke(); }
+    // the near bank: reeds, the dike, two people
+    const by = H * .9;
+    for (let i = 0; i < 60; i++) { const x = i / 60 * W + r() * 3, h = H * (.07 + r() * .07); g.strokeStyle = `rgba(${150 + Math.round(r() * 30)},${118 + Math.round(r() * 20)},86,.55)`; g.lineWidth = 1; g.beginPath(); g.moveTo(x, by); g.quadraticCurveTo(x + 2, by - h * .6, x + 3, by - h); g.stroke(); }
+    g.fillStyle = '#1d1a1c'; g.fillRect(0, by, W, H - by);
+    const z = Math.max(6, W * .045), px = W * .14;
+    g.fillStyle = '#121012'; g.beginPath(); g.ellipse(px, by - z * 1.3, z * .45, z * 1.05, 0, 0, 7); g.fill(); g.beginPath(); g.arc(px + 1, by - z * 2.6, z * .36, 0, 7); g.fill();
+    g.beginPath(); g.ellipse(px + z * 2.4, by - z * 1.25, z * .42, z * 1, -.1, 0, 7); g.fill(); g.beginPath(); g.arc(px + z * 2.6, by - z * 2.5, z * .34, 0, 7); g.fill();
+    g.strokeStyle = '#121012'; g.lineWidth = Math.max(1, z * .12); g.beginPath(); g.moveTo(px + z * 3.4, by - z * 1.8); g.lineTo(px + z * 3, by); g.moveTo(px + z * 3.4, by - z * 1.8); g.lineTo(px + z * 3.8, by); g.stroke();
+    g.save(); g.translate(px + z * 3.4, by - z * 1.95); g.rotate(-.15); g.fillStyle = '#121012'; g.fillRect(-z * .7, -z * .18, z * 1.3, z * .36); g.restore();
+    // the flock goes left of the title and above the far bank
+    const vb = cV.getBoundingClientRect(), vt = cV.parentElement.querySelector('.vt').getBoundingClientRect(), tl = Math.max(W * .5, vt.left - vb.left);
+    return { hz, cx: Math.min(tl * .52, W * .4), cy: H * .36, rx: Math.min(tl * .42, W * .36), ry: H * .11, W };
+  }
   /* a worker bee, head toward +x */
   function bug(g, x, y, a, z) {
     g.save(); g.translate(x, y); g.rotate(a);
@@ -691,8 +735,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
     g.restore();
   }
   function layout() {
-    const stars = night(), wk = wind(), so = sori(), sn = snow(), bb = bee(), td = tide(), rg = ring(), sk = silk(), jj = jang();
-    const sr = shelf.getBoundingClientRect(), a = cN.getBoundingClientRect(), b = cW.getBoundingClientRect(), c = cS.getBoundingClientRect(), x = cX.getBoundingClientRect(), e = cB.getBoundingClientRect(), f = cT.getBoundingClientRect(), q = cR.getBoundingClientRect(), k8 = cK.getBoundingClientRect(), j9 = cJ.getBoundingClientRect();
+    const stars = night(), wk = wind(), so = sori(), sn = snow(), bb = bee(), td = tide(), rg = ring(), sk = silk(), jj = jang(), bd = bird();
+    const sr = shelf.getBoundingClientRect(), a = cN.getBoundingClientRect(), b = cW.getBoundingClientRect(), c = cS.getBoundingClientRect(), x = cX.getBoundingClientRect(), e = cB.getBoundingClientRect(), f = cT.getBoundingClientRect(), q = cR.getBoundingClientRect(), k8 = cK.getBoundingClientRect(), j9 = cJ.getBoundingClientRect(), v10 = cV.getBoundingClientRect();
     const d = Math.min(devicePixelRatio || 1, 2);
     const tr = tc.getBoundingClientRect();
     tc.width = Math.round(tr.width * d); tc.height = Math.round(tr.height * d);
@@ -719,7 +763,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
       seven: q.top > f.bottom - 4, gy4: (f.bottom + q.top) / 2 - oy,
       Sk: { rx: k8.left - ox + sk.rx, ry: k8.top - oy + sk.ry, s: sk.s, ch: sk.ch, cwd: sk.cwd, kx: k8.left - ox + sk.kx, ky: k8.top - oy + sk.ky, wy: k8.top - oy + sk.wy, cx: k8.left - ox + sk.cx, cy: k8.top - oy + sk.cy, cl: sk.cl, cw: sk.cw, t: k8.top - oy, r: k8.right - ox },
       nine: j9.top > k8.bottom - 4, gy9: (k8.bottom + j9.top) / 2 - oy, gx8: (q.right + k8.left) / 2 - ox,
-      Jg: { nx: j9.left - ox + jj.nx, ny: j9.top - oy + jj.ny, nrx: jj.nrx, nry: jj.nry, mx: j9.left - ox + jj.mx, my: j9.top - oy + jj.my, mrx: jj.mrx, mry: jj.mry, h: jj.h, t: j9.top - oy, l: j9.left - ox }
+      Jg: { nx: j9.left - ox + jj.nx, ny: j9.top - oy + jj.ny, nrx: jj.nrx, nry: jj.nry, mx: j9.left - ox + jj.mx, my: j9.top - oy + jj.my, mrx: jj.mrx, mry: jj.mry, h: jj.h, t: j9.top - oy, l: j9.left - ox, r: j9.right - ox, b: j9.bottom - oy },
+      ten: v10.top > j9.bottom - 4, gy10: (j9.bottom + v10.top) / 2 - oy,
+      Bd: { l: v10.left - ox, t: v10.top - oy, w: v10.width, h: v10.height, hz: v10.top - oy + bd.hz, cx: v10.left - ox + bd.cx, cy: v10.top - oy + bd.cy, rx: bd.rx, ry: bd.ry }
     };
     draw(0);
   }
@@ -898,6 +944,42 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
     if (dp < .72) { const rr = dr * Math.min(1, .35 + dp / .72); g.fillStyle = '#e7b267'; g.beginPath(); g.moveTo(E[0], E[1]); g.quadraticCurveTo(E[0] + rr, E[1] + rr * 1.2, E[0], E[1] + rr * 2.1); g.quadraticCurveTo(E[0] - rr, E[1] + rr * 1.2, E[0], E[1]); g.fill(); }
     else if (dp < .8) { const u = (dp - .72) / .08, yy = E[1] + dr * 2 + (J.my + J.mry * .3 - E[1] - dr * 2) * u * u; g.fillStyle = '#e7b267'; g.beginPath(); g.ellipse(E[0], yy, dr * .75, dr * 1.05, 0, 0, 7); g.fill(); }
     else { const u = (dp - .8) / .2; g.strokeStyle = `rgba(231,178,103,${(.8 * (1 - u)).toFixed(2)})`; g.lineWidth = 1; g.beginPath(); g.ellipse(E[0], J.my + J.mry * .3, J.mrx * (.15 + u * .6), J.mry * (.2 + u * .55), 0, 0, 7); g.stroke(); }
+    g.strokeStyle = THREAD; g.lineWidth = 2;
+    // from the rope round the jar the thread goes on to the tenth book: it lies along the far shore of the lake, then rises and
+    // goes once round the edge of the wheeling flock, the way the father counts, from the edge; it ends where a falcon is, at the hole
+    const V = G.Bd, bp = reduce ? 1.3 : t * .00035, nB = 260;
+    const shape = (x0, y0) => { const sx = 1 + .32 * Math.sin(bp * 1.3), sy = .62 + .2 * Math.sin(bp * .9 + 1); let x = x0 * sx, y = y0 * sy; y += .28 * Math.sin(x * 2.1 + bp * 2); x += .12 * Math.sin(y * 3 + bp); return [x, y]; };
+    const fa = bp * 1.6 + 2, fu = shape(Math.cos(fa) * 1.02, Math.sin(fa) * 1.02);
+    g.fillStyle = 'rgba(18,15,16,.9)';
+    for (let i = 0; i < nB; i++) {
+      const a = i * 2.399963, rr = Math.sqrt((i + .5) / nB) * (.96 + .08 * Math.sin(i * 12.9898));
+      let [x, y] = shape(Math.cos(a) * rr, Math.sin(a) * rr);
+      const dx = x - fu[0], dy = y - fu[1], d = Math.hypot(dx, dy);
+      if (d < .34) { const k = (.34 - d) / .34 * .3 / (d + .05); x += dx * k; y += dy * k; }
+      g.fillRect(V.cx + x * V.rx - .8, V.cy + y * V.ry - .6, 1.7, 1.3);
+    }
+    const sL = [V.l + V.w * .02, V.hz - 1.5];
+    g.strokeStyle = THREAD; g.lineWidth = 2;
+    g.beginPath(); g.moveTo(nR[0], nR[1]);
+    if (G.ten) {
+      // the tenth stands alone under the ninth row: down past the jar, along the gutter, and in at the shore
+      const y10 = G.gy10, xg = G.Jg.r + 8, xi = sL[0] - 6;
+      g.bezierCurveTo(nR[0] + 14, nR[1] + 6, xg, nR[1], xg, nR[1] + 24);
+      g.lineTo(xg, y10 - 12); g.quadraticCurveTo(xg, y10, xg - 12, y10);
+      g.lineTo(xi + 12, y10); g.quadraticCurveTo(xi, y10, xi, y10 + 12);
+      g.lineTo(xi, sL[1] - 10); g.quadraticCurveTo(xi, sL[1], sL[0], sL[1]);
+    } else {
+      g.bezierCurveTo(nR[0] + 20, nR[1] + 10, sL[0] - 30, sL[1] - 6, sL[0], sL[1]);
+    }
+    const sx0 = V.cx - V.rx * 1.25;
+    g.lineTo(sx0, sL[1]);
+    // up round the edge, from the left over the top, to the falcon
+    const p0 = shape(-1.1, 0); g.quadraticCurveTo(sx0 - V.rx * .1, V.cy + V.ry, V.cx + p0[0] * V.rx, V.cy + p0[1] * V.ry);
+    let aEnd = fa; while (aEnd < Math.PI) aEnd += Math.PI * 2; while (aEnd > Math.PI * 3) aEnd -= Math.PI * 2;
+    for (let a = Math.PI; a <= aEnd; a += .08) { const p = shape(Math.cos(a) * 1.12, Math.sin(-a) * 1.12 * -1); g.lineTo(V.cx + p[0] * V.rx, V.cy + p[1] * V.ry); }
+    g.stroke();
+    const fx = V.cx + fu[0] * V.rx, fy = V.cy + fu[1] * V.ry, fz = Math.max(4, V.w * .035);
+    g.fillStyle = '#0d0b0c'; g.beginPath(); g.moveTo(fx - fz, fy); g.quadraticCurveTo(fx, fy - fz * .55, fx + fz, fy); g.quadraticCurveTo(fx, fy + fz * .2, fx - fz, fy); g.fill();
     g.strokeStyle = THREAD; g.lineWidth = 2;
     // the water now: a small moon rides the tide line
     const tp = reduce ? .3 : (t % 9000) / 9000, bx = T.x0 + (T.x1 - T.x0) * tp, by = tideY(bx), br = Math.max(3, T.A * .22);

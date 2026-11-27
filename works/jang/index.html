@@ -360,7 +360,7 @@ const D0 = Date.UTC(2026, 2, 9);
 const IPDONG = Date.UTC(2025, 10, 7);       // 엄마가 메주를 쑨 날
 const IPDONG2 = Date.UTC(2026, 10, 7);      // 셋이 메주를 쑨 날
 const SPLIT = KK.split;
-function rng(seed) { let s = (seed >>> 0) || 1; return () => (s = Math.imul(s, 16807) % 2147483647 >>> 0) / 2147483647; }
+function rng(seed) { let s = ((seed >>> 0) % 2147483646) + 1; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
 const isoMs = s => Date.UTC(+s.slice(0, 4), +s.slice(5, 7) - 1, +s.slice(8, 10));
 const isoT = s => (isoMs(s) - D0) / DAY;
 const tMs = t => D0 + Math.floor(t) * DAY;
@@ -786,7 +786,8 @@ function drawJarsScene(g, st) {
   const [x0, yHill] = S2(0, 360), [, yTop] = S2(0, 436), [, yGround] = S2(0, 500);
   drawSky(g, B.l - 8, B.t - 8, B.r - B.l + 16, yHill - B.t + 40 * k, st.h, st.wx, VW.clock);
   drawHills(g, B.l - 8, B.r - B.l + 16, yHill + 4, phaseOf(st.h), st.snow);
-  // the back yard
+  // the slope behind the stand, then the back yard
+  g.fillStyle = st.snow ? '#c9cfcf' : phaseOf(st.h) === 'night' ? '#1e1d1a' : '#5f6a4e'; g.fillRect(B.l - 8, yHill + 2, B.r - B.l + 16, yGround - yHill);
   g.fillStyle = st.snow ? '#d9dcdc' : phaseOf(st.h) === 'night' ? '#2a2620' : '#7d6a4c'; g.fillRect(B.l - 8, yGround, B.r - B.l + 16, B.b - yGround + 8);
   g.fillStyle = 'rgba(0,0,0,.12)'; g.fillRect(B.l - 8, yGround, B.r - B.l + 16, 6 * k);
   // the stand
