@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>나이테를 세는 사람</title>
+<meta name="description" content="한올의 소설. 봉화 산골 고택의 부재마다 나이테로 벤 해를 맞추러 간 스물다섯 살 연구원과, 해를 숫자 대신 일로 기억하는 아흔일곱 살 할머니가 집의 나이를 함께 세는 한 달 남짓.">
+<meta name="theme-color" content="#211b16">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="한올의 서재">
+<meta property="og:title" content="나이테를 세는 사람 · 한올">
+<meta property="og:description" content="니는 숫자로 세고 나는 일로 센다. 큰물에서 건진 대들보 하나, 열일곱 줄의 오동나무 장롱, 그리고 나무의 달력과 할머니의 달력. AI 필명 한올이 쓴 소설.">
+<meta property="og:url" content="https://endrmftls-debug.github.io/hanol/works/ring/">
+<meta property="og:image" content="https://endrmftls-debug.github.io/hanol/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23211b16'/%3E%3Ccircle cx='16' cy='16' r='11' fill='none' stroke='%23d9b07a' stroke-width='1.6'/%3E%3Ccircle cx='15.5' cy='16.5' r='7' fill='none' stroke='%23d9b07a' stroke-width='1.6'/%3E%3Ccircle cx='15' cy='17' r='3' fill='none' stroke='%23d4452e' stroke-width='1.8'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum&family=Nanum+Pen+Script&family=Song+Myung&display=swap">
+<style>
+/* VOICE   quiet and exact: a young researcher who counts to calm herself learns from a woman of ninety-seven who counts years by what happened in them
+   IDEA    every chapter puts one timber of the house on the bench; its rings are drawn from widths, and the reader can slide them along the
+           regional chronology until the narrow years line up, the way a dendrochronologist dates a beam
+   PICTURE a sanded cross-section lit on a dark workbench; earlywood pale, latewood dark, bark at the edge where the tree was felled
+   COLOUR  pine heartwood and sapwood on walnut-dark ground; paper for reading; one vermilion thread for the ring in hand
+   TYPE    Gowun Batang for the story, Gowun Dodum for the notebook, Nanum Pen Script for her notes, Song Myung for the seal
+   LAYOUT  phone: the bench above, the chapter as a sheet at the bottom; laptop: the chapters as a column on the left */
+:root{color-scheme:light dark;--paper:light-dark(#f6f0e5,#1b1815);--paper2:light-dark(#ece3d3,#26211c);--ink:light-dark(#272320,#ece6dc);--ink2:light-dark(#6a625a,#b2a99d);--rule:light-dark(#dcd1bd,#3a332c);--sea:light-dark(#3d6a52,#9cc7a8);--seal:#c8452f;--ground:#211b16;--f-body:'Gowun Batang','Noto Serif KR',serif;--f-ui:'Gowun Dodum','Noto Sans KR',sans-serif;--f-pen:'Nanum Pen Script',cursive;--f-seal:'Song Myung','Gowun Batang',serif;--f-han:'Song Myung','Noto Serif KR','Noto Serif CJK KR',serif}
+*{box-sizing:border-box;min-width:0}
+html,body{height:100%;margin:0}
+body{background:var(--ground);color:var(--ink);font:16px/1.6 var(--f-body);overflow:hidden;word-break:keep-all;overflow-wrap:anywhere;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible,canvas:focus-visible{outline:2px solid #ffd27a;outline-offset:2px}
+[hidden]{display:none!important}
+#app{position:fixed;inset:0;overflow:hidden}
+#cv{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none}
+.top{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding:max(10px,env(safe-area-inset-top)) max(12px,env(safe-area-inset-right)) 0 max(12px,env(safe-area-inset-left));pointer-events:none}
+.top>*{pointer-events:auto}
+.chip{display:inline-flex;align-items:center;gap:6px;height:44px;padding:0 14px;border-radius:22px;border:0;background:rgba(40,32,26,.7);color:#f3ebdf;text-decoration:none;font:15px var(--f-ui);white-space:nowrap}
+.tools{display:flex;gap:8px}
+.ib{width:44px;height:44px;padding:0;border-radius:22px;border:0;background:rgba(40,32,26,.7);color:#f3ebdf;display:grid;place-items:center}
+.ib svg,.chip svg,.btn svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+#toast{position:absolute;z-index:40;left:50%;top:calc(max(10px,env(safe-area-inset-top)) + 58px);transform:translate(-50%,-10px);max-width:min(92vw,470px);padding:12px 18px;border-radius:14px;background:rgba(34,27,22,.94);color:#f5ecdf;font:15px/1.5 var(--f-ui);opacity:0;pointer-events:none;transition:opacity .35s,transform .35s;text-align:center}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+/* the ring board on the bench */
+#hud{position:absolute;z-index:5;left:max(10px,env(safe-area-inset-left));right:max(10px,env(safe-area-inset-right));top:calc(max(10px,env(safe-area-inset-top)) + 52px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 8px;align-items:center;padding:8px 8px 8px 12px;border-radius:14px;background:rgba(30,24,19,.78);color:#f1e7d9;font:13px/1.4 var(--f-ui);max-width:520px}
+#hud .nm{font-size:14px;font-weight:700;color:#f6ecdd;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#hud .inf{color:#cdbfaa;font-size:12.5px}
+#hud .pk{grid-column:1/-1;margin-top:3px;padding-top:5px;border-top:1px solid rgba(241,231,217,.14);color:#ffe2b8;min-height:1.4em}
+#hud .hb{display:flex;gap:6px;grid-row:1/3;grid-column:2;align-items:center}
+#hud .hb button{height:36px;padding:0 12px;border-radius:18px;border:1px solid rgba(241,231,217,.3);background:rgba(255,255,255,.06);color:#f1e7d9;font:13px var(--f-ui);white-space:nowrap}
+#hud .hb #hudMatch{background:#f1e7d9;color:#2a211a;border-color:#f1e7d9}
+#zoom{position:absolute;z-index:5;right:max(12px,env(safe-area-inset-right));display:flex;gap:6px;bottom:calc(var(--cardh,330px) + 10px)}
+/* the chapter sheet */
+.card{position:absolute;z-index:4;left:0;right:0;bottom:0;background:var(--paper);color:var(--ink);border-radius:18px 18px 0 0;padding:4px 0 max(14px,env(safe-area-inset-bottom))}
+.strip{display:flex;overflow-x:auto;gap:2px;padding:6px 10px 2px;scrollbar-width:none;scroll-behavior:smooth}
+.strip::-webkit-scrollbar{display:none}
+.strip button{flex:none;width:50px;min-height:52px;border:0;border-radius:10px;background:none;color:var(--ink2);display:grid;justify-items:center;align-content:center;gap:5px;font:13px/1.1 var(--f-ui);padding:4px 0;font-variant-numeric:tabular-nums}
+.strip .sw2{display:none}
+.strip i{width:10px;height:10px;border-radius:50%;border:1.5px solid currentColor;opacity:.45;box-shadow:inset 0 0 0 2px var(--paper),inset 0 0 0 3.5px currentColor}
+.strip .rd i{opacity:1}
+.strip .on{color:var(--sea);background:var(--paper2)}
+.strip .lk{opacity:.4}
+.cb{padding:8px max(20px,env(safe-area-inset-left)) 0}
+.cb .term{margin:0;font:14px var(--f-ui);color:var(--ink2);font-variant-numeric:tabular-nums}
+.cb h2{margin:2px 0 2px;font-size:clamp(30px,8.4vw,42px);line-height:1.08;letter-spacing:-.02em;font-weight:700;text-wrap:balance}
+.cb .sub{margin:0;font-size:17px}
+.cb .meta{margin:6px 0 0;font:14px var(--f-ui);color:var(--ink2)}
+.acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px;align-items:center}
+.btn{height:48px;padding:0 22px;border-radius:24px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);font:700 17px var(--f-body);display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn svg{width:20px;height:20px;stroke-width:1.8}
+.note{font:14px var(--f-ui);color:var(--ink2);margin:10px 0 0}
+.small{font:14px/1.6 var(--f-ui);color:var(--ink2)}
+.link{border:0;background:none;padding:6px 0;color:var(--sea);font:15px var(--f-ui);text-decoration:underline;text-underline-offset:3px}
+/* title */
+#title{position:absolute;inset:0;z-index:20;display:grid;align-content:end;padding:0 max(22px,env(safe-area-inset-left)) max(34px,env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(24,19,15,0) 0%,rgba(24,19,15,.2) 36%,rgba(22,17,13,.94) 58%,rgba(22,17,13,.98) 100%);color:#f5ecdf;pointer-events:none}
+#title .acts{pointer-events:auto}
+#app.titled #card,#app.titled #hud{visibility:hidden}
+#title .by{margin:0;font:15px var(--f-ui);opacity:.86}
+#title h1{margin:6px 0 10px;font-size:clamp(40px,11vw,68px);line-height:1.05;letter-spacing:-.03em;font-weight:700;text-wrap:balance}
+#title .lead{margin:0;max-width:31em;font-size:17px;line-height:1.7;opacity:.93}
+#title .acts .btn{background:#f5ecdf;color:#241c16;border-color:#f5ecdf}
+#title .acts .btn.ghost{background:transparent;color:#f5ecdf}
+#title .hint{margin:14px 0 0;font:14px var(--f-ui);opacity:.76}
+/* reader */
+#reader{position:absolute;inset:0;z-index:12;background:var(--paper);color:var(--ink);overflow-y:auto;overscroll-behavior:contain}
+.rhead{position:sticky;top:0;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:max(6px,env(safe-area-inset-top)) max(8px,env(safe-area-inset-right)) 6px max(8px,env(safe-area-inset-left));background:var(--paper);border-bottom:1px solid var(--rule)}
+.rhead .ib{background:none;color:var(--ink)}
+.rhead .rt{font:15px var(--f-ui);color:var(--ink2);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rhead .grp{display:flex;gap:2px}
+.rbody{max-width:660px;margin:0 auto;padding:26px max(20px,env(safe-area-inset-left)) 160px;font-size:calc(18px * var(--fs,1));line-height:1.86}
+.rbody p{margin:0 0 1.05em}
+.rbody p.han{font-family:var(--f-han);font-size:1.12em;letter-spacing:.08em;text-align:center;margin:1.2em 0;padding:.5em 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.rbody .cal{margin:0 0 .35em;padding-left:1em;border-left:3px solid color-mix(in srgb,var(--seal) 55%,transparent);font-family:var(--f-ui);font-size:.92em;line-height:1.6}
+.chead{margin:4px 0 34px}
+.chead .cl{margin:0;font:15px var(--f-ui);color:var(--ink2);font-variant-numeric:tabular-nums}
+.chead h1{margin:4px 0 6px;font-size:clamp(36px,9vw,52px);line-height:1.05;letter-spacing:-.025em;text-wrap:balance}
+.chead .cs{margin:0;font-size:1.05em}
+.brk{display:block;text-align:center;margin:1.8em 0;color:var(--ink2);letter-spacing:.6em}
+.speaking{background:color-mix(in srgb,#d9a35f 26%,transparent);border-radius:3px;box-shadow:0 0 0 4px color-mix(in srgb,#d9a35f 26%,transparent)}
+/* a page of the ring notebook */
+.rec{position:relative;margin:2.6em 0 1.6em;padding:16px 16px 18px;border:1px solid var(--rule);border-radius:6px;background:var(--paper2);font-family:var(--f-ui)}
+.rec .rh{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 10px;font-size:13px;color:var(--ink2);letter-spacing:.04em}
+.rec .rw{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.2fr);gap:14px;align-items:start}
+.rec canvas{width:100%;aspect-ratio:1;border-radius:6px;background:#2a221b;display:block;cursor:pointer}
+.rec dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:0 12px;font-size:.84em;line-height:1.55}
+.rec dt{color:var(--ink2);padding:5px 0;border-bottom:1px solid var(--rule)}
+.rec dd{margin:0;padding:5px 0;border-bottom:1px solid var(--rule)}
+.rec dd.han{font-family:var(--f-han);letter-spacing:.04em}
+.rec dd.han .tr{display:block;margin-top:4px;font-family:var(--f-ui);letter-spacing:0;color:var(--ink2);font-size:.94em}
+.rec .quote{margin:14px 0 0;padding:10px 14px;border-left:3px solid var(--seal);background:light-dark(#fbf7f0,#201c18);font:1.02em/1.6 var(--f-body)}
+.rec .memo{margin:12px 0 0;font:1.32em/1.5 var(--f-pen);color:var(--sea);background-image:linear-gradient(transparent calc(1.5em - 1px),var(--rule) calc(1.5em - 1px));background-size:100% 1.5em}
+.rec .memo p{margin:0}
+.rec .ra{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.rec .ra button{height:40px;padding:0 14px;border-radius:20px;border:1.5px solid var(--rule);background:var(--paper);font:14px var(--f-ui);display:inline-flex;align-items:center;gap:6px}
+.rec .ra svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+@media (max-width:420px){.rec .rw{grid-template-columns:1fr}.rec canvas{width:min(100%,260px);justify-self:center}}
+.cend{margin-top:56px;padding-top:24px;border-top:1px solid var(--rule);display:grid;gap:14px;justify-items:start}
+.cend .done{display:flex;align-items:center;gap:12px;color:var(--ink2);font:15px var(--f-ui)}
+.stamp{display:inline-grid;place-items:center;width:58px;height:58px;border:2px solid var(--seal);color:var(--seal);font:700 17px/1 var(--f-seal);border-radius:50%;transform:rotate(-8deg);opacity:.9}
+.stampfx{animation:stampin .5s cubic-bezier(.2,1.6,.4,1)}
+@keyframes stampin{0%{transform:scale(1.6) rotate(-16deg);opacity:0}100%{transform:scale(1) rotate(-8deg);opacity:.9}}
+/* narration */
+#player{position:fixed;z-index:15;left:50%;transform:translateX(-50%);bottom:max(14px,env(safe-area-inset-bottom));display:flex;align-items:center;gap:2px;padding:4px 6px;border-radius:28px;background:var(--ink);color:var(--paper);max-width:calc(100vw - 24px)}
+#player .ib{background:none;color:var(--paper)}
+#player .rate{width:auto;padding:0 12px;font:15px var(--f-ui)}
+#player .pt{font:14px var(--f-ui);padding:0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:34vw}
+/* the box */
+#box{position:absolute;inset:0;z-index:11;background:var(--paper);color:var(--ink);display:flex;flex-direction:column}
+.bhead{display:flex;align-items:center;justify-content:space-between;padding:max(6px,env(safe-area-inset-top)) 8px 0 max(18px,env(safe-area-inset-left))}
+.bhead h2{margin:0;font-size:22px}
+.bhead .ib{background:none;color:var(--ink)}
+.tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1px solid var(--rule);padding:0 8px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;height:48px;padding:0 13px;border:0;border-bottom:2px solid transparent;background:none;font:16px var(--f-ui);color:var(--ink2)}
+.tabs button[aria-selected=true]{color:var(--sea);border-bottom-color:var(--sea)}
+.pane{flex:1;overflow-y:auto;padding:14px max(18px,env(safe-area-inset-left)) 120px}
+.toc{list-style:none;margin:0;padding:0}
+.toc li+li{border-top:1px solid var(--rule)}
+.toc button{width:100%;min-height:62px;border:0;background:none;display:grid;grid-template-columns:5.6em minmax(0,1fr) auto;align-items:center;gap:10px;text-align:left;padding:8px 2px}
+.toc .t1{font:14px var(--f-ui);color:var(--ink2);font-variant-numeric:tabular-nums}
+.toc .t2{font-size:18px;font-weight:700;line-height:1.25}
+.toc .t3{display:block;font:14px var(--f-ui);font-weight:400;color:var(--ink2)}
+.toc .sm{width:40px;height:40px;display:grid;place-items:center;border:1.5px solid var(--seal);color:var(--seal);border-radius:50%;font:700 12px/1 var(--f-seal);transform:rotate(-8deg)}
+.toc .lk{opacity:.45}
+.toc .cur .t2{color:var(--sea)}
+.album{display:grid;grid-template-columns:repeat(auto-fill,minmax(9.6em,1fr));gap:12px;margin-top:12px}
+.album button{border:0;padding:0;background:none;text-align:left;display:grid;gap:4px;font:13px/1.4 var(--f-ui);color:var(--ink2)}
+.album canvas{width:100%;aspect-ratio:1;border-radius:8px;background:#2a221b;display:block}
+.album .ph{width:100%;aspect-ratio:1;border-radius:8px;background:var(--paper2);display:grid;place-items:center;font:14px var(--f-ui);color:var(--ink2);text-align:center;padding:8px}
+.album b{color:var(--ink);font-size:15px}
+.album button:disabled{cursor:default;opacity:.55}
+.hbig{width:100%;aspect-ratio:1.66;border-radius:10px;display:block;margin-top:10px;cursor:pointer}
+.legend{list-style:none;margin:12px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(13em,1fr));gap:6px 14px;font:14px var(--f-ui);color:var(--ink2)}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:3px;vertical-align:-2px;margin-right:6px}
+.legend b{color:var(--ink);font-weight:400}
+.gfil{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 12px}
+.gfil button{height:38px;padding:0 13px;border-radius:19px;border:1.5px solid var(--rule);background:none;font:14px var(--f-ui)}
+.gfil button[aria-pressed=true]{border-color:var(--ink);background:var(--ink);color:var(--paper)}
+.gsearch{width:100%;font:16px var(--f-ui);padding:11px 12px;border-radius:8px;border:1.5px solid var(--rule);background:var(--paper)}
+.gl{list-style:none;margin:8px 0 0;padding:0}
+.gl li{padding:11px 0;border-top:1px solid var(--rule)}
+.gl b{font-size:17px}
+.gl .k{font:13px var(--f-ui);color:var(--ink2);margin-left:6px}
+.gl p{margin:3px 0 0;font:15px/1.65 var(--f-ui)}
+.gl .go{font-size:14px}
+.set{display:grid;gap:18px;font-family:var(--f-ui)}
+.set h3{margin:6px 0 0;font-size:16px}
+.set .row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.set select{font-size:16px;padding:10px;border-radius:8px;border:1.5px solid var(--rule);background:var(--paper);color:var(--ink);max-width:100%}
+.set input[type=range]{width:min(100%,260px);accent-color:var(--sea)}
+.sw{position:relative;width:58px;height:34px;border-radius:17px;border:1.5px solid var(--rule);background:var(--paper2);padding:0;flex:none}
+.sw::after{content:'';position:absolute;top:3px;left:3px;width:25px;height:25px;border-radius:50%;background:var(--ink2);transition:left .2s}
+.sw[aria-pressed=true]{background:var(--ink);border-color:var(--ink)}
+.sw[aria-pressed=true]::after{left:26px;background:var(--paper)}
+/* the cross-dating sheet */
+#mpanel{position:absolute;z-index:6;left:0;right:0;bottom:0;background:#231c16;color:#f1e7d9;border-radius:18px 18px 0 0;padding:12px max(14px,env(safe-area-inset-left)) max(14px,env(safe-area-inset-bottom));box-shadow:0 -10px 30px rgba(0,0,0,.4);display:flex;flex-direction:column;gap:8px;overflow-y:auto;max-height:78vh}
+#mpanel>*{flex:none}
+#mpanel h2{margin:0;font:700 19px/1.3 var(--f-body)}
+.ph2{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.ph2 .ib{background:rgba(255,255,255,.1);color:#f1e7d9;flex:none}
+.tsub{margin:0;font:13px/1.55 var(--f-ui);color:#cdbfaa}
+#mcv{width:100%;height:220px;display:block;border-radius:10px;background:#16110d;touch-action:none;cursor:ew-resize}
+.mrow{display:flex;align-items:center;gap:8px}
+.mrow .ib{background:rgba(255,255,255,.1);flex:none}
+.mrow input{flex:1;accent-color:#ff8a6e}
+#mbars{width:100%;height:40px;display:block}
+.mlab{margin:-4px 0 0;font:12px var(--f-ui);color:#a89a86}
+.tnow{margin:0;font:15px/1.5 var(--f-ui)}
+.tnow .hi{color:#ffd27a}
+.mres{margin:0;font:15px/1.6 var(--f-ui);color:#ffe2b8;min-height:1.6em}
+#mpanel .btn{height:44px;font:16px var(--f-ui);padding:0 18px;background:#f1e7d9;color:#2a211a;border-color:#f1e7d9}
+@media (min-width:900px){
+  .card{left:max(16px,env(safe-area-inset-left));right:auto;top:max(16px,env(safe-area-inset-top));bottom:max(16px,env(safe-area-inset-bottom));width:420px;border-radius:18px;display:flex;flex-direction:column;padding:10px 0 18px}
+  .strip{flex-direction:column;overflow-x:hidden;overflow-y:auto;flex:1;padding:4px 14px;gap:0}
+  .strip button{width:auto;min-height:40px;display:grid;grid-template-columns:3.6em 12px minmax(0,1fr);justify-items:start;align-items:center;text-align:left;gap:10px;font-size:14px;padding:4px 10px}
+  .strip .sw2{display:block;font:16px var(--f-body);color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+  .strip .on .sw2{color:var(--sea)}
+  .cb{padding-top:12px;border-top:1px solid var(--rule);margin-top:6px}
+  .top{left:452px}
+  #title{align-content:center;padding-left:8vw;background:linear-gradient(90deg,rgba(22,17,13,.94) 0%,rgba(22,17,13,.66) 40%,rgba(22,17,13,0) 72%)}
+  #hud{left:460px;right:auto;top:76px;width:min(560px,calc(100vw - 490px));max-width:none}
+  #zoom{bottom:24px}
+  #mpanel{left:max(16px,env(safe-area-inset-left));right:auto;top:max(16px,env(safe-area-inset-top));bottom:max(16px,env(safe-area-inset-bottom));width:440px;border-radius:18px;max-height:none}
+  #mcv{height:min(42vh,340px)}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<div id="app">
+  <canvas id="cv" aria-label="작업대 위의 나무 단면. 나이테를 누르면 그해가 보입니다."></canvas>
+  <div class="top">
+    <a class="chip" id="home" href="../../"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>한올의 서재</a>
+    <div class="tools">
+      <button class="ib" id="btnSound" aria-label="소리 켜기"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="sw-on" d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/><path class="sw-off" d="M17 9l5 6M22 9l-5 6"/></svg></button>
+      <button class="ib" id="btnHouse" aria-label="집 그림"><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg></button>
+      <button class="ib" id="btnBox" aria-label="공책 펼치기"><svg viewBox="0 0 24 24"><path d="M5 4h11a3 3 0 0 1 3 3v13H8a3 3 0 0 1-3-3z"/><path d="M5 17a3 3 0 0 1 3-3h11M9 8h6"/></svg></button>
+    </div>
+  </div>
+  <div id="hud" aria-live="polite">
+    <span class="nm" id="hudName"></span>
+    <span class="inf" id="hudInfo"></span>
+    <div class="hb"><button id="hudBack" hidden>← 이 장으로</button><button id="hudGrow" aria-label="나이테가 자라는 모습 보기">자라기</button><button id="hudMatch">맞춰 보기</button></div>
+    <span class="pk" id="hudPick"></span>
+  </div>
+  <div id="zoom" hidden><button class="ib" id="zoomOut" aria-label="막대 멀리 보기"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></button><button class="ib" id="zoomIn" aria-label="막대 가까이 보기"><svg viewBox="0 0 24 24"><path d="M6 12h12M12 6v12"/></svg></button></div>
+  <nav class="card" id="card" aria-label="장 고르기">
+    <div class="strip" id="strip"></div>
+    <div class="cb" id="cbInner" aria-live="polite"></div>
+  </nav>
+  <section id="mpanel" hidden aria-label="맞춰 보기">
+    <div class="ph2"><div style="flex:1;min-width:0"><h2 id="mTitle"></h2></div><button class="ib" data-act="closeMatch" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <p class="tsub" id="mSub"></p>
+    <canvas id="mcv" tabindex="0" aria-label="연대기와 시료의 나이테 그림. 좌우로 끌면 시료가 한 해씩 움직입니다."></canvas>
+    <div class="mrow"><button class="ib" id="mPrev" aria-label="한 해 앞으로"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><input id="mY" type="range" step="1" aria-label="바깥 나이테 연도"><button class="ib" id="mNext" aria-label="한 해 뒤로"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
+    <p class="tnow" id="mNow"></p>
+    <canvas id="mbars" aria-hidden="true"></canvas>
+    <p class="mlab">지나온 자리마다 남은 t값(점선은 3.5)</p>
+    <p class="mres" id="mRes" aria-live="polite"></p>
+    <div class="acts"><button class="btn" id="mDone" hidden>나이테 보기</button></div>
+  </section>
+  <section id="title">
+    <p class="by">한올 지음 · AI가 쓴 이야기</p>
+    <h1>나이테를 세는 사람</h1>
+    <p class="lead">나는 나무의 나이를 세는 사람이다. 봉화 산골의 오래된 집을 허물기 전에, 기둥과 들보와 서까래가 언제 베어진 나무인지 알아내러 갔다. 그 집에는 해를 숫자 대신 일로 세는 아흔일곱 살 할머니가 살고 있었다.</p>
+    <div class="acts" id="tActs"></div>
+    <p class="hint">나이테는 해마다 하나씩. 좁은 해와 넓은 해의 순서를 연대기에 맞춰, 직접 그 나무를 벤 해를 찾아볼 수 있습니다.</p>
+  </section>
+  <section id="reader" hidden aria-label="읽기">
+    <div class="rhead">
+      <button class="ib" data-act="closeReader" aria-label="닫기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+      <span class="rt" id="rTitle"></span>
+      <div class="grp">
+        <button class="ib" data-act="listen" aria-label="소리 내어 읽기"><svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg></button>
+        <button class="ib" data-act="fsDown" aria-label="글자 작게"><svg viewBox="0 0 24 24"><path d="M6 12h12"/></svg></button>
+        <button class="ib" data-act="fsUp" aria-label="글자 크게"><svg viewBox="0 0 24 24"><path d="M6 12h12M12 6v12"/></svg></button>
+      </div>
+    </div>
+    <article class="rbody" id="rBody"></article>
+  </section>
+  <div id="player" hidden>
+    <button class="ib" data-p="prev" aria-label="앞 문단"><svg viewBox="0 0 24 24"><path d="M17 6l-8 6 8 6M7 6v12"/></svg></button>
+    <button class="ib" data-p="toggle" id="pToggle" aria-label="멈춤"><svg viewBox="0 0 24 24"><path class="pp" d="M9 6v12M15 6v12"/></svg></button>
+    <button class="ib" data-p="next" aria-label="다음 문단"><svg viewBox="0 0 24 24"><path d="M7 6l8 6-8 6M17 6v12"/></svg></button>
+    <button class="ib rate" data-p="rate" id="pRate" aria-label="읽는 빠르기">1×</button>
+    <span class="pt" id="pText"></span>
+    <button class="ib" data-p="stop" aria-label="낭독 끝내기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <section id="box" hidden aria-label="공책">
+    <div class="bhead"><h2>나이테 공책</h2><button class="ib" data-act="closeBox" aria-label="공책 덮기"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+    <div class="tabs" role="tablist" id="tabs">
+      <button role="tab" data-tab="toc">차례</button>
+      <button role="tab" data-tab="album">나무들</button>
+      <button role="tab" data-tab="house">집 그림</button>
+      <button role="tab" data-tab="gloss">말 사전</button>
+      <button role="tab" data-tab="set">설정</button>
+    </div>
+    <div class="pane" id="pane"></div>
+  </section>
+  <div id="toast" role="status"></div>
+</div>
+<script src="story.js"></script>
+<script>
+(function () {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+const clamp = (v, a, b) => v < a ? a : v > b ? b : v;
+const lerp = (a, b, t) => a + (b - a) * t;
+const smooth = t => t <= 0 ? 0 : t >= 1 ? 1 : t * t * (3 - 2 * t);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+const D = window.__DATA || { chapters: [], glossary: [], rings: null, years: [] };
+const CH = D.chapters;
+const LAST = CH.length - 1;
+const KEY = 'naite-v1';
+const S = Object.assign({ read: [], cur: 0, sound: true, fs: 1, all: false, vrate: 1, vA: '', vB: '', vC: '', started: false, dated: {}, tries: 0 }, (() => {
+  try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; }
+})());
+if (!S.dated || typeof S.dated !== 'object') S.dated = {};
+function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) { /* private mode: keep going without */ } }
+const isRead = n => !!S.read[n];
+const isOpen = n => S.all || n === 0 || !!S.read[n] || !!S.read[n - 1];
+const M = { reduce: matchMedia('(prefers-reduced-motion: reduce)').matches, paused: false, dpr: 1, w: 0, h: 0, sel: 0 };
+
+function chLabel(n, long) {
+  if (n === 0) return long ? `서 · ${CH[0].date}` : '서';
+  if (n === LAST) return long ? `맺음 · ${CH[n].date}` : '맺음';
+  return long ? `제${n}장 · ${CH[n].date}` : String(n);
+}
+function hideTitle() { $('#title').hidden = true; $('#app').classList.remove('titled'); }
+function toast(msg, ms = 3600) {
+  const t = $('#toast');
+  t.textContent = msg;
+  t.classList.add('on');
+  clearTimeout(toast.t);
+  toast.t = setTimeout(() => t.classList.remove('on'), ms);
+}
+// 받침 있으면 첫째, 없으면 둘째
+function josa(word, a, b) {
+  const c = String(word).charCodeAt(String(word).length - 1);
+  return word + ((c >= 0xAC00 && c <= 0xD7A3 && (c - 0xAC00) % 28) ? a : b);
+}
+const recOf = n => (CH[n] && CH[n].secs.find(s => s.t === 'record')) || null;
+const field = (rec, k) => { const f = rec && rec.fields.find(x => x[0] === k); return f ? f[1] : ''; };
+const fxOf = n => (CH[n] && CH[n].fx) || [];
+const UIF = () => getComputedStyle(document.documentElement).getPropertyValue('--f-ui') || 'sans-serif';
+/* ---------- 글자 크기, 소리 ---------- */
+function setFS(v) { S.fs = +clamp(v, 0.85, 1.45).toFixed(2); document.documentElement.style.setProperty('--fs', S.fs); save(); }
+function setSound(on, quiet) {
+  S.sound = !!on; save();
+  const b = $('#btnSound');
+  b.setAttribute('aria-label', S.sound ? '소리 끄기' : '소리 켜기');
+  b.querySelector('.sw-on').style.display = S.sound ? '' : 'none';
+  b.querySelector('.sw-off').style.display = S.sound ? 'none' : '';
+  if (S.sound) auInit();
+  auApply();
+  if (!quiet) toast(S.sound ? '소리를 켰습니다. 뒷산 솔바람 소리가 들립니다.' : '소리를 껐습니다.');
+}
+
+/* ---------- 나이테: 마스터 연대기와 시료들, 맞춰 보기 셈 ----------
+   폭은 백분의 일 밀리미터. 맞춰 보기는 5년 이동평균에 대한 로그 비(지수), 상관 r, t, G값으로 한다(빌드 때와 같은 셈). */
+const RG = D.rings || { master: { first: 1640, v: [] }, samples: [] };
+const MS = RG.master, M_FIRST = MS.first, M_LAST = MS.first + MS.v.length - 1;
+function bpIndex(w) {
+  const n = w.length, out = new Array(n);
+  for (let i = 0; i < n; i++) {
+    const lo = Math.max(0, i - 2), hi = Math.min(n, i + 3);
+    let s = 0; for (let k = lo; k < hi; k++) s += w[k];
+    out[i] = Math.log(w[i] / (s / (hi - lo)));
+  }
+  return out;
+}
+const MI = bpIndex(MS.v);
+const SMP = {};
+RG.samples.forEach(s => { s.si = bpIndex(s.w); s.len = s.w.length; SMP[s.key] = s; });
+// 바깥 나이테를 last 해에 두었을 때 마스터와 얼마나 맞나
+function matchAt(s, last) {
+  const first = last - s.len + 1, a = Math.max(first, M_FIRST), b = Math.min(last, M_LAST);
+  const n = b - a + 1;
+  if (n < 15) return null;
+  let mx = 0, my = 0;
+  for (let y = a; y <= b; y++) { mx += s.si[y - first]; my += MI[y - M_FIRST]; }
+  mx /= n; my /= n;
+  let sxy = 0, sxx = 0, syy = 0;
+  for (let y = a; y <= b; y++) { const dx = s.si[y - first] - mx, dy = MI[y - M_FIRST] - my; sxy += dx * dy; sxx += dx * dx; syy += dy * dy; }
+  const r = sxx > 0 && syy > 0 ? sxy / Math.sqrt(sxx * syy) : 0;
+  const t = r * Math.sqrt(n - 2) / Math.sqrt(Math.max(1e-9, 1 - r * r));
+  let same = 0, tot = 0;
+  for (let y = a + 1; y <= b; y++) {
+    const ds = s.w[y - first] - s.w[y - 1 - first], dm = MS.v[y - M_FIRST] - MS.v[y - 1 - M_FIRST];
+    same += ds === 0 || dm === 0 ? 0.5 : (ds > 0) === (dm > 0) ? 1 : 0; tot++;
+  }
+  return { n, r, t, g: 100 * same / tot, a, b };
+}
+const canDate = s => s && s.shape !== 'board';
+// 장에 따라 화면에 띄울 것
+const sampleKeyOf = n => (CH[n] && CH[n].sample) || 'master';
+const sampleOf = n => SMP[sampleKeyOf(n)] || null;
+// 해가 밝혀졌나: 맞춰 보았거나, 그 시료가 나오는 장을 읽었거나
+function isDated(s) {
+  if (!s) return false;
+  if (s.bark === 'live' || s.key === 'new') return true;
+  return S.all || !!S.dated[s.key] || isRead(s.ch);
+}
+// 해마다 있었던 일. 그 일이 나오는 장을 읽어야 보인다
+function yearNotes(y) {
+  return (D.years || []).filter(e => y >= e.y0 && y <= e.y1 && (S.all || isRead(e.ch) || e.ch <= M.sel)).map(e => e.t);
+}
+function yearKind(y) {
+  if (y < M_FIRST || y > M_LAST) return '';
+  const v = MS.v[y - M_FIRST] / 1000;
+  return v < 0.62 ? '이 지방 소나무가 다 좁게 자란 해' : v > 1.32 ? '이 지방 소나무가 넓게 자란 해' : '';
+}
+const GANJI = (() => { const a = '갑을병정무기경신임계', b = '자축인묘진사오미신유술해'; return y => a[((y - 4) % 10 + 10) % 10] + b[((y - 4) % 12 + 12) % 12]; })();
+const fmtMM = w => (w / 100).toFixed(2);
+function feltText(s) {
+  if (s.bark === 'live') return '살아 있는 나무. 바깥 나이테가 올해';
+  if (s.bark === 'none') return '알 수 없음';
+  return `${s.last}년 겨울(${s.last}년 늦가을~${s.last + 1}년 이른 봄)에 벤 나무`;
+}
+
+/* ---------- 단면의 모양: 나이테마다 반지름, 조금 찌그러진 둥근 테 ---------- */
+function rng(seed) { let s = seed % 2147483647; if (s <= 0) s += 2147483646; return () => (s = s * 16807 % 2147483647) / 2147483647; }
+const hashStr = t => { let h = 7; for (let i = 0; i < t.length; i++) h = (h * 31 + t.charCodeAt(i)) % 2147483647; return h; };
+// 시료마다 한 번 셈해 둔다: 안쪽에서 바깥으로 테의 바깥 반지름(mm), 모양 비틀림
+const GEO = {};
+function geoOf(s) {
+  if (GEO[s.key]) return GEO[s.key];
+  const r = rng(hashStr(s.key) + 11), n = s.len;
+  const age0 = { gidung: 1, jongdori: 1, daedeulbo: 2, sarang: 1, bohosu: 4 }[s.key] || 0;
+  const R = new Array(n);
+  let acc = age0 * (s.w[0] / 100) * 1.1;
+  const r0 = acc;
+  for (let k = 0; k < n; k++) { acc += s.w[k] / 100; R[k] = acc; }
+  const ph = [r() * 6.28, r() * 6.28, r() * 6.28, r() * 6.28];
+  const a1 = 0.012 + r() * 0.015, a2 = 0.012 + r() * 0.012, a3 = 0.006 + r() * 0.006;
+  // 각도마다 테가 얼마나 부푸는지(조금만). 크게 보면 수심이 한쪽으로 치우친 것이 더 나무답다
+  const F = (th, k) => { const q = Math.sqrt((k + 1) / n); return 1 + q * a1 * Math.cos(th - ph[0]) + a2 * Math.cos(2 * th - ph[1]) + a3 * Math.cos(3 * th - ph[2]) + 0.004 * Math.cos(7 * th - ph[3]); };
+  // 테의 가운데가 바깥으로 갈수록 한쪽으로 옮겨 간다(한쪽이 더 잘 자란 나무)
+  const ecc = 0.05 + r() * 0.06, eth = r() * 6.28, C = k => { const rr = (k < 0 ? 0 : R[k]) * ecc; return [Math.cos(eth) * rr, Math.sin(eth) * rr]; };
+  const lw = s.w.map((w, k) => Math.max(0.06, (w / 100) * (0.22 + 0.12 * r())));   // 늦재 폭(mm)
+  const checks = (s.shape === 'square' || s.key === 'daedeulbo') ? Array.from({ length: s.key === 'daedeulbo' ? 2 : 3 }, () => ({ th: r() * 6.28, depth: 0.35 + r() * 0.3, wid: 0.035 + r() * 0.03 })) : [];
+  const g = { R, r0, F, C, lw, Rout: R[n - 1], checks, tilt: (r() - 0.5) * 0.12, barkTh: r() * 6.28, rays: Array.from({ length: 90 }, () => [r() * 6.28, 0.2 + r() * 0.75, 0.04 + r() * 0.08]) };
+  GEO[s.key] = g;
+  return g;
+}
+// 테 k의 바깥 경계 위 한 점(mm, 수심 기준)
+const ringPt = (g, k, th, frac = 1) => { const kk = Math.max(0, k), rr = (k < 0 ? g.r0 : g.R[k]) * g.F(th, kk) * frac, [ox, oy] = g.C(k); return [ox + Math.cos(th) * rr, oy + Math.sin(th) * rr]; };
+function ringPath(c, g, k, sc, cx, cy, off = 0) {
+  const N = 120, kk = Math.max(0, k), [ox, oy] = g.C(k);
+  c.beginPath();
+  for (let i = 0; i <= N; i++) {
+    const th = i / N * Math.PI * 2, rr = Math.max(0, ((k < 0 ? g.r0 : g.R[k]) - off) * g.F(th, kk));
+    const x = cx + (ox + Math.cos(th) * rr) * sc, y = cy + (oy + Math.sin(th) * rr) * sc;
+    i ? c.lineTo(x, y) : c.moveTo(x, y);
+  }
+  c.closePath();
+}
+// 점이 테 k의 바깥 경계 안에 있나
+const insideRing = (g, k, x, y) => { const [ox, oy] = g.C(k), th = Math.atan2(y - oy, x - ox); return Math.hypot(x - ox, y - oy) <= g.R[k] * g.F(th, k); };
+// 화면의 점이 몇째 테에 있나(없으면 -1, 껍질이면 n)
+function ringAt(g, dx, dy) {
+  const n = g.R.length;
+  if (!insideRing(g, n - 1, dx, dy)) { const [ox, oy] = g.C(n - 1), th = Math.atan2(dy - oy, dx - ox); return Math.hypot(dx - ox, dy - oy) <= g.Rout * g.F(th, n - 1) * 1.05 ? n : -1; }
+  let lo = 0, hi = n - 1;
+  while (lo < hi) { const mid = (lo + hi) >> 1; if (insideRing(g, mid, dx, dy)) hi = mid; else lo = mid + 1; }
+  return lo;
+}
+// 나무 빛깔: 심재는 붉고 짙게, 변재는 옅게. 오래된 부재는 조금 더 깊은 빛
+function woodCols(s, k) {
+  const n = s.len, sap = k > n - Math.max(8, Math.round(n * 0.22));
+  const old = s.key === 'daedeulbo' ? 1 : s.first < 1900 ? 0.5 : 0;
+  if (s.species === '오동나무') return sap ? ['#e9dcc4', '#c9b391'] : ['#e3d3b6', '#c2a984'];
+  const ew = sap ? [236, 212, 170] : [222, 182, 136], lwc = sap ? [196, 146, 92] : [166, 106, 62];
+  const f = v => Math.round(v * (1 - 0.08 * old));
+  return [`rgb(${ew.map(f)})`, `rgb(${lwc.map(f)})`];
+}
+
+/* ---------- 작업대: 고른 장의 부재 단면, 생장추 막대, 오동나무 판, 집 그림 ----------
+   나이테를 누르면 그해가 보인다. 맞춰 보기 전에는 몇째 줄인지만 보인다. */
+const VW = { over: null, title: false, box: null, img: null, imgKey: '', bg: null, hover: -1, grow: 1, growing: false, pan: null, pxmm: 0, dirty: true, t: 0, drag: null, hitHouse: null, houseHover: null };
+const THREAD = '#d4452e';
+function viewKey() { return VW.title ? 'seo' : (VW.over || sampleKeyOf(M.sel)); }
+function viewMode(key) {
+  if (key === 'house') return 'house';
+  if (key === 'master') return 'chron';
+  const s = SMP[key];
+  return !s ? 'house' : s.shape === 'core' ? 'core' : s.shape === 'board' ? 'board' : 'disk';
+}
+function viewBox() {
+  const w = M.w, h = M.h;
+  if (w >= 900) return { l: 460, r: w - 24, t: 150, b: h - 28 };
+  const card = $('#card'), cr = card && !card.hidden && card.getBoundingClientRect();
+  const top = (($('#hud') && $('#hud').getBoundingClientRect().bottom) || 150) + 8;
+  const bottom = VW.title ? h * 0.52 : cr && cr.height ? cr.top - 8 : h - 300;
+  return { l: 8, r: w - 8, t: top, b: Math.max(top + 160, bottom) };
+}
+function viewResize() {
+  const cv = $('#cv'), d = Math.min(2, devicePixelRatio || 1);
+  M.dpr = d; M.w = innerWidth; M.h = innerHeight;
+  cv.width = Math.round(M.w * d); cv.height = Math.round(M.h * d);
+  VW.box = viewBox(); VW.imgKey = ''; VW.bg = null; VW.pan = null; VW.dirty = true;
+}
+/* 바탕: 어두운 작업대 나뭇결 */
+function bgImage() {
+  if (VW.bg && VW.bg.width === $('#cv').width) return VW.bg;
+  const cv = document.createElement('canvas'), d = M.dpr; cv.width = $('#cv').width; cv.height = $('#cv').height;
+  const g = cv.getContext('2d'); g.scale(d, d);
+  const gr = g.createLinearGradient(0, 0, 0, M.h); gr.addColorStop(0, '#2b231c'); gr.addColorStop(1, '#16110d');
+  g.fillStyle = gr; g.fillRect(0, 0, M.w, M.h);
+  const r = rng(77);
+  for (let i = 0; i < 70; i++) {
+    const y0 = r() * M.h, a = 0.025 + r() * 0.035;
+    g.strokeStyle = `rgba(210,170,120,${a.toFixed(3)})`; g.lineWidth = 0.6 + r() * 1.2;
+    g.beginPath(); for (let x = -10; x <= M.w + 10; x += 20) { const y = y0 + 6 * Math.sin(x / (90 + r() * 40) + i) + 3 * Math.sin(x / 31 + i * 2); x < 0 ? g.moveTo(x, y) : g.lineTo(x, y); } g.stroke();
+  }
+  const v = g.createRadialGradient(M.w / 2, M.h * 0.42, Math.min(M.w, M.h) * 0.2, M.w / 2, M.h * 0.42, Math.max(M.w, M.h) * 0.8);
+  v.addColorStop(0, 'rgba(255,220,170,.07)'); v.addColorStop(1, 'rgba(0,0,0,.35)');
+  g.fillStyle = v; g.fillRect(0, 0, M.w, M.h);
+  VW.bg = cv; return cv;
+}
+/* ---------- 둥근 단면 ---------- */
+function diskScale(s) {
+  const B = VW.box, g = geoOf(s), R = g.Rout * 1.16;
+  return Math.min((B.r - B.l) / 2, (B.b - B.t) / 2) / R;
+}
+function shapeClip(c, s, g, sc, cx, cy) {
+  const R = g.Rout * sc;
+  c.beginPath();
+  if (s.shape === 'square') {
+    const h = R * 0.84; c.save(); c.translate(cx, cy); c.rotate(g.tilt); c.rect(-h, -h, 2 * h, 2 * h); c.restore();
+  } else if (s.shape === 'beam') {
+    c.rect(cx - R * 1.2, cy - R * 0.8, R * 2.4, R * 1.62);
+  } else c.rect(cx - R * 1.3, cy - R * 1.3, R * 2.6, R * 2.6);
+}
+function renderDisk(s, scSet) {
+  const g = geoOf(s), sc = scSet || diskScale(s), d = M.dpr, R = g.Rout * sc * 1.12, size = Math.ceil(2 * R + 8);
+  const cv = document.createElement('canvas'); cv.width = Math.ceil(size * d); cv.height = Math.ceil(size * d);
+  const c = cv.getContext('2d'); c.scale(d, d);
+  const n = s.len, [ox, oy] = g.C(n - 1), ocx = size / 2, ocy = size / 2, cx = ocx - ox * sc, cy = ocy - oy * sc;
+  c.save();
+  // 바깥 모양(다듬은 기둥은 네모, 들보는 위아래를 깎음)과 그 안의 나이테. 모양은 통나무 바깥을 가운데로 깎는다
+  ringPath(c, g, n - 1, sc, cx, cy); c.save(); c.clip();
+  shapeClip(c, s, g, sc, ocx, ocy); c.clip();
+  for (let k = n - 1; k >= 0; k--) {
+    const [ew, lw] = woodCols(s, k);
+    ringPath(c, g, k, sc, cx, cy); c.fillStyle = lw; c.fill();
+    ringPath(c, g, k, sc, cx, cy, g.lw[k]); c.fillStyle = ew; c.fill();
+  }
+  // 수심
+  c.fillStyle = 'rgba(90,50,24,.85)'; c.beginPath(); c.arc(cx, cy, Math.max(1.6, (g.r0 || 0.6) * sc * 0.6), 0, 7); c.fill();
+  // 방사 조직(가는 결)과 사포 자국
+  g.rays.forEach(([th, f, a]) => { c.strokeStyle = `rgba(120,80,40,${a.toFixed(2)})`; c.lineWidth = 0.5; c.beginPath(); c.moveTo(cx + Math.cos(th) * g.Rout * sc * 0.05, cy + Math.sin(th) * g.Rout * sc * 0.05); c.lineTo(cx + Math.cos(th) * g.Rout * sc * f, cy + Math.sin(th) * g.Rout * sc * f); c.stroke(); });
+  // 마르면서 터진 금(바깥에서 안으로)
+  g.checks.forEach(ch => {
+    const a0 = ch.th, w = ch.wid, r1 = g.Rout * sc * 1.02, r0 = g.Rout * sc * (1 - ch.depth);
+    c.fillStyle = 'rgba(35,22,14,.88)'; c.beginPath(); c.moveTo(cx + Math.cos(a0) * r0, cy + Math.sin(a0) * r0);
+    c.lineTo(cx + Math.cos(a0 - w) * r1, cy + Math.sin(a0 - w) * r1); c.lineTo(cx + Math.cos(a0 + w) * r1, cy + Math.sin(a0 + w) * r1); c.closePath(); c.fill();
+  });
+  c.restore();
+  // 껍질: 서까래와 종도리는 둘레에, 기둥은 모서리 한 곳에, 들보는 옆면에
+  const barkArc = (a0, a1) => {
+    c.save(); shapeClip(c, s, g, sc, ocx, ocy); c.clip();
+    c.beginPath();
+    for (let i = 0; i <= 40; i++) { const th = a0 + (a1 - a0) * i / 40, [x, y] = ringPt(g, n - 1, th, 1.0); i ? c.lineTo(cx + x * sc, cy + y * sc) : c.moveTo(cx + x * sc, cy + y * sc); }
+    for (let i = 40; i >= 0; i--) { const th = a0 + (a1 - a0) * i / 40, bt = 1 + 0.035 + 0.012 * Math.sin(th * 23), [x, y] = ringPt(g, n - 1, th, bt); c.lineTo(cx + x * sc, cy + y * sc); }
+    c.closePath(); c.fillStyle = '#5a4434'; c.fill(); c.strokeStyle = 'rgba(30,20,14,.6)'; c.lineWidth = 1; c.stroke();
+    c.restore();
+  };
+  if (s.bark === 'edge') barkArc(0, Math.PI * 2);
+  else if (s.bark === 'corner') { const a = g.tilt + Math.PI * 0.25 + Math.PI * 0.5 * (hashStr(s.key) % 4); barkArc(a - 0.22, a + 0.22); }
+  else if (s.bark === 'side') barkArc(Math.PI * 0.86, Math.PI * 1.14);
+  // 다듬은 면의 테두리
+  c.save(); ringPath(c, g, n - 1, sc, cx, cy); c.clip(); shapeClip(c, s, g, sc, ocx, ocy); c.strokeStyle = 'rgba(60,36,20,.55)'; c.lineWidth = 1.4; c.stroke(); c.restore();
+  c.restore();
+  return { cv, size, sc, cx, cy };
+}
+function diskImg(s) {
+  const k = `${s.key}:${M.w}x${M.h}:${VW.box.r - VW.box.l}x${VW.box.b - VW.box.t}`;
+  if (VW.img && VW.imgKey === k) return VW.img;
+  VW.img = renderDisk(s); VW.imgKey = k; return VW.img;
+}
+const RULE_TH = -0.62;
+function drawDisk(c, s) {
+  const B = VW.box, im = diskImg(s), g = geoOf(s), sc = im.sc, dated = isDated(s), n = s.len, [ox, oy] = g.C(n - 1);
+  const X0 = (B.l + B.r) / 2, Y0 = (B.t + B.b) / 2, X = X0 - ox * sc, Y = Y0 - oy * sc;
+  const kShow = VW.grow >= 1 ? n - 1 : Math.floor(VW.grow * (n - 1));
+  c.save();
+  if (VW.grow < 1) { ringPath(c, g, kShow, sc, X, Y); c.clip(); }
+  c.drawImage(im.cv, X0 - im.size / 2, Y0 - im.size / 2, im.size, im.size);
+  c.restore();
+  // 자라는 동안: 그해 바깥 테를 붉은 실로
+  if (VW.grow < 1) {
+    ringPath(c, g, kShow, sc, X, Y); c.strokeStyle = 'rgba(212,69,46,.9)'; c.lineWidth = 2; c.stroke();
+    const yr = dated ? `${s.first + kShow}년` : `나이테 ${kShow + 1}개`;
+    c.font = `600 15px ${UIF()}`; c.fillStyle = '#f3e7d3'; c.textAlign = 'center'; c.fillText(yr, X, B.t + 18);
+  }
+  // 눈금: 위 오른쪽으로 뻗은 자. 해를 알면 열 해마다, 모르면 바깥에서 열 줄마다
+  c.save(); c.font = `12px ${UIF()}`; c.textBaseline = 'middle';
+  let lastLab = null;
+  const tick = (k, label, strong) => {
+    const [x, y] = ringPt(g, k, RULE_TH);
+    const px = X + x * sc, py = Y + y * sc;
+    if (label && lastLab && Math.hypot(px - lastLab[0], py - lastLab[1]) < 15) label = '';
+    if (label) lastLab = [px, py];
+    c.strokeStyle = strong ? 'rgba(40,24,12,.9)' : 'rgba(40,24,12,.5)'; c.lineWidth = strong ? 1.6 : 1;
+    const nx = Math.cos(RULE_TH + Math.PI / 2), ny = Math.sin(RULE_TH + Math.PI / 2);
+    c.beginPath(); c.moveTo(px - nx * 5, py - ny * 5); c.lineTo(px + nx * 5, py + ny * 5); c.stroke();
+    if (label) { c.fillStyle = 'rgba(30,18,10,.85)'; c.textAlign = 'left'; c.fillText(label, px + nx * 7 + 2, py + ny * 7); }
+  };
+  for (let k = 0; k <= kShow; k++) {
+    if (dated) { const y = s.first + k; if (y % 10 === 0) tick(k, String(y), true); }
+    else { const fromBark = n - k; if (fromBark % 10 === 0) tick(k, `${fromBark}`, true); }
+  }
+  c.restore();
+  // 그 장에서 눈여겨볼 해
+  const focus = CH[M.sel] && CH[M.sel].focus && !VW.over && !VW.title ? +CH[M.sel].focus : null;
+  if (focus && dated && focus >= s.first && focus <= s.last && VW.grow >= 1) {
+    const k = focus - s.first; ringPath(c, g, k, sc, X, Y, g.lw[k] * 0.5); c.strokeStyle = 'rgba(212,69,46,.75)'; c.lineWidth = 2.2; c.setLineDash([5, 4]); c.stroke(); c.setLineDash([]);
+  }
+  // 고른 테
+  if (VW.hover >= 0 && VW.hover < n && VW.grow >= 1) {
+    const k = VW.hover;
+    ringPath(c, g, k, sc, X, Y); c.strokeStyle = '#fff1d8'; c.lineWidth = 2.4; c.stroke();
+    ringPath(c, g, k - 1, sc, X, Y); c.strokeStyle = 'rgba(255,241,216,.75)'; c.lineWidth = 1.4; c.stroke();
+  }
+}
+function pickDisk(px, py, s) {
+  const B = VW.box, im = diskImg(s), g = geoOf(s), [ox, oy] = g.C(s.len - 1), X = (B.l + B.r) / 2 - ox * im.sc, Y = (B.t + B.b) / 2 - oy * im.sc;
+  return ringAt(g, (px - X) / im.sc, (py - Y) / im.sc);
+}
+/* ---------- 생장추 막대(보호수)와 마스터 연대기: 옆으로 긴 막대 ---------- */
+const CHRON = { key: 'master', name: '춘양 소나무 마스터 연대기', short: '마스터 연대기', species: '소나무', shape: 'core', bark: 'live' };
+function coreSeries(key) {
+  if (key === 'master') {
+    if (!CHRON.w) { CHRON.w = MS.v.map(v => Math.round(v * 1.15 / 10)); CHRON.first = M_FIRST; CHRON.last = M_LAST; CHRON.len = CHRON.w.length; CHRON.R = []; let a = 0; CHRON.w.forEach((w, k) => { a += w / 100; CHRON.R[k] = a; }); CHRON.lw = CHRON.w.map(w => Math.max(0.06, w / 100 * 0.3)); }
+    return CHRON;
+  }
+  const s = SMP[key]; if (!s.R) { const g = geoOf(s); s.R = g.R; s.lw = g.lw; }
+  return s;
+}
+function coreView(cs) {
+  const B = VW.box, W = B.r - B.l;
+  if (VW.pan == null || VW.panKey !== cs.key) {
+    const focus = CH[M.sel] && CH[M.sel].focus ? +CH[M.sel].focus : null;
+    let y0, y1;
+    if (fxOf(M.sel).includes('calendar') && cs.key === 'bohosu') { y0 = 1927; y1 = cs.last; }
+    else if (focus) { y0 = focus - 26; y1 = focus + 26; }
+    else { y1 = cs.last; y0 = cs.last - 70; }
+    y0 = clamp(y0, cs.first, cs.last); y1 = clamp(y1, cs.first, cs.last);
+    const u0 = y0 > cs.first ? cs.R[y0 - cs.first - 1] : 0, u1 = cs.R[y1 - cs.first];
+    VW.pxmm = W * 0.94 / Math.max(5, u1 - u0); VW.pan = u0 - (W * 0.03) / VW.pxmm; VW.panKey = cs.key;
+  }
+}
+function drawCore(c, key) {
+  const cs = coreSeries(key), B = VW.box, dated = key === 'master' || isDated(cs), n = cs.len;
+  coreView(cs);
+  const H = clamp((B.b - B.t) * 0.24, 44, 86), yc = (B.t + B.b) / 2 - 8, top = yc - H / 2, X = u => B.l + (u - VW.pan) * VW.pxmm;
+  const xin = X(0), xout = X(cs.R[n - 1]);
+  // 막대
+  c.save();
+  c.fillStyle = 'rgba(0,0,0,.35)'; c.beginPath(); c.roundRect ? c.roundRect(xin + 3, top + 5, xout - xin, H, H / 2) : c.rect(xin + 3, top + 5, xout - xin, H); c.fill();
+  c.beginPath(); c.roundRect ? c.roundRect(xin, top, xout - xin, H, [H / 2, 4, 4, H / 2]) : c.rect(xin, top, xout - xin, H); c.clip();
+  c.fillStyle = '#e8cfa2'; c.fillRect(xin, top, xout - xin, H);
+  const k0 = Math.max(0, cs.R.findIndex(r => X(r) > B.l - 20)), k1 = n - 1;
+  for (let k = k0; k <= k1; k++) {
+    const xa = X(cs.R[k] - cs.lw[k]), xb = X(cs.R[k]);
+    if (xa > B.r + 20) break;
+    const sap = k > n - 28 && key !== 'master';
+    c.fillStyle = sap ? '#c79a62' : '#a7703e'; c.fillRect(xa, top, Math.max(0.8, xb - xa), H);
+    if (VW.hover === k) { c.fillStyle = 'rgba(255,241,216,.5)'; const xs = X(k ? cs.R[k - 1] : 0); c.fillRect(xs, top, xb - xs, H); }
+  }
+  // 결
+  c.strokeStyle = 'rgba(120,80,40,.12)'; c.lineWidth = 0.6;
+  for (let i = 1; i < 6; i++) { c.beginPath(); c.moveTo(xin, top + H * i / 6); c.lineTo(xout, top + H * i / 6); c.stroke(); }
+  c.restore();
+  if (key === 'bohosu') { c.fillStyle = '#5a4434'; c.fillRect(xout, top - 2, Math.max(4, 6 * VW.pxmm / 3), H + 4); }
+  // 해 눈금
+  c.font = `12px ${UIF()}`; c.textAlign = 'center'; c.textBaseline = 'top';
+  const step = VW.pxmm * 1.2 > 14 ? 5 : VW.pxmm * 1.2 > 5 ? 10 : VW.pxmm * 1.2 > 2.2 ? 20 : 50;
+  for (let k = 0; k < n; k++) {
+    const x = X(cs.R[k] - (cs.w[k] / 200)); if (x < B.l - 10 || x > B.r + 10) continue;
+    if (dated) {
+      const y = cs.first + k; if (y % step) continue;
+      c.strokeStyle = 'rgba(243,231,211,.55)'; c.beginPath(); c.moveTo(x, top + H + 4); c.lineTo(x, top + H + (y % (step * 2) ? 8 : 12)); c.stroke();
+      c.fillStyle = 'rgba(243,231,211,.85)'; if (!(y % (step * 2)) || step >= 20) c.fillText(String(y), x, top + H + 14);
+    } else {
+      const fb = n - k; if (fb % 10) continue;
+      c.strokeStyle = 'rgba(243,231,211,.55)'; c.beginPath(); c.moveTo(x, top + H + 4); c.lineTo(x, top + H + 9); c.stroke(); c.fillStyle = 'rgba(243,231,211,.8)'; c.fillText(String(fb), x, top + H + 12);
+    }
+  }
+  // 있었던 일: 핀과 이름표(겹치지 않게 줄을 나눈다)
+  if (dated) {
+    const rows = [];
+    const ev = (D.years || []).filter(e => (S.all || isRead(e.ch)) && e.y0 >= cs.first && e.y0 <= cs.last);
+    const focus = CH[M.sel] && CH[M.sel].focus ? +CH[M.sel].focus : null;
+    if (focus && !ev.some(e => e.y0 <= focus && e.y1 >= focus) && focus >= cs.first && focus <= cs.last) ev.push({ y0: focus, y1: focus, t: `${focus}`, ch: M.sel, short: `${focus}` });
+    c.textBaseline = 'bottom'; c.font = `12px ${UIF()}`;
+    ev.forEach(e => {
+      const k = e.y0 - cs.first, x = X(cs.R[k] - cs.w[k] / 200), lab = e.short || e.t;
+      if (x < B.l - 4 || x > B.r + 4) return;
+      const w = c.measureText(lab).width + 10, lx = clamp(x, B.l + w / 2, B.r - w / 2);
+      let row = 0; while (rows[row] && rows[row].some(([a, b]) => !(lx + w / 2 < a || lx - w / 2 > b))) row++;
+      (rows[row] = rows[row] || []).push([lx - w / 2, lx + w / 2]);
+      const ly = top - 10 - row * 20;
+      c.strokeStyle = 'rgba(212,69,46,.75)'; c.lineWidth = 1; c.beginPath(); c.moveTo(x, top - 2); c.lineTo(x, ly + 2); c.stroke();
+      if (e.y1 > e.y0) { const k2 = e.y1 - cs.first, x2 = X(cs.R[k2]); c.fillStyle = 'rgba(212,69,46,.3)'; c.fillRect(X(k ? cs.R[k - 1] : 0), top - 3, x2 - X(k ? cs.R[k - 1] : 0), 3); }
+      c.fillStyle = 'rgba(30,22,16,.78)'; c.fillRect(lx - w / 2, ly - 17, w, 17);
+      c.fillStyle = '#f6e9d3'; c.textAlign = 'center'; c.fillText(lab, lx, ly - 2);
+    });
+  }
+  VW.coreGeom = { cs, X, top, H };
+}
+function pickCore(px, py) {
+  const G = VW.coreGeom; if (!G) return -1;
+  if (py < G.top - 12 || py > G.top + G.H + 30) return -1;
+  const u = VW.pan + (px - VW.box.l) / VW.pxmm, R = G.cs.R;
+  if (u < 0 || u > R[R.length - 1]) return -1;
+  let lo = 0, hi = R.length - 1;
+  while (lo < hi) { const m = (lo + hi) >> 1; if (R[m] < u) lo = m + 1; else hi = m; }
+  return lo;
+}
+/* ---------- 오동나무 판: 수심이 한가운데로 지나가는 판의 끝면 ---------- */
+function drawBoard(c, s) {
+  const B = VW.box, g = geoOf(s), n = s.len, half = g.Rout, W = (B.r - B.l) * 0.92, pxmm = W / (2 * half), T = clamp(26 * pxmm * 2.4, 60, 150), X0 = (B.l + B.r) / 2, Y0 = (B.t + B.b) / 2;
+  const dated = isDated(s);
+  c.save();
+  c.fillStyle = 'rgba(0,0,0,.35)'; c.fillRect(X0 - W / 2 + 4, Y0 - T / 2 + 6, W, T);
+  c.beginPath(); c.rect(X0 - W / 2, Y0 - T / 2, W, T); c.clip();
+  c.fillStyle = '#ead9bb'; c.fillRect(X0 - W / 2, Y0 - T / 2, W, T);
+  for (let side of [-1, 1]) {
+    for (let k = n - 1; k >= 0; k--) {
+      c.fillStyle = woodCols(s, k)[1]; c.beginPath();
+      for (let i = 0; i <= 24; i++) { const yy = -13 + 26 * i / 24, dx = Math.sqrt(Math.max(0, g.R[k] ** 2 - yy * yy)) * pxmm; c.lineTo(X0 + side * dx, Y0 + yy * (T / 26)); }
+      for (let i = 24; i >= 0; i--) { const yy = -13 + 26 * i / 24, dx = Math.sqrt(Math.max(0, (g.R[k] - g.lw[k]) ** 2 - yy * yy)) * pxmm; c.lineTo(X0 + side * dx, Y0 + yy * (T / 26)); }
+      c.closePath(); c.fill();
+      if (VW.hover === k) { c.strokeStyle = '#fff1d8'; c.lineWidth = 2; c.stroke(); }
+    }
+  }
+  c.fillStyle = 'rgba(90,50,24,.8)'; c.beginPath(); c.arc(X0, Y0, 3, 0, 7); c.fill();
+  c.restore();
+  c.strokeStyle = 'rgba(60,36,20,.6)'; c.strokeRect(X0 - W / 2, Y0 - T / 2, W, T);
+  c.font = `12px ${UIF()}`; c.fillStyle = 'rgba(243,231,211,.8)'; c.textAlign = 'center'; c.textBaseline = 'top';
+  for (let k = 4; k < n; k += 5) { const x = g.R[k] * pxmm; c.fillText(dated ? String(s.first + k) : String(k + 1), X0 + x, Y0 + T / 2 + 6); c.fillText(dated ? String(s.first + k) : String(k + 1), X0 - x, Y0 + T / 2 + 6); }
+  c.fillText(dated ? '수심 · 1929' : '수심', X0, Y0 + T / 2 + 22);
+  c.textBaseline = 'bottom'; c.fillStyle = 'rgba(243,231,211,.65)'; c.fillText('장롱 옆판의 끝면(두께는 크게 키워 그림)', X0, Y0 - T / 2 - 8);
+  VW.boardGeom = { X0, pxmm, g, T, Y0 };
+}
+function pickBoard(px, py) {
+  const G = VW.boardGeom; if (!G) return -1;
+  if (Math.abs(py - G.Y0) > G.T / 2 + 6) return -1;
+  const u = Math.abs(px - G.X0) / G.pxmm, R = G.g.R;
+  if (u > R[R.length - 1]) return -1;
+  let k = 0; while (k < R.length - 1 && R[k] < u) k++;
+  return k;
+}
+/* ---------- 그리기와 고르기 ---------- */
+function viewDraw(dt) {
+  const cv = $('#cv'), c = cv.getContext('2d'), d = M.dpr;
+  VW.t += dt;
+  if (VW.growing) {
+    VW.grow = Math.min(1, VW.grow + dt / (VW.title ? 9 : 6));
+    if (VW.grow >= 1) { VW.growing = VW.title; if (VW.title) VW.grow = 0; }
+    VW.dirty = true;
+  }
+  if (!VW.dirty) return;
+  VW.dirty = false;
+  c.setTransform(1, 0, 0, 1, 0, 0); c.drawImage(bgImage(), 0, 0);
+  c.setTransform(d, 0, 0, d, 0, 0);
+  const key = viewKey(), mode = viewMode(key);
+  try {
+    if (mode === 'disk') drawDisk(c, SMP[key]);
+    else if (mode === 'core' || mode === 'chron') drawCore(c, key);
+    else if (mode === 'board') drawBoard(c, SMP[key]);
+    else houseDraw(c, VW.box);
+  } catch (e) { if (!viewDraw.warned) { viewDraw.warned = true; console.error(e); } }
+}
+function hudUpdate() {
+  const key = viewKey(), mode = viewMode(key), s = mode === 'chron' ? coreSeries('master') : SMP[key];
+  const nm = $('#hudName'), info = $('#hudInfo'), pick = $('#hudPick'), mb = $('#hudMatch'), gb = $('#hudGrow'), bk = $('#hudBack');
+  bk.hidden = !VW.over;
+  if (mode === 'house') {
+    nm.textContent = '권씨네 집 · 안채와 사랑채'; info.textContent = '부재마다 알아낸 해'; pick.textContent = VW.houseHover ? VW.houseHover : '부재를 누르면 그 나이테로 갑니다.';
+    mb.hidden = true; gb.hidden = true; return;
+  }
+  const dated = mode === 'chron' || isDated(s);
+  nm.textContent = `${s.name} · ${s.species}`;
+  info.textContent = mode === 'chron' ? `${s.first}~${s.last}년 · 이 지방 소나무 나이테를 겹쳐 이은 긴 달력(지어낸 연대기)`
+    : `나이테 ${s.len}개 · ${dated ? `${s.first}~${s.last}년` : '아직 해를 모름'}${s.species === '오동나무' ? ' · 소나무 연대기에 맞춰 볼 수 없음' : ''}`;
+  mb.hidden = !(canDate(s) && mode !== 'chron'); gb.hidden = mode !== 'disk';
+  mb.textContent = dated ? '맞춰 본 자리' : '맞춰 보기';
+  const k = VW.hover;
+  if (k < 0 || k >= s.len) {
+    pick.textContent = mode === 'core' || mode === 'chron' ? '막대를 옆으로 끌어 보세요. 나이테를 누르면 그해가 보입니다.' : '나이테를 누르면 그해가 보입니다.';
+    return;
+  }
+  const w = s.w[k];
+  if (dated) {
+    const y = s.first + k, notes = yearNotes(y), kind = yearKind(y);
+    pick.textContent = `${y}년(${GANJI(y)}) · 폭 ${fmtMM(w)}mm${notes.length ? ' · ' + notes.join(' · ') : kind ? ' · ' + kind : ''}`;
+  } else if (s.species === '오동나무') pick.textContent = `수심에서 ${k + 1}번째 줄 · 폭 ${fmtMM(w)}mm`;
+  else pick.textContent = `바깥에서 ${s.len - k}번째 줄 · 폭 ${fmtMM(w)}mm · 맞춰 보면 해가 나옵니다`;
+}
+function viewPick(px, py) {
+  const key = viewKey(), mode = viewMode(key);
+  if (mode === 'disk') return pickDisk(px, py, SMP[key]);
+  if (mode === 'core' || mode === 'chron') return pickCore(px, py);
+  if (mode === 'board') return pickBoard(px, py);
+  return -1;
+}
+function setHover(k) { if (k === VW.hover) return; VW.hover = k; VW.dirty = true; hudUpdate(); }
+function viewTap(px, py) {
+  const mode = viewMode(viewKey());
+  if (mode === 'house') { const m = houseHit(px, py); if (m) houseGo(m); return; }
+  const k = viewPick(px, py);
+  setHover(k);
+  if (k >= 0) tick();
+}
+function growStart() { VW.grow = 0; VW.growing = true; VW.hover = -1; hudUpdate(); }
+function viewSet(over) { VW.over = over || null; VW.hover = -1; VW.pan = null; VW.grow = 1; VW.growing = false; VW.imgKey = ''; VW.dirty = true; hudUpdate(); }
+
+/* ---------- 맞춰 보기: 시료의 나이테를 마스터 연대기 위에서 한 해씩 민다 ----------
+   가운데 줄 위로는 연대기의 좁은 해, 아래로는 시료의 좁은 해. 둘이 같은 자리에 서면 맞은 것이다. */
+const MT = { on: false, key: null, s: null, L: 0, prevL: null, seen: {}, found: false, drag: null, told: false };
+const L_MIN = M_FIRST + 14, L_MAX = 2026;
+function openMatch(key) {
+  const s = SMP[key]; if (!s || !canDate(s)) return;
+  closeMatch(true);
+  const known = s.bark === 'live' || s.key === 'new';
+  Object.assign(MT, { on: true, key, s, seen: {}, found: known || !!S.dated[key], drag: null, told: false });
+  MT.L = MT.found ? s.last : key === 'daedeulbo' ? 1936 : 1990;
+  MT.prevL = MT.L; markSeen(MT.L);
+  $('#mTitle').textContent = `맞춰 보기 · ${s.short}`;
+  $('#mSub').textContent = `${s.name}. 나이테 ${s.len}개를 ${MS.name || '마스터 연대기'}(${M_FIRST}~${M_LAST}년) 위에서 밉니다. 위로 선 막대는 연대기의 좁은 해, 아래로 내린 막대는 이 나무의 좁은 해입니다.`;
+  const r = $('#mY'); r.min = L_MIN; r.max = L_MAX; r.value = MT.L;
+  $('#mpanel').hidden = false; $('#card').hidden = true; $('#hud').hidden = true;
+  $('#mDone').hidden = !MT.found; $('#mRes').textContent = '';
+  matchUpdate();
+  setTimeout(() => { viewResize(); matchDraw(); }, 0);
+}
+function closeMatch(quiet) {
+  if (!MT.on) return;
+  MT.on = false;
+  $('#mpanel').hidden = true; $('#card').hidden = false; $('#hud').hidden = false;
+  if (!quiet) { updateCard(); hudUpdate(); setTimeout(viewResize, 0); }
+}
+function markSeen(L) {
+  const a = MT.prevL == null ? L : MT.prevL, lo = Math.min(a, L), hi = Math.max(a, L);
+  for (let y = lo; y <= hi; y++) if (MT.seen[y] == null) { const st = matchAt(MT.s, y); MT.seen[y] = st ? st.t : 0; }
+  MT.prevL = L;
+}
+function matchSet(L) {
+  L = Math.round(clamp(L, L_MIN, L_MAX));
+  if (L === MT.L) return;
+  MT.L = L; markSeen(L); $('#mY').value = L;
+  matchUpdate(); matchDraw();
+  if (MT.s && !MT.found && L === MT.s.last) matchFound();
+}
+function matchUpdate() {
+  const s = MT.s, st = matchAt(s, MT.L), first = MT.L - s.len + 1;
+  $('#mY').setAttribute('aria-valuetext', `바깥 나이테 ${MT.L}년`);
+  $('#mNow').innerHTML = st
+    ? `바깥 나이테를 <b>${MT.L}년</b>에 두면 (${first}~${MT.L}년) · 겹친 해 ${st.n} · <b class="${st.t >= 3.5 ? 'hi' : ''}">t ${st.t.toFixed(1)}</b> · G ${Math.round(st.g)}%`
+    : `바깥 나이테를 <b>${MT.L}년</b>에 두면 연대기와 겹치는 해가 너무 적습니다.`;
+  const res = $('#mRes');
+  if (MT.found && MT.L !== s.last && s.bark !== 'live' && s.key !== 'new') {
+    res.textContent = `맞는 자리는 바깥 나이테 ${s.last}년입니다. 그 자리로 돌아가면 두 줄의 좁은 해가 나란히 섭니다.`;
+  } else if (MT.found) {
+    const ex = s.key === 'daedeulbo' ? ' 이 집 기둥들보다 예순여섯 해 먼저 베어진 나무입니다.' : '';
+    res.textContent = s.bark === 'live' ? `살아 있는 나무라 바깥 나이테가 올해(2026년)입니다. 그래도 연대기와 겹쳐 보면 빠진 나이테를 찾을 수 있습니다.`
+      : s.key === 'new' ? `지난겨울에 벤 새 나무라 바깥 나이테가 2026년입니다.`
+      : `맞았습니다. 가장 바깥 나이테가 ${s.last}년, 늦재까지 다 자라 있습니다. ${feltText(s)}입니다.${ex}`;
+  } else {
+    const n = Object.keys(MT.seen).length;
+    res.textContent = n > 70 && !MT.told ? (s.key === 'daedeulbo' ? '"네가 찾는 해 근처만 민 거다. 나무는 네가 뭘 찾는지 모른다. 끝까지 밀어 봐." 교수님 말이 떠오릅니다.' : '아래 막대그래프에 지나온 자리의 t값이 쌓입니다. 유난히 높이 솟는 자리를 찾아보세요.') : res.textContent;
+    if (n > 70) MT.told = true;
+  }
+}
+function matchFound() {
+  MT.found = true; S.dated[MT.key] = true; S.tries = (S.tries || 0) + 1; save();
+  knock();
+  $('#mDone').hidden = false;
+  matchUpdate(); matchDraw();
+  VW.imgKey = ''; VW.dirty = true;
+}
+function matchDraw() {
+  const cv = $('#mcv'), w = cv.clientWidth, h = cv.clientHeight; if (!w || !h || !MT.s) return;
+  const d = Math.min(2, devicePixelRatio || 1);
+  if (cv.width !== Math.round(w * d) || cv.height !== Math.round(h * d)) { cv.width = Math.round(w * d); cv.height = Math.round(h * d); }
+  const g = cv.getContext('2d'); g.setTransform(d, 0, 0, d, 0, 0); g.clearRect(0, 0, w, h);
+  const s = MT.s, L = MT.L, first = L - s.len + 1, span = Math.max(s.len + 40, 70), Y0 = Math.round(L - s.len - (span - s.len) / 2) + 1, Y1 = Y0 + span;
+  const pad = 10, X = y => pad + (y - Y0 + 0.5) / span * (w - 2 * pad), mid = h * 0.5, pxy = (w - 2 * pad) / span;
+  MT.pxy = pxy;
+  // 시료가 놓인 자리
+  g.fillStyle = 'rgba(212,69,46,.08)'; g.fillRect(X(first) - pxy / 2, 0, (s.len) * pxy, h - 18);
+  // 위: 연대기 곡선, 아래: 시료 곡선
+  const curve = (get, y0, y1, top, col) => {
+    g.beginPath(); let on = false;
+    for (let y = y0; y <= y1; y++) { const v = get(y); if (v == null) { on = false; continue; } const yy = top + (h * 0.2) - clamp(v, -0.8, 0.8) / 0.8 * h * 0.16; on ? g.lineTo(X(y), yy) : g.moveTo(X(y), yy); on = true; }
+    g.strokeStyle = col; g.lineWidth = 1.4; g.stroke();
+  };
+  curve(y => y >= M_FIRST && y <= M_LAST ? MI[y - M_FIRST] : null, Y0, Y1, 0, 'rgba(232,220,200,.75)');
+  curve(y => y >= first && y <= L ? s.si[y - first] : null, Y0, Y1, h * 0.52, '#ff8a6e');
+  // 가운데 줄과 좁은 해 막대
+  g.strokeStyle = 'rgba(232,220,200,.4)'; g.lineWidth = 1; g.beginPath(); g.moveTo(pad, mid); g.lineTo(w - pad, mid); g.stroke();
+  const bar = (v, y, up, col) => { if (v > -0.12) return; const len = clamp((-v - 0.12) / 0.6, 0.08, 1) * h * 0.12; g.fillStyle = col; g.fillRect(X(y) - Math.max(1, pxy * 0.28), up ? mid - len : mid, Math.max(2, pxy * 0.56), len); };
+  for (let y = Y0; y <= Y1; y++) {
+    if (y >= M_FIRST && y <= M_LAST) bar(MI[y - M_FIRST], y, true, 'rgba(232,220,200,.85)');
+    if (y >= first && y <= L) bar(s.si[y - first], y, false, '#ff8a6e');
+  }
+  // 해 눈금
+  g.font = `11px ${UIF()}`; g.fillStyle = 'rgba(232,220,200,.75)'; g.textAlign = 'center'; g.textBaseline = 'bottom';
+  const step = pxy > 9 ? 5 : pxy > 4 ? 10 : 20;
+  for (let y = Math.ceil(Y0 / step) * step; y <= Y1; y += step) { g.fillRect(X(y) - 0.5, h - 16, 1, 4); if (y % (step * 2) === 0 || step === 20) g.fillText(String(y), X(y), h - 1); }
+  g.textAlign = 'left'; g.textBaseline = 'top'; g.fillStyle = 'rgba(232,220,200,.6)'; g.fillText('연대기', pad + 2, 4); g.fillStyle = '#ff8a6e'; g.fillText(s.short, pad + 2, h * 0.52 + 4);
+  if (MT.found && L === s.last) { g.strokeStyle = '#ffd27a'; g.lineWidth = 2; g.strokeRect(X(first) - pxy / 2, 2, s.len * pxy, h - 20); }
+  barsDraw();
+}
+// 지나온 자리마다 t값을 막대로 남긴다
+function barsDraw() {
+  const cv = $('#mbars'), w = cv.clientWidth, h = cv.clientHeight; if (!w || !h) return;
+  const d = Math.min(2, devicePixelRatio || 1);
+  if (cv.width !== Math.round(w * d)) { cv.width = Math.round(w * d); cv.height = Math.round(h * d); }
+  const g = cv.getContext('2d'); g.setTransform(d, 0, 0, d, 0, 0); g.clearRect(0, 0, w, h);
+  const X = y => 6 + (y - L_MIN) / (L_MAX - L_MIN) * (w - 12);
+  g.fillStyle = 'rgba(232,220,200,.12)'; g.fillRect(6, h - 3, w - 12, 1);
+  g.strokeStyle = 'rgba(255,210,122,.35)'; g.setLineDash([2, 3]); const y35 = h - 3 - 3.5 / 10 * (h - 8); g.beginPath(); g.moveTo(6, y35); g.lineTo(w - 6, y35); g.stroke(); g.setLineDash([]);
+  Object.entries(MT.seen).forEach(([y, t]) => { const v = clamp(t, 0, 10) / 10 * (h - 8); g.fillStyle = t >= 3.5 ? '#ffd27a' : 'rgba(232,220,200,.55)'; g.fillRect(X(+y) - 0.75, h - 3 - v, 1.5, v); });
+  g.fillStyle = '#ff8a6e'; const cx = X(MT.L); g.beginPath(); g.moveTo(cx, h - 2); g.lineTo(cx - 4, h + 4); g.lineTo(cx + 4, h + 4); g.fill();
+  g.fillRect(cx - 0.5, 0, 1, h - 3);
+}
+function bindMatch() {
+  $('#mY').addEventListener('input', e => matchSet(+e.target.value));
+  $('#mPrev').addEventListener('click', () => matchSet(MT.L - 1));
+  $('#mNext').addEventListener('click', () => matchSet(MT.L + 1));
+  $('#mDone').addEventListener('click', () => { closeMatch(); viewSet(MT.key === sampleKeyOf(M.sel) ? null : MT.key); });
+  const cv = $('#mcv');
+  cv.addEventListener('pointerdown', e => { MT.drag = { x: e.clientX, L: MT.L }; cv.setPointerCapture(e.pointerId); });
+  cv.addEventListener('pointermove', e => { if (!MT.drag) return; matchSet(MT.drag.L - (e.clientX - MT.drag.x) / Math.max(2, MT.pxy || 4)); });
+  const up = () => { MT.drag = null; };
+  cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
+  cv.addEventListener('keydown', e => { if (e.key === 'ArrowLeft') { matchSet(MT.L - 1); e.preventDefault(); } if (e.key === 'ArrowRight') { matchSet(MT.L + 1); e.preventDefault(); } });
+  $('#mpanel').addEventListener('click', e => { const b = e.target.closest('[data-act]'); if (b) act(b.dataset.act, b); });
+}
+
+/* ---------- 소리: 뒷산 솔바람, 아궁이 불, 나무를 두드리는 소리 ----------
+   바탕 소리는 미리 구워 둔 고리(loop)로 튼다. 휴대폰에서 끊기거나 지직거리지 않게. */
+const AU = { ctx: null, master: null, beds: {}, lv: {}, ready: false };
+const BAKE_SR = 22050;
+function noiseInto(c, sec) {
+  const b = c.createBuffer(1, Math.round(c.sampleRate * sec), c.sampleRate), d = b.getChannelData(0);
+  let p = 0;
+  for (let i = 0; i < d.length; i++) { const w = Math.random() * 2 - 1; p = 0.97 * p + 0.03 * w; d[i] = w * 0.55 + p * 1.6; }
+  const s = c.createBufferSource(); s.buffer = b; s.loop = true; return s;
+}
+function lfo(c, hz, depth, offset, target) {
+  const o = c.createOscillator(), g = c.createGain(); o.frequency.value = hz; g.gain.value = depth; o.connect(g); g.connect(target);
+  if (offset != null) target.value = offset;
+  o.start(); return o;
+}
+async function bakeLoop(ch, sec, build) {
+  const xf = 2, len = Math.round(sec * BAKE_SR), xl = Math.round(xf * BAKE_SR);
+  const oc = new OfflineAudioContext(ch, len + xl, BAKE_SR);
+  build(oc, oc.destination, sec + xf);
+  const buf = await oc.startRendering();
+  const out = AU.ctx.createBuffer(ch, len, BAKE_SR);
+  for (let k = 0; k < ch; k++) {
+    const src = buf.getChannelData(k), dst = out.getChannelData(k);
+    dst.set(src.subarray(0, len));
+    for (let i = 0; i < xl; i++) { const a = i / xl; dst[i] = src[i] * Math.sin(a * Math.PI / 2) + src[len + i] * Math.cos(a * Math.PI / 2); }
+  }
+  return out;
+}
+// 솔숲 바람: 높은 솔잎 소리가 밀려왔다 빠지고, 멀리 까치
+function pineBed(c, out, sec) {
+  const m = c.createChannelMerger(2), r = rng(1771);
+  [0, 1].forEach(side => {
+    const n = noiseInto(c, 6 + side), bp = c.createBiquadFilter(), g = c.createGain();
+    bp.type = 'bandpass'; bp.Q.value = 0.7; lfo(c, 0.07 + side * 0.02, 500, 1500 + side * 120, bp.frequency);
+    g.gain.value = 0; lfo(c, 0.09 + side * 0.025, 0.09, 0.11, g.gain);
+    n.connect(bp); bp.connect(g); g.connect(m, 0, side); n.start();
+    const ln = noiseInto(c, 7 + side), lp = c.createBiquadFilter(), lg = c.createGain();
+    lp.type = 'lowpass'; lp.frequency.value = 260; lg.gain.value = 0.05; ln.connect(lp); lp.connect(lg); lg.connect(m, 0, side); ln.start();
+  });
+  const bird = (t, pan, v) => {
+    const o = c.createOscillator(), g = c.createGain(), p = c.createStereoPanner ? c.createStereoPanner() : null, f0 = 1900 + r() * 500;
+    o.type = 'square'; o.frequency.setValueAtTime(f0, t); o.frequency.linearRampToValueAtTime(f0 * 0.82, t + 0.09);
+    const bp = c.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 2200; bp.Q.value = 3;
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(v, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 0.12);
+    o.connect(bp); bp.connect(g); if (p) { p.pan.value = pan; g.connect(p); p.connect(out); } else g.connect(out);
+    o.start(t); o.stop(t + 0.14);
+  };
+  for (let t = 3; t < sec - 2; t += 7 + r() * 9) { const pan = r() * 1.6 - 0.8, k = 3 + ((r() * 4) | 0); for (let i = 0; i < k; i++) bird(t + i * (0.16 + r() * 0.05), pan, 0.006 + r() * 0.006); }
+  m.connect(out);
+}
+// 아궁이 불: 툭툭 튀는 작은 소리와 낮은 웅웅거림(읽는 동안 낮게)
+function fireBed(c, out, sec) {
+  const r = rng(1937);
+  for (let t = 0.05; t < sec - 0.05; t += 0.05 + r() * 0.35) {
+    const s = c.createBufferSource(), len = Math.round(c.sampleRate * (0.003 + r() * 0.01)), b = c.createBuffer(1, len, c.sampleRate), d = b.getChannelData(0);
+    for (let i = 0; i < len; i++) d[i] = (r() * 2 - 1) * Math.pow(1 - i / len, 3);
+    s.buffer = b;
+    const bp = c.createBiquadFilter(), g = c.createGain(); bp.type = 'bandpass'; bp.frequency.value = 900 + r() * 2600; bp.Q.value = 1.2; g.gain.value = 0.05 + r() * 0.12;
+    s.connect(bp); bp.connect(g); g.connect(out); s.start(t);
+  }
+  const n = noiseInto(c, 5), lp = c.createBiquadFilter(), ng = c.createGain();
+  lp.type = 'lowpass'; lp.frequency.value = 180; ng.gain.value = 0.05; n.connect(lp); lp.connect(ng); ng.connect(out); n.start();
+}
+function auInit() {
+  if (AU.ctx) { if (AU.ctx.state !== 'running') AU.ctx.resume().catch(() => {}); return; }
+  const AC = window.AudioContext || window.webkitAudioContext;
+  if (!AC || typeof OfflineAudioContext === 'undefined') return;
+  try { AU.ctx = new AC({ latencyHint: 'playback' }); } catch (e) { try { AU.ctx = new AC(); } catch (e2) { return; } }
+  const c = AU.ctx, hp1 = c.createBiquadFilter(), hp2 = c.createBiquadFilter(), comp = c.createDynamicsCompressor(), mg = c.createGain();
+  hp1.type = hp2.type = 'highpass'; hp1.frequency.value = hp2.frequency.value = 70;
+  comp.threshold.value = -20; comp.knee.value = 8; comp.ratio.value = 4; comp.attack.value = 0.01; comp.release.value = 0.3;
+  mg.gain.value = 0;
+  hp1.connect(hp2); hp2.connect(comp); comp.connect(mg); mg.connect(c.destination);
+  AU.master = hp1; AU.out = mg;
+  (async () => {
+    try {
+      const pine = await bakeLoop(2, 30, pineBed), fire = await bakeLoop(1, 11, fireBed);
+      [['pine', pine], ['fire', fire]].forEach(([k, buf]) => {
+        const s = c.createBufferSource(), g = c.createGain(); s.buffer = buf; s.loop = true; g.gain.value = 0; s.connect(g); g.connect(AU.master); s.start();
+        AU.beds[k] = g; AU.lv[k] = 0;
+      });
+      AU.ready = true; auApply();
+    } catch (e) { /* no sound, the story still works */ }
+  })();
+  auApply();
+}
+function aim(k, v, sec) {
+  const g = AU.beds[k];
+  if (!g || Math.abs((AU.lv[k] || 0) - v) < 0.01) return;
+  AU.lv[k] = v;
+  const t = AU.ctx.currentTime; g.gain.cancelScheduledValues(t); g.gain.setTargetAtTime(v, t, sec || 0.9);
+}
+function auApply() {
+  if (!AU.ctx) return;
+  const t = AU.ctx.currentTime; AU.out.gain.cancelScheduledValues(t); AU.out.gain.setTargetAtTime(S.sound ? 0.9 : 0, t, 0.25);
+  if (!AU.ready) return;
+  const reader = !$('#reader').hidden || !$('#box').hidden, narr = NV.on && !NV.paused;
+  let pine = 0.8, fire = 0.0;
+  if (reader) { pine = 0.32; fire = 0.55; }
+  if (narr) { pine *= 0.55; fire *= 0.5; }
+  aim('pine', pine); aim('fire', fire);
+}
+function tone(type, f, t, d, v, f2) {
+  const c = AU.ctx, o = c.createOscillator(), g = c.createGain();
+  o.type = type; o.frequency.setValueAtTime(f, t); if (f2) o.frequency.linearRampToValueAtTime(f2, t + d);
+  g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(v, t + Math.min(0.01, d / 4)); g.gain.exponentialRampToValueAtTime(0.0001, t + d);
+  o.connect(g); g.connect(AU.master); o.start(t); o.stop(t + d + 0.05);
+}
+// 나무를 두드리는 소리: 맞았을 때 두 번
+function knock() {
+  if (!AU.ctx || !S.sound) return;
+  const now = AU.ctx.currentTime;
+  [0, 0.16].forEach((dt, i) => { tone('sine', 220 - i * 20, now + dt, 0.18, 0.22); tone('triangle', 610 - i * 40, now + dt, 0.07, 0.08); });
+}
+// 나이테 하나를 짚을 때: 아주 작은 톡
+function tick() { if (!AU.ctx || !S.sound) return; tone('sine', 1250, AU.ctx.currentTime, 0.05, 0.03); }
+function stampSound() {
+  if (!AU.ctx || !S.sound) return;
+  const c = AU.ctx, now = c.currentTime, b = c.createBuffer(1, Math.round(c.sampleRate * 0.08), c.sampleRate), d = b.getChannelData(0);
+  for (let i = 0; i < d.length; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / d.length, 3);
+  const s = c.createBufferSource(), lp = c.createBiquadFilter(), g = c.createGain(); s.buffer = b; lp.type = 'lowpass'; lp.frequency.value = 1400; g.gain.value = 0.5;
+  s.connect(lp); lp.connect(g); g.connect(AU.master); s.start(now);
+}
+
+/* ---------- 장 고르기 ---------- */
+const ICON = {
+  next: '<svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>',
+  ear: '<svg viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7"/></svg>',
+  ring: '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5.5"/><circle cx="12" cy="12" r="2"/></svg>',
+  match: '<svg viewBox="0 0 24 24"><path d="M3 8h18M3 16h18M7 5v6M12 5v6M17 5v6M7 13v6M12 13v6M17 13v6"/></svg>',
+  house: '<svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7M5 10v10h14V10M10 20v-6h4v6"/></svg>'
+};
+function renderStrip() {
+  $('#strip').innerHTML = CH.map((c, n) => `<button data-n="${n}" aria-label="${esc(chLabel(n, true))} ${esc(c.title)}"><span>${n === 0 ? '서' : n === LAST ? '맺음' : n}</span><i></i><span class="sw2">${esc(c.title)}</span></button>`).join('');
+  markStrip();
+}
+function markStrip() {
+  $$('#strip button').forEach(b => {
+    const n = +b.dataset.n;
+    b.classList.toggle('rd', isRead(n)); b.classList.toggle('on', n === M.sel); b.classList.toggle('lk', !isOpen(n));
+    if (n === M.sel) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current');
+  });
+  const on = $('#strip .on');
+  if (on && on.scrollIntoView) on.scrollIntoView({ block: 'nearest', inline: 'center', behavior: M.reduce ? 'auto' : 'smooth' });
+}
+function metaText(n) {
+  const key = sampleKeyOf(n), s = SMP[key];
+  if (key === 'house') return '집 그림 · 부재마다 알아낸 해';
+  if (key === 'master') return `${MS.name} · ${M_FIRST}~${M_LAST}년`;
+  if (!s) return '';
+  if (s.species === '오동나무') return `${s.name} · 나이테 ${s.len}개`;
+  return `${s.name} · 나이테 ${s.len}개 · ${isDated(s) ? `${s.first}~${s.last}년` : '아직 해를 모름'}`;
+}
+function updateCard() {
+  const n = M.sel, c = CH[n], read = isRead(n), open = isOpen(n), s = sampleOf(n);
+  const matchBtn = s && canDate(s) && s.bark !== 'live' && s.key !== 'new' ? `<button class="btn ghost" data-act="match">${ICON.match}맞춰 보기</button>` : '';
+  let acts;
+  if (!open) acts = `<p class="note">앞 장을 먼저 읽으면 열립니다.</p><button class="link" data-act="read">그래도 읽기</button>`;
+  else if (read) acts = `<div class="acts"><button class="btn" data-act="read">다시 읽기</button>${matchBtn || `<button class="btn ghost" data-act="listen">${ICON.ear}듣기</button>`}</div>`;
+  else acts = `<div class="acts"><button class="btn" data-act="read">${n === 0 ? '서 읽기' : '읽기'}</button><button class="btn ghost" data-act="listen">${ICON.ear}듣기</button></div>`;
+  $('#cbInner').innerHTML = `<p class="term">${esc(chLabel(n, true))}${read ? ' · 적음' : ''}</p><h2>${esc(c.title)}</h2><p class="sub">${esc(c.sub)}</p><p class="meta">${esc(metaText(n))}</p>${acts}`;
+}
+function select(n) {
+  M.sel = clamp(n, 0, LAST);
+  S.cur = M.sel; save();
+  markStrip(); updateCard();
+  viewSet(null);
+}
+
+/* ---------- 읽기 ---------- */
+const paraHTML = t => esc(t);
+// 한자는 귀로 들을 때 우리 소리로 읽는다
+const HANJA_SAY = [['歲次丁丑三月二十日午時立柱上樑', '세차 정축 삼월 이십일 오시 입주상량'], ['應天上之三光 備地上之五福', '응천상지삼광 비지상지오복'],
+  ['丙子秋大水 舊家漂沒 惟大樑得於川下 丁丑春移建于此', '병자추대수 구가표몰 유대량득어천하 정축춘이건우차'], ['檀紀四二八六年癸巳三月', '단기 사천이백팔십육년 계사 삼월'],
+  ['尹判石', '윤판석'], ['龍', '용'], ['龜', '귀'], ['…', ' ']];
+const sayHanja = t => HANJA_SAY.reduce((a, [h, k]) => a.split(h).join(k), t);
+const HAN = /[\u3400-\u9fff]/;
+const sayField = v => v.replace(/["“”]/g, '').replace(/\s*→\s*/g, ', ').replace(/\s*=\s*/g, ', 곧 ').replace(/\s*·\s*/g, ', ').replace(/\s*\/\s*/g, ', ').replace(/\s*\(([^)]*)\)/g, ', $1,').replace(/~/g, '에서 ');
+function recSay(rec) {
+  const bits = ['나이테 공책.'];
+  rec.fields.forEach(([k, v]) => {
+    if (k === '날짜') v = v.replace(/\(([월화수목금토일])\)/, '$1요일');
+    bits.push(`${k}, ${sayField(sayHanja(v))}.`);
+  });
+  rec.memo.forEach(m => bits.push(sayField(sayHanja(m))));
+  return bits.join(' ').replace(/\.\s*,/g, '.').replace(/,\s*,/g, ',').replace(/,\s*\./g, '.').replace(/\.\./g, '.').replace(/\s+/g, ' ');
+}
+function recHTML(rec, n, U) {
+  const date = field(rec, '날짜'), rows = rec.fields.filter(f => f[0] !== '날짜'), key = sampleKeyOf(n), s = SMP[key];
+  const quote = rows.filter(f => f[0] === '할매'), rest = rows.filter(f => f[0] !== '할매');
+  const btns = [];
+  if (s && canDate(s) && s.bark !== 'live' && s.key !== 'new') btns.push(`<button data-act="match">${ICON.match}맞춰 보기</button>`);
+  btns.push(`<button data-act="toView">${ICON.ring}${key === 'house' ? '집 그림 보기' : '나이테 보기'}</button>`);
+  if (key !== 'house' && n >= 12) btns.push(`<button data-act="house">${ICON.house}집 그림</button>`);
+  return `<section class="rec" data-u="${U}" data-kind="rec" data-role="rec" data-say="${esc(recSay(rec))}">
+    <p class="rh"><span>나이테 공책${n && n < LAST ? ` · 제${n}장` : ''}</span><span>${esc(date)}</span></p>
+    <div class="rw"><canvas data-mini="${esc(key)}" data-from="${fxOf(n).includes('calendar') ? +CH[n].focus : n === 9 && key === 'bohosu' ? 1 : ''}" role="img" aria-label="${esc(s ? s.name : '그림')}"></canvas>
+    <dl>${rest.map(([k, v]) => `<dt>${esc(k)}</dt>${/[㐀-鿿]{4,}/.test(v) ? `<dd class="han">${esc(v).replace(/ ?\(([^)]*)\)$/, (m, t) => /[㐀-鿿]/.test(t) ? m : `<span class="tr">${t}</span>`)}</dd>` : `<dd>${esc(v)}</dd>`}`).join('')}</dl></div>
+    ${quote.map(([, v]) => `<p class="quote">${esc(v)}</p>`).join('')}
+    <div class="memo">${rec.memo.map(m => `<p>${esc(m)}</p>`).join('')}</div>
+    <div class="ra">${btns.join('')}</div>
+  </section>`;
+}
+function renderChapter(n) {
+  const c = CH[n];
+  let U = 0;
+  const parts = [`<header class="chead"><p class="cl" data-u="${U++}" data-kind="head" data-say="${esc(n === 0 ? '서' : n === LAST ? '맺음' : `제${n}장. ${c.date}`)}">${esc(chLabel(n, true))}</p>
+    <h1 data-u="${U++}" data-kind="title">${esc(c.title)}</h1><p class="cs" data-u="${U++}" data-kind="sub">${esc(c.sub)}</p></header>`];
+  c.secs.forEach(sec => {
+    if (sec.t === 'story') {
+      sec.paras.forEach(p => {
+        if (p.trim() === '*') parts.push(`<span class="brk" data-u="${U++}" data-kind="break" aria-hidden="true">· · ·</span>`);
+        else if (/^[\u3400-\u9fff., ]+$/.test(p.trim())) parts.push(`<p class="han" data-u="${U++}" data-kind="p" data-say="${esc(sayHanja(p))}">${paraHTML(p)}</p>`);
+        else if (/^\d{4}(~\d{4})? /.test(p.trim())) parts.push(`<p class="cal" data-u="${U++}" data-kind="p" data-say="${esc(p.replace(/~/g, '년에서 ').replace(/^(\d{4})(?=\s)/, '$1년'))}">${paraHTML(p)}</p>`);
+        else if (HAN.test(p)) parts.push(`<p data-u="${U++}" data-kind="p" data-say="${esc(sayHanja(p))}">${paraHTML(p)}</p>`);
+        else parts.push(`<p data-u="${U++}" data-kind="p">${paraHTML(p)}</p>`);
+      });
+    } else if (sec.t === 'record') parts.push(recHTML(sec, n, U++));
+  });
+  parts.push(endHTML(n));
+  $('#rBody').innerHTML = parts.join('');
+  $('#rTitle').textContent = `${chLabel(n, true)} · ${c.title}`;
+  requestAnimationFrame(() => setTimeout(drawMinis, 60));
+}
+/* 공책 옆 작은 그림 */
+function miniDraw(cv, key, from) {
+  const w = cv.clientWidth, h = cv.clientHeight; if (!w || !h) return;
+  const d = Math.min(2, devicePixelRatio || 1); cv.width = Math.round(w * d); cv.height = Math.round(h * d);
+  const g = cv.getContext('2d'); g.setTransform(d, 0, 0, d, 0, 0);
+  g.fillStyle = '#2a221b'; g.fillRect(0, 0, w, h);
+  const s = SMP[key];
+  if (key === 'house') { g.fillStyle = '#efe6d6'; g.fillRect(0, 0, w, h); houseDraw(g, { l: 4, r: w - 4, t: 4, b: h - 4 }, { light: true }); return; }
+  if (key === 'master' || (s && s.shape === 'core')) {
+    const cs = coreSeries(key), y0 = Math.max(cs.first, from ? +from : cs.last - 70), k0 = y0 - cs.first, u0 = k0 ? cs.R[k0 - 1] : 0, u1 = cs.R[cs.len - 1], px = (w - 16) / (u1 - u0), H = h * 0.3, top = h / 2 - H / 2;
+    g.fillStyle = '#e8cfa2'; g.fillRect(8, top, w - 16, H);
+    for (let k = k0; k < cs.len; k++) { const xa = 8 + (cs.R[k] - cs.lw[k] - u0) * px, xb = 8 + (cs.R[k] - u0) * px; g.fillStyle = '#a7703e'; g.fillRect(xa, top, Math.max(0.7, xb - xa), H); }
+    g.font = `11px ${UIF()}`; g.fillStyle = 'rgba(243,231,211,.8)'; g.textAlign = 'left'; g.fillText(`${y0}`, 8, top + H + 14); g.textAlign = 'right'; g.fillText(`${cs.last}`, w - 8, top + H + 14);
+    return;
+  }
+  if (!s) return;
+  if (s.shape === 'board') {
+    const gg = geoOf(s), half = gg.Rout, pxmm = (w - 16) / (2 * half), T = h * 0.28, X0 = w / 2, Y0 = h / 2;
+    g.fillStyle = '#ead9bb'; g.fillRect(8, Y0 - T / 2, w - 16, T);
+    for (let k = 0; k < s.len; k++) { const x = gg.R[k] * pxmm, lw = Math.max(1, gg.lw[k] * pxmm); g.fillStyle = '#c2a984'; g.fillRect(X0 + x - lw, Y0 - T / 2, lw, T); g.fillRect(X0 - x, Y0 - T / 2, lw, T); }
+    return;
+  }
+  const gg = geoOf(s), sc = Math.min(w, h) / 2 * 0.86 / (gg.Rout * 1.16), im = renderDisk(s, sc);
+  g.drawImage(im.cv, w / 2 - im.size / 2, h / 2 - im.size / 2, im.size, im.size);
+  if (isDated(s)) { g.font = `11px ${UIF()}`; g.fillStyle = 'rgba(243,231,211,.85)'; g.textAlign = 'center'; g.fillText(s.species === '오동나무' ? '1929~1945' : `${s.first}~${s.last}`, w / 2, h - 6); }
+}
+function drawMinis() {
+  $$('#rBody canvas[data-mini], #pane canvas[data-mini]').forEach(cv => {
+    const w = cv.clientWidth, k = `${w}:${cv.dataset.mini}:${isDated(SMP[cv.dataset.mini]) ? 1 : 0}`;
+    if (!w || cv.dataset.done === k) return;
+    try { miniDraw(cv, cv.dataset.mini, cv.dataset.from); } catch (e) { console.error(e); }
+    cv.dataset.done = k;
+  });
+  const hc = $('#pane canvas[data-housebig]');
+  if (hc) {
+    const w = hc.clientWidth, h = hc.clientHeight, d = Math.min(2, devicePixelRatio || 1);
+    if (w && h) { hc.width = Math.round(w * d); hc.height = Math.round(h * d); const g = hc.getContext('2d'); g.setTransform(d, 0, 0, d, 0, 0); g.fillStyle = '#efe6d6'; g.fillRect(0, 0, w, h); houseDraw(g, { l: 6, r: w - 6, t: 6, b: h - 6 }, { light: true }); }
+  }
+}
+function endHTML(n) {
+  const seal = isRead(n)
+    ? `<span class="done"><span class="stamp">적음</span>나이테 공책에 적었습니다</span>`
+    : `<button class="btn" data-act="stamp">나이테 공책에 적기</button><p class="small">다 읽으셨으면 눌러 주세요. 그 나무의 해가 공책에 남습니다.</p>`;
+  if (n < LAST) return `<footer class="cend">${seal}<div class="acts"><button class="btn ghost" data-act="nextCh">다음 장 · ${esc(CH[n + 1].title)}${ICON.next}</button><button class="btn ghost" data-act="toView">작업대로</button></div></footer>`;
+  return `<footer class="cend">${seal}<p class="small">이 집의 나무들은 1779년부터 2026년까지의 해를 나눠 지고 있습니다. 공책의 집 그림에서 부재를 누르면 그 나이테로 갑니다. 아직 맞춰 보지 않은 나무가 있다면, 직접 밀어 보세요.</p>
+    <div class="acts"><button class="btn" data-act="house">${ICON.house}집 그림</button><button class="btn ghost" data-act="toView">작업대로</button></div></footer>`;
+}
+function openReader(n, listen) {
+  closeMatch(true);
+  M.paused = true;
+  if (NV.on && NV.n !== n) vStop();
+  select(n);
+  $('#reader').hidden = false; hideTitle(); $('#box').hidden = true;
+  renderChapter(n);
+  $('#reader').scrollTop = 0;
+  auApply();
+  if (listen) { const tok = NV.tok; setTimeout(() => { if (NV.tok === tok) vStart(n); }, 250); }
+}
+function closeReader() {
+  vStop();
+  $('#reader').hidden = true; M.paused = false;
+  markStrip(); updateCard(); auApply(); hudUpdate(); VW.dirty = true;
+}
+function markRead(n) {
+  if (isRead(n)) return;
+  S.read[n] = true; S.started = true; save();
+  markStrip(); updateCard();
+  VW.imgKey = ''; VW.dirty = true;
+}
+function stampHere(n) {
+  markRead(n); stampSound();
+  const f = $('#rBody .cend');
+  if (f) { const b = f.querySelector('[data-act=stamp]'), p = f.querySelector('.small'); if (b) b.outerHTML = `<span class="done"><span class="stamp stampfx">적음</span>나이테 공책에 적었습니다</span>`; if (p && n < LAST) p.remove(); }
+  const s = sampleOf(n);
+  if (s && s.ch === n && canDate(s) && !S.dated[s.key] && s.bark !== 'live' && s.key !== 'new') toast(`${s.short}의 해를 공책에 적었습니다. 맞춰 보기에서 직접 밀어 볼 수도 있어요.`, 4600);
+  else if (n < LAST) toast('공책에 적었습니다.');
+}
+
+/* ---------- 공책: 차례, 나이테 공책, 집, 말 사전, 설정 ---------- */
+let TAB = 'toc', GF = '전체', GQ = '';
+function openBox(tab) {
+  closeMatch(true);
+  TAB = tab || TAB;
+  hideTitle();
+  $('#box').hidden = false; M.paused = true;
+  renderPane(); auApply();
+}
+function closeBox() { $('#box').hidden = true; if ($('#reader').hidden) M.paused = false; auApply(); VW.dirty = true; }
+function renderPane() {
+  $$('#tabs button').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === TAB)));
+  const p = $('#pane');
+  if (TAB === 'toc') {
+    p.innerHTML = `<p class="small">${CH.filter((c, n) => isRead(n)).length} / ${CH.length} 장을 공책에 적었습니다.</p><ul class="toc">${CH.map((c, n) => `<li><button data-open="${n}" class="${isOpen(n) ? '' : 'lk'} ${n === M.sel ? 'cur' : ''}"><span class="t1">${esc(n === 0 ? '서' : n === LAST ? '맺음' : `제${n}장`)}</span><span class="t2">${esc(c.title)}<span class="t3">${esc(c.date)} · ${esc(c.sub)}</span></span>${isRead(n) ? '<span class="sm" aria-label="적음">적음</span>' : '<span></span>'}</button></li>`).join('')}</ul>`;
+  } else if (TAB === 'album') {
+    const list = RG.samples.slice().sort((a, b) => a.ch - b.ch);
+    p.innerHTML = `<p class="small">이 집에서 나이테를 센 나무들. 그 나무가 나오는 장을 읽거나 맞춰 보기에서 자리를 찾으면 해가 적힙니다.</p>
+      <div class="album">${list.map(s => {
+        const open = S.all || isOpen(s.ch) || isRead(s.ch), dated = isDated(s);
+        if (!open) return `<button disabled><span class="ph">${esc(chLabel(s.ch, true))}</span><b>아직</b></button>`;
+        const span = s.species === '오동나무' ? (dated ? '1929~1945년' : '해를 모름') : dated ? `${s.first}~${s.last}년` : '아직 해를 모름';
+        return `<button data-sample="${s.key}"><canvas data-mini="${s.key}"></canvas><b>${esc(s.short)}</b>${esc(s.species)} · 나이테 ${s.len}개<br>${esc(span)}${S.dated[s.key] ? ' · 직접 맞춤' : ''}</button>`;
+      }).join('')}</div>
+      <p class="small" style="margin-top:18px">맞춰 본 자리는 ${Object.keys(S.dated).length}곳입니다. 연대기는 이 지방 소나무 나이테를 겹쳐 이은 것으로 이야기 속 연구실의 자료입니다(지어낸 것).</p>`;
+    requestAnimationFrame(() => setTimeout(drawMinis, 30));
+  } else if (TAB === 'house') {
+    p.innerHTML = `<p class="small">안채를 대청 자리에서 잘라 본 그림과 사랑채, 언덕 위 보호수. 빛깔은 나무를 벤 해입니다. 부재를 누르면 그 나이테로 갑니다.</p>
+      <canvas class="hbig" data-housebig="1" role="img" aria-label="권씨네 집 단면 그림"></canvas>
+      <ul class="legend">${[['1870년 겨울', HCOL[1870], '신미 옛집의 들보'], ['1936년 겨울', HCOL[1936], '정축 안채'], ['1952년 겨울', HCOL[1952], '계사 사랑채'], ['1959년 겨울', HCOL[1959], '사라호 뒤 서까래'], ['2026년 겨울', HCOL[2026], '정미 새 나무'], ['살아 있음', HCOL.live, '보호수'], ['오동나무', HCOL.odong, '1929~1945 장롱'], ['아직', HCOL.none, '해를 모름']].map(([a, c, b]) => `<li><i style="background:${c}"></i><b>${a}</b> ${b}</li>`).join('')}</ul>`;
+    requestAnimationFrame(() => setTimeout(drawMinis, 30));
+  } else if (TAB === 'gloss') {
+    const ks = ['전체', ...new Set(D.glossary.map(g => g.k))];
+    const q = GQ.trim(), list = D.glossary.filter(g => (GF === '전체' || g.k === GF) && (!q || g.name.includes(q) || g.def.includes(q)));
+    p.innerHTML = `<div class="gfil">${ks.map(k => `<button data-gf="${esc(k)}" aria-pressed="${k === GF}">${esc(k)}</button>`).join('')}</div>
+      <input class="gsearch" id="gsq" type="search" placeholder="이름이나 뜻으로 찾기" value="${esc(GQ)}" aria-label="사전에서 찾기">
+      <ul class="gl">${list.map(g => `<li><b>${esc(g.name)}</b><span class="k">${esc(g.k)}</span><p>${esc(g.def)}</p>${g.ch != null && isOpen(g.ch) ? `<button class="link go" data-open="${g.ch}">${esc(chLabel(g.ch, true))}에서 읽기</button>` : ''}</li>`).join('') || '<li><p>찾는 말이 없습니다.</p></li>'}</ul>`;
+  } else {
+    p.innerHTML = `<div class="set">
+      <div class="row"><h3>소리</h3><button class="sw" data-act="sound" aria-pressed="${S.sound}" aria-label="소리"></button></div>
+      <p class="small" style="margin:-10px 0 0">작업대에서는 뒷산 솔바람이, 읽는 동안에는 아궁이 불 소리가 납니다.</p>
+      <h3>소리 내어 읽기</h3>${voiceSetHTML()}
+      <div class="row"><label for="vr">읽는 빠르기</label><input id="vr" type="range" min="0.7" max="1.4" step="0.05" value="${S.vrate}"></div>
+      <div class="row"><label for="fsr">글자 크기</label><input id="fsr" type="range" min="0.85" max="1.45" step="0.05" value="${S.fs}"></div>
+      <div class="row"><h3>모든 장 열어 두기</h3><button class="sw" data-act="all" aria-pressed="${!!S.all}" aria-label="모든 장 열어 두기"></button></div>
+      <div class="row"><h3>처음부터 다시</h3><button class="btn ghost" data-act="reset">지우기</button></div>
+      <p class="small">나이테 폭과 마스터 연대기는 이야기를 위해 지어낸 자료입니다. 다만 맞춰 보는 셈(5년 이동평균에 견준 지수, 상관계수, t값, G값)은 실제 연륜연대학에서 쓰는 방법을 따랐고, 1939년·2001년 가뭄 같은 표지 해는 실제로 있었던 일에 맞췄습니다. 읽은 장은 이 기기의 브라우저에만 남습니다.</p></div>`;
+  }
+}
+
+/* ---------- 집 그림: 안채를 대청 자리에서 자른 단면, 사랑채, 뒷산 보호수 ----------
+   부재마다 알아낸 벌채 연도를 적고, 해에 따라 빛깔을 달리한다. */
+const HCOL = { 1870: '#9a6436', 1936: '#c99541', 1952: '#86a35c', 1959: '#6b9bbd', 2026: '#e0563c', live: '#5f8f55', odong: '#b9a0cf', none: '#8f8880' };
+function memberCol(s) {
+  if (!s) return HCOL.none;
+  if (!isDated(s)) return HCOL.none;
+  if (s.bark === 'live') return HCOL.live;
+  if (s.species === '오동나무') return HCOL.odong;
+  return HCOL[s.last] || HCOL.none;
+}
+function memberLabel(s) {
+  if (!s) return '';
+  if (!isDated(s)) return `${s.short} · ?`;
+  if (s.bark === 'live') return `${s.short} · ${s.first}~ 살아 있음`;
+  if (s.species === '오동나무') return `${s.short} · 1929~1945`;
+  return `${s.short} · ${s.last}년 겨울`;
+}
+const memberShort = s => !s ? '' : !isDated(s) ? '?' : s.bark === 'live' ? '1771~' : s.species === '오동나무' ? '1929~45' : String(s.last);
+// 1000×600 안에 그린 것(쓰는 곳은 가로 30~990, 세로 40~560)을 상자에 맞춘다
+function houseFit(B) {
+  const k = Math.min((B.r - B.l) / 960, (B.b - B.t) / 520);
+  return { k, ox: (B.l + B.r) / 2 - 510 * k, oy: (B.t + B.b) / 2 - 300 * k };
+}
+function houseDraw(c, B, opt = {}) {
+  const { k, ox, oy } = houseFit(B), P = (x, y) => [ox + x * k, oy + y * k];
+  const L = (pts, w, col) => { c.beginPath(); pts.forEach(([x, y], i) => { const [X, Y] = P(x, y); i ? c.lineTo(X, Y) : c.moveTo(X, Y); }); c.lineWidth = w * k; c.strokeStyle = col; c.stroke(); };
+  const R = (x, y, w, h, col) => { const [X, Y] = P(x, y); c.fillStyle = col; c.fillRect(X, Y, w * k, h * k); };
+  const hits = [];
+  const ink = opt.light ? '#3a3026' : 'rgba(243,231,211,.8)', faint = opt.light ? 'rgba(58,48,38,.35)' : 'rgba(243,231,211,.28)';
+  c.save(); c.lineCap = 'round'; c.lineJoin = 'round';
+  // 뒷산과 보호수
+  c.beginPath(); [[0, 420], [60, 330], [150, 270], [260, 300], [330, 380], [380, 520], [0, 520]].forEach(([x, y], i) => { const [X, Y] = P(x, y); i ? c.lineTo(X, Y) : c.moveTo(X, Y); }); c.closePath();
+  c.fillStyle = opt.light ? 'rgba(120,140,100,.18)' : 'rgba(120,140,100,.16)'; c.fill();
+  const sb = SMP.bohosu, tc = memberCol(sb);
+  L([[150, 275], [146, 210], [152, 150], [140, 105]], 10, '#6b4a33');
+  L([[148, 170], [205, 140]], 5, '#6b4a33'); L([[147, 205], [95, 180]], 5, '#6b4a33');
+  [[140, 95, 46], [200, 128, 34], [92, 168, 30], [168, 70, 30]].forEach(([x, y, r]) => { const [X, Y] = P(x, y); c.fillStyle = tc === HCOL.none ? 'rgba(95,130,85,.55)' : tc; c.globalAlpha = 0.75; c.beginPath(); c.arc(X, Y, r * k, 0, 7); c.fill(); c.globalAlpha = 1; });
+  hits.push({ key: 'bohosu', x0: 60, y0: 50, x1: 250, y1: 280, lx: 150, ly: 300 });
+  // 땅
+  L([[0, 520], [1000, 520]], 2, faint);
+  // 안채: 기단, 기둥, 대들보, 동자주와 중도리, 대공과 종도리, 서까래, 지붕
+  R(296, 500, 392, 20, opt.light ? '#b9b1a3' : '#5a5148');
+  const sg = SMP.gidung, sd = SMP.daedeulbo, sj = SMP.jongdori;
+  R(352, 330, 18, 170, memberCol(sg)); R(612, 330, 18, 170, opt.light ? '#c9bfae' : 'rgba(201,191,174,.55)');
+  hits.push({ key: 'gidung', x0: 340, y0: 330, x1: 382, y1: 500, lx: 330, ly: 470, al: 'right' });
+  c.beginPath(); { const [a, b] = P(338, 342), [m1, m2] = P(490, 318), [e1, e2] = P(644, 342); c.moveTo(a, b); c.quadraticCurveTo(m1, m2, e1, e2); }
+  c.lineWidth = 26 * k; c.strokeStyle = memberCol(sd); c.stroke();
+  hits.push({ key: 'daedeulbo', x0: 340, y0: 312, x1: 644, y1: 356, lx: 490, ly: 378 });
+  // 쓰지 않는 장부 구멍 셋
+  if (isDated(sd)) [[420, 322], [492, 318], [566, 322]].forEach(([x, y]) => R(x - 5, y - 9, 10, 7, 'rgba(30,20,12,.8)'));
+  R(414, 268, 12, 52, opt.light ? '#b8a88e' : '#8c7a62'); R(554, 268, 12, 52, opt.light ? '#b8a88e' : '#8c7a62');
+  [[420, 262], [560, 262]].forEach(([x, y]) => { const [X, Y] = P(x, y); c.fillStyle = opt.light ? '#b8a88e' : '#8c7a62'; c.beginPath(); c.arc(X, Y, 11 * k, 0, 7); c.fill(); });
+  R(484, 222, 12, 96, opt.light ? '#b8a88e' : '#8c7a62');
+  R(466, 212, 48, 10, memberCol(sj));
+  { const [X, Y] = P(490, 200); c.fillStyle = memberCol(sj); c.beginPath(); c.arc(X, Y, 14 * k, 0, 7); c.fill(); }
+  hits.push({ key: 'jongdori', x0: 460, y0: 180, x1: 520, y1: 226, lx: 490, ly: 156 });
+  L([[490, 188], [262, 352]], 6, opt.light ? '#a8977e' : '#7d6c56'); L([[490, 188], [718, 352]], 6, opt.light ? '#a8977e' : '#7d6c56');
+  c.beginPath(); [[248, 350], [490, 168], [732, 350], [740, 342], [490, 150], [240, 342]].forEach(([x, y], i) => { const [X, Y] = P(x, y); i ? c.lineTo(X, Y) : c.moveTo(X, Y); }); c.closePath();
+  c.fillStyle = opt.light ? '#5d5a55' : '#3d3a36'; c.fill();
+  // 사랑채
+  R(770, 505, 180, 15, opt.light ? '#b9b1a3' : '#5a5148');
+  const ss = SMP.sarang, se = SMP.seo, sn = SMP.new, so = SMP.odong;
+  R(794, 400, 14, 105, memberCol(ss)); R(912, 400, 14, 105, opt.light ? '#c9bfae' : 'rgba(201,191,174,.55)');
+  hits.push({ key: 'sarang', x0: 784, y0: 400, x1: 818, y1: 505, lx: 801, ly: 545 });
+  L([[786, 398], [934, 398]], 14, opt.light ? '#b8a88e' : '#8c7a62');
+  { const [X, Y] = P(860, 342); c.fillStyle = opt.light ? '#b8a88e' : '#8c7a62'; c.beginPath(); c.arc(X, Y, 9 * k, 0, 7); c.fill(); }
+  R(856, 350, 8, 46, opt.light ? '#b8a88e' : '#8c7a62');
+  L([[860, 334], [760, 408]], 5, opt.light ? '#a8977e' : '#7d6c56'); L([[860, 334], [962, 408]], 5, opt.light ? '#a8977e' : '#7d6c56');
+  const showNew = sn && (S.all || isOpen(sn.ch));
+  L([[786, 384], [742, 418]], 7, memberCol(se));
+  hits.push({ key: 'seo', x0: 730, y0: 375, x1: 795, y1: 430, lx: 700, ly: 445, al: 'right' });
+  if (showNew) { L([[800, 374], [756, 406]], 7, memberCol(sn)); hits.push({ key: 'new', x0: 750, y0: 360, x1: 812, y1: 400, lx: 700, ly: 372, al: 'right' }); }
+  c.beginPath(); [[750, 406], [860, 324], [972, 406], [978, 400], [860, 310], [744, 400]].forEach(([x, y], i) => { const [X, Y] = P(x, y); i ? c.lineTo(X, Y) : c.moveTo(X, Y); }); c.closePath();
+  c.fillStyle = opt.light ? '#5d5a55' : '#3d3a36'; c.fill();
+  R(846, 452, 44, 52, memberCol(so)); { const [X, Y] = P(868, 470); c.fillStyle = 'rgba(40,30,20,.5)'; c.fillRect(X - 1, Y - 12 * k, 2, 26 * k); }
+  hits.push({ key: 'odong', x0: 840, y0: 446, x1: 896, y1: 506, lx: 868, ly: 438 });
+  // 이름표: 좁은 화면에서는 해만 적는다. 겹치면 아래로 비킨다
+  const shortLab = k < 0.62;
+  c.font = `${Math.round(clamp(13 * k * 1.25, 11, 15))}px ${UIF()}`; c.textBaseline = 'middle';
+  const placed = [];
+  hits.forEach(h => {
+    const s = SMP[h.key]; if (!s) return;
+    const open = S.all || isOpen(s.ch) || isRead(s.ch); if (!open) return;
+    let [X, Y] = P(h.lx, h.ly);
+    const t = shortLab ? memberShort(s) : memberLabel(s), w = c.measureText(t).width + 12, H = 20;
+    let bx = h.al === 'right' ? X - w : X - w / 2;
+    bx = clamp(bx, B.l, B.r - w);
+    for (let tries = 0; tries < 4 && placed.some(([a, b2, c2, d2]) => bx < c2 && bx + w > a && Y - H / 2 < d2 && Y + H / 2 > b2); tries++) Y += H + 2;
+    placed.push([bx, Y - H / 2, bx + w, Y + H / 2]);
+    c.fillStyle = opt.light ? 'rgba(255,252,245,.88)' : 'rgba(22,17,13,.76)'; c.fillRect(bx, Y - H / 2, w, H);
+    c.fillStyle = memberCol(s); c.fillRect(bx, Y - H / 2, 3, H);
+    c.textAlign = 'left'; c.fillStyle = opt.hl === h.key ? THREAD : opt.light ? '#2b241d' : '#f3e7d3'; c.fillText(t, bx + 7, Y);
+  });
+  c.restore();
+  if (!opt.light) VW.hitHouse = { hits, P, k, ox, oy };
+  return hits;
+}
+function houseHit(px, py) {
+  const H = VW.hitHouse; if (!H) return null;
+  const x = (px - H.ox) / H.k, y = (py - H.oy) / H.k;
+  const h = H.hits.find(m => x >= m.x0 - 6 && x <= m.x1 + 6 && y >= m.y0 - 6 && y <= m.y1 + 6);
+  return h ? h.key : null;
+}
+function houseGo(key) {
+  const s = SMP[key]; if (!s) return;
+  if (!(S.all || isOpen(s.ch) || isRead(s.ch))) { toast(`${s.ch === 0 ? '서를' : s.ch === LAST ? '맺음을' : `제${s.ch}장을`} 읽으면 볼 수 있습니다.`); return; }
+  viewSet(key);
+  toast(`${s.name}. 「${CH[s.ch].title}」에 나온 나무입니다.`, 3000);
+}
+
+/* ---------- reading aloud with the device's own Korean voices ---------- */
+const NV = { kind: null, why: '', voices: [], bad: new Set(), on: false, paused: false, n: -1, segs: [], idx: 0, tok: 0, err: 0, timer: 0, dog: 0, cur: null, lock: null, userScroll: 0, hi: null };
+const VR = { A: null, B: null, C: null };
+const MALE_RE = /(male|남성|injoon|hyunsu|bongjin|gookmin|minsu|jian|-x-koc|-x-kod|smtm)/i;
+const FEMALE_RE = /(female|여성|sunhi|heami|jimin|seohyeon|soonbok|yujin|yuna|sora|suhyun|google 한국|-x-ism|-x-kob|smtf)/i;
+const isMale = v => !!v && MALE_RE.test(v.name) && !/female/i.test(v.name);
+const isFemale = v => !!v && !isMale(v) && FEMALE_RE.test(v.name);
+const rateK = () => clamp(+S.vrate || 1, 0.6, 1.6);
+function scoreVoice(v) { let s = 0; if (/natural|neural|premium|enhanced|고품질/i.test(v.name)) s += 5; if (!v.net) s += 2; if (v.def) s += 1; return s + (v.q || 0) / 250; }
+function resolveRoles() {
+  const all = NV.voices.slice().sort((a, b) => scoreVoice(b) - scoreVoice(a));
+  const ok = all.filter(v => !v.missing && !NV.bad.has(v.name));
+  const named = nm => (nm && !NV.bad.has(nm) && all.find(v => v.name === nm)) || null;
+  VR.A = named(S.vA) || ok.find(isFemale) || ok[0] || null;
+  VR.C = named(S.vC) || ok.find(v => isMale(v) && v !== VR.A) || ok.find(v => v !== VR.A) || VR.A;
+  VR.B = VR.A;
+}
+function webVoices() {
+  let vs = [];
+  try { vs = speechSynthesis.getVoices() || []; } catch (e) { vs = []; }
+  return { any: vs.length, ko: vs.filter(v => /^ko([-_]|$)/i.test(v.lang || '')).map(v => ({ name: v.name, net: !v.localService, q: 0, def: !!v.default, obj: v })) };
+}
+function voiceDetect(cb) {
+  const done = () => { resolveRoles(); if (!$('#box').hidden && TAB === 'set') renderPane(); if (cb) cb(); };
+  if (window.NightVoice && typeof window.NightVoice.enqueue === 'function') {
+    const poll = k => {
+      let st = 'fail';
+      try { st = String(window.NightVoice.ready()); } catch (e) { st = 'fail'; }
+      if (st === 'wait' && k < 50) { setTimeout(() => poll(k + 1), 200); return; }
+      if (st !== 'ok') { NV.kind = 'none'; NV.why = st === 'nolang' ? 'nolang' : 'engine'; done(); return; }
+      let list = [];
+      try { list = JSON.parse(window.NightVoice.voices() || '[]'); } catch (e) { list = []; }
+      NV.voices = list.map(v => ({ name: String(v.name), net: !!v.net, q: +v.q || 0, missing: !!v.missing, def: !!v.def }));
+      NV.kind = 'native'; NV.why = '';
+      done();
+    };
+    poll(0);
+    return;
+  }
+  if (!('speechSynthesis' in window) || typeof SpeechSynthesisUtterance === 'undefined') { NV.kind = 'none'; NV.why = 'api'; done(); return; }
+  const take = () => {
+    const w = webVoices();
+    NV.voices = w.ko;
+    if (w.ko.length) { NV.kind = 'web'; NV.why = ''; }
+    else if (/; wv\)/.test(navigator.userAgent)) { NV.kind = 'none'; NV.why = 'webview'; }
+    else if (w.any) { NV.kind = 'none'; NV.why = 'nolang'; }
+    else { NV.kind = 'web'; NV.why = 'blind'; }
+    return w.ko.length > 0;
+  };
+  if (take()) { done(); return; }
+  let fin = false;
+  const end = () => { if (fin) return; fin = true; take(); done(); };
+  try { speechSynthesis.addEventListener('voiceschanged', () => { if (fin) { take(); done(); } else if (webVoices().ko.length) end(); }); } catch (e) { /* old browsers */ }
+  setTimeout(end, 1800);
+}
+const vSupported = () => NV.kind === 'native' || NV.kind === 'web';
+function whyMsg() {
+  if (NV.why === 'nolang') return '이 기기에는 한국어 음성이 없습니다. 기기 설정의 텍스트 음성 변환에서 한국어 음성을 내려받거나, 크롬·엣지·사파리에서 열어 주세요.';
+  if (NV.why === 'webview') return '이 화면 안에서는 소리 내어 읽을 수 없습니다. 크롬이나 사파리 같은 브라우저에서 열어 주세요.';
+  if (NV.why === 'engine') return '기기의 음성 엔진을 찾지 못했습니다. 설정의 텍스트 음성 변환을 확인해 주세요.';
+  if (NV.kind === null) return '목소리를 찾는 중입니다. 잠시 뒤에 다시 눌러 주세요.';
+  return '이 화면에서는 소리 내어 읽을 수 없습니다. 크롬이나 엣지, 사파리에서 열어 주세요.';
+}
+
+/* ---------- turning a chapter into spoken pieces ---------- */
+function splitSent(t) {
+  const out = [];
+  let s = 0;
+  for (let i = 0; i < t.length; i++) {
+    const c = t[i];
+    if (c === '.' || c === '?' || c === '!' || c === '…') {
+      let j = i + 1;
+      while (j < t.length && '”’".…?!'.includes(t[j])) j++;
+      if (j >= t.length || t[j] === ' ') { const p = t.slice(s, j).trim(); if (p) out.push(p); s = j; i = j - 1; }
+    }
+  }
+  const r = t.slice(s).trim();
+  if (r) out.push(r);
+  return out;
+}
+function splitLong(s, max) {
+  if (s.length <= max * 1.35) return [s];
+  const bits = s.split(', '), out = [];
+  let cur = '';
+  bits.forEach((b, i) => {
+    const piece = i < bits.length - 1 ? b + ',' : b;
+    if (cur && cur.length + piece.length + 1 > max) { out.push(cur); cur = piece; } else cur = cur ? cur + ' ' + piece : piece;
+  });
+  if (cur) out.push(cur);
+  return out;
+}
+function cleanSpeech(t) {
+  return String(t)
+    .replace(/[“”"‘’「」『』]/g, '')
+    .replace(/\s*[·―—–]\s*/g, ', ')
+    .replace(/~/g, ', ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+function rolePar(role) {
+  const A = VR.A, same = v => !v || !A || v.name === A.name;
+  if (role === 'rec') return { v: VR.C, pitch: same(VR.C) ? 1.12 : 1, rate: 0.94 };
+  return { v: VR.A, pitch: 1, rate: 1 };
+}
+const SLOW = { title: 0.86, sub: 0.92, head: 0.92, rec: 0.96 };
+const GAP = { title: 1300, sub: 1000, p: 560, head: 900, rec: 900, break: 1500 };
+function buildSegs() {
+  const segs = [{ gap: 600 }];
+  $$('#rBody [data-u]').forEach(el => {
+    const kind = el.dataset.kind, role = el.dataset.role, u = +el.dataset.u;
+    if (kind === 'break') { segs.push({ gap: GAP.break, u }); return; }
+    if (kind === 'head' || kind === 'rec') segs.push({ gap: 600, u });
+    const text = cleanSpeech(el.dataset.say != null ? el.dataset.say : el.textContent);
+    if (!text) return;
+    const parts = [];
+    splitSent(text).forEach(s => splitLong(s, 64).forEach(x => parts.push(x)));
+    parts.forEach((t, i) => segs.push({ text: t, role, u, first: i === 0, kind }));
+    segs.push({ gap: GAP[kind] || 560, u });
+  });
+  segs.push({ gap: 1000 });
+  return segs;
+}
+function segParams(s) {
+  const r = rolePar(s.role), base = NV.kind === 'native' ? 0.9 : 0.92;
+  return { name: r.v ? r.v.name : '', obj: r.v && r.v.obj, net: !!(r.v && r.v.net), rate: +clamp(base * r.rate * (SLOW[s.kind] || 1) * rateK(), 0.4, 2).toFixed(3), pitch: r.pitch };
+}
+
+/* ---------- the players: the app's own bridge, or the browser's speech ---------- */
+function vHalt() {
+  clearTimeout(NV.timer);
+  if (NV.kind === 'native') { try { window.NightVoice.stop(); } catch (e) { /* bridge gone */ } }
+  else if (NV.kind === 'web') { try { speechSynthesis.cancel(); } catch (e) { /* ignore */ } }
+}
+function vRun() {
+  clearTimeout(NV.timer);
+  if (NV.kind === 'native') { nativeEnqueue(NV.idx); return; }
+  const tok = NV.tok;
+  NV.timer = setTimeout(() => webNext(tok), 140);
+}
+function nativeEnqueue(from) {
+  const tok = NV.tok, k = rateK(), list = [];
+  for (let i = from; i < NV.segs.length; i++) {
+    const s = NV.segs[i], id = `${tok}:${i}`;
+    if (s.gap) list.push({ id, ms: Math.round(s.gap / k) });
+    else { const p = segParams(s); list.push({ id, text: s.text, voice: p.name, rate: p.rate, pitch: p.pitch, vol: 1 }); }
+  }
+  try { window.NightVoice.enqueue(JSON.stringify(list)); } catch (e) { vFail(); }
+}
+window.__voiceEvent = (type, id) => {
+  if (type === 'ready') { if (NV.kind !== 'web') voiceDetect(); return; }
+  const p = String(id).split(':'), tk = +p[0], ix = +p[1];
+  if (tk !== NV.tok || !NV.on || NV.paused || !(ix >= 0)) return;
+  if (type === 'start') {
+    segStart(ix);
+    if (ix === NV.segs.length - 1) { clearTimeout(NV.endT); NV.endT = setTimeout(() => { if (tk === NV.tok && NV.on && !NV.paused) chapterEnded(NV.n); }, NV.segs[ix].gap / rateK() + 2500); }
+  } else {
+    const s = NV.segs[ix];
+    if (type === 'error' && s && s.text) { if (++NV.err >= 3) { vFail(); return; } } else if (s && s.text) NV.err = 0;
+    NV.idx = ix + 1;
+    if (ix >= NV.segs.length - 1) chapterEnded(NV.n);
+  }
+};
+function webNext(tok) {
+  if (tok !== NV.tok || !NV.on || NV.paused) return;
+  if (NV.idx >= NV.segs.length) { chapterEnded(NV.n); return; }
+  const i = NV.idx, s = NV.segs[i];
+  segStart(i);
+  if (s.gap) { NV.timer = setTimeout(() => { if (tok !== NV.tok) return; NV.idx = i + 1; webNext(tok); }, s.gap / rateK()); return; }
+  const p = segParams(s), u = new SpeechSynthesisUtterance(s.text);
+  u.lang = 'ko-KR';
+  if (p.obj) u.voice = p.obj;
+  u.rate = p.rate; u.pitch = p.pitch; u.volume = 1;
+  const cur = { fired: false, started: false, t0: Date.now(), kick: Date.now(), net: p.net, name: p.name };
+  cur.fin = (ok, why) => {
+    if (cur.fired) return;
+    cur.fired = true;
+    if (tok !== NV.tok) return;
+    if (!ok) {
+      if (cur.net && cur.name && !NV.bad.has(cur.name) && why !== 'not-allowed') { NV.bad.add(cur.name); resolveRoles(); NV.timer = setTimeout(() => webNext(tok), 150); return; }
+      if (++NV.err >= 3) { vFail(); return; }
+    } else NV.err = 0;
+    NV.idx = i + 1;
+    NV.timer = setTimeout(() => webNext(tok), 30);
+  };
+  u.onstart = () => { cur.started = true; };
+  u.onend = () => cur.fin(true);
+  u.onerror = e => { const w = e && e.error; cur.fin(w === 'interrupted' || w === 'canceled', w); };
+  NV.cur = cur; NV.utt = u;
+  try { speechSynthesis.speak(u); } catch (e) { cur.fin(false); }
+}
+function webWatchdog() {
+  clearInterval(NV.dog);
+  if (NV.kind !== 'web') return;
+  const desktop = !/Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+  NV.dog = setInterval(() => {
+    const c = NV.cur;
+    if (!NV.on || NV.paused || !c || c.fired) return;
+    let speaking = true;
+    try { speaking = speechSynthesis.speaking || speechSynthesis.pending; } catch (e) { speaking = false; }
+    const age = Date.now() - c.t0;
+    if (!speaking && ((c.started && age > 1200) || age > 8000)) c.fin(true);
+    else if (desktop && /^Google/.test(c.name) && Date.now() - c.kick > 10000) { c.kick = Date.now(); try { speechSynthesis.pause(); speechSynthesis.resume(); } catch (e) { /* ignore */ } }
+  }, 1200);
+}
+function segStart(i) {
+  const s = NV.segs[i];
+  if (!s) return;
+  NV.idx = i;
+  if (s.u != null && !s.gap) highlight(s.u);
+  if (s.text) $('#pText').textContent = s.text;
+}
+function highlight(u) {
+  const el = $(`#rBody [data-u="${u}"]`);
+  if (el === NV.hi) return;
+  if (NV.hi) NV.hi.classList.remove('speaking');
+  NV.hi = el;
+  if (!el) return;
+  el.classList.add('speaking');
+  if (Date.now() - NV.userScroll < 5000) return;
+  const r = el.getBoundingClientRect();
+  if (r.top < 70 || r.bottom > innerHeight - 110) el.scrollIntoView({ block: 'center', behavior: M.reduce ? 'auto' : 'smooth' });
+}
+
+/* ---------- starting, pausing, moving about ---------- */
+function vUnlock() {
+  if (NV.kind === 'native' || window.NightVoice || !('speechSynthesis' in window) || vUnlock.done) return;
+  vUnlock.done = true;
+  try { const u = new SpeechSynthesisUtterance(' '); u.volume = 0; u.lang = 'ko-KR'; speechSynthesis.speak(u); } catch (e) { /* ignore */ }
+}
+function vStart(n, fromU) {
+  if (!vSupported()) { toast(whyMsg(), 6500); return; }
+  vUnlock();
+  auInit();
+  NV.n = n;
+  NV.segs = buildSegs();
+  NV.idx = 0;
+  if (fromU != null) { const k = NV.segs.findIndex(s => s.u === fromU && s.text); if (k >= 0) NV.idx = k; }
+  NV.on = true; NV.paused = false; NV.tok++; NV.err = 0; NV.userScroll = 0;
+  vHalt(); vRun(); webWatchdog();
+  $('#player').hidden = false; playerUpdate();
+  document.body.classList.add('narr');
+  auApply(); wake(true);
+}
+function vPause() { if (!NV.on || NV.paused) return; NV.paused = true; NV.tok++; vHalt(); playerUpdate(); auApply(); }
+function vResume() { if (!NV.on || !NV.paused) return; NV.paused = false; NV.tok++; const s = NV.segs[NV.idx]; if (s && s.gap) NV.idx++; vRun(); playerUpdate(); auApply(); }
+function vStop() {
+  NV.tok++; clearTimeout(NV.timer);
+  if (!NV.on && $('#player').hidden) return;
+  NV.on = false; NV.paused = false;
+  vHalt(); clearInterval(NV.dog);
+  document.body.classList.remove('narr');
+  if (NV.hi) { NV.hi.classList.remove('speaking'); NV.hi = null; }
+  $('#player').hidden = true;
+  auApply(); wake(false);
+}
+function vFail() { vStop(); toast('목소리가 자꾸 끊깁니다. 설정에서 다른 목소리를 골라 보세요.', 6000); }
+function vGoto(i) { NV.idx = clamp(i, 0, NV.segs.length - 1); NV.tok++; vHalt(); if (NV.paused) { NV.paused = false; } vRun(); playerUpdate(); }
+function vSkip(dir) {
+  const cur = NV.segs[NV.idx], u = cur ? cur.u : 0;
+  let i = NV.idx;
+  if (dir > 0) { while (i < NV.segs.length && !(NV.segs[i].text && NV.segs[i].u > u)) i++; }
+  else { const target = Math.max(0, (u || 0) - 1); i = NV.segs.findIndex(s => s.text && s.u >= target); }
+  if (i < 0 || i >= NV.segs.length) return;
+  vGoto(i);
+}
+function vJump(u) { const i = NV.segs.findIndex(s => s.text && s.u === u); if (i >= 0) vGoto(i); }
+function listenTap() {
+  if (NV.on) { NV.paused ? vResume() : vPause(); return; }
+  const n = S.cur, top = $('.rhead').getBoundingClientRect().bottom + 8;
+  const first = $$('#rBody [data-u]').find(el => el.getBoundingClientRect().bottom > top);
+  vStart(n, first && $('#reader').scrollTop > 40 ? +first.dataset.u : null);
+}
+function chapterEnded(n) {
+  if (NV.n !== n || !NV.on) return;
+  if (n >= LAST) { vStop(); if (!isRead(n)) stampHere(n); const f = $('#rBody .cend'); if (f) f.scrollIntoView({ block: 'center', behavior: 'smooth' }); return; }
+  if (!isRead(n)) stampHere(n);
+  const tok = ++NV.tok;
+  toast(`다음 장, ${CH[n + 1].title}`);
+  NV.timer = setTimeout(() => { if (tok !== NV.tok || !NV.on) return; openReader(n + 1, true); }, 2800);
+}
+function playerUpdate() {
+  const t = $('#pToggle');
+  t.setAttribute('aria-label', NV.paused ? '이어 읽기' : '멈춤');
+  t.querySelector('.pp').setAttribute('d', NV.paused ? 'M8 5l11 7-11 7z' : 'M9 6v12M15 6v12');
+  $('#pRate').textContent = `${(+S.vrate).toFixed(2).replace(/0$/, '').replace(/\.0$/, '')}×`;
+}
+const RATES = [0.85, 1, 1.15, 1.3];
+function playerAct(a) {
+  if (a === 'toggle') NV.paused ? vResume() : vPause();
+  else if (a === 'stop') vStop();
+  else if (a === 'next') vSkip(1);
+  else if (a === 'prev') vSkip(-1);
+  else if (a === 'rate') {
+    const i = RATES.findIndex(r => r >= (+S.vrate) - 0.01);
+    S.vrate = RATES[(i + 1) % RATES.length]; save();
+    if (NV.on && !NV.paused) vGoto(NV.idx);
+    playerUpdate();
+  }
+}
+async function wake(on) {
+  try { if (window.NightVoice && window.NightVoice.awake) window.NightVoice.awake(!!on); } catch (e) { /* ignore */ }
+  try {
+    if (on && 'wakeLock' in navigator && !NV.lock) { NV.lock = await navigator.wakeLock.request('screen'); NV.lock.addEventListener('release', () => { NV.lock = null; }); }
+    else if (!on && NV.lock) { await NV.lock.release(); NV.lock = null; }
+  } catch (e) { NV.lock = null; }
+}
+function voiceSetHTML() {
+  if (!vSupported()) return `<p class="small">${esc(whyMsg())}</p>`;
+  if (!NV.voices.length) return '<p class="small">기기의 기본 한국어 목소리로 읽습니다.</p>';
+  const opt = sel => NV.voices.map(v => `<option value="${esc(v.name)}"${sel && sel.name === v.name ? ' selected' : ''}>${esc(v.name.replace(/^Microsoft |^Google /, ''))}${v.net ? ' (온라인)' : ''}</option>`).join('');
+  return `<div class="row"><label for="vA">단비의 목소리</label><select id="vA" data-v="vA">${opt(VR.A)}</select></div>
+    <div class="row"><label for="vC">공책의 목소리</label><select id="vC" data-v="vC">${opt(VR.C)}</select></div>
+    <p class="small">장 끝의 나이테 공책은 다른 목소리로 읽습니다.</p>`;
+}
+
+function firstUnread() { for (let n = 0; n <= LAST; n++) if (!isRead(n)) return n; return LAST; }
+function showTitle() {
+  const nx = firstUnread(), any = S.read.some(Boolean), all = CH.every((c, n) => isRead(n));
+  $('#tActs').innerHTML = all
+    ? `<button class="btn" data-t="house">${ICON.house}집 그림 보기</button><button class="btn ghost" data-t="look">작업대 둘러보기</button>`
+    : any
+    ? `<button class="btn" data-t="resume">이어 읽기 · ${esc(CH[nx].title)}</button><button class="btn ghost" data-t="look">작업대 둘러보기</button>`
+    : `<button class="btn" data-t="start">읽기 시작</button><button class="btn ghost" data-t="look">작업대 둘러보기</button>`;
+  $('#title').hidden = false; $('#app').classList.add('titled');
+  VW.title = true; VW.grow = 0; VW.growing = !M.reduce; if (M.reduce) VW.grow = 1;
+  viewResize(); hudUpdate();
+}
+function leaveTitle() {
+  hideTitle(); VW.title = false; VW.grow = 1; VW.growing = false; viewResize(); hudUpdate();
+}
+function back() {
+  if (MT.on) { closeMatch(); return; }
+  if (!$('#box').hidden) { closeBox(); return; }
+  if (!$('#reader').hidden) { closeReader(); return; }
+  if (VW.over) { viewSet(null); return; }
+}
+let resetArm = 0;
+function act(a, el) {
+  switch (a) {
+    case 'read': openReader(M.sel); break;
+    case 'listen': if (el && el.closest('#reader')) listenTap(); else openReader(M.sel, true); break;
+    case 'match': { const s = sampleOf(M.sel); if ($('#reader').hidden === false) closeReader(); if (!$('#box').hidden) closeBox(); openMatch(VW.over || (s && s.key)); break; }
+    case 'toView': closeReader(); closeBox(); viewSet(null); break;
+    case 'house': closeReader(); openBox('house'); break;
+    case 'stamp': stampHere(S.cur); break;
+    case 'nextCh': openReader(S.cur + 1); break;
+    case 'closeReader': closeReader(); break;
+    case 'closeBox': closeBox(); break;
+    case 'closeMatch': closeMatch(); break;
+    case 'fsDown': setFS(S.fs - 0.05); break;
+    case 'fsUp': setFS(S.fs + 0.05); break;
+    case 'sound': setSound(!S.sound, true); renderPane(); break;
+    case 'all': S.all = !S.all; save(); renderStrip(); updateCard(); renderPane(); VW.imgKey = ''; VW.dirty = true; break;
+    case 'reset':
+      if (Date.now() - resetArm > 4000) { resetArm = Date.now(); el.textContent = '정말 지울까요? 한 번 더 누르세요'; break; }
+      S.read = []; S.cur = 0; S.started = false; S.all = false; S.dated = {}; S.tries = 0; save();
+      renderStrip(); select(0); renderPane(); closeBox(); showTitle(); toast('처음으로 되돌렸습니다. 다시 시월 마지막 주입니다.');
+      break;
+  }
+}
+function paneClick(e) {
+  const t = e.target.closest('button, canvas[data-housebig]');
+  if (!t) return;
+  if (t.dataset.tab) { TAB = t.dataset.tab; renderPane(); return; }
+  if (t.dataset.open != null) { closeBox(); openReader(+t.dataset.open); return; }
+  if (t.dataset.sample) { closeBox(); houseGo(t.dataset.sample); return; }
+  if (t.dataset.housebig) {
+    const r = t.getBoundingClientRect(), hits = houseDraw(document.createElement('canvas').getContext('2d'), { l: 6, r: r.width - 6, t: 6, b: r.height - 6 }, { light: true });
+    const { k, ox, oy } = houseFit({ l: 6, r: r.width - 6, t: 6, b: r.height - 6 }), x = (e.clientX - r.left - ox) / k, y = (e.clientY - r.top - oy) / k;
+    const h = hits.find(m => x >= m.x0 - 8 && x <= m.x1 + 8 && y >= m.y0 - 8 && y <= m.y1 + 8);
+    if (h) { closeBox(); houseGo(h.key); }
+    return;
+  }
+  if (t.dataset.gf != null) { GF = t.dataset.gf; renderPane(); return; }
+  if (t.dataset.act) act(t.dataset.act, t);
+}
+function paneInput(e) {
+  const t = e.target;
+  if (t.id === 'gsq') { GQ = t.value; const pos = t.selectionStart; renderPane(); const q = $('#gsq'); if (q) { q.focus(); try { q.setSelectionRange(pos, pos); } catch (x) { /* ignore */ } } }
+  else if (t.id === 'vr') { S.vrate = +t.value; save(); if (NV.on) playerUpdate(); }
+  else if (t.id === 'fsr') setFS(+t.value);
+  else if (t.dataset.v) { S[t.dataset.v] = t.value; save(); resolveRoles(); }
+}
+function bindUI() {
+  $('#strip').addEventListener('click', e => { const b = e.target.closest('button[data-n]'); if (b) select(+b.dataset.n); });
+  $('#cbInner').addEventListener('click', e => { const b = e.target.closest('[data-act]'); if (b) act(b.dataset.act, b); });
+  $('#tActs').addEventListener('click', e => {
+    const b = e.target.closest('[data-t]'); if (!b) return;
+    auInit(); S.started = true; save();
+    leaveTitle();
+    if (b.dataset.t === 'start') openReader(0);
+    else if (b.dataset.t === 'resume') openReader(firstUnread());
+    else if (b.dataset.t === 'house') openBox('house');
+  });
+  $('#reader').addEventListener('click', e => {
+    const cv = e.target.closest('canvas[data-mini]');
+    if (cv) { closeReader(); viewSet(cv.dataset.mini === sampleKeyOf(M.sel) ? null : cv.dataset.mini); return; }
+    const b = e.target.closest('[data-act]'); if (b) act(b.dataset.act, b);
+  });
+  $('#reader').addEventListener('scroll', () => { NV.userScroll = Date.now(); }, { passive: true });
+  $('#rBody').addEventListener('dblclick', e => { const p = e.target.closest('[data-u]'); if (p && NV.on) vJump(+p.dataset.u); });
+  $('#player').addEventListener('click', e => { const b = e.target.closest('[data-p]'); if (b) playerAct(b.dataset.p); });
+  $('#box').addEventListener('click', e => { const b = e.target.closest('[data-act=closeBox]'); if (b) closeBox(); });
+  $('#tabs').addEventListener('click', paneClick);
+  $('#pane').addEventListener('click', paneClick);
+  $('#pane').addEventListener('input', paneInput);
+  $('#pane').addEventListener('change', paneInput);
+  $('#btnSound').addEventListener('click', () => setSound(!S.sound));
+  $('#btnBox').addEventListener('click', () => openBox());
+  $('#btnHouse').addEventListener('click', () => openBox('house'));
+  $('#hudMatch').addEventListener('click', () => { const s = SMP[viewKey()]; if (s) openMatch(s.key); });
+  $('#hudGrow').addEventListener('click', () => growStart());
+  $('#hudBack').addEventListener('click', () => viewSet(null));
+  bindMatch();
+  const cv = $('#cv');
+  let down = null;
+  cv.addEventListener('pointerdown', e => {
+    if ($('#app').classList.contains('titled')) return;
+    auInit();
+    down = { x: e.clientX, y: e.clientY, pan: VW.pan, moved: false };
+    try { cv.setPointerCapture(e.pointerId); } catch (x) { /* ignore */ }
+  });
+  cv.addEventListener('pointermove', e => {
+    const mode = viewMode(viewKey());
+    if (down) {
+      const dx = e.clientX - down.x;
+      if (Math.abs(dx) > 6) down.moved = true;
+      if (down.moved && (mode === 'core' || mode === 'chron') && down.pan != null) { VW.pan = down.pan - dx / VW.pxmm; VW.dirty = true; }
+      return;
+    }
+    if (e.pointerType === 'mouse' && !$('#app').classList.contains('titled')) {
+      if (mode === 'house') { const m = houseHit(e.clientX, e.clientY); const s = m && SMP[m]; const t = s ? `${s.name} · 눌러서 나이테 보기` : null; if (t !== VW.houseHover) { VW.houseHover = t; hudUpdate(); } cv.style.cursor = m ? 'pointer' : ''; return; }
+      setHover(viewPick(e.clientX, e.clientY));
+    }
+  });
+  cv.addEventListener('pointerup', e => {
+    if (!down) return;
+    const moved = down.moved; down = null;
+    if (moved) return;
+    viewTap(e.clientX, e.clientY);
+  });
+  cv.addEventListener('pointercancel', () => { down = null; });
+  cv.addEventListener('wheel', e => {
+    const mode = viewMode(viewKey());
+    if (mode !== 'core' && mode !== 'chron') return;
+    e.preventDefault();
+    const f = e.deltaY > 0 ? 1 / 1.15 : 1.15, u = VW.pan + (e.clientX - VW.box.l) / VW.pxmm;
+    VW.pxmm = clamp(VW.pxmm * f, 0.4, 60); VW.pan = u - (e.clientX - VW.box.l) / VW.pxmm; VW.dirty = true;
+  }, { passive: false });
+  $('#zoomIn').addEventListener('click', () => zoomCore(1.5));
+  $('#zoomOut').addEventListener('click', () => zoomCore(1 / 1.5));
+  if (window.ResizeObserver) {
+    let lastTop = -1;
+    new ResizeObserver(() => {
+      const r = $('#card').getBoundingClientRect();
+      if (!r.height || Math.abs(r.top - lastTop) < 4) return;
+      const first = lastTop < 0; lastTop = r.top;
+      if (!first) viewResize();
+    }).observe($('#card'));
+  }
+  addEventListener('keydown', e => { if (e.key === 'Escape') back(); });
+  addEventListener('resize', () => {
+    clearTimeout(bindUI.rt);
+    bindUI.rt = setTimeout(() => { viewResize(); markStrip(); drawMinis(); if (MT.on) matchDraw(); }, 140);
+  });
+  document.addEventListener('visibilitychange', () => { if (AU.ctx) { if (document.hidden) AU.ctx.suspend().catch(() => {}); else if (S.sound) AU.ctx.resume().catch(() => {}); } });
+}
+function zoomCore(f) {
+  const B = VW.box, cx = (B.l + B.r) / 2, u = VW.pan + (cx - B.l) / VW.pxmm;
+  VW.pxmm = clamp(VW.pxmm * f, 0.4, 60); VW.pan = u - (cx - B.l) / VW.pxmm; VW.dirty = true;
+}
+let lastTs = 0;
+function loop(ts) {
+  const dt = Math.min(0.05, (ts - lastTs) / 1000 || 0.016);
+  lastTs = ts;
+  requestAnimationFrame(loop);
+  try {
+    if (!M.paused || VW.title) viewDraw(dt);
+    const mode = viewMode(viewKey()), z = $('#zoom');
+    if (z) z.hidden = !(mode === 'core' || mode === 'chron') || VW.title || MT.on;
+  } catch (e) { if (!loop.warned) { loop.warned = true; console.error(e); } }
+}
+function boot() {
+  if (window.__STANDALONE) { const h = $('#home'); if (h) h.hidden = true; }
+  document.documentElement.style.setProperty('--fs', S.fs);
+  renderStrip();
+  M.sel = clamp(S.cur || 0, 0, LAST);
+  select(M.sel);
+  bindUI();
+  setSound(S.sound, true);
+  showTitle();
+  voiceDetect();
+  requestAnimationFrame(loop);
+  window.__t = { S, CH, D, VW, MT, SMP, MS, openReader, openMatch, matchSet, matchAt, select, markRead, viewSet, houseGo, growStart, closeMatch, isDated };
+}
+boot();
+
+})();
+</script>
+</body>
+</html>
