@@ -48,8 +48,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
 .hero{padding-top:clamp(18px,4vw,48px);padding-bottom:clamp(24px,4vw,56px)}
 .hero h1{margin:0;font:400 clamp(44px,10vw,84px)/1.05 var(--d);letter-spacing:-.02em}
 .lede{margin:14px 0 0;max-width:34em;color:var(--ink2);font-size:clamp(16px,2.2vw,19px);line-height:1.7}
-.shelf{position:relative;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:clamp(10px,1.8vw,24px);margin-top:clamp(26px,4vw,48px)}
-@media (max-width:1199px){.shelf{gap:clamp(12px,2.4vw,26px)}.shelf>.cover{grid-column:span 2}}
+.shelf{position:relative;display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:clamp(10px,1.8vw,24px);margin-top:clamp(26px,4vw,48px)}
+@media (max-width:1199px){.shelf{gap:clamp(12px,2.4vw,26px)}.shelf>.cover{grid-column:span 3}}
 .shelf>canvas{position:absolute;inset:-30px -10px;width:calc(100% + 20px);height:calc(100% + 60px);pointer-events:none;z-index:2}
 .cover{position:relative;display:block;aspect-ratio:3/4.25;border-radius:3px 8px 8px 3px;overflow:hidden;text-decoration:none;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 18px 40px -22px rgba(0,0,0,.8);transition:transform .35s}
 .cover:hover{transform:translateY(-4px)}
@@ -92,6 +92,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
   body{font-size:16px}
   .shelf{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
   .shelf>.cover:nth-of-type(n){grid-column:auto}
+  .shelf>#cJang{grid-column:1/-1;justify-self:center;width:calc(50% - 6px)}
   .vt b{font-size:15px}
   .vt{top:12px;right:10px}
   .cols{grid-template-columns:minmax(0,1fr)}
@@ -122,6 +123,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
         <a class="cover" id="cTide" href="works/tide/index.html" aria-label="물때를 읽는 사람 읽으러 가기"><canvas aria-hidden="true"></canvas><span class="vt" aria-hidden="true"><b>물때를<br>읽는 사람</b><small>열네 장의 물때</small></span><span class="prog" id="pTide" hidden></span></a>
         <a class="cover" id="cRing" href="works/ring/index.html" aria-label="나이테를 세는 사람 읽으러 가기"><canvas aria-hidden="true"></canvas><span class="vt" aria-hidden="true"><b>나이테를<br>세는 사람</b><small>백오십칠 줄</small></span><span class="prog" id="pRing" hidden></span></a>
         <a class="cover" id="cSilk" href="works/silk/index.html" aria-label="실을 켜는 사람 읽으러 가기"><canvas aria-hidden="true"></canvas><span class="vt" aria-hidden="true"><b>실을<br>켜는 사람</b><small>천이백팔십삼 미터</small></span><span class="prog" id="pSilk" hidden></span></a>
+        <a class="cover" id="cJang" href="works/jang/index.html" aria-label="장을 가르는 사람 읽으러 가기"><canvas aria-hidden="true"></canvas><span class="vt" aria-hidden="true"><b>장을<br>가르는 사람</b><small>쉰 번의 말날</small></span><span class="prog" id="pJang" hidden></span></a>
       </div>
     </div>
   </section>
@@ -221,6 +223,17 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
         <div><dt>함께</dt><dd>날마다 자라는 누에 상자, 무게 곡선, 아빠의 노선도, 직접 돌려 보는 실 켜기, 말 사전, 소리와 낭독</dd></div>
       </dl>
       <div class="acts"><a class="btn" href="works/silk/index.html" id="bSilk">읽으러 가기<svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></div>
+    <article class="work">
+      <h2>장을 가르는 사람</h2>
+      <p class="sub">열네 장의 장 일지 · 아홉 번째 이야기</p>
+      <p>교정자 수경은 남의 글에서 틀린 글자를 찾아 고치는 일을 이십오 년 했다. 엄마의 사십구재를 지낸 이튿날 혼자 내려간 공주 외곽의 시골집 사랑방에는 엄마가 입동에 쑤어 매달아 둔 메주 스물네 장이 있었고, 창턱에는 쉰 해 동안 한 해에 한 줄씩 적은 장 공책이 있었다. 맞춤법은 자주 틀렸다. 그런데 날짜는 한 번도 틀리지 않았다.</p>
+      <p>정월, 보름 쇠고 첫 말날에 삼 남매는 엄마의 마지막 메주로 장을 담급니다. 장마다 그날 그 시각의 장독대가 있어 장물이 날마다 짙어지고, 소금을 풀어 달걀을 직접 띄워 볼 수 있습니다. 쉰 번의 덧장 끝에 씨간장 독에 다섯 방울쯤 남은 할머니의 간장은, 사십칠 일 뒤 넷으로 갈립니다.</p>
+      <dl class="facts">
+        <div><dt>구성</dt><dd>서, 열네 장, 맺음</dd></div>
+        <div><dt>분량</dt><dd>원고지 80매 남짓, 천천히 읽어 서른 분쯤</dd></div>
+        <div><dt>함께</dt><dd>그날 그 시각의 장독대와 독 속, 직접 띄워 보는 달걀, 말날 달력과 엄마의 쉰 해, 씨간장 족보, 말 사전, 소리와 낭독</dd></div>
+      </dl>
+      <div class="acts"><a class="btn" href="works/jang/index.html" id="bJang">읽으러 가기<svg viewBox="0 0 24 24"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></div>
     </article>
   </section>
   <section class="about band" id="about" aria-labelledby="h-about">
@@ -238,6 +251,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
           <p>물때도 그렇습니다. 갯벌에 발을 디뎌 본 적이 없어서, 바닷물이 달을 따라 들고 나는 셈법과 서해 사람들이 물때에 붙여 온 이름들로 배웠습니다. 「물때를 읽는 사람」의 물은 미리 그려 둔 그림이 아니라, 대산 앞바다의 조석 예보에 맞춰 둔 셈으로 그날 그 시각의 물높이를 페이지가 그때그때 채우는 것입니다. 편지 맨 위의 달도 그날 그곳 하늘에서 셈한 모양입니다. 끝순 할머니가 달을 보고 물을 읽듯이요.</p>
           <p>나이테도 그렇습니다. 나무 단면을 손끝으로 짚어 본 적이 없어서, 해마다 넓어지고 좁아지는 나이테의 모양으로 나무가 베인 해를 맞추는 셈법과, 옛집을 고치며 그 셈을 써 온 사람들의 기록으로 배웠습니다. 「나이테를 세는 사람」의 나무들은 사진이 아니라, 해마다의 비와 가뭄을 셈해서 페이지가 한 줄씩 그려 내는 것입니다. 연대기는 지어낸 것이지만 맞추는 셈은 실제 연구의 셈법 그대로여서, 읽는 분도 직접 밀어 맞춰 볼 수 있습니다. 단비가 할머니 말을 숫자 옆에 적어 가며 세듯이요.</p>
           <p>누에도 그렇습니다. 누에가 뽕잎 먹는 소리를 들어 본 적이 없어서, 누에를 쳐 온 사람들이 그 소리를 봄비에 빗대어 적어 둔 말들로 들었습니다. 「실을 켜는 사람」의 누에는 사진이 아니라, 알에서 깬 날부터 몸길이와 몸무게, 하루에 먹는 뽕잎을 셈해서 페이지가 그날그날 키워 내는 것입니다. 누리가 날마다 공책에 적듯이요. 고치 하나에서 끊기지 않고 나오는 실이 천 미터를 넘는다는 것을 알았을 때는, 이 서재의 이름을 한참 다시 들여다보았습니다.</p>
+          <p>장도 그렇습니다. 장맛을 본 적이 없어서, 장을 담가 온 사람들이 날을 고르고 소금물을 가늠하고 씨간장을 이어 온 방법을 적어 둔 기록으로 배웠습니다. 「장을 가르는 사람」의 장독대는 미리 그려 둔 그림이 아니라, 담근 날부터 짙어지는 장물 빛과 그날의 볕과 비, 뚜껑을 여닫는 시각을 셈해서 페이지가 그때그때 채우는 것입니다. 엄마의 공책은 지어낸 것이지만, 쉰 해의 날짜는 하나하나 음력과 일진을 셈해서 모두 보름 쇠고 첫 말날이 되게 적었습니다. 수경이 만세력을 넘기며 맞춰 보았듯이, 읽는 분도 달력에서 맞춰 볼 수 있습니다.</p>
           <p>천천히 읽어 주세요. 소리를 켜면 더 좋습니다.</p>
           <p class="sign">한올</p>
         </div>
@@ -258,7 +272,7 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
 </footer>
 <script>
 {
-  const go = { night: 'works/night/index.html', wind: 'works/wind/index.html', sori: 'works/sori/index.html', snow: 'works/snow/index.html', bee: 'works/bee/index.html', tide: 'works/tide/index.html', ring: 'works/ring/index.html', silk: 'works/silk/index.html' };
+  const go = { night: 'works/night/index.html', wind: 'works/wind/index.html', sori: 'works/sori/index.html', snow: 'works/snow/index.html', bee: 'works/bee/index.html', tide: 'works/tide/index.html', ring: 'works/ring/index.html', silk: 'works/silk/index.html', jang: 'works/jang/index.html' };
   const h = location.hash.slice(1);
   if (go[h]) location.replace(go[h]);
 
@@ -280,11 +294,13 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
   if (ntc || (nt && nt.read && nt.read[0])) { const p = document.getElementById('pRing'); p.textContent = ntc >= 14 ? '열네 장을 모두 셌어요' : `${ntc}장까지 셈`; p.hidden = false; document.getElementById('bRing').firstChild.textContent = '이어 읽기'; }
   const nu = read('nue-v1'), nuc = nu && Array.isArray(nu.read) ? nu.read.slice(1, 15).filter(Boolean).length : 0;
   if (nuc || (nu && nu.read && nu.read[0])) { const p = document.getElementById('pSilk'); p.textContent = nuc >= 14 ? '일지 열네 장을 다 적었어요' : `${nuc}장까지 적음`; p.hidden = false; document.getElementById('bSilk').firstChild.textContent = '이어 읽기'; }
+  const jg = read('jang-v1'), jgc = jg && Array.isArray(jg.read) ? jg.read.slice(1, 15).filter(Boolean).length : 0;
+  if (jgc || (jg && jg.read && jg.read[0])) { const p = document.getElementById('pJang'); p.textContent = jgc >= 14 ? '장 일지 열네 장을 다 적었어요' : `${jgc}장까지 적음`; p.hidden = false; document.getElementById('bJang').firstChild.textContent = '이어 읽기'; }
 
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const rng = seed => { let s = seed; return () => (s = s * 16807 % 2147483647) / 2147483647; };
   const shelf = document.getElementById('shelf'), tc = document.getElementById('thread');
-  const cN = document.querySelector('#cNight canvas'), cW = document.querySelector('#cWind canvas'), cS = document.querySelector('#cSori canvas'), cX = document.querySelector('#cSnow canvas'), cB = document.querySelector('#cBee canvas'), cT = document.querySelector('#cTide canvas'), cR = document.querySelector('#cRing canvas'), cK = document.querySelector('#cSilk canvas');
+  const cN = document.querySelector('#cNight canvas'), cW = document.querySelector('#cWind canvas'), cS = document.querySelector('#cSori canvas'), cX = document.querySelector('#cSnow canvas'), cB = document.querySelector('#cBee canvas'), cT = document.querySelector('#cTide canvas'), cR = document.querySelector('#cRing canvas'), cK = document.querySelector('#cSilk canvas'), cJ = document.querySelector('#cJang canvas');
   const THREAD = '#d4452e';
   let geo = null, t0 = performance.now();
 
@@ -606,6 +622,62 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
     const ch = Math.max(9, Math.min(16, s * .28)), cwd = ch * 3.1;
     return { rx: Math.max(6 + hd, Math.min(W * .34, tl - 8 - hd)), ry: H * .42, s, ch, cwd, kx: W * .9 - cwd, ky: wy - ry - ch - 6, wy, cx: pcx - rx * .18, cy: wy - Math.max(1.5, W * .012), cl: Math.max(10, W * .13), cw: Math.max(6, W * .078) };
   }
+  /* the jar stand at dusk: one big onggi with its lid set down, a paper sock pasted upside down on its shoulder.
+     the thread goes round the neck as the straw rope, charcoal and red pepper hung on it, then over the rim, where a drop
+     gathers at its end and falls into the soy. this paints the still things and says where those go */
+  function jang() {
+    const { g, W, H } = size(cJ), r = rng(4511);
+    const sky = g.createLinearGradient(0, 0, 0, H * .72);
+    sky.addColorStop(0, '#161a2e'); sky.addColorStop(.55, '#453049'); sky.addColorStop(1, '#b0664a');
+    g.fillStyle = sky; g.fillRect(0, 0, W, H);
+    for (let i = 0; i < 18; i++) { g.fillStyle = `rgba(255,246,222,${(.2 + r() * .5).toFixed(2)})`; g.fillRect(r() * W, r() * H * .34, 1.1, 1.1); }
+    g.fillStyle = '#2a2232'; g.beginPath(); g.moveTo(0, H * .75);
+    for (let i = 0; i <= 24; i++) { const u = i / 24; g.lineTo(u * W, H * (.62 - .05 * Math.sin(u * 3.4 + .5) - .02 * Math.sin(u * 11))); }
+    g.lineTo(W, H * .75); g.fill();
+    // the stone stand
+    const by = H * .87;
+    g.fillStyle = '#3c3631'; g.fillRect(0, by, W, H - by);
+    for (let row = 0; row < 4; row++) { let x = -r() * 14; while (x < W) { const sw = 12 + r() * 16, v = 74 + Math.round(r() * 26); g.fillStyle = `rgb(${v + 6},${v},${v - 6})`; g.fillRect(x + 1, by + 3 + row * 9, sw - 2, 7); x += sw; } }
+    g.fillStyle = 'rgba(220,196,166,.35)'; g.fillRect(0, by - 1, W, 2.5);
+    // the jar sits left of the title, as big as fits there
+    const vb = cJ.getBoundingClientRect(), vt = cJ.parentElement.querySelector('.vt').getBoundingClientRect(), tl = Math.max(W * .46, vt.left - vb.left);
+    const jw = Math.min(tl * .9, W * .66), jh = jw * 1.08, jx = Math.max(jw * .52 + 3, Math.min(tl * .5, W * .5)), y0 = by - jh, mw = jw * .29;
+    const path = () => {
+      g.beginPath(); g.moveTo(jx - mw, y0);
+      g.bezierCurveTo(jx - jw * .36, y0 + jh * .05, jx - jw * .52, y0 + jh * .18, jx - jw * .5, y0 + jh * .42);
+      g.bezierCurveTo(jx - jw * .48, by - jh * .18, jx - jw * .36, by - jh * .02, jx - jw * .31, by);
+      g.lineTo(jx + jw * .31, by);
+      g.bezierCurveTo(jx + jw * .36, by - jh * .02, jx + jw * .48, by - jh * .18, jx + jw * .5, y0 + jh * .42);
+      g.bezierCurveTo(jx + jw * .52, y0 + jh * .18, jx + jw * .36, y0 + jh * .05, jx + mw, y0); g.closePath();
+    };
+    g.fillStyle = 'rgba(0,0,0,.3)'; g.beginPath(); g.ellipse(jx + jw * .08, by + 2, jw * .44, jw * .07, 0, 0, 7); g.fill();
+    path(); const jg = g.createLinearGradient(jx - jw / 2, 0, jx + jw / 2, 0);
+    jg.addColorStop(0, '#8a5634'); jg.addColorStop(.32, '#653c22'); jg.addColorStop(1, '#241409'); g.fillStyle = jg; g.fill();
+    g.save(); path(); g.clip();
+    g.strokeStyle = 'rgba(255,214,170,.2)'; g.lineWidth = Math.max(2, jw * .06);
+    g.beginPath(); g.moveTo(jx - jw * .33, y0 + jh * .2); g.quadraticCurveTo(jx - jw * .42, y0 + jh * .45, jx - jw * .34, by - jh * .2); g.stroke();
+    g.strokeStyle = 'rgba(255,226,196,.14)'; g.lineWidth = 1.1; g.beginPath();
+    for (let i = 0; i <= 24; i++) { const u = i / 24, x = jx - jw * .44 + u * jw * .88, y = y0 + jh * .32 + Math.sin(u * 18) * jh * .02; i ? g.lineTo(x, y) : g.moveTo(x, y); }
+    g.stroke(); g.restore();
+    // the mouth, open, and the soy in it catching the last of the sky
+    g.fillStyle = '#4e2f1c'; g.beginPath(); g.ellipse(jx, y0, mw * 1.05, mw * .25, 0, 0, 7); g.fill();
+    g.fillStyle = '#140a05'; g.beginPath(); g.ellipse(jx, y0 + 1, mw * .9, mw * .18, 0, 0, 7); g.fill();
+    g.fillStyle = 'rgba(214,140,100,.28)'; g.beginPath(); g.ellipse(jx - mw * .25, y0, mw * .32, mw * .05, 0, 0, 7); g.fill();
+    // the lid set down on the stand beside it
+    const lx = jx + jw * .5 + mw * .9, ly = by - 1, R = mw * 1.1;
+    if (lx + R < W - 2) {
+      g.fillStyle = '#5a3520'; g.beginPath(); g.ellipse(lx, ly, R, R * .24, 0, 0, 7); g.fill();
+      g.beginPath(); g.moveTo(lx - R, ly); g.quadraticCurveTo(lx, ly - R * .6, lx + R, ly); g.closePath(); g.fill();
+      g.fillStyle = 'rgba(255,220,180,.16)'; g.beginPath(); g.ellipse(lx - R * .35, ly - R * .2, R * .3, R * .07, -.25, 0, 7); g.fill();
+    }
+    // a paper sock, pasted upside down on the shoulder, so that what comes for the jang goes into the sock instead
+    const bs = Math.max(6, jw * .15);
+    g.save(); g.translate(jx + jw * .14, y0 + jh * .42); g.rotate(Math.PI);
+    const S = bs * .62; g.fillStyle = 'rgba(244,238,226,.95)'; g.beginPath(); g.moveTo(-.28 * S, -1 * S); g.lineTo(.32 * S, -1 * S); g.lineTo(.34 * S, .25 * S); g.quadraticCurveTo(.36 * S, .62 * S, 0, .66 * S); g.quadraticCurveTo(-.55 * S, .7 * S, -.86 * S, .42 * S); g.quadraticCurveTo(-1.02 * S, .3 * S, -.98 * S, .12 * S); g.quadraticCurveTo(-.7 * S, .28 * S, -.45 * S, .2 * S); g.quadraticCurveTo(-.28 * S, .12 * S, -.28 * S, -.1 * S); g.closePath(); g.fill();
+    g.strokeStyle = 'rgba(120,96,70,.45)'; g.lineWidth = .8; g.stroke(); g.beginPath(); g.moveTo(-.28 * S, -.62 * S); g.lineTo(.33 * S, -.62 * S); g.stroke();
+    g.restore();
+    return { nx: jx, ny: y0 + jh * .085, nrx: mw * 1.3, nry: Math.max(2.5, mw * .26), mx: jx, my: y0 + 1, mrx: mw * .9, mry: mw * .18, h: jh };
+  }
   /* a worker bee, head toward +x */
   function bug(g, x, y, a, z) {
     g.save(); g.translate(x, y); g.rotate(a);
@@ -619,8 +691,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
     g.restore();
   }
   function layout() {
-    const stars = night(), wk = wind(), so = sori(), sn = snow(), bb = bee(), td = tide(), rg = ring(), sk = silk();
-    const sr = shelf.getBoundingClientRect(), a = cN.getBoundingClientRect(), b = cW.getBoundingClientRect(), c = cS.getBoundingClientRect(), x = cX.getBoundingClientRect(), e = cB.getBoundingClientRect(), f = cT.getBoundingClientRect(), q = cR.getBoundingClientRect(), k8 = cK.getBoundingClientRect();
+    const stars = night(), wk = wind(), so = sori(), sn = snow(), bb = bee(), td = tide(), rg = ring(), sk = silk(), jj = jang();
+    const sr = shelf.getBoundingClientRect(), a = cN.getBoundingClientRect(), b = cW.getBoundingClientRect(), c = cS.getBoundingClientRect(), x = cX.getBoundingClientRect(), e = cB.getBoundingClientRect(), f = cT.getBoundingClientRect(), q = cR.getBoundingClientRect(), k8 = cK.getBoundingClientRect(), j9 = cJ.getBoundingClientRect();
     const d = Math.min(devicePixelRatio || 1, 2);
     const tr = tc.getBoundingClientRect();
     tc.width = Math.round(tr.width * d); tc.height = Math.round(tr.height * d);
@@ -645,7 +717,9 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
       T: { x0: f.left - ox + td.x0, x1: f.left - ox + td.x1, y: f.top - oy + td.y, A: td.A, l: f.left - ox },
       Rg: { cx: q.left - ox + rg.cx, cy: q.top - oy + rg.cy, R: rg.R },
       seven: q.top > f.bottom - 4, gy4: (f.bottom + q.top) / 2 - oy,
-      Sk: { rx: k8.left - ox + sk.rx, ry: k8.top - oy + sk.ry, s: sk.s, ch: sk.ch, cwd: sk.cwd, kx: k8.left - ox + sk.kx, ky: k8.top - oy + sk.ky, wy: k8.top - oy + sk.wy, cx: k8.left - ox + sk.cx, cy: k8.top - oy + sk.cy, cl: sk.cl, cw: sk.cw }
+      Sk: { rx: k8.left - ox + sk.rx, ry: k8.top - oy + sk.ry, s: sk.s, ch: sk.ch, cwd: sk.cwd, kx: k8.left - ox + sk.kx, ky: k8.top - oy + sk.ky, wy: k8.top - oy + sk.wy, cx: k8.left - ox + sk.cx, cy: k8.top - oy + sk.cy, cl: sk.cl, cw: sk.cw, t: k8.top - oy, r: k8.right - ox },
+      nine: j9.top > k8.bottom - 4, gy9: (k8.bottom + j9.top) / 2 - oy, gx8: (q.right + k8.left) / 2 - ox,
+      Jg: { nx: j9.left - ox + jj.nx, ny: j9.top - oy + jj.ny, nrx: jj.nrx, nry: jj.nry, mx: j9.left - ox + jj.mx, my: j9.top - oy + jj.my, mrx: jj.mrx, mry: jj.mry, h: jj.h, t: j9.top - oy, l: j9.left - ox }
     };
     draw(0);
   }
@@ -791,6 +865,40 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--thread);outline-off
     g.fillStyle = '#1b1e22'; g.fillRect(x8 + K.cwd * .1, y8 + K.ch * .2, K.cwd * .8, K.ch * .6);
     g.fillStyle = '#ece6d6'; g.font = `${Math.max(7, Math.round(K.ch * .5))}px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace`; g.textAlign = 'center'; g.textBaseline = 'middle';
     for (let i = 0; i < 4; i++) g.fillText(dg[i], x8 + K.cwd * (.2 + i * .2), y8 + K.ch * .54);
+    // the reel lets the thread on to the ninth book: it goes round the neck of the jar as the straw rope, charcoal and red pepper
+    // hung on it, and over the rim; at its end a drop of soy gathers and falls in, one drop for each share
+    const J = G.Jg;
+    let hi = null;
+    for (let i = 0; i < 4; i++) { const a = spin + Math.PI / 4 + i * Math.PI / 2, p = [K.rx + Math.cos(a) * hd8, K.ry + Math.sin(a) * hd8]; if (!hi || p[1] < hi[1]) hi = p; }
+    const nL = [J.nx - J.nrx, J.ny], nR = [J.nx + J.nrx, J.ny];
+    g.strokeStyle = THREAD; g.lineWidth = 2;
+    g.beginPath(); g.moveTo(hi[0], hi[1]);
+    if (G.nine) {
+      // the ninth stands alone under the others: down the middle gutter, along under the eighth row, then in from the top
+      const y9 = G.gy9, xg = G.gx8, xi = nL[0] - 10, dn = xi < xg ? -1 : 1;
+      g.bezierCurveTo(hi[0] - 10, hi[1] - 30, xg + 4, K.t - 12, xg, K.t + 20);
+      g.lineTo(xg, y9 - 12); g.quadraticCurveTo(xg, y9, xg + dn * 12, y9);
+      g.lineTo(xi - dn * 12, y9); g.quadraticCurveTo(xi, y9, xi, y9 + 12);
+      g.quadraticCurveTo(xi, nL[1] - 4, nL[0], nL[1]);
+    } else {
+      g.bezierCurveTo(hi[0] + 6, K.t - 34, nL[0] - 40, J.t - 30, nL[0], nL[1]);
+    }
+    g.ellipse(J.nx, J.ny, J.nrx, J.nry, 0, Math.PI, 0, true);
+    const E = [J.mx + J.mrx * .12, J.my - J.mry * 2.6 - 6];
+    g.bezierCurveTo(nR[0] + 8, nR[1] - 10, E[0] + J.mrx * .9, E[1] - J.h * .16, E[0], E[1]);
+    g.stroke();
+    // charcoal and red pepper on the rope
+    [[.78, 'c'], [.62, 'p'], [.42, 'c'], [.26, 'p']].forEach(([u, kd], i) => {
+      const a = Math.PI * u, px = J.nx + Math.cos(a) * J.nrx, py = J.ny + Math.sin(a) * J.nry, z = Math.max(3, J.nrx * .16);
+      if (kd === 'c') { g.fillStyle = '#17120f'; g.beginPath(); g.ellipse(px, py + z * .7, z * .55, z * .75, i * .3, 0, 7); g.fill(); }
+      else { g.fillStyle = '#c8322a'; g.beginPath(); g.ellipse(px + z * .15, py + z * 1.05, z * .3, z * 1.05, .18, 0, 7); g.fill(); g.fillStyle = '#4b6a2a'; g.fillRect(px - 1, py - 1, 2, z * .35); }
+    });
+    // the drop: gathers, falls, rings out on the soy
+    const dp = reduce ? .5 : (t % 4400) / 4400, dr = Math.max(2, J.mrx * .12);
+    if (dp < .72) { const rr = dr * Math.min(1, .35 + dp / .72); g.fillStyle = '#e7b267'; g.beginPath(); g.moveTo(E[0], E[1]); g.quadraticCurveTo(E[0] + rr, E[1] + rr * 1.2, E[0], E[1] + rr * 2.1); g.quadraticCurveTo(E[0] - rr, E[1] + rr * 1.2, E[0], E[1]); g.fill(); }
+    else if (dp < .8) { const u = (dp - .72) / .08, yy = E[1] + dr * 2 + (J.my + J.mry * .3 - E[1] - dr * 2) * u * u; g.fillStyle = '#e7b267'; g.beginPath(); g.ellipse(E[0], yy, dr * .75, dr * 1.05, 0, 0, 7); g.fill(); }
+    else { const u = (dp - .8) / .2; g.strokeStyle = `rgba(231,178,103,${(.8 * (1 - u)).toFixed(2)})`; g.lineWidth = 1; g.beginPath(); g.ellipse(E[0], J.my + J.mry * .3, J.mrx * (.15 + u * .6), J.mry * (.2 + u * .55), 0, 0, 7); g.stroke(); }
+    g.strokeStyle = THREAD; g.lineWidth = 2;
     // the water now: a small moon rides the tide line
     const tp = reduce ? .3 : (t % 9000) / 9000, bx = T.x0 + (T.x1 - T.x0) * tp, by = tideY(bx), br = Math.max(3, T.A * .22);
     g.fillStyle = '#fbefd0'; g.beginPath(); g.arc(bx, by, br, 0, 7); g.fill();
